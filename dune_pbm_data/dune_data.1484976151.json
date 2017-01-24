@@ -1,0 +1,17 @@
+{
+    "tokens": {
+        "[F]": {
+            "[OFF]": -4,
+            "[OFF]*": 0,
+            "[ST]": 4,
+            "[ST]*": 0,
+            "[FWW]": 0,
+            "[FWW]*": 0,
+            "[FWS]": 0,
+            "[FWS]*": 0
+        }
+    },
+    "meta": {
+        "event": "Fremen place troops"
+    }
+}

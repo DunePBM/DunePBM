@@ -1,0 +1,49 @@
+{
+    "meta": {
+        "game": "PHP Test Game",
+        "turn": 0,
+        "round": 0,
+        "repeat": false,
+        "factions_playing": [
+            "[A]",
+            "[B]",
+            "[E]",
+            "[F]",
+            "[G]",
+            "[H]"
+        ],
+        "faction": "",
+        "event": "Fremen place troops"
+    },
+    "tokens": {
+        "[A]": {
+            "[OFF]": 10,
+            "[ARR]": 10
+        },
+        "[B]": {
+            "[OFF]": 10,
+            "[PS]": 1
+        },
+        "[E]": {
+            "[OFF]": 20
+        },
+        "[F]": {
+            "[OFF]": 14,
+            "[OFF]*": 3,
+            "[ST]": 3,
+            "[ST]*": 0,
+            "[FWW]": 0,
+            "[FWW]*": 0,
+            "[FWS]": 0,
+            "[FWS]*": 0
+        },
+        "[G]": {
+            "[OFF]": 15,
+            "[TS]": 5
+        },
+        "[H]": {
+            "[OFF]": 10,
+            "[CAR]": 1
+        }
+    }
+}

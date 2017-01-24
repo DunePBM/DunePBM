@@ -1,0 +1,43 @@
+{
+    "meta": {
+        "game": "PHP Test Game",
+        "turn": 0,
+        "round": 0,
+        "repeat": false,
+        "next": {
+			"[A]": "wait.php",
+			"[B]": "setup-tokens.php",
+			"[E]": "wait.php",
+			"[F]": "setup-tokens.php",
+			"[G]": "wait.php",
+			"[H]": "wait.php"
+		},
+        "faction": "",
+        "event": ""
+    },
+    "tokens": {
+        "[A]": {
+            "[OFF]": 10,
+            "[ARR]": 10
+        },
+        "[B]": {
+            "[OFF]": 19,
+            "[PS]": 1
+        },
+        "[E]": {
+            "[OFF]": 20
+        },
+        "[F]": {
+            "[OFF]": 17,
+            "[OFF]*": 3
+        },
+        "[G]": {
+            "[OFF]": 15,
+            "[TS]": 5
+        },
+        "[H]": {
+            "[OFF]": 10,
+            "[CAR]": 10
+        }
+    }
+}
