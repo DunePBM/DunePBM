@@ -2,23 +2,30 @@
 //Called by index.php.
 $dataPath = '/var/www/dune_pbm_data/';
 $game = "";
+$info = json_decode(file_get_contents($gamePath.'dune_info.json'), true);
 
 function dune_setupGame() {
-    global $dataPath, $gamePath, $game;
+    global $dataPath, $gamePath, $game, $info;
 	$game = json_decode(file_get_contents($gamePath.'dune_data_start.json'), true);
-	$tempFile = $gamePath.'dune_info.json';
-    $tempData = json_decode(file_get_contents($tempFile), true);
-    $leaderDeck = array_keys($tempData['leaders']);
-    shuffle($leaderDeck);
-    $game['leaderDeck'] = $leaderDeck;
-    $spiceDeck = array_keys($tempData['spice_deck']);
-    shuffle($spiceDeck);
-    $game['spiceDeck'] = $spiceDeck;
-    shuffle($spiceDeck);
-    $game['spiceDeck'] = $spiceDeck;
-    $treacheryDeck = array_keys($tempData['treachery']);
+    //Treachery Card Setup
+    $treacheryDeck = array_keys($info['treachery']);
     shuffle($treacheryDeck);
-    $game['treacheryDeck'] = $treacheryDeck;
+    $game['treacheryDeck']['deck'] = $treacheryDeck;
+    //Spice Card Setup
+    $spiceDeck1 = array_keys($info['spice_deck']);
+    $spiceDeck2 = array_keys($info['spice_deck']);
+    shuffle($spiceDeck1);
+    shuffle($spiceDeck2);
+    $game['spiceDeck']['deck'] = array_merge($spiceDeck1, $spiceDeck2);
+    //Traitor Setup
+    $traitorDeck = array_keys($info['leaders']);
+    shuffle($traitorDeck);
+    $game['traitorDeck']['deck'] = $traitorDeck;
+    foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+        for ($i = 0; $i <4; $i++) {
+            dune_deal('traitorDeck', $faction);
+        }
+    }
     dune_writeData();
 }
 
@@ -63,6 +70,16 @@ function dune_gmMove($faction, $tokens, $starTokens, $fromLoc, $toLoc) {
 	if (empty($game['tokens'][$fromLoc])) {
         unset($game['tokens'][$fromLoc]);
     }
+}
+
+function dune_deal($fromDeck, $toFaction) {
+    global $game;
+    if (empty($game[$fromDeck]['deck'])) {
+        $game[$fromDeck]['deck'] = $game['$fromDeck']['discard'];
+        $game[$fromDeck]['discard'] = array();
+        shuffle($game[$fromDeck]['deck']);
+    }
+    array_unshift($game[$fromDeck][$toFaction], array_shift($game[$fromDeck]['deck']));
 }
 
 function getTerritory($title, $varName, $close) {

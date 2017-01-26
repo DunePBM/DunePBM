@@ -6,9 +6,9 @@
         "repeat": false,
         "next": {
 			"[A]": "wait.php",
-			"[B]": "setup-tokens.php",
+			"[B]": "make-prediction.php",
 			"[E]": "wait.php",
-			"[F]": "setup-tokens.php",
+			"[F]": "wait.php",
 			"[G]": "wait.php",
 			"[H]": "wait.php"
 		},
@@ -37,5 +37,49 @@
             "[H]": [10,0]
         }
     
+    },
+    "treacheryDeck" : {
+        "deck" : [
+        ],
+        "discard" : [
+        ],
+        "[A]": [
+        ],
+        "[B]": [
+        ],
+        "[E]": [
+        ],
+        "[F]": [
+        ],
+        "[G]": [
+        ],
+        "[H]": [
+        ]
+    },
+    "traitorDeck" : {
+        "deck" : [
+        ],
+        "discard" : [
+        ],
+        "[A]": [
+        ],
+        "[B]": [
+        ],
+        "[E]": [
+        ],
+        "[F]": [
+        ],
+        "[G]": [
+        ],
+        "[H]": [
+        ]
+    },
+    "spiceDeck" : {
+        "deck" : [
+        ],
+        "discard-1" : [
+        ],
+        "discard-2" : [
+        ]
     }
 }

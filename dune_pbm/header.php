@@ -22,7 +22,7 @@
 		}
         if ($_POST['header_action'] == 'reset') {
 			dune_setupGame();
-            echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
+            //echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
             //Also Works:
             //$URL="http://yourwebsite.com/";
             //echo "<script type='text/javascript'>document.location.href='{$URL}';</script>";
