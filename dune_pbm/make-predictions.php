@@ -1,39 +1,23 @@
 <?php 
-//Fremen Setup Tokens Script
-//To be called by index.php.
+// Bene Gesserit make their predicitons.
+// To be called by index.php.
 
 // Forms ###########################################################
 if (empty($_POST)){
-    if ($_SESSION['faction'] == '[F]') {
+    if ($_SESSION['faction'] == '[B]') {
 		echo 
-		'<h3>Fremen:</h3>
+		'<h3>Bene Gesserit:</h3>
 		<form action="#" method="post">
-			Place <input id="st" name="st" type="number" min=0 max=10 value="0"/> /
-			<input id="stStar" name="stStar" type="number" min=0 max=3 value="0"/> 
-			* in Sietch Tabr.<br>
-			
-			Place <input id="fww" name="fww" type="number" min=0 max=10 value="0"/> /
-			<input id="fwwStar"  name="fwwStar" type="number" min=0 max=3 value="0"/> 
-			* on <select name="fwwSector">
-            <option value="[FWW-1]">False Wall West &lt16&gt</option>
-            <option value="[FWW-2]">False Wall West &lt17&gt</option>
-            <option value="[FWW-3]">False Wall West &lt18&gt</option>
+			Predict winning faction: <select name="winningFaction">
+                <option value="[A]">Atredies</option>
+                <option value="[E]">Emperor</option>
+                <option value="[F]">Fremen</option>
+                <option value="[G]">Guild</option>
+                <option value="[H]">Harkonnen</option>
             </select><br>
-            
-            Place <input id="fws"  name="fws" type="number" min=0 max=10 value="0"/> /
-			<input id="fwsStar"  name="fwsStar" type="number" min=0 max=3 value="0"/> 
-			* on <select name="fwsSector">
-            <option value="[FWS-1]">False Wall South &lt4&gt</option>
-            <option value="[FWS-2]">False Wall South &lt5&gt</option>
-            </select><br>
-            
+            Predict winning turn: <input name="winningTurn" type="number" min=1 max=10 value="1"/>
 			<input type="submit" value="Submit">
 		</form>';
-	}
-	if ($_SESSION['faction'] == '[B]') {
-		echo 
-		'<h3>Bene Gesserit:</h3>';
-        getTerritory('Select your token location: ', 'token_loc', true);
 	}
 }
 

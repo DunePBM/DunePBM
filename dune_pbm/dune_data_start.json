@@ -6,7 +6,7 @@
         "repeat": false,
         "next": {
 			"[A]": "wait.php",
-			"[B]": "make-prediction.php",
+			"[B]": "make-predictions.php",
 			"[E]": "wait.php",
 			"[F]": "wait.php",
 			"[G]": "wait.php",
