@@ -3,6 +3,25 @@
 $dataPath = '/var/www/dune_pbm_data/';
 $game = "";
 
+function dune_setupGame() {
+    global $dataPath, $gamePath, $game;
+	$game = json_decode(file_get_contents($gamePath.'dune_data_start.json'), true);
+	$tempFile = $gamePath.'dune_info.json';
+    $tempData = json_decode(file_get_contents($tempFile), true);
+    $leaderDeck = array_keys($tempData['leaders']);
+    shuffle($leaderDeck);
+    $game['leaderDeck'] = $leaderDeck;
+    $spiceDeck = array_keys($tempData['spice_deck']);
+    shuffle($spiceDeck);
+    $game['spiceDeck'] = $spiceDeck;
+    shuffle($spiceDeck);
+    $game['spiceDeck'] = $spiceDeck;
+    $treacheryDeck = array_keys($tempData['treachery']);
+    shuffle($treacheryDeck);
+    $game['treacheryDeck'] = $treacheryDeck;
+    dune_writeData();
+}
+
 function dune_readData() {
 	global $dataPath, $game;
 	$file = $dataPath.'dune_data'; // eclude the extension.
@@ -21,57 +40,54 @@ function dune_writeData() {
 
 function dune_gmMove($faction, $tokens, $starTokens, $fromLoc, $toLoc) {
 	global $game;
-	if (!isset($game['tokens'][$faction][$fromLoc])) {
-		$game['tokens'][$faction][$fromLoc] = 0;
-	} if (!isset($game['tokens'][$faction][$fromLoc.'*'])) {
-		$game['tokens'][$faction][$toLocLoc] = 0;
-	} if (!isset($game['tokens'][$faction][$toLoc])) {
-		$game['tokens'][$faction][$fromLoc] = 0;
-	} if (!isset($game['tokens'][$faction][$toLoc.'*'])) {
-		$game['tokens'][$faction][$fromLoc] = 0;
-	}
-	$game['tokens'][$faction][$fromLoc] -= $tokens;
-	$game['tokens'][$faction][$fromLoc.'*'] -= $starTokens;
-	$game['tokens'][$faction][$toLoc] += $tokens;
-	$game['tokens'][$faction][$toLoc.'*'] += $starTokens;
-	if ($game['tokens'][$faction][$fromLoc] == 0) {
-		unset($game['tokens'][$faction][$fromLoc]);
-	} if ($game['tokens'][$faction][$toLoc] == 0) {
-		unset($game['tokens'][$faction][$toLoc]);
-	} if ($game['tokens'][$faction][$fromLoc.'*'] == 0) {
-		unset($game['tokens'][$faction][$fromLoc.'*']);
-	} if ($game['tokens'][$faction][$toLoc.'*'] == 0) {
-		unset($game['tokens'][$faction][$toLoc.'*']);
-	}
+    if (($tokens != 0) || ($starTokens != 0)) {
+        if (!isset($game['tokens'][$fromLoc][$faction])) {
+            $game['tokens'][$fromLoc][$faction] = [0,0];
+        } if (!isset($game['tokens'][$toLoc][$faction])) {
+            $game['tokens'][$toLoc][$faction] = [0,0];
+        }
+        $game['tokens'][$fromLoc][$faction][0] -= $tokens;
+        $game['tokens'][$fromLoc][$faction][1] -= $starTokens;
+        $game['tokens'][$toLoc][$faction][0] += $tokens;
+        $game['tokens'][$toLoc][$faction][1] += $starTokens;
+    }
+	if ($game['tokens'][$fromLoc][$faction] == [0,0]) {
+        unset($game['tokens'][$fromLoc][$faction]);
+    }
+	if ($game['tokens'][$fromLoc][$faction] == [0,0]) {
+        unset($game['tokens'][$fromLoc][$faction]);
+    }
+    if (empty($game['tokens'][$fromLoc])) {
+        unset($game['tokens'][$fromLoc]);
+    }
+	if (empty($game['tokens'][$fromLoc])) {
+        unset($game['tokens'][$fromLoc]);
+    }
 }
 
 function getTerritory($title, $varName, $close) {
 	echo
 	'<form action="#" method="post"> 
     '.$title.'<select name="'.$varName.'">
-        <option value="[CN-1]">Cielago North &lt1&gt</option>
-        <option value="[CN-2]">Cielago North &lt2&gt</option>
-        <option value="[CN-3]">Cielago North &lt3&gt</option>
-        <option value="[CD-1]">Cielago Depression &lt1&gt</option>
-        <option value="[CD-2]">Cielago Depression &lt2&gt</option>
-        <option value="[CD-3]">Cielago Depression &lt3&gt</option>
-        <option value="[MER-1]">Meridian &lt1&gt</option>
-        <option value="[MER-2]">Meridian &lt2&gt</option>
-        <option value="[CS-1]">Cielago South &lt2&gt</option>
-        <option value="[CS-2]">Cielago South &lt3&gt</option>
-        <option value="[CE-1]">Cielago East &lt2&gt</option>
-        <option value="[CE-2]">Cielago East &lt3&gt</option>
-        <option value="[HP-1]">Cielago East &lt2&gt</option>
-        <option value="[HP-2]">Cielago East &lt3&gt</option>
         <option value="[ARR]">Arrakeen</option>
         <option value="[ARS-1]">Arsunt &lt11&gt</option>
         <option value="[ARS-2]">Arsunt &lt12&gt</option>
         <option value="[BAS]">Basin</option>
-        <option value="[BL-1]">Broken Land &lt11&gt</option>
-        <option value="[BL-2]">Broken Land &lt12&gt</option>
         <option value="[BOTC]">Blight of the Cliff &lt14&gt</option>
         <option value="[BOTC]">Blight of the Cliff &lt15&gt</option>
+        <option value="[BL-1]">Broken Land &lt11&gt</option>
+        <option value="[BL-2]">Broken Land &lt12&gt</option>
         <option value="[CAR]">Carthag</option>
+        <option value="[CD-1]">Cielago Depression &lt1&gt</option>
+        <option value="[CD-2]">Cielago Depression &lt2&gt</option>
+        <option value="[CD-3]">Cielago Depression &lt3&gt</option>
+        <option value="[CE-1]">Cielago East &lt2&gt</option>
+        <option value="[CE-2]">Cielago East &lt3&gt</option>
+        <option value="[CN-1]">Cielago North &lt1&gt</option>
+        <option value="[CN-2]">Cielago North &lt2&gt</option>
+        <option value="[CN-3]">Cielago North &lt3&gt</option>
+        <option value="[CS-1]">Cielago South &lt2&gt</option>
+        <option value="[CS-2]">Cielago South &lt3&gt</option>
         <option value="[FP]">Funeral Plain</option>
         <option value="[FWE-1]">False Wall East &lt4&gt</option>
         <option value="[FWE-2]">False Wall East &lt5&gt</option>
@@ -89,12 +105,16 @@ function getTerritory($title, $varName, $close) {
         <option value="[HE-1]">Habbanya Erg &lt16&gt</option>
         <option value="[HE-2]">Habbanya Erg &lt17&gt</option>
         <option value="[HITR]">Hole in the Rock</option>
+        <option value="[HP-1]">Cielago East &lt2&gt</option>
+        <option value="[HP-2]">Cielago East &lt3&gt</option>
         <option value="[HRF-1]">Habbanya Ridge Flat &lt17&gt</option>
         <option value="[HRF-2]">Habbanya Ridge Flat &lt18&gt</option>
         <option value="[HRS]">Habbanya Ridge Sietch</option>
         <option value="[IB-1]">Imperial Basin &lt9&gt</option>
         <option value="[IB-2]">Imperial Basin &lt10&gt</option>
         <option value="[IB-3]">Imperial Basin &lt11&gt</option>
+        <option value="[MER-1]">Meridian &lt1&gt</option>
+        <option value="[MER-2]">Meridian &lt2&gt</option>        
         <option value="[OG-1]">Old Gap &lt9&gt</option>
         <option value="[OG-2]">Old Gap &lt10&gt</option>
         <option value="[OG-3]">Old Gap &lt11&gt</option>

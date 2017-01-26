@@ -12,8 +12,8 @@
             "[G]": "wait.php",
             "[H]": "wait.php"
         },
-        "faction": "[B]",
-        "event": "Bene Gesserit placees starting token"
+        "faction": "[F]",
+        "event": "Fremen places starting tokens"
     },
     "tokens": {
         "[OFF]": {
@@ -46,9 +46,11 @@
             "[A]": [
                 10,
                 0
-            ],
+            ]
+        },
+        "[PS]": {
             "[B]": [
-                2,
+                1,
                 0
             ]
         },
@@ -79,18 +81,6 @@
         "[FWS-2]": {
             "[F]": [
                 3,
-                0
-            ]
-        },
-        "[PB-2]": {
-            "[B]": [
-                1,
-                0
-            ]
-        },
-        "[PS]": {
-            "[B]": [
-                -2,
                 0
             ]
         }

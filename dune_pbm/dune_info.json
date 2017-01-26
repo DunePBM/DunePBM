@@ -1,5 +1,5 @@
 {
-    "leaders": [
+    "leaders": {
         "[A#1]": {"name": "Lady Jessica", "faction": "[A]", "strength": 5},
         "[A#2]": {"name": "Thufir Hawat", "faction": "[A]", "strength": 5},
         "[A#3]": {"name": "Gurney Halleck", "faction": "[A]", "strength": 4},
@@ -31,9 +31,9 @@
         "[H#3]": {"name": "Piter DeVries", "faction": "[H]", "strength": 3},
         "[H#4]": {"name": "Captain Iakin Nefud", "faction": "[H]", "strength": 2},
         "[H#5]": {"name": "Umman Kudu", "faction": "[H]", "strength": 1}
-    ],
+    },
     
-    "spice_deck": [
+    "spice_deck": {
         "[WORM-1]": {"name": "Shai-Hulud"},
         "[WORM-2]": {"name": "Shai-Hulud"},
         "[WORM-3]": {"name": "Shai-Hulud"},
@@ -55,7 +55,7 @@
         "[TGF]": {"name": "The Great Flat", "sector": 15, "spice": 10},
         "[TME-8]": {"name": "The Minor Erg", "sector": 8, "spice": 8},
         "[WPN-17": {"name": "Wind Pass North", "sector": 17, "spice": 6}
-    ],
+    },
 
     "territory": {
         "[CN-1]": {"name": "Cielago North <1>", "sector": 1},
@@ -75,11 +75,11 @@
         "[ARR]": {"name": "Arrakeen", "sector": 10, "type": "stronghold"},
         "[ARS-1]": {"name": "Arsunt <11>", "sector": 11},
         "[ARS-2]": {"name": "Arsunt <12>", "sector": 12}, 
-        "[BAS]": {"name": "Basin", "sector": 9}
+        "[BAS]": {"name": "Basin", "sector": 9},
         "[BL-1]": {"name": "Broken Land<11>", "sector": 11}, 
         "[BL-2]": {"name": "Broken Land<12>", "sector": 12}, 
-        "[BOTC]": {"name": "Blight of the Cliff <14>", "sector": 14}, 
-        "[BOTC]": {"name": "Blight of the Cliff <15>", "sector": 15}, 
+        "[BOTC-1]": {"name": "Blight of the Cliff <14>", "sector": 14}, 
+        "[BOTC-2]": {"name": "Blight of the Cliff <15>", "sector": 15}, 
         "[CAR]": {"name": "Carthag", "sector": 11, "type": "stronghold"},
         "[FP]": {"name": "Funeral Plain", "sector": 15, "spice": 6}, 
         "[FWE-1]": {"name": "False Wall East <4>", "sector": 4, "type": "rock"},
@@ -149,39 +149,39 @@
         "[TANKS]": {"name": "Tanks"}
     },
 
-    "treachery": [
-        "[C:POIS_W-1]": {"name": "Poison Weapon: Chaumas"},
-        "[C:POIS_W-2]": {"name": "Poison Weapon: Chaumurky"},
-        "[C:POIS_W-3]": {"name": "Poison Weapon: Ellaca Drug"},
-        "[C:POIS_W-4]": {"name": "Poison Weapon: Gom Jabbar"},
-        "[C:POIS_D-1]": {"name": "Poison Defense: Snooper"},
-        "[C:POIS_D-2]": {"name": "Poison Defense: Snooper"},
-        "[C:POIS_D-3]": {"name": "Poison Defense: Snooper"},
-        "[C:POIS_D-4]": {"name": "Poison Defense: Snooper"},
-        "[C:PROJ_W-1]": {"name": "Projectile Weapon: Hunter-Seeker"},
-        "[C:PROJ_W-2]": {"name": "Projectile Weapon: Slip-Tip"},
-        "[C:PROJ_W-3]": {"name": "Projectile Weapon: Stunner"},
-        "[C:PROJ_W-4]": {"name": "Projectile Weapon: Maula Pistol"},
-        "[C:PROJ_D-1]": {"name": "Projectile Defense: Shield"},
-        "[C:PROJ_D-2]": {"name": "Projectile Defense: Shield"},
-        "[C:PROJ_D-3]": {"name": "Projectile Defense: Shield"},
-        "[C:PROJ_D-4]": {"name": "Projectile Defense: Shield"},
-        "[C:HERO-1]": {"name": "Cheap Hero"},
-        "[C:HERO-2]": {"name": "Cheap Hero"},
-        "[C:HERO-3]": {"name": "Cheap Heroine"},
-        "[C:LASEGUN-1]": {"name": "Lasegun"},
-        "[C:HAJR-1]": {"name": "Hajr"},
-        "[C:GHOLA-1]": {"name": "Tleilaxu Ghola"},
-        "[C:WEATHER-1]": {"name": "Weather Control"},
-        "[C:ATOMICS-1]": {"name": "Family Atomics"},
-        "[C:TRUTH-1]": {"name": "Truthtrance"},
-        "[C:TRUTH-2]": {"name": "Truthtrance"},
-        "[C:KARAMA-1]": {"name": "Karama"},
-        "[C:KARAMA-2]": {"name": "Karama"},
-        "[C:WORTHLESS-1]": {"name": "Worthless Card: Trip to Gamont"},
-        "[C:WORTHLESS-2]": {"name": "Worthless Card: La La La"},
-        "[C:WORTHLESS-3]": {"name": "Worthless Card: Kulon"},
-        "[C:WORTHLESS-4]": {"name": "Worthless Card: Jubba Cloak"},
-        "[C:WORTHLESS-5]": {"name": "Worthless Card: Baliset"},
-      ]
+    "treachery": {
+        "[POIS_W-1]": {"name": "Poison Weapon: Chaumas"},
+        "[POIS_W-2]": {"name": "Poison Weapon: Chaumurky"},
+        "[POIS_W-3]": {"name": "Poison Weapon: Ellaca Drug"},
+        "[POIS_W-4]": {"name": "Poison Weapon: Gom Jabbar"},
+        "[POIS_D-1]": {"name": "Poison Defense: Snooper"},
+        "[POIS_D-2]": {"name": "Poison Defense: Snooper"},
+        "[POIS_D-3]": {"name": "Poison Defense: Snooper"},
+        "[POIS_D-4]": {"name": "Poison Defense: Snooper"},
+        "[PROJ_W-1]": {"name": "Projectile Weapon: Hunter-Seeker"},
+        "[PROJ_W-2]": {"name": "Projectile Weapon: Slip-Tip"},
+        "[PROJ_W-3]": {"name": "Projectile Weapon: Stunner"},
+        "[PROJ_W-4]": {"name": "Projectile Weapon: Maula Pistol"},
+        "[PROJ_D-1]": {"name": "Projectile Defense: Shield"},
+        "[PROJ_D-2]": {"name": "Projectile Defense: Shield"},
+        "[PROJ_D-3]": {"name": "Projectile Defense: Shield"},
+        "[PROJ_D-4]": {"name": "Projectile Defense: Shield"},
+        "[HERO-1]": {"name": "Cheap Hero"},
+        "[HERO-2]": {"name": "Cheap Hero"},
+        "[HERO-3]": {"name": "Cheap Heroine"},
+        "[LASEGUN-1]": {"name": "Lasegun"},
+        "[HAJR-1]": {"name": "Hajr"},
+        "[GHOLA-1]": {"name": "Tleilaxu Ghola"},
+        "[WEATHER-1]": {"name": "Weather Control"},
+        "[ATOMICS-1]": {"name": "Family Atomics"},
+        "[TRUTH-1]": {"name": "Truthtrance"},
+        "[TRUTH-2]": {"name": "Truthtrance"},
+        "[KARAMA-1]": {"name": "Karama"},
+        "[KARAMA-2]": {"name": "Karama"},
+        "[WORTHLESS-1]": {"name": "Worthless Card: Trip to Gamont"},
+        "[WORTHLESS-2]": {"name": "Worthless Card: La La La"},
+        "[WORTHLESS-3]": {"name": "Worthless Card: Kulon"},
+        "[WORTHLESS-4]": {"name": "Worthless Card: Jubba Cloak"},
+        "[WORTHLESS-5]": {"name": "Worthless Card: Baliset"}
+    }
 }

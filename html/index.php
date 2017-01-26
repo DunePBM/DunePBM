@@ -22,8 +22,6 @@ if (!isset($_SESSION['faction'])) {
 	include $gamePath.'login.php';
 } else {
 	dune_readData();
-    getTerritory('Select From: ', 'from_territory', false);
-    getTerritory('Select To: ', 'to_territory', true);
 	include $gamePath.'header.php';
 	include $gamePath.$game['meta']['next'][$_SESSION['faction']];
 }
