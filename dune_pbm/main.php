@@ -82,6 +82,19 @@ function dune_deal($fromDeck, $toFaction) {
     array_unshift($game[$fromDeck][$toFaction], array_shift($game[$fromDeck]['deck']));
 }
 
+function dune_discard($fromDeck, $fromFaction, $indexArray, $toDiscard = 'disard') {
+    global $game;
+    if (is_int($indexArray)) {
+        $indexSArray = array($indexArray);
+    }
+    rsort($indexArray)
+    for ($i = 0; $i < count($indexArray); $i += 1) {
+        array_unshift($game[$fromDeck][$toDiscard], $game[$fromDeck][$fromFaction][$n]);
+        unset(game[$fromDeck][$fromFaction][$n]);
+        $game[$fromDeck][$fromFaction] = array_values($game[$fromDeck][$fromFaction]);
+    }
+}
+
 function getTerritory($title, $varName, $close) {
 	echo
 	'<form action="#" method="post"> 
