@@ -5,16 +5,25 @@
 // Forms ###########################################################
 if (empty($_POST)){
     if ($_SESSION['faction'] != '[H]') {
+        global $game, $info;
 		echo 
 		'<h3>Faction</h3>
         
 		<form action="#" method="post">
 			Choose your traitor: 
             <select name="traitor">
-            <option value="[FWW-1]">False Wall West &lt16&gt</option>
-            <option value="[FWW-2]">False Wall West &lt17&gt</option>
-            <option value="[FWW-3]">False Wall West &lt18&gt</option>
-            <option value="[FWW-3]">False Wall West &lt18&gt</option>
+            <option value="0">'.
+            $info['leaders'][$game['traitorDeck'][$_SESSION['faction']][0]]['name'].
+            '</option>
+            <option value="1">'.
+            $info['leaders'][$game['traitorDeck'][$_SESSION['faction']][1]]['name'].
+            '</option>
+            <option value="2">'.
+            $info['leaders'][$game['traitorDeck'][$_SESSION['faction']][2]]['name'].
+            '</option>
+            <option value="3">'.
+            $info['leaders'][$game['traitorDeck'][$_SESSION['faction']][3]]['name'].
+            '</option>
             </select>
 			<input type="submit" value="Submit">
 		</form>';
@@ -22,7 +31,7 @@ if (empty($_POST)){
 	if ($_SESSION['faction'] == '[H]') {
 		echo 
 		'<h3>Harkonnen:</h3>
-        Your traitors are: . . .'
+        Your traitors are: . . .';
 	}
 }
 

@@ -25,12 +25,16 @@ if (empty($_POST)){
 if (!empty($_POST)){
     if (isset($_POST['winningFaction']) && 
                     isset($_POST['winningTurn']) &&
-                    $_SESSION['faction'] == '[F]') {
+                    $_SESSION['faction'] == '[B]') {
         $game['[B]']['prediction']['winningFaction'] = $_POST['winningFaction'];
         $game['[B]']['prediction']['winningTurn'] = $_POST['winningTurn'];        
-        $game['meta']['event'] = 'Fremen places starting tokens';
-        $game['meta']['faction'] = '[F]';
-        $game['meta']['next']['[F]'] = 'wait.php';
+        $game['meta']['event'] = 'Bene Gesserit made their prediction.';
+        $game['meta']['faction'] = '[B]';
+        foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+            for ($i = 0; $i <4; $i++) {
+                $game['meta']['next'][$faction] = 'choose-traitors.php';
+            }
+        }
         dune_writeData();            
         echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
     }
