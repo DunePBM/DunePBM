@@ -54,6 +54,7 @@ if (!empty($_POST)){
             $game['meta']['event'] = 'Fremen places starting tokens';
             $game['meta']['faction'] = '[F]';
             $game['meta']['next']['[F]'] = 'wait.php';
+            $game['meta']['next']['[B]'] = 'setup-tokens.php';
             dune_writeData();            
             echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
         }
@@ -66,6 +67,9 @@ if (!empty($_POST)){
         $game['meta']['faction'] = '[B]';
         $game['meta']['next']['[B]'] = 'wait.php';
         dune_writeData();
+        
+        include 'setup-treachery.php';
+        
         echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
     }
 }

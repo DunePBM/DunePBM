@@ -26,6 +26,7 @@ function dune_setupGame() {
             dune_deal('traitorDeck', $faction);
         }
     }
+    $game['[H]']['traitors'] = $game['traitorDeck']['[H]'];
     dune_writeData();
 }
 
@@ -61,13 +62,7 @@ function dune_gmMove($faction, $tokens, $starTokens, $fromLoc, $toLoc) {
 	if ($game['tokens'][$fromLoc][$faction] == [0,0]) {
         unset($game['tokens'][$fromLoc][$faction]);
     }
-	if ($game['tokens'][$fromLoc][$faction] == [0,0]) {
-        unset($game['tokens'][$fromLoc][$faction]);
-    }
     if (empty($game['tokens'][$fromLoc])) {
-        unset($game['tokens'][$fromLoc]);
-    }
-	if (empty($game['tokens'][$fromLoc])) {
         unset($game['tokens'][$fromLoc]);
     }
 }
@@ -100,10 +95,10 @@ function getTerritory($title, $varName, $close) {
 	echo
 	'<form action="#" method="post"> 
     '.$title.'<select name="'.$varName.'">';
-    foreach ($info['territory'] as $a) {
-        echo '<option value="'.$a['name'].'</option>';
+    foreach (array_diff(array_keys($info['territory']), array('[OFF]', '[TANKS]')) as $a) {
+        echo '<option value="'.$a.'">'.$info['territory'][$a]['name'].'</option>';
     }
-    echo '</select>';
+    echo '</select>';    
 	if ($close) {
         echo
         '<input type="submit" value="Submit">

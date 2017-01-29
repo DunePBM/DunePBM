@@ -28,42 +28,30 @@ if (empty($_POST)){
 			<input type="submit" value="Submit">
 		</form>';
 	}
-	if ($_SESSION['faction'] == '[H]') {
-		echo 
-		'<h3>Harkonnen:</h3>
-        Your traitors are: . . .';
-	}
 }
 
 // Actions ########################################################
 if (!empty($_POST)){
-    if (isset($_POST['st']) && ($_SESSION['faction'] == '[F]')) {
-        //Check post.
-        if (($_POST['st'] + $_POST['stStar'] + $_POST['fww'] 
-                    + $_POST['fwwStar'] + $_POST['fws'] 
-                    + $_POST['fwsStar'] == 10) &&
-                    ($_POST['stStar'] + $_POST['fwwStar'] 
-                    + $_POST['fwsStar'] <= 3)) {                    
-            //Carry out.
-            dune_readData();
-            dune_gmMove('[F]', $_POST['st'], $_POST['stStar'], '[OFF]', '[ST]');
-            dune_gmMove('[F]', $_POST['fww'], $_POST['fwwStar'], '[OFF]', $_POST['fwwSector']);
-            dune_gmMove('[F]', $_POST['fws'], $_POST['fwsStar'], '[OFF]', $_POST['fwsSector']);
-            $game['meta']['event'] = 'Fremen places starting tokens';
-            $game['meta']['faction'] = '[F]';
-            $game['meta']['next']['[F]'] = 'wait.php';
-            dune_writeData();            
-            echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
-        }
-    }
-
-    if (isset($_POST['token_loc']) && ($_SESSION['faction'] == '[B]')) {
+    global $info, $game;
+    if (isset($_POST['traitor']) && ($_SESSION['faction'] != '[H]')) {
+        // Carry out.
         dune_readData();
-        dune_gmMove('[B]', 1, 0, '[PS]', $_POST['token_loc']);
-        $game['meta']['event'] = 'Bene Gesserit placees starting token';
-        $game['meta']['faction'] = '[B]';
-        $game['meta']['next']['[B]'] = 'wait.php';
-        dune_writeData();
+        $game[$_SESSION['faction']]['traitors'] 
+                = array($game['traitorDeck'][$_SESSION['faction']][(int)$_POST['traitor']]);
+        $game['meta']['event'] = $info['factions'][$_SESSION['faction']]['name'].' chose their traitor.';
+        $game['meta']['faction'] = $_SESSION['faction'];
+        $game['meta']['next'][$_SESSION['faction']] = 'wait.php';
+        $t = true;
+        foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+            if ($game['meta']['next'][$faction] != 'wait.php') {
+                $t = false;
+            }
+        }
+        if ($t) {
+            $game['meta']['next']['[F]'] = 'setup-tokens.php';
+        }
+        dune_writeData();            
+        
         echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
     }
 }

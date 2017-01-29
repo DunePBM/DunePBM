@@ -30,13 +30,14 @@ if (!empty($_POST)){
         $game['[B]']['prediction']['winningTurn'] = $_POST['winningTurn'];        
         $game['meta']['event'] = 'Bene Gesserit made their prediction.';
         $game['meta']['faction'] = '[B]';
-        foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+        foreach (array('[A]', '[B]', '[E]', '[F]', '[G]') as $faction) {
             for ($i = 0; $i <4; $i++) {
                 $game['meta']['next'][$faction] = 'choose-traitors.php';
             }
+        $game['meta']['next']['[H]'] = 'wait.php';
         }
         dune_writeData();            
-        echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
+        echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">'; 
     }
 }
 ?>
