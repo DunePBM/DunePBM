@@ -152,7 +152,7 @@
         "[WP-4]": {"name": "Wind Pass (17)", "sector": 17}, 
         "[WPN-1]": {"name": "Wind Pass North (17)", "sector": 17, "spice": 6},
         "[WPN-2]": {"name": "Wind Pass North (18)", "sector": 18}, 
-        "[OFF]": {"name": "Off Planet"},
+        "[OFF]": {"name": "Offworld"},
         "[TANKS]": {"name": "Tanks"}
     },
 

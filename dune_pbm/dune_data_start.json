@@ -42,18 +42,6 @@
         "deck" : [
         ],
         "discard" : [
-        ],
-        "[A]": [
-        ],
-        "[B]": [
-        ],
-        "[E]": [
-        ],
-        "[F]": [
-        ],
-        "[G]": [
-        ],
-        "[H]": [
         ]
     },
     "traitorDeck" : {
@@ -83,15 +71,27 @@
         ]
     },
     "[A]": {
+        "treachery": [],
+        "spice": 10
     },
     "[B]": {
+        "treachery": [],
+        "spice": 5
     },
     "[E]": {
+        "treachery": [],
+        "spice": 10
     },
     "[F]": {
+        "treachery": [],
+        "spice": 3
     },
     "[G]": {
+        "treachery": [],
+        "spice": 5
     },
     "[H]": {
+        "treachery": [],
+        "spice": 10
     }
 }

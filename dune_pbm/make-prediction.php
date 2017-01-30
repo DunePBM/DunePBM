@@ -1,6 +1,7 @@
 <?php 
-// Bene Gesserit make their predicitons.
-// To be called by index.php.
+// Bene Gesserit make their prediciton.
+// Called by index.php.
+// make-prediction.php --> choose-traitors.php
 
 // Forms ###########################################################
 if (empty($_POST)){
@@ -21,23 +22,35 @@ if (empty($_POST)){
 	}
 }
 
-// Actions ########################################################
+// Action ########################################################
 if (!empty($_POST)){
     if (isset($_POST['winningFaction']) && 
                     isset($_POST['winningTurn']) &&
                     $_SESSION['faction'] == '[B]') {
-        $game['[B]']['prediction']['winningFaction'] = $_POST['winningFaction'];
-        $game['[B]']['prediction']['winningTurn'] = $_POST['winningTurn'];        
-        $game['meta']['event'] = 'Bene Gesserit made their prediction.';
-        $game['meta']['faction'] = '[B]';
-        foreach (array('[A]', '[B]', '[E]', '[F]', '[G]') as $faction) {
-            for ($i = 0; $i <4; $i++) {
-                $game['meta']['next'][$faction] = 'choose-traitors.php';
-            }
-        $game['meta']['next']['[H]'] = 'wait.php';
-        }
-        dune_writeData();            
+        echo actionFunction();
         echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">'; 
     }
+}
+
+function actionFunction() {
+    global $game, $info;
+    dune_readData();
+    // Checks input.
+    
+    // Carry Out Action.
+    $game['[B]']['prediction']['winningFaction'] = $_POST['winningFaction'];
+    $game['[B]']['prediction']['winningTurn'] = $_POST['winningTurn'];        
+    $game['[B]']['notes'] =[$info['factions'][$_POST['winningFaction']]['name'].
+                ' predicted to win on turn '.$_POST['winningTurn'].'.'];
+    $game['meta']['event'] = 'Bene Gesserit made their prediction.';
+    $game['meta']['faction'] = '[B]';
+    foreach (array('[A]', '[B]', '[E]', '[F]', '[G]') as $faction) {
+        for ($i = 0; $i <4; $i++) {
+            $game['meta']['next'][$faction] = 'choose-traitors.php';
+        }
+    }
+    $game['meta']['next']['[H]'] = 'wait.php';
+    dune_writeData();
+    return '<script>alert("Action successful.");</script>';
 }
 ?>
