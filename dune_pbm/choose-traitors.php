@@ -63,8 +63,14 @@ function actionFunction() {
     }
     if ($t) {
         $game['meta']['next']['[F]'] = 'setup-tokens.php';
-        //Packs the traitorDeck into a string now that it's not needed.
-        $game['traitorDeck'] = json_encode($game['traitorDeck']);
+        foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+            $temp = 'Initial traitors: ';
+            foreach ($game['traitorDeck'][$faction] as $x) {
+                $temp .= $x.', '
+            $game[$faction]['notes'][] = $temp;
+        }
+        
+        unset($game['traitorDeck']);
     }
     dune_writeData(); 
     return '<script>alert("Action successful.");</script>';

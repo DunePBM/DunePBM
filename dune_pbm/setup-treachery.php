@@ -4,9 +4,9 @@
 
 dune_readData();
 foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-    dune_deal($treachery, $faction);
+    dune_dealTreachery($faction);
 }
-dune_deal($treacheryDeck, '[H]');
+dune_dealTreachery('[H]');
 
 $game['meta']['event'] = 'Treachery cards delt.';
 $game['meta']['faction'] = '';
