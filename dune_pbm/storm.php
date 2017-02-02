@@ -1,7 +1,7 @@
 <?php 
-// Bene Gesserit make their prediciton.
-// Called by index.php.
-// Start --> make-prediction.php --> choose-traitors.php
+// Storm
+// Called from setup-treachery.php & collection.php
+// setup-treachery.php --> storm-round.php --> spice.php
 
 // Forms ###########################################################
 if (empty($_POST)){

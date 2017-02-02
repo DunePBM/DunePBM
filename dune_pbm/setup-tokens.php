@@ -1,6 +1,7 @@
 <?php 
-//Fremen Setup Tokens Script
-//To be called by index.php.
+// Setup Tokens
+// Called by index.php.
+// choose-traitors.php --> setup-tokens.php --> setup-treachery.php
 
 // Forms ###########################################################
 if (empty($_POST)){

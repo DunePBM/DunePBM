@@ -1,6 +1,7 @@
 <?php 
-//Fremen Setup Trechery.
-//To be called from setup-tokens.php.
+// Setup Treachery
+// Called from setup-tokens.php
+// setup-tokens.php --> setup-treachery.php --> storm.php
 
 dune_readData();
 foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {

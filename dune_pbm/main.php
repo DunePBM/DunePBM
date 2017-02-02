@@ -28,7 +28,7 @@ function dune_setupGame() {
     }
     $game['[H]']['traitors'] = $game['traitorDeck']['[H]'];
     // Setup Storm
-    $game['storm'] = mt_rand(1, 18);
+    $game['stormLocation'] = mt_rand(1, 18);
     $game['stormMove'] = mt_rand(1, 6);
     dune_writeData();
 }
