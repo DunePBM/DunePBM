@@ -28,7 +28,7 @@ if (!empty($_POST)){
                     isset($_POST['winningTurn']) &&
                     $_SESSION['faction'] == '[B]') {
         echo actionFunction();
-        echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">'; 
+        //echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">'; 
     }
 }
 

@@ -15,5 +15,5 @@ foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
     $game['meta']['next'][$faction] = 'wait.php';
 }
 dune_writeData();            
-echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
+//echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
 ?>

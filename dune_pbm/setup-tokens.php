@@ -34,7 +34,7 @@ if (empty($_POST)){
 	if ($_SESSION['faction'] == '[B]') {
 		echo 
 		'<h3>Bene Gesserit:</h3>';
-        getTerritory('Select your token location: ', 'token_loc', true);
+        dune_getTerritory('Select your token location: ', 'token_loc', true);
 	}
 }
 
@@ -57,7 +57,7 @@ if (!empty($_POST)){
             $game['meta']['next']['[F]'] = 'wait.php';
             $game['meta']['next']['[B]'] = 'setup-tokens.php';
             dune_writeData();            
-            echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
+            //echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
         }
     }
 
@@ -71,7 +71,7 @@ if (!empty($_POST)){
         
         include 'setup-treachery.php';
         
-        echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
+        //echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
     }
 }
 ?>

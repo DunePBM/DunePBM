@@ -12,8 +12,8 @@
             "[G]": "wait.php",
             "[H]": "wait.php"
         },
-        "faction": "",
-        "event": "Treachery cards delt."
+        "faction": "[B]",
+        "event": "Bene Gesserit placees starting token"
     },
     "tokens": {
         "[OFF]": {
@@ -143,8 +143,7 @@
         ],
         "notes": [
             "Initial traitors: Wanna Marcus (5), Shadout Mapes (3), Alia (5), Feyd-Rautha (6)"
-        ],
-        "trechery": null
+        ]
     },
     "[B]": {
         "treachery": [],
@@ -159,8 +158,7 @@
         ],
         "traitors": [
             "[B#2]"
-        ],
-        "trechery": null
+        ]
     },
     "[E]": {
         "treachery": [],
@@ -170,8 +168,7 @@
         ],
         "notes": [
             "Initial traitors: Esmar Tuek (3), Stilgar (7), Piter DeVries (3), Lady Jessica (5)"
-        ],
-        "trechery": null
+        ]
     },
     "[F]": {
         "treachery": [],
@@ -181,8 +178,7 @@
         ],
         "notes": [
             "Initial traitors: Gurney Halleck (4), Staban Tuek (5), Soo Soo Sook (2), Umman Kudu (1)"
-        ],
-        "trechery": null
+        ]
     },
     "[G]": {
         "treachery": [],
@@ -192,8 +188,7 @@
         ],
         "notes": [
             "Initial traitors: Captain Iakin Nefud (2), Count Hasimir Fenring (6), Bashar (2), Jamis (2)"
-        ],
-        "trechery": null
+        ]
     },
     "[H]": {
         "treachery": [],
@@ -206,11 +201,17 @@
         ],
         "notes": [
             "Initial traitors: Thufir Hawat (5), Chani (6), Rev. Mother Ramallo (5), Master Bewt (3)"
-        ],
-        "trechery": null
+        ]
     },
     "treachery": {
         "deck": [
+            "[POIS_D-3]",
+            "[PROJ_W-1]",
+            "[PROJ_D-3]",
+            "[PROJ_D-1]",
+            "[POIS_W-3]",
+            "[HERO-2]",
+            "[PROJ_D-2]",
             "[HERO-3]",
             "[KARAMA-2]",
             "[POIS_D-1]",
@@ -240,9 +241,5 @@
         ]
     },
     "stormLocation": 12,
-    "stormMove": 3,
-    "trechery": {
-        "deck": [],
-        "discard": []
-    }
+    "stormMove": 3
 }

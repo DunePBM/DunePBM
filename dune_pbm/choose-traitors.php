@@ -40,7 +40,7 @@ if (!empty($_POST)){
     global $info, $game;
     if (isset($_POST['traitor']) && ($_SESSION['faction'] != '[H]')) {
         echo actionFunction();
-        echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
+        //echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
     }
 }
 
@@ -66,7 +66,9 @@ function actionFunction() {
         foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
             $temp = 'Initial traitors: ';
             foreach ($game['traitorDeck'][$faction] as $x) {
-                $temp .= $x.', '
+                $temp .= $info['leaders'][$x]['name'].', ';
+            }
+            $temp = substr($temp, 0, -2);
             $game[$faction]['notes'][] = $temp;
         }
         
