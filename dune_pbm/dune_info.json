@@ -5,7 +5,8 @@
         "[E]": {"name": "Emperor", "leader": ""},
         "[F]": {"name": "Fremen", "leader": ""},
         "[G]": {"name": "Guild", "leader": ""},
-        "[H]": {"name": "Harkonnen", "leader": ""}
+        "[H]": {"name": "Harkonnen", "leader": ""},
+        "Spice": {"name": "Spice", "leader": ""}
     },
     "leaders": {
         "[A#1]": {"name": "Lady Jessica (5)", "faction": "[A]", "strength": 5},
@@ -69,8 +70,8 @@
         "[ARS-1]": {"name": "Arsunt (11)", "sector": 11},
         "[ARS-2]": {"name": "Arsunt (12)", "sector": 12}, 
         "[BAS]": {"name": "Basin", "sector": 9},
-        "[BL-1]": {"name": "Broken Land(11)", "sector": 11}, 
-        "[BL-2]": {"name": "Broken Land(12)", "sector": 12}, 
+        "[BL-1]": {"name": "Broken Land (11)", "sector": 11}, 
+        "[BL-2]": {"name": "Broken Land (12)", "sector": 12}, 
         "[BOTC-1]": {"name": "Blight of the Cliff (14)", "sector": 14}, 
         "[BOTC-2]": {"name": "Blight of the Cliff (15)", "sector": 15}, 
         "[CAR]": {"name": "Carthag", "sector": 11, "type": "stronghold"},

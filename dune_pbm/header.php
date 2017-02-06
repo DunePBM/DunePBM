@@ -9,6 +9,7 @@ Actions:  <select name="header_action">
     <option value="undo">Undo Last Move</option>			
     <option value="logout">Logout</option>			
     <option value="reset">Reset Game</option>			
+    <option value="refresh">Refresh</option>			
 </select> 
 <input type="submit" value="Submit">
 </form>';
@@ -39,6 +40,9 @@ if (isset($_POST['header_action'])) {
     if ($_POST['header_action'] == 'undo') {
         dune_undoMove();
         //echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
+    }
+    if ($_POST['header_action'] == 'refresh') {
+        echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
     }
 }
 ?>

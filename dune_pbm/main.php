@@ -54,7 +54,7 @@ function dune_writeData() {
 function dune_undoMove() {
 	global $dataPath, $game;
 	$file = $dataPath.'dune_data'; // eclude the extension.
-    $game = json_decode(file_get_contents($file.'undo.json'), true);
+    $game = json_decode(file_get_contents($file.'.undo.json'), true);
     file_put_contents($file.'.json', json_encode($game, JSON_PRETTY_PRINT));
 }
 
@@ -74,6 +74,9 @@ function dune_gmMove($faction, $tokens, $starTokens, $fromLoc, $toLoc) {
 	if ($game['tokens'][$fromLoc][$faction] == [0,0]) {
         unset($game['tokens'][$fromLoc][$faction]);
     }
+    if ($game['tokens'][$fromLoc]['[B]'][0] == 0) {
+        unset($game['tokens'][$fromLoc][$faction]);
+    }
     if (empty($game['tokens'][$fromLoc])) {
         unset($game['tokens'][$fromLoc]);
     }
@@ -86,7 +89,7 @@ function dune_dealTreachery($toFaction) {
         $game['treachery']['discard'] = array();
         shuffle($game['treachery']['deck']);
     }
-    array_unshift($game[$toFaction]['trechery'], array_shift($game['treachery']['deck']));
+    array_unshift($game[$toFaction]['treachery'], array_shift($game['treachery']['deck']));
 }
 
 function dune_dealSpice($toDiscard) {
@@ -132,11 +135,11 @@ function dune_getTerritory($title, $varName, $close) {
 
 function dune_printStatus($faction) {
     global $game, $info;
-    print '<h3>'.$info['factions'][$faction]['name'].' Game Status:</h3>';
-    // Show Tokens
-    print '<b><u>Tokens:</b></u><br><br>';
+    print '<br><h3>'.$info['factions'][$faction]['name'].' Game Status:</h3>';
+    // Show Tokens & Spice
+    print '<br><b><u>Tokens & Spice:</b></u><br><br>';
     foreach (array_keys($game['tokens']) as $y) {
-        print '<u>'.$info['territory'][$y]['name'];
+        print '<u>'.explode(' (', $info['territory'][$y]['name'])[0];
         if (isset(($info['territory'][$y]['sector']))) {
             print ' (Sector '.$info['territory'][$y]['sector'].')';
         }
@@ -144,25 +147,31 @@ function dune_printStatus($faction) {
         foreach (array_keys($game['tokens'][$y]) as $x) {
             print $info['factions'][$x]['name'].': '.$game['tokens'][$y][$x][0];
             if ($game['tokens'][$y][$x][1] != 0) {
-                print '/'.$game['tokens'][$y][$x][1].'*';
+                if ($x != '[B]') {
+                    print '/'.$game['tokens'][$y][$x][1].'*';
+                }
+                if ($x == '[B]') {
+                    print ' (coexisting)';
+                }
             }
             print '<br>';
         }
         print '<br>';
     }
     // Treachery
+    print '<br>';
     print '<b><u>Treachery:</u></b><br>';
     if (empty($game[$faction]['treachery'])) {
         print 'None';
     }
     else {
-        foreach (array_keys($game[$faction]['treachery']) as $y) {
-            print $info['treachry']['name'].'<br>';
+        foreach ($game[$faction]['treachery'] as $y) {
+            print $info['treachery'][$y]['name'].'<br>';
         }
     }
     print '<br><br>';
     // Spice
-    print '<b><u>Spice:</u></b><br>';
+    print '<b><u>Spice Treasury:</u></b><br>';
     print $game[$faction]['spice'].'<br><br>';
     // Notes
     print '<b><u>Notes:</u></b><br>';

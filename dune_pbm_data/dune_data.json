@@ -30,8 +30,8 @@
                 5
             ],
             "[F]": [
-                7,
-                3
+                10,
+                0
             ],
             "[G]": [
                 15,
@@ -49,7 +49,7 @@
             ],
             "[B]": [
                 1,
-                0
+                1
             ]
         },
         "[TS]": {
@@ -66,19 +66,19 @@
         },
         "[ST]": {
             "[F]": [
-                5,
+                3,
                 0
             ]
         },
         "[FWW-1]": {
             "[F]": [
-                2,
-                0
+                0,
+                3
             ]
         },
-        "[FWS-2]": {
+        "[FWS-1]": {
             "[F]": [
-                3,
+                4,
                 0
             ]
         }
@@ -89,65 +89,68 @@
     },
     "spiceDeck": {
         "deck": [
-            "[WPN-17",
-            "[WORM-2]",
-            "[CS-2]",
-            "[WORM-1]",
-            "[WORM-3]",
-            "[WORM-6]",
-            "[TGF]",
-            "[HB-6]",
+            "[WORM-5]",
             "[OG-10]",
-            "[SM-5]",
-            "[BL-12]",
+            "[HB-6]",
             "[WORM-4]",
-            "[SR]",
-            "[RC]",
-            "[FP]",
-            "[TME-8]",
-            "[CN-3]",
-            "[RO-14]",
-            "[WORM-5]",
-            "[HE-16]",
-            "[HRF-18]",
-            "[RO-14]",
-            "[OG-10]",
-            "[CN-3]",
-            "[TME-8]",
-            "[HB-6]",
             "[WORM-6]",
-            "[RC]",
-            "[CS-2]",
-            "[WORM-5]",
-            "[BL-12]",
-            "[WPN-17",
-            "[SR]",
-            "[TGF]",
-            "[WORM-3]",
+            "[TME-8]",
+            "[SM-5]",
             "[HE-16]",
+            "[TGF]",
+            "[BL-12]",
             "[FP]",
+            "[WORM-1]",
+            "[CS-2]",
+            "[RO-14]",
+            "[HRF-18]",
+            "[WPN-17",
+            "[WORM-2]",
+            "[RC]",
+            "[SR]",
+            "[CN-3]",
+            "[WORM-3]",
+            "[BL-12]",
+            "[CS-2]",
+            "[SR]",
+            "[WORM-4]",
+            "[RC]",
+            "[RO-14]",
+            "[WORM-1]",
             "[SM-5]",
             "[HRF-18]",
+            "[WORM-3]",
+            "[FP]",
+            "[OG-10]",
             "[WORM-2]",
-            "[WORM-1]",
-            "[WORM-4]"
+            "[WPN-17",
+            "[WORM-5]",
+            "[HB-6]",
+            "[TME-8]",
+            "[TGF]",
+            "[WORM-6]",
+            "[CN-3]",
+            "[HE-16]"
         ],
         "discard-1": [],
         "discard-2": []
     },
     "[A]": {
-        "treachery": [],
+        "treachery": [
+            "[WORTHLESS-5]"
+        ],
         "spice": 10,
         "traitors": [
-            "[B#5]"
+            "[H#1]"
         ],
         "notes": [
-            "Initial traitors: Wanna Marcus (5), Shadout Mapes (3), Alia (5), Feyd-Rautha (6)"
-        ],
-        "trechery": null
+            "Initial traitors: Feyd-Rautha (6), Captain Iakin Nefud (2), Count Hasimir Fenring (6), Master Bewt (3)"
+        ]
     },
     "[B]": {
-        "treachery": [],
+        "treachery": [
+            "[PROJ_W-4]"
+        ],
         "spice": 5,
         "prediction": {
             "winningFaction": "[A]",
@@ -155,94 +158,94 @@
         },
         "notes": [
             "Atredies predicted to win on turn 1.",
-            "Initial traitors: Lady Margot Fenring (5), Caid (3), Guild Representative (1), Otheym (5)"
+            "Initial traitors: Chani (6), Staban Tuek (5), Burseg (3), Piter DeVries (3)"
         ],
         "traitors": [
-            "[B#2]"
-        ],
-        "trechery": null
+            "[F#2]"
+        ]
     },
     "[E]": {
-        "treachery": [],
+        "treachery": [
+            "[PROJ_W-2]"
+        ],
         "spice": 10,
         "traitors": [
-            "[G#2]"
+            "[F#4]"
         ],
         "notes": [
-            "Initial traitors: Esmar Tuek (3), Stilgar (7), Piter DeVries (3), Lady Jessica (5)"
-        ],
-        "trechery": null
+            "Initial traitors: Shadout Mapes (3), Umman Kudu (1), Soo Soo Sook (2), Princess Irulan (5)"
+        ]
     },
     "[F]": {
-        "treachery": [],
+        "treachery": [
+            "[PROJ_D-2]"
+        ],
         "spice": 3,
         "traitors": [
-            "[G#1]"
+            "[F#1]"
         ],
         "notes": [
-            "Initial traitors: Gurney Halleck (4), Staban Tuek (5), Soo Soo Sook (2), Umman Kudu (1)"
-        ],
-        "trechery": null
+            "Initial traitors: Stilgar (7), Duncan Idaho (2), Caid (3), Jamis (2)"
+        ]
     },
     "[G]": {
-        "treachery": [],
+        "treachery": [
+            "[POIS_W-2]"
+        ],
         "spice": 5,
         "traitors": [
-            "[H#4]"
+            "[F#3]"
         ],
         "notes": [
-            "Initial traitors: Captain Iakin Nefud (2), Count Hasimir Fenring (6), Bashar (2), Jamis (2)"
-        ],
-        "trechery": null
+            "Initial traitors: Otheym (5), Captain Aramsham (5), Bashar (2), Esmar Tuek (3)"
+        ]
     },
     "[H]": {
-        "treachery": [],
+        "treachery": [
+            "[HERO-1]",
+            "[WORTHLESS-2]"
+        ],
         "spice": 10,
         "traitors": [
             "[A#2]",
-            "[F#2]",
-            "[B#4]",
-            "[G#3]"
+            "[B#1]",
+            "[A#3]",
+            "[G#5]"
         ],
         "notes": [
-            "Initial traitors: Thufir Hawat (5), Chani (6), Rev. Mother Ramallo (5), Master Bewt (3)"
-        ],
-        "trechery": null
+            "Initial traitors: Thufir Hawat (5), Alia (5), Gurney Halleck (4), Guild Representative (1)"
+        ]
     },
     "treachery": {
         "deck": [
-            "[HERO-3]",
-            "[KARAMA-2]",
-            "[POIS_D-1]",
-            "[HERO-1]",
-            "[PROJ_W-4]",
             "[GHOLA-1]",
             "[ATOMICS-1]",
-            "[POIS_D-4]",
-            "[WORTHLESS-3]",
-            "[WORTHLESS-2]",
+            "[POIS_D-3]",
             "[POIS_W-1]",
-            "[TRUTH-1]",
-            "[KARAMA-1]",
-            "[WORTHLESS-4]",
-            "[WORTHLESS-5]",
-            "[PROJ_D-4]",
-            "[WEATHER-1]",
-            "[POIS_D-2]",
-            "[LASEGUN-1]",
-            "[WORTHLESS-1]",
-            "[TRUTH-2]",
-            "[PROJ_W-2]",
-            "[POIS_W-4]",
+            "[HERO-2]",
+            "[POIS_D-4]",
+            "[POIS_D-1]",
             "[PROJ_W-3]",
-            "[POIS_W-2]",
-            "[HAJR-1]"
+            "[TRUTH-2]",
+            "[PROJ_D-4]",
+            "[KARAMA-1]",
+            "[HERO-3]",
+            "[POIS_W-3]",
+            "[WORTHLESS-1]",
+            "[PROJ_D-3]",
+            "[POIS_D-2]",
+            "[PROJ_D-1]",
+            "[POIS_W-4]",
+            "[WORTHLESS-3]",
+            "[PROJ_W-1]",
+            "[LASEGUN-1]",
+            "[HAJR-1]",
+            "[WEATHER-1]",
+            "[WORTHLESS-4]",
+            "[TRUTH-1]",
+            "[KARAMA-2]"
         ]
     },
-    "stormLocation": 12,
-    "stormMove": 3,
-    "trechery": {
-        "deck": [],
-        "discard": []
-    }
+    "stormLocation": 14,
+    "stormMove": 1
 }
