@@ -140,7 +140,7 @@ function dune_printStatus($faction) {
     print '<br><b><u>Tokens & Spice:</b></u><br><br>';
     foreach (array_keys($game['tokens']) as $y) {
         print '<u>'.explode(' (', $info['territory'][$y]['name'])[0];
-        if (isset(($info['territory'][$y]['sector']))) {
+        if (isset($info['territory'][$y]['sector'])) {
             print ' (Sector '.$info['territory'][$y]['sector'].')';
         }
         print ':</u><br>';
