@@ -2,6 +2,7 @@
 //Called by index.php.
 $dataPath = '/var/www/dune_pbm_data/';
 $game = "";
+$debug = false;
 $info = json_decode(file_get_contents($gamePath.'dune_info.json'), true);
 
 function dune_setupGame() {
@@ -28,8 +29,8 @@ function dune_setupGame() {
     }
     $game['[H]']['traitors'] = $game['traitorDeck']['[H]'];
     // Setup Storm
-    $game['stormLocation'] = mt_rand(1, 18);
-    $game['stormMove'] = mt_rand(1, 6);
+    $game['storm']['location'] = mt_rand(1, 18);
+    $game['storm']['move'] = mt_rand(1, 6);
     dune_writeData();
 }
 
@@ -42,23 +43,46 @@ function dune_readData() {
 
 function dune_writeData() {
 	global $dataPath, $game;
+    $maxUndo = 5;
 	$file = $dataPath.'dune_data'; // eclude the extension.
 	if (isset($game)) {
-        // Setup Undo Move
-        $undoGame = json_decode(file_get_contents($file.'.json'), true);
-        file_put_contents($file.'.undo.json', json_encode($undoGame, JSON_PRETTY_PRINT));
+        // Setup undo move.
+        for ($i = ($maxUndo - 1); $i >= 0; $i -= 1) {
+            $undoGame = json_decode(file_get_contents
+                            ($file.'.undo'.$i.'.json'), true);
+            file_put_contents($file.'.undo'.($i + 1).'.json', 
+                            json_encode($undoGame, JSON_PRETTY_PRINT));
+        }
+        $undoGame = json_decode(file_get_contents
+                            ($file.'.json'), true);
+        file_put_contents($file.'.undo0.json', 
+                            json_encode($undoGame, JSON_PRETTY_PRINT));
+        // Write new move.
+        $game['meta']['eventNumber'] += 1;
         file_put_contents($file.'.json', json_encode($game, JSON_PRETTY_PRINT));
 		file_put_contents($file.'.'.time().'.json', json_encode($game, JSON_PRETTY_PRINT));
 	} else {print 'ERROR WRITING FILE';}
 }
 function dune_undoMove() {
 	global $dataPath, $game;
-	$file = $dataPath.'dune_data'; // eclude the extension.
-    $game = json_decode(file_get_contents($file.'.undo.json'), true);
-    file_put_contents($file.'.json', json_encode($game, JSON_PRETTY_PRINT));
+    $file = $dataPath.'dune_data'; // eclude the extension.
+    $maxUndo = 5;
+    //if ($game['meta']['faction'] == $_SESSION['faction']) {
+    if (true) {
+        $undoGame = json_decode(file_get_contents
+                                ($file.'.undo0.json'), true);
+        file_put_contents($file.'.json', 
+                                json_encode($undoGame, JSON_PRETTY_PRINT));
+        for ($i = 0; $i < $maxUndo; $i += 1) {
+                $undoGame = json_decode(file_get_contents
+                                ($file.'.undo'.($i +1).'.json'), true);
+                file_put_contents($file.'.undo'.$i.'.json', 
+                                json_encode($undoGame, JSON_PRETTY_PRINT));
+        }
+    }
 }
 
-function dune_gmMove($faction, $tokens, $starTokens, $fromLoc, $toLoc) {
+function dune_gmMove($faction, $tokens, $starTokens, $fromLoc, $toLoc, $coexisting=false) {
 	global $game;
     if (($tokens != 0) || ($starTokens != 0)) {
         if (!isset($game['tokens'][$fromLoc][$faction])) {
@@ -74,11 +98,15 @@ function dune_gmMove($faction, $tokens, $starTokens, $fromLoc, $toLoc) {
 	if ($game['tokens'][$fromLoc][$faction] == [0,0]) {
         unset($game['tokens'][$fromLoc][$faction]);
     }
-    if ($game['tokens'][$fromLoc]['[B]'][0] == 0) {
+    if (isset($game['tokens'][$fromLoc]['[B]'][0]) &&
+        $game['tokens'][$fromLoc]['[B]'][0] == 0) {
         unset($game['tokens'][$fromLoc][$faction]);
     }
     if (empty($game['tokens'][$fromLoc])) {
         unset($game['tokens'][$fromLoc]);
+    }
+    if ($coexisting && $faction == '[B]') {
+        $game['tokens'][$toLoc][$faction][1] = 1;
     }
 }
 
@@ -135,9 +163,15 @@ function dune_getTerritory($title, $varName, $close) {
 
 function dune_printStatus($faction) {
     global $game, $info;
-    print '<br><h3>'.$info['factions'][$faction]['name'].' Game Status:</h3>';
+    print '<br><h3>'.$info['factions'][$faction]['name'].' Game Status:</h3><br>';
+    // The Storm
+    print '<b><u>Storm</u>:</b> ';
+    print 'The storm is in Sector '.$game['storm']['location'].'.<br><br>';
+    // Spice Treasury
+    print '<b><u>Spice Treasury</u>:</b> ';
+    print $game[$faction]['spice'].' spice.<br><br>';
     // Show Tokens & Spice
-    print '<br><b><u>Tokens & Spice:</b></u><br><br>';
+    print '<b><u>Token & Spice Locations</u>:</b><br><br>';
     foreach (array_keys($game['tokens']) as $y) {
         print '<u>'.explode(' (', $info['territory'][$y]['name'])[0];
         if (isset($info['territory'][$y]['sector'])) {
@@ -145,13 +179,18 @@ function dune_printStatus($faction) {
         }
         print ':</u><br>';
         foreach (array_keys($game['tokens'][$y]) as $x) {
-            print $info['factions'][$x]['name'].': '.$game['tokens'][$y][$x][0];
-            if ($game['tokens'][$y][$x][1] != 0) {
-                if ($x != '[B]') {
-                    print '/'.$game['tokens'][$y][$x][1].'*';
-                }
-                if ($x == '[B]') {
-                    print ' (coexisting)';
+            if ($x == 'Spice') {
+                print $info['factions'][$x]['name'].': '.$game['tokens'][$y][$x];
+            }
+            else {
+                print $info['factions'][$x]['name'].': '.$game['tokens'][$y][$x][0];
+                if ($game['tokens'][$y][$x][1] != 0) {
+                    if ($x != '[B]') {
+                        print '/'.$game['tokens'][$y][$x][1].'*';
+                    }
+                    if ($x == '[B]') {
+                        print ' (coexisting)';
+                    }
                 }
             }
             print '<br>';
@@ -159,8 +198,7 @@ function dune_printStatus($faction) {
         print '<br>';
     }
     // Treachery
-    print '<br>';
-    print '<b><u>Treachery:</u></b><br>';
+    print '<b><u>Treachery</u>:</b><br>';
     if (empty($game[$faction]['treachery'])) {
         print 'None';
     }
@@ -170,11 +208,8 @@ function dune_printStatus($faction) {
         }
     }
     print '<br><br>';
-    // Spice
-    print '<b><u>Spice Treasury:</u></b><br>';
-    print $game[$faction]['spice'].'<br><br>';
     // Notes
-    print '<b><u>Notes:</u></b><br>';
+    print '<b><u>Notes</u>:</b><br>';
     if (empty($game[$faction]['notes'])) {
         print 'None';
     }

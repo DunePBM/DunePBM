@@ -1,8 +1,8 @@
 {
     "meta": {
         "game": "PHP Test Game",
-        "turn": 0,
-        "round": 0,
+        "turn": 1,
+        "eventNumber": 0,
         "repeat": false,
         "next": {
 			"[A]": "wait.php",
@@ -13,7 +13,8 @@
 			"[H]": "wait.php"
 		},
         "faction": "",
-        "event": ""
+        "event": "",
+        "playerOrder": []
     },
     "tokens": {
         "[OFF]": {

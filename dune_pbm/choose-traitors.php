@@ -37,10 +37,12 @@ if (empty($_POST)){
 
 // Action #######################################################
 if (!empty($_POST)){
-    global $info, $game;
+    global $info, $game, $debug;
     if (isset($_POST['traitor']) && ($_SESSION['faction'] != '[H]')) {
         echo actionFunction();
-        //echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
+        if (!$debug) {
+            echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
+        }
     }
 }
 
