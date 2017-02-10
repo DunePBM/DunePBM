@@ -1,14 +1,24 @@
 <?php 
 // The bidding round.
 // Called by index.php.
-// spice.
+// spice-round.php --> bidding-round.php --> movement-round.php
 
 // Forms ###########################################################
 if (empty($_POST)){
-    if ($_SESSION['faction'] == '[B]') {
-		echo 
-		'<h3>Bene Gesserit:</h3>
-		<form action="#" method="post">
+    echo 
+	'<h3>'.$info['factions'][$_SESSION['faction']]['name'].
+    ' Bidding Round:</h3>';
+    
+    for
+    <textarea rows="10" cols="20" id="text">
+    
+    </textarea>
+		
+        
+        Predict winning turn: <input name="winningTurn" type="number" min=1 max=10 value="1"/>
+			<input type="submit" value="Submit">
+        
+        <form action="#" method="post">
 			Predict winning faction: <select name="winningFaction">
                 <option value="[A]">Atredies</option>
                 <option value="[E]">Emperor</option>

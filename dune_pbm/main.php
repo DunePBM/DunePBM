@@ -132,6 +132,18 @@ function dune_dealSpice($toDiscard) {
     array_unshift($game['spiceDeck'][$fromDeck], array_shift($game[$fromDeck]['deck']));
 }
 
+function dune_checkSpice() {
+    global $game;
+    if (empty($game['spice_deck']['deck'])) {
+        $game['spice_deck']['deck'] = $game['$fromDeck']['discard-1'];
+        $game['spice_deck']['deck'] .= $game['$fromDeck']['discard-2'];
+        $game['spice_deck']['discard-1'] = array();
+        $game['spice_deck']['discard-2'] = array();
+        shuffle($game['spice_deck']['deck']);
+    }
+    return $info['spice_deck'][$game['spice_deck']['deck'][0]]['name'];
+}
+
 function dune_discard($fromDeck, $fromFaction, $indexArray, $toDiscard = 'discard') {
     global $game;
     if (is_int($indexArray)) {

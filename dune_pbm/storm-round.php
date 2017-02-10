@@ -8,8 +8,9 @@
 if (empty($_POST)){
     global $game, $info;
 	echo 
-	'<h3>'.$info['factions'][$_SESSION['faction']]['name'].':</h3>
-    <p>The storm is in Sector '.$game['stormLocation'].'</p>';
+	'<h3>'.$info['factions'][$_SESSION['faction']]['name'].' Storm Round:</h3>
+    <p>The storm is in Sector '.$game['storm']['location'].'.</p>
+    <p>The storm will move '.($game['storm']['next'].' sectors.</p><br>';
     if ($game['meta']['turn'] >= 2) {
         echo
         '<form action="#" method="post">
