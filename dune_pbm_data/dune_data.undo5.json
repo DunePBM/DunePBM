@@ -2,18 +2,18 @@
     "meta": {
         "game": "PHP Test Game",
         "turn": 1,
-        "eventNumber": 6,
+        "eventNumber": 8,
         "repeat": false,
         "next": {
             "[A]": "wait.php",
-            "[B]": "wait.php",
+            "[B]": "setup-tokens.php",
             "[E]": "wait.php",
-            "[F]": "choose-traitors.php",
+            "[F]": "wait.php",
             "[G]": "wait.php",
             "[H]": "wait.php"
         },
-        "faction": "[E]",
-        "event": "Emperor chose their traitor.",
+        "faction": "[F]",
+        "event": "Fremen places starting tokens",
         "playerOrder": []
     },
     "tokens": {
@@ -31,7 +31,7 @@
                 5
             ],
             "[F]": [
-                17,
+                7,
                 3
             ],
             "[G]": [
@@ -66,58 +66,29 @@
                 10,
                 0
             ]
+        },
+        "[ST]": {
+            "[F]": [
+                3,
+                0
+            ]
+        },
+        "[FWW-1]": {
+            "[F]": [
+                2,
+                0
+            ]
+        },
+        "[FWS-1]": {
+            "[F]": [
+                5,
+                0
+            ]
         }
     },
     "treacheryDeck": {
         "deck": [],
         "discard": []
-    },
-    "traitorDeck": {
-        "deck": [
-            "[A#4]",
-            "[A#1]",
-            "[A#3]",
-            "[F#4]",
-            "[F#3]",
-            "[B#1]"
-        ],
-        "discard": [],
-        "[A]": [
-            "[G#3]",
-            "[E#2]",
-            "[H#5]",
-            "[H#3]"
-        ],
-        "[B]": [
-            "[B#4]",
-            "[H#4]",
-            "[H#1]",
-            "[E#1]"
-        ],
-        "[E]": [
-            "[E#5]",
-            "[A#5]",
-            "[G#4]",
-            "[B#2]"
-        ],
-        "[F]": [
-            "[F#1]",
-            "[G#2]",
-            "[G#1]",
-            "[G#5]"
-        ],
-        "[G]": [
-            "[F#5]",
-            "[B#3]",
-            "[B#5]",
-            "[F#2]"
-        ],
-        "[H]": [
-            "[E#4]",
-            "[A#2]",
-            "[H#2]",
-            "[E#3]"
-        ]
     },
     "spiceDeck": {
         "deck": [
@@ -172,6 +143,9 @@
         "spice": 10,
         "traitors": [
             "[E#2]"
+        ],
+        "notes": [
+            "Initial traitors: Master Bewt (3), Captain Aramsham (5), Umman Kudu (1), Piter DeVries (3)"
         ]
     },
     "[B]": {
@@ -182,7 +156,8 @@
             "winningTurn": 1
         },
         "notes": [
-            "Atredies predicted to win on turn 1."
+            "Atredies predicted to win on turn 1.",
+            "Initial traitors: Rev. Mother Ramallo (5), Captain Iakin Nefud (2), Feyd-Rautha (6), Count Hasimir Fenring (6)"
         ],
         "traitors": [
             "[E#1]"
@@ -193,17 +168,29 @@
         "spice": 10,
         "traitors": [
             "[B#2]"
+        ],
+        "notes": [
+            "Initial traitors: Bashar (2), Dr. Wellington Yueh (1), Soo Soo Sook (2), Lady Margot Fenring (5)"
         ]
     },
     "[F]": {
         "treachery": [],
-        "spice": 3
+        "spice": 3,
+        "traitors": [
+            "[G#1]"
+        ],
+        "notes": [
+            "Initial traitors: Stilgar (7), Esmar Tuek (3), Staban Tuek (5), Guild Representative (1)"
+        ]
     },
     "[G]": {
         "treachery": [],
         "spice": 5,
         "traitors": [
             "[F#2]"
+        ],
+        "notes": [
+            "Initial traitors: Jamis (2), Princess Irulan (5), Wanna Marcus (5), Chani (6)"
         ]
     },
     "[H]": {
@@ -214,6 +201,9 @@
             "[A#2]",
             "[H#2]",
             "[E#3]"
+        ],
+        "notes": [
+            "Initial traitors: Caid (3), Thufir Hawat (5), Beast Rabban (4), Burseg (3)"
         ]
     },
     "treachery": {

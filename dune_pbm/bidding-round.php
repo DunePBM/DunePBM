@@ -1,7 +1,7 @@
 <?php 
-// Storm
-// Called from setup-treachery.php & collection.php
-// setup-treachery.php --> storm-round.php --> spice.php
+// The bidding round.
+// Called by index.php.
+// spice.
 
 // Forms ###########################################################
 if (empty($_POST)){
@@ -24,11 +24,14 @@ if (empty($_POST)){
 
 // Action ########################################################
 if (!empty($_POST)){
+    global $debug;
     if (isset($_POST['winningFaction']) && 
                     isset($_POST['winningTurn']) &&
                     $_SESSION['faction'] == '[B]') {
         echo actionFunction();
-        echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">'; 
+        if (!$debug) {
+            echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
+        }
     }
 }
 
@@ -36,10 +39,16 @@ function actionFunction() {
     global $game, $info;
     dune_readData();
     // Checks input.
-    
+    if (!in_array($_POST['winningFaction'], 
+                    array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]'))) {
+        return '<script>alert("Action failed: Not a valid faction.");</script>';
+    }
+    if (!is_int((int) $_POST['winningTurn'])) {
+        return '<script>alert("Action failed: Winning turn is not a number.");</script>';
+    }
     // Carry Out Action.
     $game['[B]']['prediction']['winningFaction'] = $_POST['winningFaction'];
-    $game['[B]']['prediction']['winningTurn'] = $_POST['winningTurn'];        
+    $game['[B]']['prediction']['winningTurn'] = (int) $_POST['winningTurn'];        
     $game['[B]']['notes'] =[$info['factions'][$_POST['winningFaction']]['name'].
                 ' predicted to win on turn '.$_POST['winningTurn'].'.'];
     $game['meta']['event'] = 'Bene Gesserit made their prediction.';

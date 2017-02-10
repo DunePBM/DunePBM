@@ -2,18 +2,18 @@
     "meta": {
         "game": "PHP Test Game",
         "turn": 1,
-        "eventNumber": 1,
+        "eventNumber": 4,
         "repeat": false,
         "next": {
             "[A]": "wait.php",
-            "[B]": "make-prediction.php",
-            "[E]": "wait.php",
-            "[F]": "wait.php",
-            "[G]": "wait.php",
+            "[B]": "wait.php",
+            "[E]": "choose-traitors.php",
+            "[F]": "choose-traitors.php",
+            "[G]": "choose-traitors.php",
             "[H]": "wait.php"
         },
-        "faction": "",
-        "event": "",
+        "faction": "[A]",
+        "event": "Atredies chose their traitor.",
         "playerOrder": []
     },
     "tokens": {
@@ -169,11 +169,24 @@
     },
     "[A]": {
         "treachery": [],
-        "spice": 10
+        "spice": 10,
+        "traitors": [
+            "[F#1]"
+        ]
     },
     "[B]": {
         "treachery": [],
-        "spice": 5
+        "spice": 5,
+        "prediction": {
+            "winningFaction": "[A]",
+            "winningTurn": 4
+        },
+        "notes": [
+            "Atredies predicted to win on turn 4."
+        ],
+        "traitors": [
+            "[E#1]"
+        ]
     },
     "[E]": {
         "treachery": [],
