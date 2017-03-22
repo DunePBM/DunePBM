@@ -5,6 +5,16 @@ $game = "";
 $debug = false;
 $info = json_decode(file_get_contents($gamePath.'dune_info.json'), true);
 
+function refreshPage() {
+    global $debug;
+    if (!$debug) {
+        echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
+        //Also Works:
+        //$URL="http://yourwebsite.com/";
+        //echo "<script type='text/javascript'>document.location.href='{$URL}';</script>";
+    }
+}
+
 function dune_setupGame() {
     global $dataPath, $gamePath, $game, $info;
 	$game = json_decode(file_get_contents($gamePath.'dune_data_start.json'), true);
@@ -82,7 +92,7 @@ function dune_undoMove() {
     }
 }
 
-function dune_gmMove($faction, $tokens, $starTokens, $fromLoc, $toLoc, $coexisting=false) {
+function dune_gmMoveTokens($faction, $tokens, $starTokens, $fromLoc, $toLoc, $coexisting=false) {
 	global $game;
     if (($tokens != 0) || ($starTokens != 0)) {
         if (!isset($game['tokens'][$fromLoc][$faction])) {
@@ -117,7 +127,8 @@ function dune_dealTreachery($toFaction) {
         $game['treachery']['discard'] = array();
         shuffle($game['treachery']['deck']);
     }
-    array_unshift($game[$toFaction]['treachery'], array_shift($game['treachery']['deck']));
+    array_unshift($game[$toFaction]['treachery'], 
+                            array_shift($game['treachery']['deck']));
 }
 
 function dune_dealSpice($toDiscard) {
@@ -129,7 +140,8 @@ function dune_dealSpice($toDiscard) {
         $game['spice_deck']['discard-2'] = array();
         shuffle($game['spice_deck']['deck']);
     }
-    array_unshift($game['spiceDeck'][$fromDeck], array_shift($game[$fromDeck]['deck']));
+    array_unshift($game['spice_deck']['discard-'.$toDiscard], 
+                            array_shift($game['spice_deck']['deck']));
 }
 
 function dune_checkSpice() {
@@ -157,13 +169,20 @@ function dune_discard($fromDeck, $fromFaction, $indexArray, $toDiscard = 'discar
     $game[$fromFaction][$fromDeck] = array_values($game[$fromFaction][$fromDeck]);
 }
 
-function dune_getTerritory($title, $varName, $close) {
+function dune_getTerritory($title, $varName, $close, $all=false) {
     global $info;
 	echo
 	'<form action="#" method="post"> 
     '.$title.'<select name="'.$varName.'">';
-    foreach (array_diff(array_keys($info['territory']), array('[OFF]', '[TANKS]')) as $a) {
-        echo '<option value="'.$a.'">'.$info['territory'][$a]['name'].'</option>';
+    if ($all) {
+        foreach (array_keys($info['territory']) as $a) {
+            echo '<option value="'.$a.'">'.$info['territory'][$a]['name'].'</option>';
+        }
+    }
+    if (!$all) {
+        foreach (array_diff(array_keys($info['territory']), array('[OFF]', '[TANKS]')) as $a) {
+            echo '<option value="'.$a.'">'.$info['territory'][$a]['name'].'</option>';
+        }
     }
     echo '</select>';    
 	if ($close) {

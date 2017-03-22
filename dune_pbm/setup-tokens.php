@@ -42,16 +42,12 @@ if (empty($_POST)){
 if (!empty($_POST)){
     if (isset($_POST['st']) && ($_SESSION['faction'] == '[F]')) {
         echo actionFunctionF();
-        if (!$debug) {
-            echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
-        }
+        refreshPage();
     }
 
     if (isset($_POST['token_loc']) && ($_SESSION['faction'] == '[B]')) {
         echo actionFunctionB();
-        if (!$debug) {
-            echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
-        }
+        refreshPage();
     }
 }
 
@@ -73,9 +69,9 @@ function actionFunctionF() {
     }
     // Carry out action.
     dune_readData();
-    dune_gmMove('[F]', $_POST['st'], $_POST['stStar'], '[OFF]', '[ST]');
-    dune_gmMove('[F]', $_POST['fww'], $_POST['fwwStar'], '[OFF]', $_POST['fwwSector']);
-    dune_gmMove('[F]', $_POST['fws'], $_POST['fwsStar'], '[OFF]', $_POST['fwsSector']);
+    dune_gmMoveTokens('[F]', $_POST['st'], $_POST['stStar'], '[OFF]', '[ST]');
+    dune_gmMoveTokens('[F]', $_POST['fww'], $_POST['fwwStar'], '[OFF]', $_POST['fwwSector']);
+    dune_gmMoveTokens('[F]', $_POST['fws'], $_POST['fwsStar'], '[OFF]', $_POST['fwsSector']);
     $game['meta']['event'] = 'Fremen places starting tokens';
     $game['meta']['faction'] = '[F]';
     $game['meta']['next']['[F]'] = 'wait.php';
@@ -87,7 +83,7 @@ function actionFunctionF() {
 function actionFunctionB() {
     global $game, $info;
     dune_readData();
-    dune_gmMove('[B]', 1, 0, '[PS]', $_POST['token_loc']);
+    dune_gmMoveTokens('[B]', 1, 0, '[PS]', $_POST['token_loc']);
     $game['meta']['event'] = 'Bene Gesserit placees starting token';
     $game['meta']['faction'] = '[B]';
     $game['meta']['next']['[B]'] = 'wait.php';

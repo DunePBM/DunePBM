@@ -19,11 +19,17 @@ include_once $gamePath.'main.php';
 <?php
 global $gamePath;
 if (!isset($_SESSION['faction'])) {
-	include $gamePath.'login.php';
-} else {
-	dune_readData();
-	include $gamePath.'header.php';
-	include $gamePath.$game['meta']['next'][$_SESSION['faction']];
+    include $gamePath.'login.php';
+} 
+if (isset($_SESSION['override']) && isset($_SESSION['faction'])) {
+    dune_readData();
+    include $gamePath.'header.php';
+    include $gamePath.$_SESSION['override'];
+} 
+if (!isset($_SESSION['override']) && isset($_SESSION['faction'])) {
+    dune_readData();
+    include $gamePath.'header.php';
+    include $gamePath.$game['meta']['next'][$_SESSION['faction']];
 }
 ?>
 

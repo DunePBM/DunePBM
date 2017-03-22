@@ -4,7 +4,7 @@
 
 if (!empty($_POST)) {
 	$_SESSION['faction'] = $_POST['faction'];
-	echo $_SESSION['faction'];
+	//echo $_SESSION['faction'];
 	header('Location: index.php');
 } 
 
