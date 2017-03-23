@@ -1,56 +1,37 @@
 <?php 
 // GM Commands
 // Called from index.php
-// setup-treachery.php --> storm-round.php --> spice.php
-// colleciton-round.php --> storm-round.php --> spice.php
+// uses $_SESSION['override']
 
 // Forms ###########################################################
 if (empty($_POST)){
     global $game, $info;
 	echo 
-	'<h3>'.$info['factions'][$_SESSION['faction']]['name'].' Storm Round:</h3>
-    <p>The storm is in Sector '.$game['storm']['location'].'.</p>
-    <p>The storm will move '.($game['storm']['next'].' sectors.</p><br>';
-    if ($game['meta']['turn'] >= 2) {
-        echo
-        '<form action="#" method="post">
-            <input type="checkbox" name="wc" value="true">Play Weather Control<br>
-            <input type="checkbox" name="fa" value="true">Play Family Atomics<br>
-            <input type="submit" value="Submit">
-        </form>;
+	'<h2>GM Commands</h2>';
+
+    echo
+    '<form action="#" method="post">
+    Actions:  <select name="gm_action">
+        <option value="dump">Dump Data</option>			
+        <option value="reset">Reset Game</option>			
+    </select> 
+    <input type="submit" value="Submit">
+    </form>';
 }
 
-// Action ########################################################
-if (!empty($_POST)){
-    if (isset($_POST['wc']) && 
-                    isset($_POST['winningTurn']) &&
-                    $_SESSION['faction'] == '[B]') {
-        echo actionFunction();
-        echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">'; 
+if (isset($_POST['gm_action'])) {
+    if ($_POST['gm_action'] == 'reset') {
+        dune_setupGame();
+        print '<script>alert("Game reset.");</script>';
+        refreshPage();
     }
-}
-
-function actionFunction($actionType) {
-    global $game, $info;
-    dune_readData();
-    
-    if (action
-    // Checks input.
-    
-    // Carry Out Action.
-    $game['[B]']['prediction']['winningFaction'] = $_POST['winningFaction'];
-    $game['[B]']['prediction']['winningTurn'] = $_POST['winningTurn'];        
-    $game['[B]']['notes'] =[$info['factions'][$_POST['winningFaction']]['name'].
-                ' predicted to win on turn '.$_POST['winningTurn'].'.'];
-    $game['meta']['event'] = 'Bene Gesserit made their prediction.';
-    $game['meta']['faction'] = '[B]';
-    foreach (array('[A]', '[B]', '[E]', '[F]', '[G]') as $faction) {
-        for ($i = 0; $i <4; $i++) {
-            $game['meta']['next'][$faction] = 'choose-traitors.php';
-        }
+    if ($_POST['gm_action'] == 'dump') {
+        global $game;
+        print '<pre>';
+        print json_encode($game, JSON_PRETTY_PRINT);
+        print_r($_SESSION);
+        print_r($_POST);
+        print '</pre>';
     }
-    $game['meta']['next']['[H]'] = 'wait.php';
-    dune_writeData();
-    return '<script>alert("Action successful.");</script>';
 }
 ?>

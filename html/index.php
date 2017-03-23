@@ -24,7 +24,9 @@ if (!isset($_SESSION['faction'])) {
 if (isset($_SESSION['override']) && isset($_SESSION['faction'])) {
     dune_readData();
     include $gamePath.'header.php';
-    include $gamePath.$_SESSION['override'];
+    if (isset($_SESSION['override'])) { //This is a bug-fix
+        include $gamePath.$_SESSION['override'];
+    }
 } 
 if (!isset($_SESSION['override']) && isset($_SESSION['faction'])) {
     dune_readData();

@@ -6,7 +6,7 @@
         "[F]": {"name": "Fremen", "leader": ""},
         "[G]": {"name": "Guild", "leader": ""},
         "[H]": {"name": "Harkonnen", "leader": ""},
-        "Spice": {"name": "Spice", "leader": ""}
+        "[SPICE]": {"name": "Spice", "leader": ""}
     },
     "leaders": {
         "[A#1]": {"name": "Lady Jessica (5)", "faction": "[A]", "strength": 5},
@@ -154,7 +154,8 @@
         "[WPN-1]": {"name": "Wind Pass North (17)", "sector": 17, "spice": 6},
         "[WPN-2]": {"name": "Wind Pass North (18)", "sector": 18}, 
         "[OFF]": {"name": "Offworld"},
-        "[TANKS]": {"name": "Tanks"}
+        "[TANKS]": {"name": "Tanks"},
+        "[BANK]": {"name": "Spice Bank"}
     },
 
     "treachery": {

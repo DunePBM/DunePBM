@@ -32,7 +32,7 @@ if (empty($_POST)){
     '<form action="#" method="post">
     <h3>Place/Remvoe Spice</h3>
     <p>Place 
-        <input id="place_spice_number" name="place_number" type="number" min=-100 max=100 value="0"/>';
+        <input id="place_spice_number" name="place_spice_number" type="number" min=-100 max=100 value="0"/>';
         echo dune_getTerritory('on location: ', 'token_loc', true);
         echo '</p></form>';            
 }
@@ -64,10 +64,10 @@ function actionFunction_moveTokens() {
 function actionFunction_placeSpice() {
     global $game, $info;
     dune_readData();
-    $game['tokens'][$_POST['token_loc']][$_POST['faction']][0] += $_POST['place_token_number'];
-    $game['tokens'][$_POST['token_loc']][$_POST['faction']][1] += $_POST['place_number_star'];    
-    $game['meta']['event'] = 'Special Command: Place/remove tokens';
-    $game['meta']['faction'] = $_SESSION['facton'];
+    dune_gmMoveTokens('[SPICE]', $_POST['place_spice_number'], 
+            0, '[BANK]', $_POST['token_loc']);
+    $game['meta']['event'] = 'Special Command: Place/remove spice';
+    $game['meta']['faction'] = $_SESSION['faction'];
     dune_writeData();
     return '<script>alert("Action successful.");</script>';
 }

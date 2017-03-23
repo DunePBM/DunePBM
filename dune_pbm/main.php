@@ -39,8 +39,8 @@ function dune_setupGame() {
     }
     $game['[H]']['traitors'] = $game['traitorDeck']['[H]'];
     // Setup Storm
-    $game['storm']['location'] = mt_rand(1, 18);
-    $game['storm']['move'] = mt_rand(1, 6);
+    $game['storm']['location'] = 0;
+    $game['storm']['move'] = mt_rand(1, 18);
     dune_writeData();
 }
 
@@ -73,6 +73,7 @@ function dune_writeData() {
 		file_put_contents($file.'.'.time().'.json', json_encode($game, JSON_PRETTY_PRINT));
 	} else {print 'ERROR WRITING FILE';}
 }
+
 function dune_undoMove() {
 	global $dataPath, $game;
     $file = $dataPath.'dune_data'; // eclude the extension.
@@ -180,7 +181,7 @@ function dune_getTerritory($title, $varName, $close, $all=false) {
         }
     }
     if (!$all) {
-        foreach (array_diff(array_keys($info['territory']), array('[OFF]', '[TANKS]')) as $a) {
+        foreach (array_diff(array_keys($info['territory']), array('[OFF]', '[TANKS]', '[BANK]')) as $a) {
             echo '<option value="'.$a.'">'.$info['territory'][$a]['name'].'</option>';
         }
     }
@@ -197,21 +198,25 @@ function dune_printStatus($faction) {
     print '<br><h3>'.$info['factions'][$faction]['name'].' Game Status:</h3><br>';
     // The Storm
     print '<b><u>Storm</u>:</b> ';
-    print 'The storm is in Sector '.$game['storm']['location'].'.<br><br>';
+    if ($game['storm']['location'] == 0) {
+        print 'The storm has not been placed yet.<br><br>';
+    } else {
+        print 'The storm is in Sector '.$game['storm']['location'].'.<br><br>';
+    }
     // Spice Treasury
     print '<b><u>Spice Treasury</u>:</b> ';
     print $game[$faction]['spice'].' spice.<br><br>';
     // Show Tokens & Spice
     print '<b><u>Token & Spice Locations</u>:</b><br><br>';
-    foreach (array_keys($game['tokens']) as $y) {
+    foreach (array_diff(array_keys($game['tokens']), array('[OFF]', '[BANK]')) as $y) {
         print '<u>'.explode(' (', $info['territory'][$y]['name'])[0];
         if (isset($info['territory'][$y]['sector'])) {
             print ' (Sector '.$info['territory'][$y]['sector'].')';
         }
         print ':</u><br>';
         foreach (array_keys($game['tokens'][$y]) as $x) {
-            if ($x == 'Spice') {
-                print $info['factions'][$x]['name'].': '.$game['tokens'][$y][$x];
+            if ($x == '[SPICE]') {
+                print $info['factions'][$x]['name'].': '.$game['tokens'][$y][$x][0];
             }
             else {
                 print $info['factions'][$x]['name'].': '.$game['tokens'][$y][$x][0];

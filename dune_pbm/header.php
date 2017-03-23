@@ -10,9 +10,6 @@ Actions:  <select name="header_action">
     <option value="gm-commands">GM Commands</option>
     <option value="special-commands">Special Commands</option>    
     <option value="logout">Logout</option>			
-    
-    <option value="dump">Dump Data</option>			
-    <option value="reset">Reset Game</option>			
     <option value="refresh">Refresh</option>			
     <option value="home">Home</option>			
     
@@ -25,20 +22,8 @@ if (isset($_POST['header_action'])) {
         session_destroy();
         refreshPage();
     }
-    if ($_POST['header_action'] == 'reset') {
-        dune_setupGame();
-        refreshPage();
-    }
     if ($_POST['header_action'] == 'status') {
         dune_printStatus($_SESSION['faction']);
-    }
-    if ($_POST['header_action'] == 'dump') {
-        global $game;
-        print '<pre>';
-        print json_encode($game, JSON_PRETTY_PRINT);
-        print_r($_SESSION);
-        print_r($_POST);
-        print '</pre>';
     }
     if ($_POST['header_action'] == 'gm-commands') {
         global $game;
