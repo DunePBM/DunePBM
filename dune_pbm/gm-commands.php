@@ -22,6 +22,8 @@ if (empty($_POST)){
 if (isset($_POST['gm_action'])) {
     if ($_POST['gm_action'] == 'reset') {
         dune_setupGame();
+        unset($_SESSION['override']);
+        unset($_SESSION['faction']);
         print '<script>alert("Game reset.");</script>';
         refreshPage();
     }

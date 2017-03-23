@@ -19,7 +19,9 @@ include_once $gamePath.'main.php';
 <?php
 global $gamePath;
 if (!isset($_SESSION['faction'])) {
+    dune_readData();
     include $gamePath.'login.php';
+    include $gamePath.'wait.php';
 } 
 if (isset($_SESSION['override']) && isset($_SESSION['faction'])) {
     dune_readData();

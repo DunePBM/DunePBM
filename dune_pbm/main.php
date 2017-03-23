@@ -245,7 +245,7 @@ function dune_printStatus($faction) {
     }
     print '<br><br>';
     // Notes
-    print '<b><u>Notes</u>:</b><br>';
+    print '<b><u>Notes (Hidden)</u>:</b><br>';
     if (empty($game[$faction]['notes'])) {
         print 'None';
     }
