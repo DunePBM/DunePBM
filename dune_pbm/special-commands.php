@@ -7,23 +7,14 @@
 if (empty($_POST)){
     global $game, $info;
 	echo 
-	'<h2>Special Commands</h2>';
+	'<h3>'.$info['factions'][$_SESSION['faction']]['name'].' Special Commands:</h3><br>';
     
     echo
     '<form action="#" method="post">
     <h3>Move Tokens</h3>
     <p>move 
         <input id="move_token_number" name="move_token_number" type="number" min=-100 max=100 value="0"/> /
-        <input id="move_number_star"  name="move_number_star" type="number" min=-100 max=100 value="0"/> *
-        tokens for  
-        <select name="faction">
-			<option value="[A]">Atredies</option>
-			<option value="[B]">Bene Gesserit</option>
-			<option value="[E]">Emperor</option>
-			<option value="[F]">Fremen</option>
-			<option value="[G]">Guild</option>
-			<option value="[H]">Harkonnen</option>
-		</select>';
+        <input id="move_number_star"  name="move_number_star" type="number" min=-100 max=100 value="0"/> *';
         echo dune_getTerritory('from location: ', 'token_loc_start', false, true);
         echo dune_getTerritory('to location location: ', 'token_loc_end', true, true);
         echo '</p></form>';
@@ -52,7 +43,7 @@ if (!empty($_POST)){
 function actionFunction_moveTokens() {
     global $game, $info;
     dune_readData();
-    dune_gmMoveTokens($_POST['faction'], $_POST['move_token_number'], 
+    dune_gmMoveTokens($_SESSION['faction'], $_POST['move_token_number'], 
             $_POST['move_number_star'], $_POST['token_loc_start'], 
             $_POST['token_loc_end']);
     $game['meta']['event'] = 'Special Command: move/remove tokens';

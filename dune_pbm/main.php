@@ -204,10 +204,11 @@ function dune_printStatus($faction) {
         print 'The storm is in Sector '.$game['storm']['location'].'.<br><br>';
     }
     // Spice Treasury
-    print '<b><u>Spice Treasury</u>:</b> ';
+    print '<b><u>Spice Treasury </b>(Hidden)<b></u>:</b> ';
+    
     print $game[$faction]['spice'].' spice.<br><br>';
     // Show Tokens & Spice
-    print '<b><u>Token & Spice Locations</u>:</b><br><br>';
+    print '<b><u>Token & Spice Locations</u>:</b><br><br style="line-height: 6px"/>';
     foreach (array_diff(array_keys($game['tokens']), array('[OFF]', '[BANK]')) as $y) {
         print '<u>'.explode(' (', $info['territory'][$y]['name'])[0];
         if (isset($info['territory'][$y]['sector'])) {
@@ -229,23 +230,36 @@ function dune_printStatus($faction) {
                     }
                 }
             }
+        
             print '<br>';
         }
-        print '<br>';
+        print '<br style="line-height: 6px"/>';
     }
-    // Treachery
-    print '<b><u>Treachery</u>:</b><br>';
-    if (empty($game[$faction]['treachery'])) {
+    print '<br>';
+    // Traitors
+    print '<b><u>Traitors </b>(Hidden)<b></u>:</b><br>';
+    if (empty($game[$faction]['traitors'])) {
         print 'None';
+    }
+    else {
+        foreach ($game[$faction]['traitors'] as $y) {
+            print $info['leaders'][$y]['name'].'<br>';
+        }
+    }
+    print '<br>';
+    // Treachery
+    print '<b><u>Treachery </b>(Hidden)<b></u>:</b><br>';
+    if (empty($game[$faction]['treachery'])) {
+        print 'None<br>';
     }
     else {
         foreach ($game[$faction]['treachery'] as $y) {
             print $info['treachery'][$y]['name'].'<br>';
         }
     }
-    print '<br><br>';
+    print '<br>';
     // Notes
-    print '<b><u>Notes (Hidden)</u>:</b><br>';
+    print '<b><u>Notes </b>(Hidden)<b></u>:</b><br>';
     if (empty($game[$faction]['notes'])) {
         print 'None';
     }
@@ -258,49 +272,4 @@ function dune_printStatus($faction) {
 
 function dune_moveStorm($num) {
 }
-    
-
-/*Factions & Locations:
-    [A]tredues,
-    [B]ene Gesserit
-    [E]mperor
-    [F]remen
-    [G]uild
-    [H]arkonnen
-    [T]anks
-    [O]ff World
-    [D]une Board Game (Hidden Game Info)
-
-dune_pbm newgame
-
-dune_pbm run filename
-
-dune_pbm setup-traitor faction traitor
-
-dune_pbm setup-tokens f st st* fws fws* fwe fwe* traitor
-dune_pbm setup-tokens b predictionFaction predicitonTurn startLoc traitor
-
-dune_pbm move-storm
-
-dune_pbm deal-spice
-
-dune_pbm bid faction card# spice#
-dune_pbm overtime-bid faction card# spice#
-dune_pbm end-auction
-
-dune_pbm revive faction tokens starTokens
-dune_pbm ship faction tokens starTokens toLocation
-dune_pbm move faction tokens starTokens fromLocation toLococation
-
-dune_pbm battle-location aFaction dFaction location
-dune_pbm battle-plan faction leader attack defense dial support
-dune_pbm battle
-
-dune_pbm show faction card
-
-
-dune_pbm gm-deal faction
-dune_pbm gm-hidden-deal faction
-dune_pbm gm-discard faction card
-*/
 ?>

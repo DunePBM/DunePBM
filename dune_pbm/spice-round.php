@@ -5,10 +5,10 @@
 
 // Runs the first time the page is called. 
 if (!isset($game['spice_round'])) {
-    $global $game, $info;
+    global $game, $info;
     
     // Checks for sandworms.
-    for ($i = 1, $i <= 2; $i += 1) {
+    for ($i = 1; $i <= 2; $i += 1) {
         while (explode('-', $game['spice_deck']['deck'])[0] == '[WORM') {
             foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
             $game['nexus'] = true;
@@ -18,7 +18,7 @@ if (!isset($game['spice_round'])) {
         }
         dune_dealSpice($i);
         $game['spice_round']['spice-'.$i]['location'] = $game['spice_deck']['discard-'.$i];
-        $game['spice_round']['spice-'.$i]['spice'] = $info[[$game['spice_deck']['discard-'.$i]]['spice'];
+        $game['spice_round']['spice-'.$i]['spice'] = $info[############################[$game['spice_deck']['discard-'.$i]]['spice'];
     }
     
     // If a nexus occours.

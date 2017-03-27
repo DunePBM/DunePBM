@@ -11,12 +11,11 @@ foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
 dune_dealTreachery('[H]');
 
 $game['meta']['event'] = 'Treachery cards delt.';
+
 $game['meta']['faction'] = '';
 foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-    $game['meta']['next'][$faction] = 'wait.php';
+    $game['meta']['next'][$faction] = 'spice-round.php';
 }
 dune_writeData();
-if (!$debug) {
-    echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
-}
+refreshPage();
 ?>

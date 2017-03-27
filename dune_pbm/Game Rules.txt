@@ -1,4 +1,4 @@
-# RULES FOR DUNE GAME #21 #
+# RULES FOR DunePBM #
 
 This game will be 10 turns. This game will use Double Spice Blow and Advanced Combat. This game will use the WBC rules, except where noted in this document.
 
@@ -35,7 +35,7 @@ We are using the following house rules:
 
 4. Spice may only be transferred from one player to another during the Collection Round of each turn. Deals involving the transfer of spice may be made at any time, but the transfer may only be performed during a future Collection Round, even between allies. The Emperor's special alliance ability becomes "You may transfer spice to (NOT from) your allies at any time."
 
-4b. No player shall transfer spice solely to collect CHOAM Charity
+4b. No player shall transfer spice solely to collect CHOAM Charity.
 
 5. The Fremen (and ally) may count their tokens at full strength for no cost in battles.
 
