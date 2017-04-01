@@ -1,8 +1,40 @@
 {
     "meta": {
         "game": "PHP Test Game",
+        "players": {
+            "[A]": {
+                "name": "a",
+                "email": "",
+                "password": "a"
+            },
+            "[B]": {
+                "name": "b",
+                "email": "",
+                "password": "b"
+            },
+            "[E]": {
+                "name": "e",
+                "email": "",
+                "password": "e"
+            },
+            "[F]": {
+                "name": "f",
+                "email": "",
+                "password": "f"
+            },
+            "[G]": {
+                "name": "g",
+                "email": "",
+                "password": "g"
+            },
+            "[H]": {
+                "name": "h",
+                "email": "",
+                "password": "h"
+            }
+        },
         "turn": 1,
-        "eventNumber": 2,
+        "eventNumber": 1,
         "repeat": false,
         "next": {
             "[A]": "wait.php",
@@ -12,9 +44,16 @@
             "[G]": "wait.php",
             "[H]": "wait.php"
         },
-        "faction": "[B]",
-        "event": "Special Command: move\/remove tokens",
-        "playerOrder": []
+        "faction": "",
+        "event": "",
+        "playerOrder": [
+            "[A]",
+            "[B]",
+            "[E]",
+            "[F]",
+            "[G]",
+            "[H]"
+        ]
     },
     "tokens": {
         "[OFF]": {
@@ -47,10 +86,6 @@
             "[A]": [
                 10,
                 0
-            ],
-            "[B]": [
-                -5,
-                0
             ]
         },
         "[PS]": {
@@ -76,12 +111,6 @@
                 9000,
                 0
             ]
-        },
-        "[CD-2]": {
-            "[B]": [
-                5,
-                0
-            ]
         }
     },
     "treacheryDeck": {
@@ -90,95 +119,95 @@
     },
     "traitorDeck": {
         "deck": [
-            "[B#4]",
+            "[B#3]",
+            "[G#5]",
             "[A#2]",
-            "[A#4]",
-            "[E#3]",
-            "[E#1]",
-            "[G#4]"
+            "[F#2]",
+            "[G#4]",
+            "[E#2]"
         ],
         "discard": [],
         "[A]": [
-            "[H#4]",
+            "[F#3]",
+            "[B#2]",
             "[H#3]",
-            "[B#5]",
-            "[B#2]"
+            "[H#5]"
         ],
         "[B]": [
-            "[F#1]",
+            "[H#2]",
+            "[G#1]",
             "[A#5]",
-            "[B#3]",
-            "[H#1]"
+            "[E#3]"
         ],
         "[E]": [
-            "[E#5]",
-            "[A#3]",
-            "[F#3]",
-            "[G#2]"
+            "[H#4]",
+            "[F#5]",
+            "[B#4]",
+            "[A#1]"
         ],
         "[F]": [
-            "[G#1]",
-            "[H#5]",
-            "[G#5]",
-            "[G#3]"
+            "[A#4]",
+            "[H#1]",
+            "[E#4]",
+            "[E#5]"
         ],
         "[G]": [
-            "[A#1]",
-            "[E#4]",
             "[B#1]",
-            "[F#2]"
+            "[G#2]",
+            "[B#5]",
+            "[A#3]"
         ],
         "[H]": [
-            "[H#2]",
-            "[E#2]",
+            "[G#3]",
+            "[F#1]",
             "[F#4]",
-            "[F#5]"
+            "[E#1]"
         ]
     },
     "spiceDeck": {
         "deck": [
-            "[TME-8]",
-            "[RO-14]",
             "[HRF-18]",
-            "[OG-10]",
-            "[WORM-3]",
-            "[WORM-1]",
             "[BL-12]",
-            "[WORM-6]",
-            "[FP]",
-            "[SR]",
-            "[WORM-2]",
-            "[SM-5]",
-            "[WORM-4]",
-            "[WPN-17",
-            "[HB-6]",
-            "[HE-16]",
+            "[CN-3]",
+            "[WORM-3]",
+            "[TME-8]",
             "[RC]",
             "[TGF]",
-            "[CS-2]",
-            "[CN-3]",
-            "[WORM-5]",
-            "[TME-8]",
-            "[WORM-3]",
-            "[WORM-5]",
+            "[WORM-2]",
+            "[WPN-17",
+            "[HB-6]",
+            "[WORM-1]",
+            "[HE-16]",
             "[FP]",
+            "[RO-14]",
+            "[SR]",
             "[WORM-4]",
+            "[CS-2]",
+            "[WORM-5]",
             "[SM-5]",
             "[OG-10]",
-            "[HRF-18]",
-            "[WORM-1]",
-            "[RO-14]",
-            "[RC]",
-            "[CS-2]",
-            "[CN-3]",
-            "[WORM-2]",
-            "[HB-6]",
-            "[HE-16]",
-            "[SR]",
             "[WORM-6]",
+            "[WORM-1]",
+            "[TME-8]",
+            "[RO-14]",
+            "[FP]",
+            "[SM-5]",
             "[WPN-17",
+            "[HB-6]",
+            "[RC]",
+            "[HE-16]",
+            "[CN-3]",
+            "[CS-2]",
+            "[WORM-4]",
             "[BL-12]",
-            "[TGF]"
+            "[HRF-18]",
+            "[WORM-6]",
+            "[OG-10]",
+            "[TGF]",
+            "[WORM-5]",
+            "[SR]",
+            "[WORM-2]",
+            "[WORM-3]"
         ],
         "discard-1": [],
         "discard-2": []
@@ -207,51 +236,51 @@
         "treachery": [],
         "spice": 10,
         "traitors": [
-            "[H#2]",
-            "[E#2]",
+            "[G#3]",
+            "[F#1]",
             "[F#4]",
-            "[F#5]"
+            "[E#1]"
         ]
     },
     "treachery": {
         "deck": [
-            "[POIS_D-3]",
-            "[KARAMA-2]",
+            "[PROJ_W-3]",
+            "[PROJ_D-3]",
+            "[POIS_W-4]",
+            "[PROJ_W-2]",
+            "[WORTHLESS-4]",
             "[WORTHLESS-1]",
+            "[GHOLA-1]",
+            "[TRUTH-2]",
+            "[KARAMA-2]",
+            "[POIS_W-3]",
+            "[HAJR-1]",
+            "[WEATHER-1]",
+            "[PROJ_W-4]",
+            "[PROJ_D-4]",
+            "[ATOMICS-1]",
+            "[PROJ_W-1]",
+            "[POIS_D-1]",
+            "[PROJ_D-1]",
+            "[WORTHLESS-5]",
+            "[HERO-1]",
+            "[POIS_D-2]",
+            "[HERO-2]",
+            "[POIS_D-3]",
+            "[PROJ_D-2]",
+            "[HERO-3]",
+            "[KARAMA-1]",
+            "[POIS_D-4]",
+            "[WORTHLESS-3]",
             "[WORTHLESS-2]",
             "[POIS_W-1]",
-            "[HAJR-1]",
-            "[WORTHLESS-3]",
-            "[GHOLA-1]",
-            "[POIS_W-4]",
-            "[ATOMICS-1]",
-            "[KARAMA-1]",
-            "[POIS_D-1]",
-            "[POIS_W-2]",
-            "[PROJ_W-3]",
-            "[HERO-2]",
-            "[HERO-1]",
             "[TRUTH-1]",
-            "[HERO-3]",
-            "[PROJ_W-2]",
-            "[PROJ_D-2]",
-            "[POIS_W-3]",
-            "[WEATHER-1]",
             "[LASEGUN-1]",
-            "[WORTHLESS-5]",
-            "[PROJ_W-4]",
-            "[WORTHLESS-4]",
-            "[POIS_D-2]",
-            "[PROJ_D-1]",
-            "[POIS_D-4]",
-            "[TRUTH-2]",
-            "[PROJ_D-3]",
-            "[PROJ_W-1]",
-            "[PROJ_D-4]"
+            "[POIS_W-2]"
         ]
     },
     "storm": {
         "location": 0,
-        "move": 13
+        "move": 11
     }
 }

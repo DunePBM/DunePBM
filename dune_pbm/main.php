@@ -270,6 +270,17 @@ function dune_printStatus($faction) {
     }
 }
 
+function dune_getWaiting() {
+    global $game, $info;
+    print '<p><b><u>We are waiting for: </u></b><br>';
+    foreach (array_keys($game['meta']['next']) as $x) {
+        if ($game['meta']['next'][$x] != 'wait.php') {
+            print $info['factions'][$x]['name'].'<br>';
+        }
+    }
+}
+
+
 function dune_moveStorm() {
     global $game, $info;
     for ($x = 0; $x < $game['storm']['move']; $x += 1) {

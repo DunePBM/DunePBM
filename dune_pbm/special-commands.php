@@ -61,7 +61,7 @@ function actionFunction_moveTokens() {
     $game['meta']['event'] = 'Special Command: move/remove tokens';
     $game['meta']['faction'] = $_SESSION['faction'];
     dune_writeData();
-    return '<script>alert("Action successful.");</script>';
+    return; //'<script>alert("Action successful.");</script>';
 }
 
 function actionFunction_placeSpice() {
@@ -72,6 +72,6 @@ function actionFunction_placeSpice() {
     $game['meta']['event'] = 'Special Command: Place/remove spice';
     $game['meta']['faction'] = $_SESSION['faction'];
     dune_writeData();
-    return '<script>alert("Action successful.");</script>';
+    return; //'<script>alert("Action successful.");</script>';
 }
 ?>

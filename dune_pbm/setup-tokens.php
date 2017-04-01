@@ -41,12 +41,12 @@ if (empty($_POST)){
 // Actions ########################################################
 if (!empty($_POST)){
     if (isset($_POST['st']) && ($_SESSION['faction'] == '[F]')) {
-        echo actionFunctionF();
+        actionFunctionF();
         refreshPage();
     }
 
     if (isset($_POST['token_loc']) && ($_SESSION['faction'] == '[B]')) {
-        echo actionFunctionB();
+        actionFunctionB();
         refreshPage();
     }
 }
@@ -57,15 +57,15 @@ function actionFunctionF() {
     if (($_POST['st'] + $_POST['stStar'] + $_POST['fww'] 
                     + $_POST['fwwStar'] + $_POST['fws'] 
                     + $_POST['fwsStar']) != 10) {
-        return '<script>alert("Action failed.");</script>';
+        return; //'<script>alert("Action failed.");</script>';
     }
     if (($_POST['stStar'] + $_POST['fwwStar'] 
                     + $_POST['fwsStar']) > 3) {                    
-        return '<script>alert("Action failed.");</script>';       
+        return; //'<script>alert("Action failed.");</script>';       
     }
     if (($_POST['stStar'] + $_POST['fwwStar'] 
                     + $_POST['fwsStar']) < 0) {                    
-        return '<script>alert("Action failed.");</script>';       
+        return; //'<script>alert("Action failed.");</script>';       
     }
     // Carry out action.
     dune_readData();
@@ -77,7 +77,7 @@ function actionFunctionF() {
     $game['meta']['next']['[F]'] = 'wait.php';
     $game['meta']['next']['[B]'] = 'setup-tokens.php';
     dune_writeData();
-    return '<script>alert("Action successful.");</script>';       
+    return; //'<script>alert("Action successful.");</script>';       
 }
 
 function actionFunctionB() {
@@ -89,6 +89,6 @@ function actionFunctionB() {
     $game['meta']['next']['[B]'] = 'wait.php';
     dune_writeData();
     include 'setup-treachery.php';
-    return '<script>alert("Action successful.");</script>';        
+    return; //'<script>alert("Action successful.");</script>';        
 }
 ?>

@@ -77,6 +77,6 @@ function actionFunction() {
         unset($game['traitorDeck']);
     }
     dune_writeData(); 
-    return '<script>alert("Action successful.");</script>';
+    return; //'<script>alert("Action successful.");</script>';
 }
 ?>

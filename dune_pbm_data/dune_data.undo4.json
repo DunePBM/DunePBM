@@ -1,20 +1,59 @@
 {
     "meta": {
         "game": "PHP Test Game",
+        "players": {
+            "[A]": {
+                "name": "a",
+                "email": "",
+                "password": "a"
+            },
+            "[B]": {
+                "name": "b",
+                "email": "",
+                "password": "b"
+            },
+            "[E]": {
+                "name": "e",
+                "email": "",
+                "password": "e"
+            },
+            "[F]": {
+                "name": "f",
+                "email": "",
+                "password": "f"
+            },
+            "[G]": {
+                "name": "g",
+                "email": "",
+                "password": "g"
+            },
+            "[H]": {
+                "name": "h",
+                "email": "",
+                "password": "h"
+            }
+        },
         "turn": 1,
-        "eventNumber": 10,
+        "eventNumber": 4,
         "repeat": false,
         "next": {
-            "[A]": "spice-round.php",
-            "[B]": "spice-round.php",
-            "[E]": "spice-round.php",
-            "[F]": "spice-round.php",
-            "[G]": "spice-round.php",
-            "[H]": "spice-round.php"
+            "[A]": "choose-traitors.php",
+            "[B]": "wait.php",
+            "[E]": "choose-traitors.php",
+            "[F]": "choose-traitors.php",
+            "[G]": "wait.php",
+            "[H]": "wait.php"
         },
-        "faction": "",
-        "event": "Treachery cards delt.",
-        "playerOrder": []
+        "faction": "[B]",
+        "event": "Bene Gesserit chose their traitor.",
+        "playerOrder": [
+            "[A]",
+            "[B]",
+            "[E]",
+            "[F]",
+            "[G]",
+            "[H]"
+        ]
     },
     "tokens": {
         "[OFF]": {
@@ -31,7 +70,7 @@
                 5
             ],
             "[F]": [
-                7,
+                17,
                 3
             ],
             "[G]": [
@@ -47,7 +86,9 @@
             "[A]": [
                 10,
                 0
-            ],
+            ]
+        },
+        "[PS]": {
             "[B]": [
                 1,
                 0
@@ -70,185 +111,189 @@
                 9000,
                 0
             ]
-        },
-        "[ST]": {
-            "[F]": [
-                5,
-                0
-            ]
-        },
-        "[FWW-3]": {
-            "[F]": [
-                5,
-                0
-            ]
         }
     },
     "treacheryDeck": {
         "deck": [],
         "discard": []
     },
+    "traitorDeck": {
+        "deck": [
+            "[F#5]",
+            "[H#4]",
+            "[B#2]",
+            "[B#5]",
+            "[H#2]",
+            "[H#5]"
+        ],
+        "discard": [],
+        "[A]": [
+            "[H#3]",
+            "[G#5]",
+            "[B#3]",
+            "[G#1]"
+        ],
+        "[B]": [
+            "[F#1]",
+            "[G#4]",
+            "[G#2]",
+            "[A#2]"
+        ],
+        "[E]": [
+            "[F#3]",
+            "[A#4]",
+            "[A#3]",
+            "[E#1]"
+        ],
+        "[F]": [
+            "[B#1]",
+            "[B#4]",
+            "[E#3]",
+            "[A#1]"
+        ],
+        "[G]": [
+            "[H#1]",
+            "[G#3]",
+            "[A#5]",
+            "[F#4]"
+        ],
+        "[H]": [
+            "[E#2]",
+            "[E#5]",
+            "[F#2]",
+            "[E#4]"
+        ]
+    },
     "spiceDeck": {
         "deck": [
+            "[OG-10]",
+            "[TGF]",
+            "[WORM-1]",
+            "[BL-12]",
+            "[WORM-6]",
+            "[WORM-2]",
+            "[RO-14]",
+            "[HRF-18]",
+            "[FP]",
+            "[SR]",
+            "[TME-8]",
+            "[RC]",
+            "[WORM-3]",
+            "[WPN-17",
+            "[CS-2]",
+            "[HE-16]",
             "[HB-6]",
-            "[WORM-1]",
-            "[RO-14]",
-            "[SM-5]",
-            "[WORM-6]",
-            "[HE-16]",
-            "[WPN-17",
-            "[WORM-3]",
+            "[CN-3]",
             "[WORM-5]",
+            "[WORM-4]",
+            "[SM-5]",
+            "[OG-10]",
+            "[HB-6]",
             "[CS-2]",
             "[CN-3]",
-            "[RC]",
-            "[TME-8]",
+            "[WORM-5]",
+            "[RO-14]",
             "[SR]",
             "[WORM-2]",
-            "[OG-10]",
-            "[HRF-18]",
             "[FP]",
             "[WORM-4]",
-            "[BL-12]",
-            "[TGF]",
-            "[WORM-5]",
-            "[OG-10]",
-            "[WORM-1]",
-            "[TGF]",
-            "[WORM-4]",
             "[RC]",
-            "[WORM-2]",
-            "[CS-2]",
+            "[WORM-3]",
+            "[BL-12]",
             "[TME-8]",
-            "[WPN-17",
-            "[SR]",
+            "[SM-5]",
+            "[WORM-1]",
             "[WORM-6]",
+            "[TGF]",
             "[HE-16]",
             "[HRF-18]",
-            "[WORM-3]",
-            "[RO-14]",
-            "[CN-3]",
-            "[SM-5]",
-            "[BL-12]",
-            "[FP]",
-            "[HB-6]"
+            "[WPN-17"
         ],
         "discard-1": [],
         "discard-2": []
     },
     "[A]": {
-        "treachery": [
-            "[POIS_D-3]"
-        ],
-        "spice": 10,
-        "traitors": [
-            "[G#4]"
-        ],
-        "notes": [
-            "Initial traitors: Soo Soo Sook (2), Feyd-Rautha (6), Shadout Mapes (3), Burseg (3)"
-        ]
+        "treachery": [],
+        "spice": 10
     },
     "[B]": {
-        "treachery": [
-            "[POIS_D-2]"
-        ],
+        "treachery": [],
         "spice": 5,
         "prediction": {
             "winningFaction": "[A]",
-            "winningTurn": 2
+            "winningTurn": 1
         },
         "notes": [
-            "Atredies predicted to win on turn 2.",
-            "Initial traitors: Captain Aramsham (5), Captain Iakin Nefud (2), Princess Irulan (5), Master Bewt (3)"
+            "Atreides predicted to win on turn 1."
         ],
         "traitors": [
-            "[E#2]"
+            "[F#1]"
         ]
     },
     "[E]": {
-        "treachery": [
-            "[KARAMA-2]"
-        ],
-        "spice": 10,
-        "traitors": [
-            "[B#2]"
-        ],
-        "notes": [
-            "Initial traitors: Lady Margot Fenring (5), Piter DeVries (3), Duncan Idaho (2), Esmar Tuek (3)"
-        ]
+        "treachery": [],
+        "spice": 10
     },
     "[F]": {
-        "treachery": [
-            "[PROJ_W-1]"
-        ],
-        "spice": 3,
-        "traitors": [
-            "[E#1]"
-        ],
-        "notes": [
-            "Initial traitors: Count Hasimir Fenring (6), Stilgar (7), Dr. Wellington Yueh (1), Bashar (2)"
-        ]
+        "treachery": [],
+        "spice": 3
     },
     "[G]": {
-        "treachery": [
-            "[PROJ_W-2]"
-        ],
+        "treachery": [],
         "spice": 5,
         "traitors": [
-            "[F#3]"
-        ],
-        "notes": [
-            "Initial traitors: Jamis (2), Guild Representative (1), Alia (5), Otheym (5)"
+            "[H#1]"
         ]
     },
     "[H]": {
-        "treachery": [
-            "[TRUTH-1]",
-            "[WORTHLESS-4]"
-        ],
+        "treachery": [],
         "spice": 10,
         "traitors": [
-            "[B#4]",
-            "[G#1]",
-            "[A#3]",
-            "[F#2]"
-        ],
-        "notes": [
-            "Initial traitors: Rev. Mother Ramallo (5), Staban Tuek (5), Gurney Halleck (4), Chani (6)"
+            "[E#2]",
+            "[E#5]",
+            "[F#2]",
+            "[E#4]"
         ]
     },
     "treachery": {
         "deck": [
-            "[GHOLA-1]",
-            "[POIS_W-4]",
-            "[HERO-1]",
-            "[KARAMA-1]",
-            "[WORTHLESS-5]",
-            "[LASEGUN-1]",
             "[ATOMICS-1]",
-            "[WEATHER-1]",
-            "[POIS_W-3]",
-            "[PROJ_D-4]",
-            "[PROJ_W-4]",
-            "[PROJ_D-1]",
-            "[HAJR-1]",
+            "[PROJ_W-2]",
             "[POIS_D-4]",
-            "[WORTHLESS-1]",
-            "[POIS_W-1]",
+            "[WORTHLESS-5]",
             "[TRUTH-2]",
-            "[POIS_D-1]",
-            "[PROJ_D-3]",
-            "[HERO-2]",
-            "[WORTHLESS-2]",
-            "[HERO-3]",
-            "[PROJ_W-3]",
+            "[WORTHLESS-4]",
+            "[WORTHLESS-1]",
+            "[POIS_D-3]",
             "[WORTHLESS-3]",
+            "[PROJ_D-3]",
+            "[POIS_D-2]",
+            "[GHOLA-1]",
+            "[POIS_D-1]",
+            "[KARAMA-1]",
+            "[PROJ_W-1]",
+            "[PROJ_D-4]",
+            "[WORTHLESS-2]",
+            "[WEATHER-1]",
+            "[HAJR-1]",
+            "[PROJ_W-3]",
             "[POIS_W-2]",
-            "[PROJ_D-2]"
+            "[KARAMA-2]",
+            "[POIS_W-4]",
+            "[PROJ_D-2]",
+            "[HERO-3]",
+            "[POIS_W-3]",
+            "[PROJ_D-1]",
+            "[HERO-1]",
+            "[HERO-2]",
+            "[POIS_W-1]",
+            "[LASEGUN-1]",
+            "[PROJ_W-4]",
+            "[TRUTH-1]"
         ]
     },
     "storm": {
         "location": 0,
-        "move": 12
+        "move": 11
     }
 }

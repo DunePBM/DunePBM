@@ -1,6 +1,38 @@
 {
     "meta": {
         "game": "PHP Test Game",
+        "players" : {
+			"[A]": {
+				"name": "a",
+				"email": "",
+				"password": "a"
+            },
+			"[B]": {
+				"name": "b",
+				"email": "",
+				"password": "b"
+            },
+			"[E]": {
+				"name": "e",
+				"email": "",
+				"password": "e"
+			},
+			"[F]": {
+				"name": "f",
+				"email": "",
+				"password": "f"
+			},
+			"[G]": {
+				"name": "g",
+				"email": "",
+				"password": "g"
+			},
+			"[H]": {
+				"name": "h",
+				"email": "",
+				"password": "h"
+			}
+        },
         "turn": 1,
         "eventNumber": 0,
         "repeat": false,
@@ -14,7 +46,7 @@
 		},
         "faction": "",
         "event": "",
-        "playerOrder": []
+        "playerOrder": ["[A]", "[B]", "[E]", "[F]", "[G]", "[H]"]
     },
     "tokens": {
         "[OFF]": {

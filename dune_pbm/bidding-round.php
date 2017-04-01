@@ -49,10 +49,10 @@ function actionFunction() {
     // Checks input.
     if (!in_array($_POST['winningFaction'], 
                     array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]'))) {
-        return '<script>alert("Action failed: Not a valid faction.");</script>';
+        return; //'<script>alert("Action failed: Not a valid faction.");</script>';
     }
     if (!is_int((int) $_POST['winningTurn'])) {
-        return '<script>alert("Action failed: Winning turn is not a number.");</script>';
+        return; //'<script>alert("Action failed: Winning turn is not a number.");</script>';
     }
     // Carry Out Action.
     $game['[B]']['prediction']['winningFaction'] = $_POST['winningFaction'];
@@ -68,6 +68,6 @@ function actionFunction() {
     }
     $game['meta']['next']['[H]'] = 'wait.php';
     dune_writeData();
-    return '<script>alert("Action successful.");</script>';
+    return; //'<script>alert("Action successful.");</script>';
 }
 ?>

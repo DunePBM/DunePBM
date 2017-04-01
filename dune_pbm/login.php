@@ -2,10 +2,18 @@
 //Login Script
 //To be called by index.php.
 
-if (!empty($_POST)) {
-	$_SESSION['faction'] = $_POST['faction'];
-	//echo $_SESSION['faction'];
-	header('Location: index.php');
+global $game, $info;
+
+if (isset($_POST['name']) && isset($_POST['password'])) {
+    foreach (array_keys($game['meta']['players']) as $x) {
+        $tempName = $_POST['name'];
+        $tempPassword = $_POST['password'];
+        if (($game['meta']['players'][$x]['name'] == $tempName)
+                        && ($game['meta']['players'][$x]['password'] == $tempPassword)) {
+                $_SESSION['faction'] = $x;
+        }
+    }
+    refreshPage();
 } 
 
 else {
@@ -14,15 +22,7 @@ else {
 
 	<form action=\'#\' method="post">
 		Name: <input id="name" name="name" type="text"/> <br>
-		Password: <input id="name" name="name" type="text"/> <br>
-		Faction:  <select name="faction">
-			<option value="[A]">Atredies</option>
-			<option value="[B]">Bene Gesserit</option>
-			<option value="[E]">Emperor</option>
-			<option value="[F]">Fremen</option>
-			<option value="[G]">Guild</option>
-			<option value="[H]">Harkonnen</option>
-		</select> 
+		Password: <input id="password" name="password" type="text"/> <br>
 		<input type="submit" value="Submit">
 	</form>';
 }

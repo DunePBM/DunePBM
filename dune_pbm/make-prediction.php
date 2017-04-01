@@ -28,10 +28,8 @@ if (!empty($_POST)){
     if (isset($_POST['winningFaction']) && 
                     isset($_POST['winningTurn']) &&
                     $_SESSION['faction'] == '[B]') {
-        echo actionFunction();
-        if (!$debug) {
-            echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
-        }
+        actionFunction();
+        refreshPage();
     }
 }
 
@@ -41,10 +39,10 @@ function actionFunction() {
     // Checks input.
     if (!in_array($_POST['winningFaction'], 
                     array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]'))) {
-        return '<script>alert("Action failed: Not a valid faction.");</script>';
+        return; //'<script>alert("Action failed: Not a valid faction.");</script>';
     }
     if (!is_int((int) $_POST['winningTurn'])) {
-        return '<script>alert("Action failed: Winning turn is not a number.");</script>';
+        return; //'<script>alert("Action failed: Winning turn is not a number.");</script>';
     }
     // Carry Out Action.
     $game['[B]']['prediction']['winningFaction'] = $_POST['winningFaction'];
@@ -60,6 +58,6 @@ function actionFunction() {
     }
     $game['meta']['next']['[H]'] = 'wait.php';
     dune_writeData();
-    return '<script>alert("Action successful.");</script>';
+    return; //'<script>alert("Action successful.");</script>';
 }
 ?>
