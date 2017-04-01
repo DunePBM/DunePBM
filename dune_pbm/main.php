@@ -195,7 +195,7 @@ function dune_getTerritory($title, $varName, $close, $all=false) {
 
 function dune_printStatus($faction) {
     global $game, $info;
-    print '<br><h3>'.$info['factions'][$faction]['name'].' Game Status:</h3><br>';
+    print '<h3>Game Status:</h3>';
     // The Storm
     print '<b><u>Storm</u>:</b> ';
     if ($game['storm']['location'] == 0) {
@@ -239,7 +239,7 @@ function dune_printStatus($faction) {
     // Traitors
     print '<b><u>Traitors </b>(Hidden)<b></u>:</b><br>';
     if (empty($game[$faction]['traitors'])) {
-        print 'None';
+        print 'None<br>';
     }
     else {
         foreach ($game[$faction]['traitors'] as $y) {
@@ -270,6 +270,20 @@ function dune_printStatus($faction) {
     }
 }
 
-function dune_moveStorm($num) {
+function dune_moveStorm() {
+    global $game, $info;
+    for ($x = 0; $x < $game['storm']['move']; $x += 1) {
+        print 'test';
+        foreach (array_keys($game['tokens']) as $y) {
+            if ($info['territory'][$y]['sector'] == $game['storm']['location']) {
+                foreach ($game['tokens'][$y] as $z) {
+                    dune_gmMoveTokens($z, 
+                                $game['tokens'][$y][$z][0],  
+                                $game['tokens'][$y][$z][1],
+                                $y, '[TANKS]');
+                }
+            }
+        }
+    }
 }
 ?>

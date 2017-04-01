@@ -1,6 +1,6 @@
 {
     "factions": {
-        "[A]": {"name": "Atredies", "leader": ""},
+        "[A]": {"name": "Atreides", "leader": ""},
         "[B]": {"name": "Bene Gesserit", "leader": ""},
         "[E]": {"name": "Emperor", "leader": ""},
         "[F]": {"name": "Fremen", "leader": ""},

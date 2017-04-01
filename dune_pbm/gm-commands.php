@@ -10,12 +10,12 @@ if (empty($_POST)){
 	'<h2>GM Commands</h2>';
 
     echo
-    '<form action="#" method="post">
-    Actions:  <select name="gm_action">
-        <option value="dump">Dump Data</option>			
-        <option value="reset">Reset Game</option>			
-    </select> 
-    <input type="submit" value="Submit">
+    '<form action="" method="post">
+    <button name="gm_action" value="dump">Dump Data</button>
+    </form>
+    
+    <form action="" method="post">
+    <button name="gm_action" value="reset">Reset Game</button>
     </form>';
 }
 

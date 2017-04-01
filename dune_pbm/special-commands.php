@@ -10,11 +10,17 @@ if (empty($_POST)){
 	'<h3>'.$info['factions'][$_SESSION['faction']]['name'].' Special Commands:</h3><br>';
     
     echo
+    '<form action="" method="post">
+    <h3>Undo Last Move</h3>
+    <button name="special_action" value="undoMove">Undo Last Move</button>
+    </form>';
+    
+    echo
     '<form action="#" method="post">
     <h3>Move Tokens</h3>
-    <p>move 
+    <p>Move 
         <input id="move_token_number" name="move_token_number" type="number" min=-100 max=100 value="0"/> /
-        <input id="move_number_star"  name="move_number_star" type="number" min=-100 max=100 value="0"/> *';
+        <input id="move_number_star"  name="move_number_star" type="number" min=-100 max=100 value="0"/> * tokens';
         echo dune_getTerritory('from location: ', 'token_loc_start', false, true);
         echo dune_getTerritory('to location location: ', 'token_loc_end', true, true);
         echo '</p></form>';
@@ -24,7 +30,7 @@ if (empty($_POST)){
     <h3>Place/Remvoe Spice</h3>
     <p>Place 
         <input id="place_spice_number" name="place_spice_number" type="number" min=-100 max=100 value="0"/>';
-        echo dune_getTerritory('on location: ', 'token_loc', true);
+        echo dune_getTerritory('spice on location: ', 'token_loc', true);
         echo '</p></form>';            
 }
 
@@ -37,6 +43,12 @@ if (!empty($_POST)){
     if (isset($_POST['place_spice_number'])) {
         echo actionFunction_placeSpice();
         refreshPage();
+    }
+    if (isset($_POST['special_action'])) {
+        if ($_POST['special_action'] == 'undoMove'){
+            dune_undoMove();
+            refreshPage();
+        }
     }
 }
 

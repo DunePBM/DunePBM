@@ -17,8 +17,8 @@ if (!isset($game['spice_round'])) {
             dune_dealSpice($i);
         }
         dune_dealSpice($i);
-        $game['spice_round']['spice-'.$i]['location'] = $game['spice_deck']['discard-'.$i];
-        $game['spice_round']['spice-'.$i]['spice'] = $info[############################[$game['spice_deck']['discard-'.$i]]['spice'];
+        $game['spice_round']['spice-'.$i]['location'] = $game['spice_deck']['discard-'.$i];#############
+        $game['spice_round']['spice-'.$i]['spice'] = $info['########[$game['spice_deck']['discard-'.$i]]['spice'];
     }
     
     // If a nexus occours.

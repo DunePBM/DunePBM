@@ -12,7 +12,7 @@ dune_dealTreachery('[H]');
 
 $game['meta']['event'] = 'Treachery cards delt.';
 
-$game['meta']['faction'] = '';
+$game['meta']['faction'] = '[DUNE]';
 foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
     $game['meta']['next'][$faction] = 'spice-round.php';
 }

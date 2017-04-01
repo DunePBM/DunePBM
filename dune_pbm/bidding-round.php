@@ -6,9 +6,7 @@
 // Forms ###########################################################
 if (empty($_POST)){
     echo 
-	'<h3>'.$info['factions'][$_SESSION['faction']]['name'].
-    ' Bidding Round:</h3>';
-    
+	'Bidding Round:</h3>';    
     for
     <textarea rows="10" cols="20" id="text">
     
