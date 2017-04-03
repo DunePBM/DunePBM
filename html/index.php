@@ -17,12 +17,12 @@ include_once $gamePath.'main.php';
 <h1>Dune PBM</h1>
 
 <?php
-global $gamePath;
+global $gamePath, $game, $info, $duneForum, $duneMail;
 if (!isset($_SESSION['faction'])) {
     dune_readData();
     include $gamePath.'login.php';
     dune_getWaiting();
-} 
+}
 if (isset($_SESSION['override']) && isset($_SESSION['faction'])) {
     dune_readData();
     include $gamePath.'header.php';

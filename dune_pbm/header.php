@@ -28,6 +28,16 @@ if (isset($_POST['header_action'])) {
         session_destroy();
         refreshPage();
     }
+    if ($_POST['header_action'] == 'forum') {
+        global $game;
+        $_SESSION['override'] = 'forum.php';
+        refreshPage();
+    }
+    if ($_POST['header_action'] == 'mail') {
+        global $game;
+        $_SESSION['override'] = 'mail.php';
+        refreshPage();
+    }
     if ($_POST['header_action'] == 'status') {
         dune_printStatus($_SESSION['faction']);
     }

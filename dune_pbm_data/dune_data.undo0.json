@@ -34,18 +34,18 @@
             }
         },
         "turn": 1,
-        "eventNumber": 3,
+        "eventNumber": 1,
         "repeat": false,
         "next": {
-            "[A]": "choose-traitors.php",
-            "[B]": "wait.php",
-            "[E]": "choose-traitors.php",
-            "[F]": "choose-traitors.php",
-            "[G]": "choose-traitors.php",
+            "[A]": "wait.php",
+            "[B]": "make-prediction.php",
+            "[E]": "wait.php",
+            "[F]": "wait.php",
+            "[G]": "wait.php",
             "[H]": "wait.php"
         },
-        "faction": "[B]",
-        "event": "Bene Gesserit chose their traitor.",
+        "faction": "",
+        "event": "",
         "playerOrder": [
             "[A]",
             "[B]",
@@ -119,95 +119,95 @@
     },
     "traitorDeck": {
         "deck": [
-            "[B#3]",
-            "[G#5]",
-            "[A#2]",
-            "[F#2]",
-            "[G#4]",
-            "[E#2]"
+            "[E#4]",
+            "[H#1]",
+            "[F#4]",
+            "[E#5]",
+            "[E#1]",
+            "[A#4]"
         ],
         "discard": [],
         "[A]": [
             "[F#3]",
-            "[B#2]",
-            "[H#3]",
-            "[H#5]"
+            "[F#2]",
+            "[B#3]",
+            "[A#2]"
         ],
         "[B]": [
-            "[H#2]",
-            "[G#1]",
-            "[A#5]",
-            "[E#3]"
+            "[G#4]",
+            "[E#3]",
+            "[B#5]",
+            "[B#2]"
         ],
         "[E]": [
+            "[H#3]",
+            "[E#2]",
             "[H#4]",
-            "[F#5]",
-            "[B#4]",
             "[A#1]"
         ],
         "[F]": [
-            "[A#4]",
-            "[H#1]",
-            "[E#4]",
-            "[E#5]"
+            "[F#1]",
+            "[G#3]",
+            "[B#1]",
+            "[H#2]"
         ],
         "[G]": [
-            "[B#1]",
+            "[B#4]",
+            "[F#5]",
             "[G#2]",
-            "[B#5]",
-            "[A#3]"
+            "[G#1]"
         ],
         "[H]": [
-            "[G#3]",
-            "[F#1]",
-            "[F#4]",
-            "[E#1]"
+            "[A#5]",
+            "[A#3]",
+            "[G#5]",
+            "[H#5]"
         ]
     },
     "spiceDeck": {
         "deck": [
-            "[HRF-18]",
-            "[BL-12]",
+            "[WORM-2]",
+            "[OG-10]",
+            "[RC]",
             "[CN-3]",
+            "[TME-8]",
+            "[SM-5]",
+            "[HRF-18]",
+            "[TGF]",
+            "[SR]",
+            "[WORM-5]",
+            "[WORM-6]",
+            "[WORM-1]",
+            "[HE-16]",
+            "[WORM-4]",
+            "[CS-2]",
+            "[RO-14]",
+            "[WPN-17",
             "[WORM-3]",
-            "[TME-8]",
-            "[RC]",
-            "[TGF]",
-            "[WORM-2]",
-            "[WPN-17",
-            "[HB-6]",
-            "[WORM-1]",
-            "[HE-16]",
             "[FP]",
-            "[RO-14]",
-            "[SR]",
-            "[WORM-4]",
-            "[CS-2]",
-            "[WORM-5]",
-            "[SM-5]",
-            "[OG-10]",
-            "[WORM-6]",
-            "[WORM-1]",
-            "[TME-8]",
-            "[RO-14]",
-            "[FP]",
-            "[SM-5]",
-            "[WPN-17",
-            "[HB-6]",
-            "[RC]",
-            "[HE-16]",
-            "[CN-3]",
-            "[CS-2]",
-            "[WORM-4]",
             "[BL-12]",
-            "[HRF-18]",
+            "[HB-6]",
+            "[HB-6]",
             "[WORM-6]",
+            "[CN-3]",
             "[OG-10]",
-            "[TGF]",
-            "[WORM-5]",
-            "[SR]",
             "[WORM-2]",
-            "[WORM-3]"
+            "[TME-8]",
+            "[WORM-4]",
+            "[TGF]",
+            "[CS-2]",
+            "[WORM-5]",
+            "[WPN-17",
+            "[SR]",
+            "[RC]",
+            "[WORM-1]",
+            "[HE-16]",
+            "[WORM-3]",
+            "[BL-12]",
+            "[FP]",
+            "[RO-14]",
+            "[HRF-18]",
+            "[SM-5]"
         ],
         "discard-1": [],
         "discard-2": []
@@ -218,17 +218,7 @@
     },
     "[B]": {
         "treachery": [],
-        "spice": 5,
-        "prediction": {
-            "winningFaction": "[E]",
-            "winningTurn": 6
-        },
-        "notes": [
-            "Emperor predicted to win on turn 6."
-        ],
-        "traitors": [
-            "[H#2]"
-        ]
+        "spice": 5
     },
     "[E]": {
         "treachery": [],
@@ -246,51 +236,51 @@
         "treachery": [],
         "spice": 10,
         "traitors": [
-            "[G#3]",
-            "[F#1]",
-            "[F#4]",
-            "[E#1]"
+            "[A#5]",
+            "[A#3]",
+            "[G#5]",
+            "[H#5]"
         ]
     },
     "treachery": {
         "deck": [
-            "[PROJ_W-3]",
-            "[PROJ_D-3]",
-            "[POIS_W-4]",
-            "[PROJ_W-2]",
-            "[WORTHLESS-4]",
-            "[WORTHLESS-1]",
-            "[GHOLA-1]",
-            "[TRUTH-2]",
-            "[KARAMA-2]",
-            "[POIS_W-3]",
-            "[HAJR-1]",
-            "[WEATHER-1]",
-            "[PROJ_W-4]",
-            "[PROJ_D-4]",
-            "[ATOMICS-1]",
-            "[PROJ_W-1]",
-            "[POIS_D-1]",
-            "[PROJ_D-1]",
-            "[WORTHLESS-5]",
-            "[HERO-1]",
-            "[POIS_D-2]",
-            "[HERO-2]",
-            "[POIS_D-3]",
-            "[PROJ_D-2]",
-            "[HERO-3]",
-            "[KARAMA-1]",
-            "[POIS_D-4]",
-            "[WORTHLESS-3]",
-            "[WORTHLESS-2]",
             "[POIS_W-1]",
+            "[WORTHLESS-4]",
+            "[POIS_D-1]",
+            "[POIS_D-4]",
+            "[POIS_W-4]",
+            "[HERO-3]",
+            "[TRUTH-2]",
+            "[HERO-1]",
+            "[HERO-2]",
+            "[GHOLA-1]",
+            "[ATOMICS-1]",
+            "[WEATHER-1]",
+            "[POIS_W-3]",
+            "[WORTHLESS-5]",
+            "[WORTHLESS-3]",
+            "[PROJ_W-1]",
+            "[WORTHLESS-1]",
+            "[KARAMA-2]",
+            "[POIS_W-2]",
+            "[PROJ_W-4]",
             "[TRUTH-1]",
+            "[POIS_D-2]",
+            "[PROJ_W-2]",
+            "[HAJR-1]",
+            "[PROJ_D-2]",
+            "[KARAMA-1]",
+            "[PROJ_D-1]",
+            "[PROJ_W-3]",
+            "[PROJ_D-4]",
             "[LASEGUN-1]",
-            "[POIS_W-2]"
+            "[PROJ_D-3]",
+            "[WORTHLESS-2]",
+            "[POIS_D-3]"
         ]
     },
     "storm": {
         "location": 0,
-        "move": 11
+        "move": 5
     }
 }

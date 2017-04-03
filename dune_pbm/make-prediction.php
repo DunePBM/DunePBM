@@ -10,7 +10,7 @@ if (empty($_POST)){
 		'<h3>Bene Gesserit:</h3>
 		<form action="#" method="post">
 			Predict winning faction: <select name="winningFaction">
-                <option value="[A]">Atredies</option>
+                <option value="[A]">Atreides</option>
                 <option value="[E]">Emperor</option>
                 <option value="[F]">Fremen</option>
                 <option value="[G]">Guild</option>

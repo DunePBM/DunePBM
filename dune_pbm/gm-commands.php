@@ -30,8 +30,15 @@ if (isset($_POST['gm_action'])) {
     if ($_POST['gm_action'] == 'dump') {
         global $game;
         print '<pre>';
+        print '<br><b>Dune Data</b><br>';
         print json_encode($game, JSON_PRETTY_PRINT);
+        print '<br><br><b>Dune Forum</b><br>';
+        print json_encode($duneForum, JSON_PRETTY_PRINT);
+        print '<br><br><b>Dune Mail</b><br>';
+        print json_encode($duneMail, JSON_PRETTY_PRINT);
+        print '<br><br><b>SESSION</b><br>';
         print_r($_SESSION);
+        print '<br><br><b>POST</b><br>';
         print_r($_POST);
         print '</pre>';
     }

@@ -2,6 +2,8 @@
 //Called by index.php.
 $dataPath = '/var/www/dune_pbm_data/';
 $game = "";
+$duneForum = array();
+$duneMail = array();
 $debug = false;
 $info = json_decode(file_get_contents($gamePath.'dune_info.json'), true);
 
@@ -16,8 +18,10 @@ function refreshPage() {
 }
 
 function dune_setupGame() {
-    global $dataPath, $gamePath, $game, $info;
+    global $dataPath, $gamePath, $game, $info, $duneForum, $duneMail;
 	$game = json_decode(file_get_contents($gamePath.'dune_data_start.json'), true);
+    $duneForum = json_decode(file_get_contents($gamePath.'dune_forum_start.json'), true);
+    $duneMail = json_decode(file_get_contents($gamePath.'dune_mail_start.json'), true);
     // Treachery Card Setup
     $treacheryDeck = array_keys($info['treachery']);
     shuffle($treacheryDeck);
@@ -42,17 +46,38 @@ function dune_setupGame() {
     $game['storm']['location'] = 0;
     $game['storm']['move'] = mt_rand(1, 18);
     dune_writeData();
+    dune_writeForum();
+    dune_writeMail();
 }
 
-function dune_readData() {
-	global $dataPath, $game;
+function dune_readData($fm = true) {
+	global $dataPath, $game, $duneForum, $duneMail;
 	$file = $dataPath.'dune_data'; // eclude the extension.
 	$game = json_decode(file_get_contents($file.'.json'), true);
-	if (!isset($game)) {print 'ERROR REDING FILE';}
+    if ($fm) {
+        dune_readForum();
+        dune_readMail();
+    }
+    if (!isset($game)) {print 'ERROR REDING FILE';}
+}
+
+function dune_readForum() {
+	global $dataPath, $game, $duneForum, $duneMail;
+	$file = $dataPath.'dune_forum'; // eclude the extension.
+    $duneForum = json_decode(file_get_contents($file.'.json'), true);
+    if (!isset($game)) {print 'ERROR REDING FILE';}
+    
+}
+
+function dune_readMail() {
+	global $dataPath, $game, $duneForum, $duneMail;
+    $file = $dataPath.'dune_mail'; // eclude the extension.
+    $duneMail = json_decode(file_get_contents($file.'.json'), true);
+    if (!isset($game)) {print 'ERROR REDING FILE';}
 }
 
 function dune_writeData() {
-	global $dataPath, $game;
+	global $dataPath, $game, $duneForum, $duneMail;
     $maxUndo = 5;
 	$file = $dataPath.'dune_data'; // eclude the extension.
 	if (isset($game)) {
@@ -72,6 +97,48 @@ function dune_writeData() {
         file_put_contents($file.'.json', json_encode($game, JSON_PRETTY_PRINT));
 		file_put_contents($file.'.'.time().'.json', json_encode($game, JSON_PRETTY_PRINT));
 	} else {print 'ERROR WRITING FILE';}
+}
+
+function dune_writeForum() {
+	global $dataPath, $game, $duneForum, $duneMail;
+    $file = $dataPath.'dune_forum'; // eclude the extension.
+    file_put_contents($file.'.json', json_encode($duneForum, JSON_PRETTY_PRINT));
+}
+
+function dune_writeMail() {
+	global $dataPath, $game, $duneForum, $duneMail;
+    $file = $dataPath.'dune_mail'; // eclude the extension.
+    file_put_contents($file.'.json', json_encode($duneMail, JSON_PRETTY_PRINT));
+}
+
+function dune_postForum($message, $gm = false) {
+    global $game, $info, $duneForum, $duneMail;
+    if (isset($_SESSION['faction'])) {
+        dune_readForum();
+        $dunePost = array();
+        $dunePost['faction'] = $_SESSION['faction'];
+        if ($gm == true) {
+            $dunePost['faction'] = '[DUNE]';
+        }
+        $dunePost['time'] = (string) time();
+        $dunePost['message'] = $message;
+        array_push($duneForum, $dunePost);
+    }
+    dune_writeForum();
+}
+
+function dune_postMail($toFaction, $message) {
+    global $game, $info, $duneForum, $duneMail;
+    if (isset($_SESSION['faction'])) {
+        dune_mailForum();
+        $dunePost = array();
+        $dunePost['fromFaction'] = $_SESSION['faction'];
+        $dunePost['toFaction'] = $toFaction;
+        $dunePost['message'] = $message;
+        $dunePost['time'] = (string) time();
+        array_push($duneMail, $dunePost);
+    }
+    dune_writeMail();
 }
 
 function dune_undoMove() {
@@ -160,7 +227,7 @@ function dune_checkSpice() {
 function dune_discard($fromDeck, $fromFaction, $indexArray, $toDiscard = 'discard') {
     global $game;
     if (is_int($indexArray)) {
-        $indexSArray = array($indexArray);
+        $indexArray = array($indexArray);
     }
     rsort($indexArray);
     for ($i = 0; $i < count($indexArray); $i += 1) {
