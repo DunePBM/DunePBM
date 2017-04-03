@@ -103,12 +103,14 @@ function dune_writeForum() {
 	global $dataPath, $game, $duneForum, $duneMail;
     $file = $dataPath.'dune_forum'; // eclude the extension.
     file_put_contents($file.'.json', json_encode($duneForum, JSON_PRETTY_PRINT));
+    file_put_contents($file.'.'.time().'.json', json_encode($game, JSON_PRETTY_PRINT));
 }
 
 function dune_writeMail() {
 	global $dataPath, $game, $duneForum, $duneMail;
     $file = $dataPath.'dune_mail'; // eclude the extension.
     file_put_contents($file.'.json', json_encode($duneMail, JSON_PRETTY_PRINT));
+    file_put_contents($file.'.'.time().'.json', json_encode($game, JSON_PRETTY_PRINT));
 }
 
 function dune_postForum($message, $gm = false) {
@@ -117,7 +119,7 @@ function dune_postForum($message, $gm = false) {
         dune_readForum();
         $dunePost = array();
         $dunePost['faction'] = $_SESSION['faction'];
-        if ($gm == true) {
+        if ($gm) {
             $dunePost['faction'] = '[DUNE]';
         }
         $dunePost['time'] = (string) time();
@@ -127,16 +129,23 @@ function dune_postForum($message, $gm = false) {
     dune_writeForum();
 }
 
-function dune_postMail($toFaction, $message) {
+function dune_postMail($message, $toFaction, $gm=false) {
     global $game, $info, $duneForum, $duneMail;
     if (isset($_SESSION['faction'])) {
-        dune_mailForum();
+        dune_readMail();
         $dunePost = array();
         $dunePost['fromFaction'] = $_SESSION['faction'];
+        if ($gm) {
+            $dunePost['faction'] = '[DUNE]';
+        }
         $dunePost['toFaction'] = $toFaction;
         $dunePost['message'] = $message;
         $dunePost['time'] = (string) time();
-        array_push($duneMail, $dunePost);
+        array_push($duneMail[$toFaction]['inbox'], $dunePost);
+        array_push($duneMail[$toFaction]['inbox'], $dunePost);
+        if (!$gm) {
+            array_push($duneMail[$_SESSION['faction']]['sent'], $dunePost);
+        }
     }
     dune_writeMail();
 }

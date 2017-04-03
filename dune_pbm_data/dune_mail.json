@@ -6,6 +6,30 @@
                 "fromFaction": "[DUNE]",
                 "message": "Welcome to DunePBM",
                 "time": ""
+            },
+            {
+                "fromFaction": "[B]",
+                "toFaction": "[A]",
+                "message": "ZTesyt",
+                "time": "1491246681"
+            },
+            {
+                "fromFaction": "[B]",
+                "toFaction": "[A]",
+                "message": "ZTesyt",
+                "time": "1491246681"
+            },
+            {
+                "fromFaction": "[B]",
+                "toFaction": "[A]",
+                "message": "test",
+                "time": "1491246754"
+            },
+            {
+                "fromFaction": "[B]",
+                "toFaction": "[A]",
+                "message": "test",
+                "time": "1491246754"
             }
         ],
         "sent": []
@@ -39,6 +63,18 @@
                 "fromFaction": "[DUNE]",
                 "message": "Welcome to DunePBM",
                 "time": ""
+            },
+            {
+                "fromFaction": "[B]",
+                "toFaction": "[F]",
+                "message": "Test",
+                "time": "1491246787"
+            },
+            {
+                "fromFaction": "[B]",
+                "toFaction": "[F]",
+                "message": "Test",
+                "time": "1491246787"
             }
         ],
         "sent": []
@@ -64,5 +100,8 @@
             }
         ],
         "sent": []
+    },
+    "": {
+        "sent": null
     }
 }
