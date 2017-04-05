@@ -22,13 +22,16 @@ function dune_setupGame() {
 	$game = json_decode(file_get_contents($gamePath.'dune_data_start.json'), true);
     $duneForum = json_decode(file_get_contents($gamePath.'dune_forum_start.json'), true);
     $duneMail = json_decode(file_get_contents($gamePath.'dune_mail_start.json'), true);
+    // Shuffle Player Dots
+    shuffle($game['meta']['playerDots']);
+    $game['meta']['playerOrder'] = $game['meta']['playerDots'];
     // Treachery Card Setup
     $treacheryDeck = array_keys($info['treachery']);
     shuffle($treacheryDeck);
     $game['treachery']['deck'] = $treacheryDeck;
     // Spice Card Setup
-    $spiceDeck1 = array_keys($info['spice_deck']);
-    $spiceDeck2 = array_keys($info['spice_deck']);
+    $spiceDeck1 = array_keys($info['spiceDeck']);
+    $spiceDeck2 = array_keys($info['spiceDeck']);
     shuffle($spiceDeck1);
     shuffle($spiceDeck2);
     $game['spiceDeck']['deck'] = array_merge($spiceDeck1, $spiceDeck2);
@@ -122,7 +125,7 @@ function dune_postForum($message, $gm = false) {
         if ($gm) {
             $dunePost['faction'] = '[DUNE]';
         }
-        $dunePost['time'] = (string) time();
+        $dunePost['time'] = (string) $game['meta']['eventNumber'].': '.(string) time();
         $dunePost['message'] = $message;
         array_push($duneForum, $dunePost);
     }
@@ -140,7 +143,7 @@ function dune_postMail($message, $toFaction, $gm=false) {
         }
         $dunePost['toFaction'] = $toFaction;
         $dunePost['message'] = $message;
-        $dunePost['time'] = (string) time();
+        $dunePost['time'] = (string) $game['meta']['eventNumber'].': '.(string) time();
         array_push($duneMail[$toFaction]['inbox'], $dunePost);
         array_push($duneMail[$toFaction]['inbox'], $dunePost);
         if (!$gm) {
@@ -210,27 +213,33 @@ function dune_dealTreachery($toFaction) {
 
 function dune_dealSpice($toDiscard) {
     global $game;
-    if (empty($game['spice_deck']['deck'])) {
-        $game['spice_deck']['deck'] = $game['$fromDeck']['discard-1'];
-        $game['spice_deck']['deck'] .= $game['$fromDeck']['discard-2'];
-        $game['spice_deck']['discard-1'] = array();
-        $game['spice_deck']['discard-2'] = array();
-        shuffle($game['spice_deck']['deck']);
+    if (empty($game['spiceDeck']['deck'])) {
+        $game['spiceDeck']['deck'] = array_merge(
+                                    $game['spiceDeck']['discard-1'],
+                                    $game['spiceDeck']['discard-2']);
+        $game['spiceDeck']['discard-1'] = array();
+        $game['spiceDeck']['discard-2'] = array();
+        shuffle($game['spiceDeck']['deck']);
     }
-    array_unshift($game['spice_deck']['discard-'.$toDiscard], 
-                            array_shift($game['spice_deck']['deck']));
+    array_unshift($game['spiceDeck']['discard-'.$toDiscard], 
+                            array_shift($game['spiceDeck']['deck']));
+    dune_writeData();
 }
 
-function dune_checkSpice() {
-    global $game;
-    if (empty($game['spice_deck']['deck'])) {
-        $game['spice_deck']['deck'] = $game['$fromDeck']['discard-1'];
-        $game['spice_deck']['deck'] .= $game['$fromDeck']['discard-2'];
-        $game['spice_deck']['discard-1'] = array();
-        $game['spice_deck']['discard-2'] = array();
-        shuffle($game['spice_deck']['deck']);
+function dune_checkSpice($idName=false) {
+    global $game, $info;
+    if (empty($game['spiceDeck']['deck'])) {
+        $game['spiceDeck']['deck'] = array_merge(
+                                    $game['spiceDeck']['discard-1'],
+                                    $game['spiceDeck']['discard-2']);
+        $game['spiceDeck']['discard-1'] = array();
+        $game['spiceDeck']['discard-2'] = array();
+        shuffle($game['spiceDeck']['deck']);
     }
-    return $info['spice_deck'][$game['spice_deck']['deck'][0]]['name'];
+    if ($idName) {
+        return $game['spiceDeck']['deck'][0];
+    }
+    return $info['spiceDeck'][$game['spiceDeck']['deck'][0]]['name'];
 }
 
 function dune_discard($fromDeck, $fromFaction, $indexArray, $toDiscard = 'discard') {
@@ -272,6 +281,12 @@ function dune_getTerritory($title, $varName, $close, $all=false) {
 function dune_printStatus($faction) {
     global $game, $info;
     print '<h3>Game Status:</h3>';
+    // Player Order
+    print '<b><u>Player Order</u>:</b>';
+    foreach ($game['meta']['playerOrder'] as $x) {
+        print ' '.$x.', ';
+    }
+    print '<br><br>';
     // The Storm
     print '<b><u>Storm</u>:</b> ';
     if ($game['storm']['location'] == 0) {
@@ -281,7 +296,6 @@ function dune_printStatus($faction) {
     }
     // Spice Treasury
     print '<b><u>Spice Treasury </b>(Hidden)<b></u>:</b> ';
-    
     print $game[$faction]['spice'].' spice.<br><br>';
     // Show Tokens & Spice
     print '<b><u>Token & Spice Locations</u>:</b><br><br style="line-height: 6px"/>';
@@ -334,6 +348,38 @@ function dune_printStatus($faction) {
         }
     }
     print '<br>';
+    // Treachery Discards
+    print '<b><u>Treachery Discards</u>:</b><br>';
+    if (empty($game['treachery']['discard'])) {
+        print 'None<br>';
+    }
+    else {
+        foreach ($game['treachery']['discard'] as $y) {
+            print $info['treachery'][$y]['name'].'<br>';
+        }
+    }
+    print '<br>';
+    // Spice Discards
+    print '<b><u>Spice Discards #1</u>:</b><br>';
+    if (empty($game['spiceDeck']['discard-1'])) {
+        print 'None<br>';
+    }
+    else {
+        foreach ($game['spiceDeck']['discard-1'] as $y) {
+            print $info['spiceDeck'][$y]['name'].'<br>';
+        }
+    }
+    print '<br>';
+    print '<b><u>Spice Discards #2</u>:</b><br>';
+    if (empty($game['spiceDeck']['discard-2'])) {
+        print 'None<br>';
+    }
+    else {
+        foreach ($game['spiceDeck']['discard-2'] as $y) {
+            print $info['spiceDeck'][$y]['name'].'<br>';
+        }
+    }
+    print '<br>';
     // Notes
     print '<b><u>Notes </b>(Hidden)<b></u>:</b><br>';
     if (empty($game[$faction]['notes'])) {
@@ -356,11 +402,26 @@ function dune_getWaiting() {
     }
 }
 
+function array_cycle($x) {
+    if (!empty($x)) {
+        $temp = $x[0];
+        array_unshift($x);
+        array_push($x, $temp);
+    }
+    return $x;
+}
 
 function dune_moveStorm() {
     global $game, $info;
-    for ($x = 0; $x < $game['storm']['move']; $x += 1) {
-        print 'test';
+    while ($game['meta']['storm']['move'] > 0) {
+        $game['meta']['storm']['move'] -= 1;
+        $game['meta']['storm']['location'] += 1;
+        if ($game['meta']['storm']['location'] == 19) {
+            $game['meta']['storm']['location'] = 1;
+        }
+        if (($game['storm']['loation'] -2) % 3 == 0) {
+            $game['meta']['playerOrder'] = array_cycle($game['meta']['playerOrder']);
+        }
         foreach (array_keys($game['tokens']) as $y) {
             if ($info['territory'][$y]['sector'] == $game['storm']['location']) {
                 foreach ($game['tokens'][$y] as $z) {

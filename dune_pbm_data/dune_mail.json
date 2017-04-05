@@ -10,26 +10,38 @@
             {
                 "fromFaction": "[B]",
                 "toFaction": "[A]",
-                "message": "ZTesyt",
-                "time": "1491246681"
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[A]",
-                "message": "ZTesyt",
-                "time": "1491246681"
+                "message": "test",
+                "time": ": 1491411400"
             },
             {
                 "fromFaction": "[B]",
                 "toFaction": "[A]",
                 "message": "test",
-                "time": "1491246754"
+                "time": ": 1491411400"
             },
             {
                 "fromFaction": "[B]",
                 "toFaction": "[A]",
-                "message": "test",
-                "time": "1491246754"
+                "message": "test2",
+                "time": "3: 1491411502"
+            },
+            {
+                "fromFaction": "[B]",
+                "toFaction": "[A]",
+                "message": "test2",
+                "time": "3: 1491411502"
+            },
+            {
+                "fromFaction": "[B]",
+                "toFaction": "[A]",
+                "message": "test3",
+                "time": "3: 1491411507"
+            },
+            {
+                "fromFaction": "[B]",
+                "toFaction": "[A]",
+                "message": "test3",
+                "time": "3: 1491411507"
             }
         ],
         "sent": []
@@ -43,7 +55,26 @@
                 "time": ""
             }
         ],
-        "sent": []
+        "sent": [
+            {
+                "fromFaction": "[B]",
+                "toFaction": "[A]",
+                "message": "test",
+                "time": ": 1491411400"
+            },
+            {
+                "fromFaction": "[B]",
+                "toFaction": "[A]",
+                "message": "test2",
+                "time": "3: 1491411502"
+            },
+            {
+                "fromFaction": "[B]",
+                "toFaction": "[A]",
+                "message": "test3",
+                "time": "3: 1491411507"
+            }
+        ]
     },
     "[E]": {
         "inbox": [
@@ -63,18 +94,6 @@
                 "fromFaction": "[DUNE]",
                 "message": "Welcome to DunePBM",
                 "time": ""
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[F]",
-                "message": "Test",
-                "time": "1491246787"
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[F]",
-                "message": "Test",
-                "time": "1491246787"
             }
         ],
         "sent": []
@@ -100,8 +119,5 @@
             }
         ],
         "sent": []
-    },
-    "": {
-        "sent": null
     }
 }

@@ -1,7 +1,7 @@
 <?php 
 // Setup Treachery
 // Called from setup-tokens.php
-// setup-tokens.php --> setup-treachery.php --> storm.php
+// setup-tokens.php --> setup-treachery.php --> storm-round.php
 
 global $data, $info, $debug;
 dune_readData();
@@ -11,8 +11,8 @@ foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
 dune_dealTreachery('[H]');
 
 $game['meta']['event'] = 'Treachery cards delt.';
-
 $game['meta']['faction'] = '[DUNE]';
+dune_postForum('Treachery cards delt.', true);
 foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
     $game['meta']['next'][$faction] = 'spice-round.php';
 }

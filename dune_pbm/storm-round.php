@@ -1,8 +1,8 @@
 <?php 
 // Storm Round
 // Called from index.php
-// setup-treachery.php --> storm-round.php --> spice.php
-// colleciton-round.php --> storm-round.php --> spice.php
+// setup-treachery.php --> storm-round.php --> spice-round.php
+// colleciton-round.php --> storm-round.php --> spice-round.php
 
 // Forms ###########################################################
 if (empty($_POST)){

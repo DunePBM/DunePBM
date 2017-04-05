@@ -3,5 +3,10 @@
         "faction": "[DUNE]",
         "message": "Welcome to DunePBM",
         "time": ""
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "9: 1491411621",
+        "message": "Treachery cards delt."
     }
 ]

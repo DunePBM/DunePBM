@@ -6,8 +6,8 @@ echo '<h2>Faction: '.$info['factions'][$_SESSION['faction']]['name'].'</h2>';
 
 echo
 '<form action="#" method="post">
-Actions:  <select name="header_action">
-    <option value="home">Take Action</option>			
+Pages:  <select name="header_action">
+    <option value="home">Player Action</option>			
     <option value="forum">Forum</option>			
     <option value="mail">Mail</option>			
     <option value="status">Get Status</option>			
@@ -17,11 +17,8 @@ Actions:  <select name="header_action">
     <option value="gm-commands">GM Commands</option>
     <option value="refresh">Refresh</option>			
 </select> 
-<input type="submit" value="Submit">
-</form>';
-
-
-
+<input type="submit" value="Go">
+</form><hr>';
 
 if (isset($_POST['header_action'])) {
     if ($_POST['header_action'] == 'logout') {
@@ -40,6 +37,10 @@ if (isset($_POST['header_action'])) {
     }
     if ($_POST['header_action'] == 'status') {
         dune_printStatus($_SESSION['faction']);
+        print '<br><hr>';
+        if ($game['meta']['next'][$_SESSION['faction']] != 'wait.php') {
+            dune_getWaiting();
+        }
     }
     if ($_POST['header_action'] == 'gm-commands') {
         global $game;

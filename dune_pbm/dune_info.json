@@ -41,7 +41,7 @@
         "[H#5]": {"name": "Umman Kudu (1)", "faction": "[H]", "strength": 1}
     },
     
-    "spice_deck": {
+    "spiceDeck": {
         "[WORM-1]": {"name": "Shai-Hulud"},
         "[WORM-2]": {"name": "Shai-Hulud"},
         "[WORM-3]": {"name": "Shai-Hulud"},
