@@ -31,16 +31,25 @@ function dune_setupGame() {
     shuffle($treacheryDeck);
     $game['treachery']['deck'] = $treacheryDeck;
     // Spice Card Setup
-    do {
-        $spiceDeck1 = array_keys($info['spiceDeck']);
-        $spiceDeck2 = array_keys($info['spiceDeck']);
-        shuffle($spiceDeck1);
-        shuffle($spiceDeck2);
-        $game['spiceDeck']['deck'] = array_merge($spiceDeck1, $spiceDeck2);
-        print_r($game['spiceDeck']['deck']);
-    } while (($info['spiceDeck'][$game['spiceDeck']['deck'][0]]['type'] == 'worm') ||
-            ($info['spiceDeck'][$game['spiceDeck']['deck'][1]]['type'] == 'worm'));
-            
+    $spiceDeckTemp = array_keys($info['spiceDeck']);
+    shuffle($spiceDeckTemp);
+    $game['spiceDeck']['deck-1'] = array();
+    $game['spiceDeck']['deck-2'] = array();
+    while ($info['spiceDeck'][$spiceDeckTemp[0]]['type'] == 'worm') {
+        $spiceDeckTemp = array_cycle($spiceDeckTemp);
+    }
+    $spiceDeckTemp1 = array_slice($spiceDeckTemp, 0, 10);
+    $spiceDeckTemp2 = array_slice($spiceDeckTemp, 10);
+    while ($info['spiceDeck'][$spiceDeckTemp2[0]]['type'] == 'worm') {
+        
+        $spiceDeckTemp2 = array_cycle($spiceDeckTemp2);
+    }
+    $spiceDeckTemp = array_keys($info['spiceDeck']);
+    shuffle($spiceDeckTemp);
+    array_merge($spiceDeckTemp1, array_slice($spiceDeckTemp, 0, 11));
+    array_merge($spiceDeckTemp2, array_slice($spiceDeckTemp, 11));
+    $game['spiceDeck']['deck-1'] = $spiceDeckTemp1;
+    $game['spiceDeck']['deck-2'] = $spiceDeckTemp2;
     // Traitor Setup
     $traitorDeck = array_keys($info['leaders']);
     shuffle($traitorDeck);
@@ -232,37 +241,45 @@ function dune_dealTreachery($toFaction) {
 
 function shuffleSpice() {
     global $game;
-    $game['spiceDeck']['deck'] = array_merge(
-                                $game['spiceDeck']['discard-1'],
-                                $game['spiceDeck']['discard-2']);
-    $game['spiceDeck']['discard-1'] = array();
-    $game['spiceDeck']['discard-2'] = array();
-    shuffle($game['spiceDeck']['deck']);
+    $spiceDeckTemp = array_keys($info['spiceDeck']);
+    shuffle($spiceDeckTemp);
+    $spiceTempDeck1 = array_slice($spiceDeckTemp, 0, 11);
+    $spiceTempDeck2 = array_slice($spiceDeckTemp, 11);
+    array_merge($game['spiceDeck']['deck-1'], $spiceTempDeck1);
+    array_merge($game['spiceDeck']['deck-2'], $spiceTempDeck2);
     dune_writeData('Shuffled Spice', true);
 }
 
-function dune_dealSpice($toDiscard) {
+function dune_dealSpice($i) {
+    if (($i != 1) && ($i != 2)) {
+        print 'DEAL SPICE ERROR';
+        return;
+    }
     global $game;
-    if (empty($game['spiceDeck']['deck'])) {
+    if (empty($game['spiceDeck']['deck-'.$i])) {
         dune_shuffleSpice();
     }
-    array_unshift($game['spiceDeck']['discard-'.$toDiscard], 
-                            array_shift($game['spiceDeck']['deck']));
+    array_unshift($game['spiceDeck']['discard-'.$i], 
+                    array_shift($game['spiceDeck']['deck-'.$i]));
     dune_writeData();
 }
 
-function dune_checkSpice($idName=false) {
+function dune_checkSpice($i, $idName=false) {
+    if (($i != 1) && ($i != 2)) {
+        print 'CHECK SPICE ERROR';
+        return;
+    }
     global $game, $info;
-    if (empty($game['spiceDeck']['deck'])) {
+    if (empty($game['spiceDeck']['deck-'.$i])) {
         dune_shuffleSpice();
     }
     if ($idName) {
-        return $game['spiceDeck']['deck'][0];
+        return $game['spiceDeck']['deck-'.$i][0];
     }
-    return $info['spiceDeck'][$game['spiceDeck']['deck'][0]]['name'];
+    return $info['spiceDeck'][$game['spiceDeck']['deck-'.$i][0]]['name'];
 }
 
-function dune_discard($fromDeck, $fromFaction, $indexArray, $toDiscard = 'discard') {
+function dune_discardTreachery($fromFaction, $indexArray, $toDiscard = 'discard') {
     global $game;
     if (is_int($indexArray)) {
         $indexArray = array($indexArray);
@@ -425,7 +442,7 @@ function dune_getWaiting() {
 function array_cycle($x) {
     if (!empty($x)) {
         $temp = $x[0];
-        array_unshift($x);
+        array_shift($x);
         array_push($x, $temp);
     }
     return $x;

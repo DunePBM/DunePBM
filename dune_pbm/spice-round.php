@@ -10,11 +10,8 @@ if (!isset($game['spiceRound'])) {
     $game['spiceRound'] = array();
     // Double spice blow.
     for ($i = 1; $i <= 2; $i += 1) {
-        dune_dealSpice($i);
-        $overCard = $game['spiceDeck']['discard-'.$i][0];
-        /*$underCard = "";
-        
-        while ($info['spiceDeck'][$overCard]['type'] == 'worm') {
+        while ($info['spiceDeck'][dune_checkSpice($i, true)]['type'] == 'worm') {
+            $underCard = $game['spiceDeck']['discard-'.$i][0];
             if (!isset($game['nexus'])) {
                 $game['nexus'] = array();
                 $game['nexus']['sandworms'] = array();
@@ -23,14 +20,12 @@ if (!isset($game['spiceRound'])) {
             foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
                 $game['meta']['next'][$faction] = 'nexus.php';
             }
-            $underCard = $overCard;
             dune_dealSpice($i);
-            $overCard = $game['spiceDeck']['discard-'.$i][0];
-        }*/
+        }
         // Deals spice.
-        $game['spiceRound']['spice-'.$i]['location'] = $overCard;
-        $game['spiceRound']['spice-'.$i]['spice'] = $info['spiceDeck'][$overCard]['spice'];
-        array_shift($game['spiceDeck']['discard-'.$i]);
+        $game['spiceRound']['spice-'.$i]['location'] = dune_checkSpice($i, true);
+        $game['spiceRound']['spice-'.$i]['spice'] 
+                    = $info['spiceDeck'][dune_checkSpice($i, true)]['spice'];
         dune_writeData('Spice Card #'.$i, true);
     }
     if (isset($game['nexus'])) {
@@ -56,19 +51,19 @@ if (isset($game['nexus'])) {
 
 // If a nexus does not occour or is finished.
 if ((isset($game['spiceRound'])) && (!isset($game['nexus']))) {
-    array_unshift($game['spiceDeck']['discard-1'], $game['spiceRound']['spice-1']['location']);
-    array_unshift($game['spiceDeck']['discard-2'], $game['spiceRound']['spice-2']['location']);
-    
-    $game['tokens'][$game['spiceRound']['spice-1']['location']]['[SPICE]'][0] = (int)$game['spiceRound']['spice-1']['spice'];
-    $game['tokens'][$game['spiceRound']['spice-1']['location']]['[SPICE]'][1] = 0;
+    dune_dealSpice(1);
+    dune_dealSpice(2);
 
-    $game['tokens'][$game['spiceRound']['spice-2']['location']]['[SPICE]'][0] = (int)$game['spiceRound']['spice-2']['spice'];
-    $game['tokens'][$game['spiceRound']['spice-2']['location']]['[SPICE]'][1] = 0;
-    
-    //dune_gmMoveTokens('[SPICE]', (int)$game['spiceRound']['spice-1']['spice'], 
-    //                    0, '[BANK]', $game['spiceRound']['spice-1']['location']);
-    //dune_gmMoveTokens('[SPICE]', (int)$game['spiceRound']['spice-2']['spice'], 
-    //                    0, '[BANK]', $game['spiceRound']['spice-2']['location']);
+    if ($info['spiceDeck'][$game['spiceRound']['spice-1']['location']]['sector'] 
+                            != $game['storm']['location'] {
+        dune_gmMoveTokens('[SPICE]', (int)$game['spiceRound']['spice-1']['spice'], 
+                        0, '[BANK]', $game['spiceRound']['spice-1']['location']);
+    }
+    if ($info['spiceDeck'][$game['spiceRound']['spice-2']['location']]['sector'] 
+                            != $game['storm']['location'] {
+        dune_gmMoveTokens('[SPICE]', (int)$game['spiceRound']['spice-2']['spice'], 
+                        0, '[BANK]', $game['spiceRound']['spice-2']['location']);
+    }
     
     $temp = 'Spice Blooms on ';
     $temp .= $info['spiceDeck'][$game['spiceRound']['spice-1']['location']]['name'];
@@ -77,6 +72,9 @@ if ((isset($game['spiceRound'])) && (!isset($game['nexus']))) {
     $temp .= ' ('.$info['spiceDeck'][$game['spiceRound']['spice-2']['location']]['spice'].') ';
     dune_postForum($temp, true);
     unset($game['spiceRound']);
+    foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+                $game['meta']['next'][$faction] = 'storm-round.php';
+    }
     dune_writeData();
 }
 ?>

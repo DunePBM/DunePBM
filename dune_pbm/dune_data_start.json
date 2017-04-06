@@ -103,7 +103,9 @@
         ]
     },
     "spiceDeck" : {
-        "deck" : [
+        "deck-1" : [
+        ],
+        "deck-2" : [
         ],
         "discard-1" : [
         ],
