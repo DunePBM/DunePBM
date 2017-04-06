@@ -16,6 +16,14 @@ if (empty($_POST)){
     
     <form action="" method="post">
     <button name="gm_action" value="reset">Reset Game</button>
+    </form>
+    
+    <form action="" method="post">
+    <button name="gm_action" value="load">Load Game</button>
+    </form>
+    
+    <form action="" method="post">
+    <button name="gm_action" value="endNexus">End Nexus</button>
     </form>';
 }
 
@@ -24,7 +32,24 @@ if (isset($_POST['gm_action'])) {
         dune_setupGame();
         unset($_SESSION['override']);
         unset($_SESSION['faction']);
-        //print '<script>alert("Game reset.");</script>';
+        refreshPage();
+    }
+    if ($_POST['gm_action'] == 'endNexus') {
+        global $game;
+        foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+            $game['meta']['next'][$faction] = 'spice-round.php';
+        }
+        unset($game['nexus']['sandworms']);
+        unset($game['nexus']);
+        dune_writeData('GM ends Nexus.', true);
+        refreshPage();
+    }
+    if ($_POST['gm_action'] == 'load') {
+        global $game;
+        $game = json_decode(file_get_contents($gamePath.'dune_data_load.json'), true);
+        dune_writeData('Game Load', true);
+        unset($_SESSION['override']);
+        unset($_SESSION['faction']);
         refreshPage();
     }
     if ($_POST['gm_action'] == 'dump') {

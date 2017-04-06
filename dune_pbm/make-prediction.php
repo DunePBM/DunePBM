@@ -58,6 +58,6 @@ function actionFunction() {
     }
     $game['meta']['next']['[H]'] = 'wait.php';
     dune_writeData();
-    return; //'<script>alert("Action successful.");</script>';
+    return;
 }
 ?>

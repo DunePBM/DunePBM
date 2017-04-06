@@ -21,7 +21,7 @@ else {
 	'<h2>Login: </h2>
 
 	<form action=\'#\' method="post">
-		Name: <input id="name" name="name" type="text"/> <br>
+		Name: <input id="name" name="name" type="text" autofocus/> <br>
 		Password: <input id="password" name="password" type="text"/> <br>
 		<input type="submit" value="Submit">
 	</form>';

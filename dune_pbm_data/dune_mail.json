@@ -6,42 +6,6 @@
                 "fromFaction": "[DUNE]",
                 "message": "Welcome to DunePBM",
                 "time": ""
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[A]",
-                "message": "test",
-                "time": ": 1491411400"
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[A]",
-                "message": "test",
-                "time": ": 1491411400"
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[A]",
-                "message": "test2",
-                "time": "3: 1491411502"
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[A]",
-                "message": "test2",
-                "time": "3: 1491411502"
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[A]",
-                "message": "test3",
-                "time": "3: 1491411507"
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[A]",
-                "message": "test3",
-                "time": "3: 1491411507"
             }
         ],
         "sent": []
@@ -55,26 +19,7 @@
                 "time": ""
             }
         ],
-        "sent": [
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[A]",
-                "message": "test",
-                "time": ": 1491411400"
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[A]",
-                "message": "test2",
-                "time": "3: 1491411502"
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[A]",
-                "message": "test3",
-                "time": "3: 1491411507"
-            }
-        ]
+        "sent": []
     },
     "[E]": {
         "inbox": [

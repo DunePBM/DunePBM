@@ -22,7 +22,9 @@ if (!isset($_SESSION['faction'])) {
     dune_readData();
     include $gamePath.'login.php';
     print '<hr>';
-    dune_getWaiting();
+    if (!isset($_SESSION['faction'])) {
+        dune_getWaiting();
+    }
 }
 if (isset($_SESSION['override']) && isset($_SESSION['faction'])) {
     dune_readData();

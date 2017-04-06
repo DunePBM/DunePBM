@@ -40,9 +40,7 @@ if (!empty($_POST)){
     global $info, $game, $debug;
     if (isset($_POST['traitor']) && ($_SESSION['faction'] != '[H]')) {
         echo actionFunction();
-        if (!$debug) {
-            echo '<META HTTP-EQUIV="refresh" content="0;URL="/index.php">';
-        }
+        refreshPage();
     }
 }
 

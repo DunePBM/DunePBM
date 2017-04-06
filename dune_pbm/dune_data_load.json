@@ -34,18 +34,18 @@
             }
         },
         "turn": 1,
-        "eventNumber": 16,
+        "eventNumber": 8,
         "repeat": false,
         "next": {
-            "[A]": "spice-round.php",
-            "[B]": "spice-round.php",
-            "[E]": "spice-round.php",
-            "[F]": "spice-round.php",
-            "[G]": "spice-round.php",
-            "[H]": "spice-round.php"
+            "[A]": "wait.php",
+            "[B]": "setup-tokens.php",
+            "[E]": "wait.php",
+            "[F]": "wait.php",
+            "[G]": "wait.php",
+            "[H]": "wait.php"
         },
-        "faction": "[B]",
-        "event": "Spice Card #2",
+        "faction": "[F]",
+        "event": "Fremen places starting tokens",
         "playerOrder": [
             "[E]",
             "[G]",
@@ -98,7 +98,9 @@
             "[A]": [
                 10,
                 0
-            ],
+            ]
+        },
+        "[PS]": {
             "[B]": [
                 1,
                 0
@@ -133,18 +135,6 @@
                 5,
                 0
             ]
-        },
-        "[HB-2]": {
-            "[SPICE]": [
-                6,
-                0
-            ]
-        },
-        "[BL-2]": {
-            "[SPICE]": [
-                8,
-                0
-            ]
         }
     },
     "treacheryDeck": {
@@ -153,6 +143,8 @@
     },
     "spiceDeck": {
         "deck": [
+            "[HB-2]",
+            "[BL-2]",
             "[TME-3]",
             "[WORM-2]",
             "[HRF-2]",
@@ -194,17 +186,11 @@
             "[WORM-4]",
             "[WPN-1]"
         ],
-        "discard-1": [
-            "[HB-2]"
-        ],
-        "discard-2": [
-            "[BL-2]"
-        ]
+        "discard-1": [],
+        "discard-2": []
     },
     "[A]": {
-        "treachery": [
-            "[HERO-2]"
-        ],
+        "treachery": [],
         "spice": 10,
         "traitors": [
             "[F#4]"
@@ -214,9 +200,7 @@
         ]
     },
     "[B]": {
-        "treachery": [
-            "[PROJ_D-2]"
-        ],
+        "treachery": [],
         "spice": 5,
         "prediction": {
             "winningFaction": "[A]",
@@ -231,9 +215,7 @@
         ]
     },
     "[E]": {
-        "treachery": [
-            "[TRUTH-2]"
-        ],
+        "treachery": [],
         "spice": 10,
         "traitors": [
             "[F#3]"
@@ -243,9 +225,7 @@
         ]
     },
     "[F]": {
-        "treachery": [
-            "[WORTHLESS-4]"
-        ],
+        "treachery": [],
         "spice": 3,
         "traitors": [
             "[F#5]"
@@ -255,9 +235,7 @@
         ]
     },
     "[G]": {
-        "treachery": [
-            "[WORTHLESS-3]"
-        ],
+        "treachery": [],
         "spice": 5,
         "traitors": [
             "[A#5]"
@@ -267,10 +245,7 @@
         ]
     },
     "[H]": {
-        "treachery": [
-            "[PROJ_W-3]",
-            "[ATOMICS-1]"
-        ],
+        "treachery": [],
         "spice": 10,
         "traitors": [
             "[A#3]",
@@ -284,6 +259,13 @@
     },
     "treachery": {
         "deck": [
+            "[HERO-2]",
+            "[PROJ_D-2]",
+            "[TRUTH-2]",
+            "[WORTHLESS-4]",
+            "[WORTHLESS-3]",
+            "[ATOMICS-1]",
+            "[PROJ_W-3]",
             "[TRUTH-1]",
             "[PROJ_W-2]",
             "[PROJ_D-1]",

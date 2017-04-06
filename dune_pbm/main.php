@@ -5,6 +5,7 @@ $game = "";
 $duneForum = array();
 $duneMail = array();
 $debug = false;
+$gmCommands = true;
 $info = json_decode(file_get_contents($gamePath.'dune_info.json'), true);
 
 function refreshPage() {
@@ -30,11 +31,16 @@ function dune_setupGame() {
     shuffle($treacheryDeck);
     $game['treachery']['deck'] = $treacheryDeck;
     // Spice Card Setup
-    $spiceDeck1 = array_keys($info['spiceDeck']);
-    $spiceDeck2 = array_keys($info['spiceDeck']);
-    shuffle($spiceDeck1);
-    shuffle($spiceDeck2);
-    $game['spiceDeck']['deck'] = array_merge($spiceDeck1, $spiceDeck2);
+    do {
+        $spiceDeck1 = array_keys($info['spiceDeck']);
+        $spiceDeck2 = array_keys($info['spiceDeck']);
+        shuffle($spiceDeck1);
+        shuffle($spiceDeck2);
+        $game['spiceDeck']['deck'] = array_merge($spiceDeck1, $spiceDeck2);
+        print_r($game['spiceDeck']['deck']);
+    } while (($info['spiceDeck'][$game['spiceDeck']['deck'][0]]['type'] == 'worm') ||
+            ($info['spiceDeck'][$game['spiceDeck']['deck'][1]]['type'] == 'worm'));
+            
     // Traitor Setup
     $traitorDeck = array_keys($info['leaders']);
     shuffle($traitorDeck);
@@ -79,7 +85,7 @@ function dune_readMail() {
     if (!isset($game)) {print 'ERROR REDING FILE';}
 }
 
-function dune_writeData() {
+function dune_writeData($event='', $gm=false) {
 	global $dataPath, $game, $duneForum, $duneMail;
     $maxUndo = 5;
 	$file = $dataPath.'dune_data'; // eclude the extension.
@@ -97,6 +103,13 @@ function dune_writeData() {
                             json_encode($undoGame, JSON_PRETTY_PRINT));
         // Write new move.
         $game['meta']['eventNumber'] += 1;
+        if ($event != '') {
+            $game['meta']['event'] = $event;
+        }
+        $game['meta']['faction'] = $_SESSION['faction'];
+        if ($gm) {
+            $game['meta']['faction'] = '[DUNE]';
+        }
         file_put_contents($file.'.json', json_encode($game, JSON_PRETTY_PRINT));
 		file_put_contents($file.'.'.time().'.json', json_encode($game, JSON_PRETTY_PRINT));
 	} else {print 'ERROR WRITING FILE';}
@@ -200,26 +213,38 @@ function dune_gmMoveTokens($faction, $tokens, $starTokens, $fromLoc, $toLoc, $co
     }
 }
 
+function dune_shuffleTreachery() {
+    global $game;
+    $game['treachery']['deck'] = array_slice($game['treachery']['discard'], 2);
+    $game['treachery']['discard'] = array_slice($game['treachery']['discard'], 0, 2);
+    shuffle($game['treachery']['deck']);
+    dune_writeData('Shuffled Treachery', true);
+}
+    
 function dune_dealTreachery($toFaction) {
     global $game;
     if (empty($game['treachery']['deck'])) {
-        $game['treachery']['deck'] = $game['treachery']['discard'];
-        $game['treachery']['discard'] = array();
-        shuffle($game['treachery']['deck']);
+        dune_shuffleTreachery();
     }
     array_unshift($game[$toFaction]['treachery'], 
                             array_shift($game['treachery']['deck']));
 }
 
+function shuffleSpice() {
+    global $game;
+    $game['spiceDeck']['deck'] = array_merge(
+                                $game['spiceDeck']['discard-1'],
+                                $game['spiceDeck']['discard-2']);
+    $game['spiceDeck']['discard-1'] = array();
+    $game['spiceDeck']['discard-2'] = array();
+    shuffle($game['spiceDeck']['deck']);
+    dune_writeData('Shuffled Spice', true);
+}
+
 function dune_dealSpice($toDiscard) {
     global $game;
     if (empty($game['spiceDeck']['deck'])) {
-        $game['spiceDeck']['deck'] = array_merge(
-                                    $game['spiceDeck']['discard-1'],
-                                    $game['spiceDeck']['discard-2']);
-        $game['spiceDeck']['discard-1'] = array();
-        $game['spiceDeck']['discard-2'] = array();
-        shuffle($game['spiceDeck']['deck']);
+        dune_shuffleSpice();
     }
     array_unshift($game['spiceDeck']['discard-'.$toDiscard], 
                             array_shift($game['spiceDeck']['deck']));
@@ -229,12 +254,7 @@ function dune_dealSpice($toDiscard) {
 function dune_checkSpice($idName=false) {
     global $game, $info;
     if (empty($game['spiceDeck']['deck'])) {
-        $game['spiceDeck']['deck'] = array_merge(
-                                    $game['spiceDeck']['discard-1'],
-                                    $game['spiceDeck']['discard-2']);
-        $game['spiceDeck']['discard-1'] = array();
-        $game['spiceDeck']['discard-2'] = array();
-        shuffle($game['spiceDeck']['deck']);
+        dune_shuffleSpice();
     }
     if ($idName) {
         return $game['spiceDeck']['deck'][0];

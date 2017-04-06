@@ -47,6 +47,7 @@
         "faction": "",
         "event": "",
         "playerOrder": ["[A]", "[B]", "[E]", "[F]", "[G]", "[H]"],
+        "playerDots": ["[A]", "[B]", "[E]", "[F]", "[G]", "[H]"],
         "storm": {
             "location": 0,
             "move": 0

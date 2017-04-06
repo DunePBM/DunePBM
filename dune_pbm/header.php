@@ -2,6 +2,8 @@
 // Game Header
 // Called in index.php.
 
+global $game, $info, $gmCommands;
+
 echo '<h2>Faction: '.$info['factions'][$_SESSION['faction']]['name'].'</h2>';
 
 echo
@@ -12,13 +14,16 @@ Pages:  <select name="header_action">
     <option value="mail">Mail</option>			
     <option value="status">Get Status</option>			
     <option value="special-commands">Special Commands</option>    
-    <option value="logout">Logout</option>			
-    <option value=""></option>
-    <option value="gm-commands">GM Commands</option>
-    <option value="refresh">Refresh</option>			
-</select> 
-<input type="submit" value="Go">
-</form><hr>';
+    <option value="logout">Logout</option>';
+    if ($gmCommands == true) {
+        echo '<option value=""></option>
+            <option value="gm-commands">GM Commands</option>
+            <option value="refresh">Refresh</option>';
+    }
+    echo 
+    '</select> 
+    <input type="submit" value="Go">
+    </form><hr>';
 
 if (isset($_POST['header_action'])) {
     if ($_POST['header_action'] == 'logout') {

@@ -10,12 +10,10 @@ foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
 }
 dune_dealTreachery('[H]');
 
-$game['meta']['event'] = 'Treachery cards delt.';
-$game['meta']['faction'] = '[DUNE]';
 dune_postForum('Treachery cards delt.', true);
 foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
     $game['meta']['next'][$faction] = 'spice-round.php';
 }
-dune_writeData();
+dune_writeData('Treachery cards delt.', true);
 refreshPage();
 ?>
