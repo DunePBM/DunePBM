@@ -6,17 +6,62 @@
     },
     {
         "faction": "[DUNE]",
-        "time": "10: 1491491395",
+        "time": "9: 1492142611",
         "message": "Treachery cards delt."
     },
     {
         "faction": "[DUNE]",
-        "time": "15: 1491491395",
-        "message": "Spice Blooms on The Great Flat (10) and Sihaya Ridge (6) "
+        "time": "14: 1492142611",
+        "message": "Spice Blooms on Red Chasm (8) and The Great Flat (10) "
     },
     {
         "faction": "[DUNE]",
-        "time": "20: 1491491398",
-        "message": "Spice Blooms on Old Gap (6) and Wind Pass North (6) "
+        "time": "15: 1492142622",
+        "message": "Bene Gesserit shows a  card."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "16: 1492142626",
+        "message": "Bene Gesserit shows a  card."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "17: 1492142627",
+        "message": "Bene Gesserit shows a  card."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "18: 1492142647",
+        "message": "Bene Gesserit shows a  card."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "19: 1492142730",
+        "message": "Bene Gesserit shows a Projectile Weapon: Slip-Tip card."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "21: 1492144343",
+        "message": "Bene Gesserit discards a Projectile Weapon: Slip-Tip card."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "22: 1492144465",
+        "message": "Guild discards a Poison Weapon: Gom Jabbar card."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "23: 1492144531",
+        "message": "Emperor discards a Projectile Weapon: Stunner card."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "24: 1492144603",
+        "message": "Harkonnen discards a Worthless Card: La La La card."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "25: 1492145156",
+        "message": "Fremen discards a Hajr card."
     }
 ]

@@ -54,7 +54,8 @@ if ((isset($game['spiceRound'])) && (!isset($game['nexus']))) {
     dune_dealSpice(1);
     dune_dealSpice(2);
 
-    if ($info['spiceDeck'][$game['spiceRound']['spice-1']['location']]['sector'] 
+    /* Fix that spice should not be delt on the storm
+        if ($info['spiceDeck'][$game['spiceRound']['spice-1']['location']]['sector'] 
                             != $game['storm']['location'] {
         dune_gmMoveTokens('[SPICE]', (int)$game['spiceRound']['spice-1']['spice'], 
                         0, '[BANK]', $game['spiceRound']['spice-1']['location']);
@@ -63,7 +64,7 @@ if ((isset($game['spiceRound'])) && (!isset($game['nexus']))) {
                             != $game['storm']['location'] {
         dune_gmMoveTokens('[SPICE]', (int)$game['spiceRound']['spice-2']['spice'], 
                         0, '[BANK]', $game['spiceRound']['spice-2']['location']);
-    }
+    }*/
     
     $temp = 'Spice Blooms on ';
     $temp .= $info['spiceDeck'][$game['spiceRound']['spice-1']['location']]['name'];

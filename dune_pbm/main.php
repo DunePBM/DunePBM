@@ -4,7 +4,7 @@ $dataPath = '/var/www/dune_pbm_data/';
 $game = "";
 $duneForum = array();
 $duneMail = array();
-$debug = false;
+$debug = true;
 $gmCommands = true;
 $info = json_decode(file_get_contents($gamePath.'dune_info.json'), true);
 
@@ -279,18 +279,40 @@ function dune_checkSpice($i, $idName=false) {
     return $info['spiceDeck'][$game['spiceDeck']['deck-'.$i][0]]['name'];
 }
 
-function dune_discardTreachery($fromFaction, $indexArray, $toDiscard = 'discard') {
+function dune_checkRoundEnd($oldMarker, $newRound) {
     global $game;
-    if (is_int($indexArray)) {
-        $indexArray = array($indexArray);
+    $roundOver = true;
+    dune_readData();
+    foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+        if ($game['meta']['next'][$faction] != 'wait.php') {
+            $roundOver = false;
+        }
     }
-    rsort($indexArray);
-    for ($i = 0; $i < count($indexArray); $i += 1) {
-        array_unshift($game[$fromDeck][$toDiscard], $game[$fromFaction][$fromDeck][$n]);
-        unset($game[$fromFaction][$fromDeck][$n]);
+    if ($roundOver == true) {
+        unset($game[$oldRound]);
     }
-    $game[$fromFaction][$fromDeck] = array_values($game[$fromFaction][$fromDeck]);
+    foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+        $game['meta']['next'][$faction] = $newRound;
+    }
+    dune_writeData();
+}   
+
+function dune_discardTreachery($faction, $cardName) {
+    global $game;
+    $key = NULL;
+    if (is_int($cardName)) {
+        $key = $cardName;
+    }
+    if (is_string($cardName)) {
+        $key = array_search($cardName, $game[$faction]['treachery']);
+    }
+    if (isset($key)) {
+        array_unshift($game['treacheryDeck']['discard'], $game[$faction]['treachery'][$key]);
+        unset($game[$faction]['treachery'][$key]);
+        $game[$faction]['treachery'] = array_values($game[$faction]['treachery']);
+    }
 }
+
 
 function dune_getTerritory($title, $varName, $close, $all=false) {
     global $info;
@@ -387,11 +409,11 @@ function dune_printStatus($faction) {
     print '<br>';
     // Treachery Discards
     print '<b><u>Treachery Discards</u>:</b><br>';
-    if (empty($game['treachery']['discard'])) {
+    if (empty($game['treacheryDeck']['discard'])) {
         print 'None<br>';
     }
     else {
-        foreach ($game['treachery']['discard'] as $y) {
+        foreach ($game['treacheryDeck']['discard'] as $y) {
             print $info['treachery'][$y]['name'].'<br>';
         }
     }
