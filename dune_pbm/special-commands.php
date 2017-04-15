@@ -3,24 +3,27 @@
 // Called from index.php
 // uses $_SESSION['override']
 
-// Forms ###########################################################
+//######################################################################
+//###### Forms #########################################################
+//######################################################################
 if (empty($_POST)){
     global $game, $info;
 	echo 
-	'<h3>'.$info['factions'][$_SESSION['faction']]['name'].' Special Commands:</h3><br>';
+	'<h3>'.$info['factions'][$_SESSION['faction']]['name'].
+    ' Special Commands:</h3><br>';
     
-    // Undo Last Move
+    //## Undo Last Move ##########################################
     echo
     '<form action="" method="post">
     <h3>Undo Last Move</h3>
-    <button name="special_action" value="undoMove">Undo Last Move</button>
+    <button name="specialAction" value="undoMove">Undo Last Move</button>
     </form>';
     
-    // Show Card
+    //## Show Treachery ##########################################
     echo
     '<form action="#" method="post">
-    <h3>Show Card</h3>
-    <p><select name="show_card">';
+    <h3>Show Treachery</h3>
+    <p><select name="showTreachery">';
     foreach ($game[$_SESSION['faction']]['treachery'] as $x) {
         echo
         '<option value="'.$x.'">'.
@@ -31,11 +34,11 @@ if (empty($_POST)){
 	<input type="submit" value="Submit">
 	</form></p>';
     
-    // Discrad Card
+    //## Discrad Treachery ########################################
     echo
     '<form action="#" method="post">
-    <h3>Discard Card</h3>
-    <p><select name="discard_card">';
+    <h3>Discard Treachery</h3>
+    <p><select name="discardTreachery">';
     foreach ($game[$_SESSION['faction']]['treachery'] as $x) {
         echo
         '<option value="'.$x.'">'.
@@ -46,15 +49,17 @@ if (empty($_POST)){
 	<input type="submit" value="Submit">
 	</form></p>';
     
-    // Move Tokens
+    //## Move Tokens ###############################################
     echo
     '<form action="#" method="post">
     <h3>Move Tokens</h3>
     <p>Move 
-        <input id="move_token_number" name="move_token_number" type="number" min=-100 max=100 value="0"/> /
-        <input id="move_number_star"  name="move_number_star" type="number" min=-100 max=100 value="0"/> * tokens';
-        echo dune_getTerritory('from location: ', 'token_loc_start', false, true);
-        echo dune_getTerritory('to location location: ', 'token_loc_end', true, true);
+        <input id="moveTokenNumber" name="moveTokenNumber" 
+        type="number" min=-100 max=100 value="0"/> /
+        <input id="moveNumberStar"  name="moveNumberStar" 
+        type="number" min=-100 max=100 value="0"/> * tokens';
+        echo dune_getTerritory('from location: ', 'tokenStartLoc', false, true);
+        echo dune_getTerritory('to location location: ', 'tokenEndLoc', true, true);
         echo '</p></form>';
         
     // Add/Remove Spice
@@ -67,17 +72,19 @@ if (empty($_POST)){
         echo '</p></form>';            
 }
 
-// Action ########################################################
+//######################################################################
+//###### Post ##########################################################
+//######################################################################
 if (!empty($_POST)){
-    if (isset($_POST['move_token_number'])) {
+    if (isset($_POST['moveTokenNumber'])) {
         echo actionFunction_moveTokens();
         refreshPage();
     }
-    if (isset($_POST['show_card'])) {
+    if (isset($_POST['showTreachery'])) {
         echo actionFunction_showCard();
         refreshPage();
     }
-    if (isset($_POST['discard_card'])) {
+    if (isset($_POST['dicardTreachery'])) {
         echo actionFunction_discardCard();
         refreshPage();
     }
@@ -93,23 +100,27 @@ if (!empty($_POST)){
     }
 }
 
+//######################################################################
+//###### Actions #######################################################
+//######################################################################
+
 function actionFunction_showCard() {
     global $game, $info;
     dune_readData();
     $message = $info['factions'][$_SESSION['faction']]['name'].' shows a ';
-    $message .= $info['treachery'][$_POST['show_card']]['name'].' card.';
+    $message .= $info['treachery'][$_POST['showTreachery']]['name'].' card.';
     dune_postForum($message, true);
-    dune_writeData('Show card: '.$info['treachery'][$_POST['show_card']]['name'].'.');
+    dune_writeData('Show card: '.$info['treachery'][$_POST['showTreachery']]['name'].'.');
     return;
 }
 
 function actionFunction_discardCard() {
     global $game, $info;
     dune_readData();
-    dune_discardTreachery($_SESSION['faction'], $_POST['discard_card']);
-    dune_writeData('Discard card: '.$info['treachery'][$_POST['discard_card']]['name'].'.');
+    dune_discardTreachery($_SESSION['faction'], $_POST['dicardTreachery']);
+    dune_writeData('Discard card: '.$info['treachery'][$_POST['dicardTreachery']]['name'].'.');
     $message = $info['factions'][$_SESSION['faction']]['name'].' discards a ';
-    $message .= $info['treachery'][$_POST['discard_card']]['name'].' card.';
+    $message .= $info['treachery'][$_POST['dicardTreachery']]['name'].' card.';
     dune_postForum($message, true);
     return;
 }
@@ -117,9 +128,9 @@ function actionFunction_discardCard() {
 function actionFunction_moveTokens() {
     global $game, $info;
     dune_readData();
-    dune_gmMoveTokens($_SESSION['faction'], $_POST['move_token_number'], 
-            $_POST['move_number_star'], $_POST['token_loc_start'], 
-            $_POST['token_loc_end']);
+    dune_gmMoveTokens($_SESSION['faction'], $_POST['moveTokenNumber'], 
+            $_POST['moveNumberStar'], $_POST['tokenStartLoc'], 
+            $_POST['tokenEndLoc']);
     dune_writeData('Special Command: move/remove tokens');
     return;
 }

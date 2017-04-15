@@ -24,7 +24,6 @@ if (empty($_POST)){
 
 // Action ########################################################
 if (!empty($_POST)){
-    global $debug;
     if (isset($_POST['winningFaction']) && 
                     isset($_POST['winningTurn']) &&
                     $_SESSION['faction'] == '[B]') {
