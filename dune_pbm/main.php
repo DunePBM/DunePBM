@@ -94,7 +94,7 @@ function dune_readMail() {
     if (!isset($game)) {print 'ERROR REDING FILE';}
 }
 
-function dune_writeData($event='', $gm=false) {
+function dune_writeData($event='', $gm=false, $postToForum=true) {
 	global $dataPath, $game, $duneForum, $duneMail;
     $maxUndo = 5;
 	$file = $dataPath.'dune_data'; // eclude the extension.
@@ -118,6 +118,9 @@ function dune_writeData($event='', $gm=false) {
         $game['meta']['faction'] = $_SESSION['faction'];
         if ($gm) {
             $game['meta']['faction'] = '[DUNE]';
+        }
+        if ($postToForum) {
+            dune_writeForum($game['meta']['faction'].' Event: '.$game['meta']['event']);
         }
         file_put_contents($file.'.json', json_encode($game, JSON_PRETTY_PRINT));
 		file_put_contents($file.'.'.time().'.json', json_encode($game, JSON_PRETTY_PRINT));

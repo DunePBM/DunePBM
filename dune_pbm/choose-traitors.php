@@ -37,7 +37,7 @@ if (empty($_POST)){
 
 // Action #######################################################
 if (!empty($_POST)){
-    global $info, $game, $debug;
+    global $info, $game;
     if (isset($_POST['traitor']) && ($_SESSION['faction'] != '[H]')) {
         echo actionFunction();
         refreshPage();
