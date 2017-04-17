@@ -38,7 +38,7 @@
         "repeat": false,
         "next": {
 			"[A]": "wait.php",
-			"[B]": "make-prediction.php",
+			"[B]": "setup-round.php",
 			"[E]": "wait.php",
 			"[F]": "wait.php",
 			"[G]": "wait.php",

@@ -77,8 +77,8 @@ if (isset($_POST['movement_action'])) {
     //## Checks for End of Round ###################################
     //##############################################################
     dune_readData();
-    dune_checkRoundEnd('movementRound', 'battle-round.php');
-    dune_writeData('Movement round has ended.', true);
+    dune_checkRoundEnd('movementRound', 'battle-round.php',
+                                        'Movement round has ended.');
     refreshPage();
     }        
 }

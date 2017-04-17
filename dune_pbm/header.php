@@ -2,10 +2,12 @@
 // Game Header
 // Called in index.php.
 
+//######################################################################
+//###### Forms -- Runs Every Time -- Even With Post Data ###############
+//######################################################################
+
 global $game, $info, $gmCommands;
-
 echo '<h2>Faction: '.$info['factions'][$_SESSION['faction']]['name'].'</h2>';
-
 echo
 '<form action="#" method="post">
 Pages:  <select name="header_action">
@@ -13,6 +15,7 @@ Pages:  <select name="header_action">
     <option value="forum">Forum</option>			
     <option value="mail">Mail</option>			
     <option value="status">Get Status</option>			
+    <option value="board">Display Board</option>			
     <option value="special-commands">Special Commands</option>    
     <option value="logout">Logout</option>';
     if ($gmCommands == true) {
@@ -25,6 +28,9 @@ Pages:  <select name="header_action">
     <input type="submit" value="Go">
     </form><hr>';
 
+//######################################################################
+//###### Post ##########################################################
+//######################################################################
 if (isset($_POST['header_action'])) {
     if ($_POST['header_action'] == 'logout') {
         session_destroy();
@@ -38,6 +44,11 @@ if (isset($_POST['header_action'])) {
     if ($_POST['header_action'] == 'mail') {
         global $game;
         $_SESSION['override'] = 'mail.php';
+        refreshPage();
+    }
+    if ($_POST['header_action'] == 'board') {
+        global $game;
+        $_SESSION['override'] = 'board.php';
         refreshPage();
     }
     if ($_POST['header_action'] == 'status') {

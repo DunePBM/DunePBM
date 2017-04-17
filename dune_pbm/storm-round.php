@@ -32,15 +32,15 @@ if (empty($_POST)){
     
     echo
     '<br><form action="" method="post">
-    <button name="storm_action" value="done">Done with Storm</button>
+    <button name="stormAction" value="done">Done with Storm</button>
     </form>';
 }
 
 //######################################################################
 //###### Post ##########################################################
 //######################################################################
-if (isset($_POST['storm_action'])) {
-    if ($_POST['storm_action'] == 'done') {
+if (isset($_POST['stormAction'])) {
+    if ($_POST['stormAction'] == 'done') {
         dune_readData();
         $game['meta']['next'][$_SESSION['faction']] = 'wait.php';
         dune_writeData('Done with storm-round.');
@@ -49,8 +49,9 @@ if (isset($_POST['storm_action'])) {
     //##############################################################
     //## Checks for End of Round ###################################
     //##############################################################
-    dune_checkRoundEnd('stormRound', 'bidding-round.php');
-    dune_writeData('Storm round has ended.', true);
+    if (dune_checkRoundEnd('stormRound', 'bidding-round.php')) {
+        dune_writeData('Storm round has ended.', true);
+    }
     refreshPage();
 }
 

@@ -1,4 +1,6 @@
 <?php 
+// NOW A PART OF setup-round.php
+//
 // Choose Traitors
 // Called by index.php.
 // make-prediction.php --> choose-traitors.php --> setup-tokens.php

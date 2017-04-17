@@ -1,31 +1,45 @@
 <?php 
 // Bidding Round
 // Called from index.php
-// storm-round.php --> bidding-round.php --> movement-setup.php
+// storm-round.php --> bidding-round.php --> movement-round.php
 
-// Forms ###########################################################
+//######################################################################
+//###### Forms #########################################################
+//######################################################################
 if (empty($_POST)){
     global $game, $info;
-    
-    // First run:
+
+    //##############################################################
+    //## First Run #################################################
+    //##############################################################
     if (!isset($game['biddingRound'])) {
-        $game['stormRound'] = array();
+        $game['biddingRound'] = array();
     }
     
-    // Every run:
+    //##############################################################
+    //## Every Run #################################################
+    //##############################################################
 	echo 
 	'<h2>Bidding Round</h2>';
 }
 
-if (isset($_POST['storm_action'])) {
+//######################################################################
+//###### Post ##########################################################
+//######################################################################
+if (isset($_POST['stormAction'])) {
     if ($_POST['storm_action'] == 'done') {
         dune_readData();
         $game['meta']['next'][$_SESSION['faction']] = 'wait.php';
+    }
         
-        // Checks for end of round.
-        dune_checkRoundEnd('biddingRound', 'movement-round.php');
-        dune_writeData();
-        refreshPage();
+    //##############################################################
+    //## Checks for End of Round ###################################
+    //##############################################################
+    dune_readData();
+    dune_checkRoundEnd('biddingRound', 'movement-round.php',
+                                        'Bidding round has ended.');
+    refreshPage();
+    }        
     }        
 }
 ?>

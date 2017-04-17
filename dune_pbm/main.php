@@ -1,12 +1,24 @@
 <?php
-//Called by index.php.
+// DunePBM main.php
+// Called by index.php.
+
+
+//######################################################################
+//###### Globals #######################################################
+//######################################################################
+
 $dataPath = '/var/www/dune_pbm_data/';
 $game = "";
 $duneForum = array();
 $duneMail = array();
-$debug = true;
+$debug = false;
 $gmCommands = true;
 $info = json_decode(file_get_contents($gamePath.'dune_info.json'), true);
+
+
+//######################################################################
+//###### Functions #####################################################
+//######################################################################
 
 function refreshPage() {
     global $debug;
@@ -282,7 +294,7 @@ function dune_checkSpice($i, $idName=false) {
     return $info['spiceDeck'][$game['spiceDeck']['deck-'.$i][0]]['name'];
 }
 
-function dune_checkRoundEnd($oldMarker, $newRound) {
+function dune_checkRoundEnd($oldMarker, $newRound, $message) {
     global $game;
     $roundOver = true;
     dune_readData();
@@ -293,11 +305,12 @@ function dune_checkRoundEnd($oldMarker, $newRound) {
     }
     if ($roundOver == true) {
         unset($game[$oldRound]);
+        foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+            $game['meta']['next'][$faction] = $newRound;
+        }
+        dune_writeData($message, true);
     }
-    foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-        $game['meta']['next'][$faction] = $newRound;
-    }
-    dune_writeData();
+    return;
 }   
 
 function dune_discardTreachery($faction, $cardName) {

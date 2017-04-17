@@ -37,8 +37,8 @@ if (isset($_POST['battle_action'])) {
     //## Checks for End of Round ###################################
     //##############################################################
     dune_readData();
-    dune_checkRoundEnd('battleRound', 'collection-round.php');
-    dune_writeData('Battle round has ended.', true);
+    dune_checkRoundEnd('battleRound', 'collection-round.php',
+                                        'Battle round has ended.');
     refreshPage();
     }        
 }

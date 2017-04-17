@@ -1,4 +1,6 @@
 <?php 
+// NOW A PART OF setup-round.php
+//
 // Setup Treachery
 // Called from setup-tokens.php
 // setup-tokens.php --> setup-treachery.php --> storm-round.php

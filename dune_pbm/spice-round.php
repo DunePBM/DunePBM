@@ -3,11 +3,81 @@
 // Called by index.php.
 // storm-round.php --> spice-round.php --> bidding-round.php
 
-// Runs the first time the page is called. 
-if (!isset($game['spiceRound'])) {
-    unset($game['nexus']);
+//######################################################################
+//###### Forms #########################################################
+//######################################################################
+
+if (empty($_POST)){
     global $game, $info;
-    $game['spiceRound'] = array();
+    
+    //##############################################################
+    //## First Run #################################################
+    //##############################################################
+    if (!isset($game['spiceRound'])) {
+        $game['spiceRound'] = array();
+        $game['spiceRound']['nexus'] = false;
+        $game['spiceRound']['nexusDone'] = array();
+        foreach (array('[A]','[E]','[F]','[G]','[H]') as $x) {
+            $game['spiceRound']['roundDone'][$x] = false;
+            $game['spiceRound']['nexusDone'][$x] = false;
+        }
+        actionSpiceBlow();
+    }
+    
+    //##############################################################
+    //## Every Run -- Spice Round ##################################
+    //##############################################################
+	if ($game['spiceRound']['nexus'] == false) {
+    }
+    echo 
+	'<h2>Spice Round</h2>';
+    
+    echo
+    '<br><form action="" method="post">
+    <button name="storm_action" value="done">Done with Storm</button>
+    </form>';
+    
+    //##############################################################
+    //## Every Run -- Nexus ########################################
+    //##############################################################
+    if ($game['spiceRound']['nexus'] == true) {
+        echo 
+	'<h2>Nexus</h2>';
+
+    echo
+    'A nexus has occoured. Form alliences.
+    The nexus will not end until everyone selects DONE.<br><br>
+    There were sandworms in: <br>';
+    foreach ($game['nexus']['sandworms'] as $x) {
+        print $info['spiceDeck'][$x]['name'].'<br>';
+    }
+    echo
+    '<br><form action="" method="post">
+    <button name="nexus_action" value="done">Done with Nexus</button>
+    </form>';
+}
+    }
+    
+    
+}
+
+//######################################################################
+//###### Post ##########################################################
+//######################################################################
+if (!empty($_POST)){
+    if (isset($_POST['post'])) {
+        dune_postForum($_POST['post']);
+        refreshPage();
+    }
+}
+
+//######################################################################
+//###### Actions #######################################################
+//######################################################################
+
+function actionSpiceBlow() {
+    global $game, $info;
+    
     // Double spice blow.
     for ($i = 1; $i <= 2; $i += 1) {
         while ($info['spiceDeck'][dune_checkSpice($i, true)]['type'] == 'worm') {

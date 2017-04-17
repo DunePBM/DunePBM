@@ -3,14 +3,19 @@
 // Called from index.php
 // uses $_SESSION['override']
 
-// Forms ###########################################################
+//######################################################################
+//###### Forms #########################################################
+//######################################################################
 if (empty($_POST)){
     global $game, $info, $duneMail, $duneForum;
-    if (!isset($_SESSION['sentMail'])) {
-        $_SESSION['sentMail'] = false;
+    
+    
+    if (!isset($_SESSION['mail'])) {
+        $_SESSION['mail'] = array();
+        $_SESSION['mail']['sentMail'] = false;
     }
     
-    if ($_SESSION['sentMail'] == false) {
+    if ($_SESSION['mail']['sentMail'] == false) {
         print '<form action="" method="post">
                 <button name="mail_action" value="sent">Go to Sent Mail</button>
                 </form><br>';
@@ -22,7 +27,7 @@ if (empty($_POST)){
             print '<br>';
         }
     }
-    if ($_SESSION['sentMail'] == true) {
+    if ($_SESSION['mail']['sentMail'] == true) {
         print '<form action="" method="post">
                 <button name="mail_action" value="inbox">Go to Inbox</button>
                 </form><br>';

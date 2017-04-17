@@ -1,4 +1,6 @@
 <?php 
+// NOW A PART OF setup-round.php
+//
 // Bene Gesserit make their prediciton.
 // Called by index.php.
 // Start --> make-prediction.php --> choose-traitors.php
