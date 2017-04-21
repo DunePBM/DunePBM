@@ -202,6 +202,7 @@ function actionChooseTraitors() {
     $game[$_SESSION['faction']]['traitors'] 
             = array($game['traitorDeck'][$_SESSION['faction']][(int)$_POST['traitor']]);
     $game['setupRound']['next'][$_SESSION['faction']] = 'wait';
+    $game['meta']['next'][$_SESSION['faction']] = 'wait.php';
     $isDone = true;
     foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
         if ($game['setupRound']['next'][$faction] != 'wait') {
@@ -210,6 +211,7 @@ function actionChooseTraitors() {
     }
     if ($isDone) {
         $game['setupRound']['next']['[F]'] = 'setupTokens';
+        $game['meta']['next']['[F]'] = 'setup-round.php';
         foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
             $temp = 'Initial traitors: ';
             foreach ($game['traitorDeck'][$faction] as $x) {
@@ -228,7 +230,7 @@ function actionChooseTraitors() {
 
 function actionSetupTokens() {
     global $game, $info;
-    if ($_SESSION['faciton'] == '[F]') {
+    if ($_SESSION['faction'] == '[F]') {
         // Checks input.
         if (($_POST['st'] + $_POST['stStar'] + $_POST['fww'] 
                         + $_POST['fwwStar'] + $_POST['fws'] 
@@ -249,15 +251,15 @@ function actionSetupTokens() {
         dune_gmMoveTokens('[F]', $_POST['fww'], $_POST['fwwStar'], '[OFF]', $_POST['fwwSector']);
         dune_gmMoveTokens('[F]', $_POST['fws'], $_POST['fwsStar'], '[OFF]', $_POST['fwsSector']);
         $game['setupRound']['next']['[F]'] = 'wait';
+        $game['meta']['next']['[F]'] = 'wait.php';
         $game['setupRound']['next']['[B]'] = 'setupTokens';
+        $game['meta']['next']['[B]'] = 'setup-round.php';
         dune_writeData('Fremen places starting tokens');
         return;
     }
-    if ($_SESSION['faciton'] == '[B]') {
+    if ($_SESSION['faction'] == '[B]') {
         dune_readData();
         dune_gmMoveTokens('[B]', 1, 0, '[PS]', $_POST['token_loc']);
-        $game['meta']['event'] = 'Bene Gesserit placees starting token';
-        $game['meta']['faction'] = '[B]';
         $game['meta']['next']['[B]'] = 'wait.php';
         dune_writeData('Bene Gesserit places starting token');
         actionSetupTreachery();

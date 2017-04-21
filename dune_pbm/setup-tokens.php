@@ -1,4 +1,6 @@
 <?php 
+// NOW A PART OF setup-round.php
+//
 // Setup Tokens
 // Called by index.php.
 // choose-traitors.php --> setup-tokens.php --> setup-treachery.php
