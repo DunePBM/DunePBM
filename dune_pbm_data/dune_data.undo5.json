@@ -34,18 +34,18 @@
             }
         },
         "turn": 1,
-        "eventNumber": 5,
+        "eventNumber": 6,
         "repeat": false,
         "next": {
             "[A]": "wait.php",
             "[B]": "wait.php",
-            "[E]": "setup-round.php",
+            "[E]": "wait.php",
             "[F]": "setup-round.php",
             "[G]": "setup-round.php",
             "[H]": "wait.php"
         },
-        "faction": "[A]",
-        "event": "Atreides chose their traitor.",
+        "faction": "[E]",
+        "event": "Emperor chose their traitor.",
         "playerOrder": [
             "[A]",
             "[G]",
@@ -228,7 +228,10 @@
     },
     "[E]": {
         "treachery": [],
-        "spice": 10
+        "spice": 10,
+        "traitors": [
+            "[A#2]"
+        ]
     },
     "[F]": {
         "treachery": [],
@@ -292,7 +295,7 @@
     "setupRound": {
         "next": {
             "[A]": "wait",
-            "[E]": "chooseTraitors",
+            "[E]": "wait",
             "[F]": "chooseTraitors",
             "[G]": "chooseTraitors",
             "[H]": "wait",

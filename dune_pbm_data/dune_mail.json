@@ -6,30 +6,6 @@
                 "fromFaction": "[DUNE]",
                 "message": "Welcome to DunePBM",
                 "time": ""
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[A]",
-                "message": "test",
-                "time": "11: 1492744334"
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[A]",
-                "message": "test",
-                "time": "11: 1492744334"
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[A]",
-                "message": "",
-                "time": "11: 1492744345"
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[A]",
-                "message": "",
-                "time": "11: 1492744345"
             }
         ],
         "sent": []
@@ -41,40 +17,9 @@
                 "fromFaction": "[DUNE]",
                 "message": "Welcome to DunePBM",
                 "time": ""
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[B]",
-                "message": "test",
-                "time": "11: 1492744353"
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[B]",
-                "message": "test",
-                "time": "11: 1492744353"
             }
         ],
-        "sent": [
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[A]",
-                "message": "test",
-                "time": "11: 1492744334"
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[A]",
-                "message": "",
-                "time": "11: 1492744345"
-            },
-            {
-                "fromFaction": "[B]",
-                "toFaction": "[B]",
-                "message": "test",
-                "time": "11: 1492744353"
-            }
-        ]
+        "sent": []
     },
     "[E]": {
         "inbox": [

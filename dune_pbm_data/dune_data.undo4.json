@@ -34,18 +34,18 @@
             }
         },
         "turn": 1,
-        "eventNumber": 6,
+        "eventNumber": 7,
         "repeat": false,
         "next": {
             "[A]": "wait.php",
             "[B]": "wait.php",
             "[E]": "wait.php",
             "[F]": "setup-round.php",
-            "[G]": "setup-round.php",
+            "[G]": "wait.php",
             "[H]": "wait.php"
         },
-        "faction": "[E]",
-        "event": "Emperor chose their traitor.",
+        "faction": "[G]",
+        "event": "Guild chose their traitor.",
         "playerOrder": [
             "[A]",
             "[G]",
@@ -239,7 +239,10 @@
     },
     "[G]": {
         "treachery": [],
-        "spice": 5
+        "spice": 5,
+        "traitors": [
+            "[F#4]"
+        ]
     },
     "[H]": {
         "treachery": [],
@@ -297,7 +300,7 @@
             "[A]": "wait",
             "[E]": "wait",
             "[F]": "chooseTraitors",
-            "[G]": "chooseTraitors",
+            "[G]": "wait",
             "[H]": "wait",
             "[B]": "wait"
         }

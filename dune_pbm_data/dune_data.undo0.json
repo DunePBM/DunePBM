@@ -34,7 +34,7 @@
             }
         },
         "turn": 1,
-        "eventNumber": 10,
+        "eventNumber": 11,
         "repeat": false,
         "next": {
             "[A]": "wait.php",
@@ -44,8 +44,8 @@
             "[G]": "wait.php",
             "[H]": "wait.php"
         },
-        "faction": "[B]",
-        "event": "Bene Gesserit places starting token",
+        "faction": "[DUNE]",
+        "event": "Treachery cards delt.",
         "playerOrder": [
             "[A]",
             "[G]",
@@ -163,7 +163,9 @@
         "discard-2": []
     },
     "[A]": {
-        "treachery": [],
+        "treachery": [
+            "[KARAMA-1]"
+        ],
         "spice": 10,
         "traitors": [
             "[G#4]"
@@ -173,7 +175,9 @@
         ]
     },
     "[B]": {
-        "treachery": [],
+        "treachery": [
+            "[POIS_D-1]"
+        ],
         "spice": 5,
         "prediction": {
             "winningFaction": "[A]",
@@ -188,7 +192,9 @@
         ]
     },
     "[E]": {
-        "treachery": [],
+        "treachery": [
+            "[TRUTH-1]"
+        ],
         "spice": 10,
         "traitors": [
             "[A#2]"
@@ -198,7 +204,9 @@
         ]
     },
     "[F]": {
-        "treachery": [],
+        "treachery": [
+            "[TRUTH-2]"
+        ],
         "spice": 3,
         "traitors": [
             "[F#1]"
@@ -208,7 +216,9 @@
         ]
     },
     "[G]": {
-        "treachery": [],
+        "treachery": [
+            "[WORTHLESS-3]"
+        ],
         "spice": 5,
         "traitors": [
             "[F#4]"
@@ -218,7 +228,10 @@
         ]
     },
     "[H]": {
-        "treachery": [],
+        "treachery": [
+            "[WORTHLESS-5]",
+            "[POIS_W-2]"
+        ],
         "spice": 10,
         "traitors": [
             "[F#5]",
@@ -232,13 +245,6 @@
     },
     "treachery": {
         "deck": [
-            "[KARAMA-1]",
-            "[POIS_D-1]",
-            "[TRUTH-1]",
-            "[TRUTH-2]",
-            "[WORTHLESS-3]",
-            "[POIS_W-2]",
-            "[WORTHLESS-5]",
             "[PROJ_W-1]",
             "[HERO-2]",
             "[PROJ_W-2]",

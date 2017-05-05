@@ -34,7 +34,7 @@
             }
         },
         "turn": 1,
-        "eventNumber": 7,
+        "eventNumber": 8,
         "repeat": false,
         "next": {
             "[A]": "wait.php",
@@ -44,8 +44,8 @@
             "[G]": "wait.php",
             "[H]": "wait.php"
         },
-        "faction": "[G]",
-        "event": "Guild chose their traitor.",
+        "faction": "[F]",
+        "event": "Fremen chose their traitor.",
         "playerOrder": [
             "[A]",
             "[G]",
@@ -129,53 +129,6 @@
         "deck": [],
         "discard": []
     },
-    "traitorDeck": {
-        "deck": [
-            "[G#2]",
-            "[G#5]",
-            "[B#2]",
-            "[F#3]",
-            "[E#1]",
-            "[H#5]"
-        ],
-        "discard": [],
-        "[A]": [
-            "[G#4]",
-            "[B#3]",
-            "[H#2]",
-            "[B#1]"
-        ],
-        "[B]": [
-            "[H#1]",
-            "[G#1]",
-            "[E#4]",
-            "[F#2]"
-        ],
-        "[E]": [
-            "[A#2]",
-            "[E#2]",
-            "[H#3]",
-            "[B#4]"
-        ],
-        "[F]": [
-            "[F#1]",
-            "[A#4]",
-            "[A#1]",
-            "[E#3]"
-        ],
-        "[G]": [
-            "[F#4]",
-            "[G#3]",
-            "[H#4]",
-            "[B#5]"
-        ],
-        "[H]": [
-            "[F#5]",
-            "[A#5]",
-            "[A#3]",
-            "[E#5]"
-        ]
-    },
     "spiceDeck": {
         "deck-1": [
             "[FP]",
@@ -210,6 +163,9 @@
         "spice": 10,
         "traitors": [
             "[G#4]"
+        ],
+        "notes": [
+            "Initial traitors: Soo Soo Sook (2), Princess Irulan (5), Beast Rabban (4), Alia (5)"
         ]
     },
     "[B]": {
@@ -220,7 +176,8 @@
             "winningTurn": 1
         },
         "notes": [
-            "Atreides predicted to win on turn 1."
+            "Atreides predicted to win on turn 1.",
+            "Initial traitors: Feyd-Rautha (6), Staban Tuek (5), Caid (3), Chani (6)"
         ],
         "traitors": [
             "[H#1]"
@@ -231,17 +188,29 @@
         "spice": 10,
         "traitors": [
             "[A#2]"
+        ],
+        "notes": [
+            "Initial traitors: Thufir Hawat (5), Captain Aramsham (5), Piter DeVries (3), Rev. Mother Ramallo (5)"
         ]
     },
     "[F]": {
         "treachery": [],
-        "spice": 3
+        "spice": 3,
+        "traitors": [
+            "[F#1]"
+        ],
+        "notes": [
+            "Initial traitors: Stilgar (7), Duncan Idaho (2), Lady Jessica (5), Burseg (3)"
+        ]
     },
     "[G]": {
         "treachery": [],
         "spice": 5,
         "traitors": [
             "[F#4]"
+        ],
+        "notes": [
+            "Initial traitors: Shadout Mapes (3), Master Bewt (3), Captain Iakin Nefud (2), Wanna Marcus (5)"
         ]
     },
     "[H]": {
@@ -252,6 +221,9 @@
             "[A#5]",
             "[A#3]",
             "[E#5]"
+        ],
+        "notes": [
+            "Initial traitors: Jamis (2), Dr. Wellington Yueh (1), Gurney Halleck (4), Bashar (2)"
         ]
     },
     "treachery": {
@@ -299,7 +271,7 @@
         "next": {
             "[A]": "wait",
             "[E]": "wait",
-            "[F]": "chooseTraitors",
+            "[F]": "setupTokens",
             "[G]": "wait",
             "[H]": "wait",
             "[B]": "wait"

@@ -34,18 +34,18 @@
             }
         },
         "turn": 1,
-        "eventNumber": 9,
+        "eventNumber": 10,
         "repeat": false,
         "next": {
             "[A]": "wait.php",
-            "[B]": "setup-round.php",
+            "[B]": "wait.php",
             "[E]": "wait.php",
             "[F]": "wait.php",
             "[G]": "wait.php",
             "[H]": "wait.php"
         },
-        "faction": "[F]",
-        "event": "Fremen places starting tokens",
+        "faction": "[B]",
+        "event": "Bene Gesserit places starting token",
         "playerOrder": [
             "[A]",
             "[G]",
@@ -98,9 +98,7 @@
             "[A]": [
                 10,
                 0
-            ]
-        },
-        "[PS]": {
+            ],
             "[B]": [
                 1,
                 0
