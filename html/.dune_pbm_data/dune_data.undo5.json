@@ -34,18 +34,18 @@
             }
         },
         "turn": 1,
-        "eventNumber": 1,
+        "eventNumber": 5,
         "repeat": false,
         "next": {
             "[A]": "wait.php",
-            "[B]": "setup-round.php",
-            "[E]": "wait.php",
-            "[F]": "wait.php",
-            "[G]": "wait.php",
+            "[B]": "wait.php",
+            "[E]": "setup-round.php",
+            "[F]": "setup-round.php",
+            "[G]": "setup-round.php",
             "[H]": "wait.php"
         },
-        "faction": "[B]",
-        "event": "",
+        "faction": "[A]",
+        "event": "Atreides chose their traitor.",
         "playerOrder": [
             "[B]",
             "[F]",
@@ -207,11 +207,24 @@
     },
     "[A]": {
         "treachery": [],
-        "spice": 10
+        "spice": 10,
+        "traitors": [
+            "[F#2]"
+        ]
     },
     "[B]": {
         "treachery": [],
-        "spice": 5
+        "spice": 5,
+        "prediction": {
+            "winningFaction": "[A]",
+            "winningTurn": 1
+        },
+        "notes": [
+            "Atreides predicted to win on turn 1."
+        ],
+        "traitors": [
+            "[A#1]"
+        ]
     },
     "[E]": {
         "treachery": [],
@@ -275,5 +288,15 @@
     "storm": {
         "location": 0,
         "move": 13
+    },
+    "setupRound": {
+        "next": {
+            "[A]": "wait",
+            "[E]": "chooseTraitors",
+            "[F]": "chooseTraitors",
+            "[G]": "chooseTraitors",
+            "[H]": "wait",
+            "[B]": "wait"
+        }
     }
 }

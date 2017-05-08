@@ -2,8 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
-$gamePath = '/var/www/dune_pbm/';
-include_once $gamePath.'main.php';
+$gameDir = '.dune_pbm/';
+include_once $gameDir.'main.php';
 ?>
 
 <head>
@@ -17,10 +17,10 @@ include_once $gamePath.'main.php';
 <h1>Dune PBM</h1>
 
 <?php
-global $gamePath, $game, $info, $duneForum, $duneMail;
+global $gameDir, $game, $game, $info, $duneForum, $duneMail;
 if (!isset($_SESSION['faction'])) {
     dune_readData();
-    include $gamePath.'login.php';
+    include $gameDir.'login.php';
     print '<hr>';
     if (!isset($_SESSION['faction'])) {
         dune_getWaiting();
@@ -28,15 +28,15 @@ if (!isset($_SESSION['faction'])) {
 }
 if (isset($_SESSION['override']) && isset($_SESSION['faction'])) {
     dune_readData();
-    include $gamePath.'header.php';
+    include $gameDir.'header.php';
     if (isset($_SESSION['override'])) { //This is a bug-fix
-        include $gamePath.$_SESSION['override'];
+        include $gameDir.$_SESSION['override'];
     }
 } 
 if (!isset($_SESSION['override']) && isset($_SESSION['faction'])) {
     dune_readData();
-    include $gamePath.'header.php';
-    include $gamePath.$game['meta']['next'][$_SESSION['faction']];
+    include $gameDir.'header.php';
+    include $gameDir.$game['meta']['next'][$_SESSION['faction']];
 }
 ?>
 

@@ -34,18 +34,18 @@
             }
         },
         "turn": 1,
-        "eventNumber": 2,
+        "eventNumber": 6,
         "repeat": false,
         "next": {
             "[A]": "wait.php",
-            "[B]": "setup-round.php",
+            "[B]": "wait.php",
             "[E]": "wait.php",
-            "[F]": "wait.php",
-            "[G]": "wait.php",
+            "[F]": "setup-round.php",
+            "[G]": "setup-round.php",
             "[H]": "wait.php"
         },
-        "faction": "[DUNE]",
-        "event": "Start setup.",
+        "faction": "[E]",
+        "event": "Emperor chose their traitor.",
         "playerOrder": [
             "[B]",
             "[F]",
@@ -207,15 +207,31 @@
     },
     "[A]": {
         "treachery": [],
-        "spice": 10
+        "spice": 10,
+        "traitors": [
+            "[F#2]"
+        ]
     },
     "[B]": {
         "treachery": [],
-        "spice": 5
+        "spice": 5,
+        "prediction": {
+            "winningFaction": "[A]",
+            "winningTurn": 1
+        },
+        "notes": [
+            "Atreides predicted to win on turn 1."
+        ],
+        "traitors": [
+            "[A#1]"
+        ]
     },
     "[E]": {
         "treachery": [],
-        "spice": 10
+        "spice": 10,
+        "traitors": [
+            "[E#4]"
+        ]
     },
     "[F]": {
         "treachery": [],
@@ -280,10 +296,10 @@
         "next": {
             "[A]": "wait",
             "[E]": "wait",
-            "[F]": "wait",
-            "[G]": "wait",
+            "[F]": "chooseTraitors",
+            "[G]": "chooseTraitors",
             "[H]": "wait",
-            "[B]": "makePrediction"
+            "[B]": "wait"
         }
     }
 }
