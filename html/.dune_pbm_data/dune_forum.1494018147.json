@@ -1,0 +1,280 @@
+{
+    "meta": {
+        "game": "PHP Test Game",
+        "players": {
+            "[A]": {
+                "name": "a",
+                "email": "",
+                "password": "a"
+            },
+            "[B]": {
+                "name": "b",
+                "email": "",
+                "password": "b"
+            },
+            "[E]": {
+                "name": "e",
+                "email": "",
+                "password": "e"
+            },
+            "[F]": {
+                "name": "f",
+                "email": "",
+                "password": "f"
+            },
+            "[G]": {
+                "name": "g",
+                "email": "",
+                "password": "g"
+            },
+            "[H]": {
+                "name": "h",
+                "email": "",
+                "password": "h"
+            }
+        },
+        "turn": 1,
+        "eventNumber": 8,
+        "repeat": false,
+        "next": {
+            "[A]": "wait.php",
+            "[B]": "wait.php",
+            "[E]": "wait.php",
+            "[F]": "setup-round.php",
+            "[G]": "wait.php",
+            "[H]": "wait.php"
+        },
+        "faction": "[F]",
+        "event": "Fremen chose their traitor.",
+        "playerOrder": [
+            "[E]",
+            "[F]",
+            "[B]",
+            "[A]",
+            "[H]",
+            "[G]"
+        ],
+        "playerDots": [
+            "[E]",
+            "[F]",
+            "[B]",
+            "[A]",
+            "[H]",
+            "[G]"
+        ],
+        "storm": {
+            "location": 0,
+            "move": 0
+        }
+    },
+    "tokens": {
+        "[OFF]": {
+            "[A]": [
+                10,
+                0
+            ],
+            "[B]": [
+                19,
+                0
+            ],
+            "[E]": [
+                15,
+                5
+            ],
+            "[F]": [
+                17,
+                3
+            ],
+            "[G]": [
+                15,
+                0
+            ],
+            "[H]": [
+                10,
+                0
+            ]
+        },
+        "[ARR]": {
+            "[A]": [
+                10,
+                0
+            ]
+        },
+        "[PS]": {
+            "[B]": [
+                1,
+                0
+            ]
+        },
+        "[TS]": {
+            "[G]": [
+                5,
+                0
+            ]
+        },
+        "[CAR]": {
+            "[H]": [
+                10,
+                0
+            ]
+        },
+        "[BANK]": {
+            "[SPICE]": [
+                9000,
+                0
+            ]
+        }
+    },
+    "treacheryDeck": {
+        "deck": [],
+        "discard": []
+    },
+    "spiceDeck": {
+        "deck-1": [
+            "[FP]",
+            "[WORM-4]",
+            "[CS-1]",
+            "[OG-2]",
+            "[WORM-1]",
+            "[WPN-1]",
+            "[TGF]",
+            "[CN-3]",
+            "[SR]",
+            "[WORM-3]"
+        ],
+        "deck-2": [
+            "[BL-2]",
+            "[HE-1]",
+            "[SM-2]",
+            "[WORM-5]",
+            "[RO-2]",
+            "[RC]",
+            "[TME-3]",
+            "[HRF-2]",
+            "[HB-2]",
+            "[WORM-2]",
+            "[WORM-6]"
+        ],
+        "discard-1": [],
+        "discard-2": []
+    },
+    "[A]": {
+        "treachery": [],
+        "spice": 10,
+        "traitors": [
+            "[H#2]"
+        ],
+        "notes": [
+            "Initial traitors: Beast Rabban (4), Feyd-Rautha (6), Staban Tuek (5), Bashar (2)"
+        ]
+    },
+    "[B]": {
+        "treachery": [],
+        "spice": 5,
+        "prediction": {
+            "winningFaction": "[A]",
+            "winningTurn": 1
+        },
+        "notes": [
+            "Atreides predicted to win on turn 1.",
+            "Initial traitors: Princess Irulan (5), Lady Jessica (5), Jamis (2), Captain Aramsham (5)"
+        ],
+        "traitors": [
+            "[B#3]"
+        ]
+    },
+    "[E]": {
+        "treachery": [],
+        "spice": 10,
+        "traitors": [
+            "[B#5]"
+        ],
+        "notes": [
+            "Initial traitors: Wanna Marcus (5), Lady Margot Fenring (5), Alia (5), Guild Representative (1)"
+        ]
+    },
+    "[F]": {
+        "treachery": [],
+        "spice": 3,
+        "traitors": [
+            "[A#4]"
+        ],
+        "notes": [
+            "Initial traitors: Duncan Idaho (2), Master Bewt (3), Dr. Wellington Yueh (1), Rev. Mother Ramallo (5)"
+        ]
+    },
+    "[G]": {
+        "treachery": [],
+        "spice": 5,
+        "traitors": [
+            "[H#5]"
+        ],
+        "notes": [
+            "Initial traitors: Umman Kudu (1), Gurney Halleck (4), Chani (6), Caid (3)"
+        ]
+    },
+    "[H]": {
+        "treachery": [],
+        "spice": 10,
+        "traitors": [
+            "[F#1]",
+            "[G#4]",
+            "[E#1]",
+            "[F#4]"
+        ],
+        "notes": [
+            "Initial traitors: Stilgar (7), Soo Soo Sook (2), Count Hasimir Fenring (6), Shadout Mapes (3)"
+        ]
+    },
+    "treachery": {
+        "deck": [
+            "[PROJ_D-2]",
+            "[WORTHLESS-5]",
+            "[ATOMICS-1]",
+            "[WORTHLESS-1]",
+            "[WEATHER-1]",
+            "[GHOLA-1]",
+            "[TRUTH-2]",
+            "[HERO-1]",
+            "[WORTHLESS-3]",
+            "[POIS_D-1]",
+            "[KARAMA-1]",
+            "[POIS_W-3]",
+            "[PROJ_W-3]",
+            "[POIS_W-1]",
+            "[KARAMA-2]",
+            "[WORTHLESS-2]",
+            "[PROJ_W-4]",
+            "[PROJ_D-1]",
+            "[POIS_D-4]",
+            "[LASEGUN-1]",
+            "[WORTHLESS-4]",
+            "[PROJ_D-3]",
+            "[POIS_D-2]",
+            "[HAJR-1]",
+            "[POIS_W-2]",
+            "[PROJ_D-4]",
+            "[PROJ_W-1]",
+            "[POIS_D-3]",
+            "[HERO-2]",
+            "[TRUTH-1]",
+            "[POIS_W-4]",
+            "[PROJ_W-2]",
+            "[HERO-3]"
+        ]
+    },
+    "storm": {
+        "location": 0,
+        "move": 15
+    },
+    "setupRound": {
+        "next": {
+            "[A]": "wait",
+            "[E]": "wait",
+            "[F]": "setupTokens",
+            "[G]": "wait",
+            "[H]": "wait",
+            "[B]": "wait"
+        }
+    }
+}

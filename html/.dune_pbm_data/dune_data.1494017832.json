@@ -1,0 +1,296 @@
+{
+    "meta": {
+        "game": "PHP Test Game",
+        "players": {
+            "[A]": {
+                "name": "a",
+                "email": "",
+                "password": "a"
+            },
+            "[B]": {
+                "name": "b",
+                "email": "",
+                "password": "b"
+            },
+            "[E]": {
+                "name": "e",
+                "email": "",
+                "password": "e"
+            },
+            "[F]": {
+                "name": "f",
+                "email": "",
+                "password": "f"
+            },
+            "[G]": {
+                "name": "g",
+                "email": "",
+                "password": "g"
+            },
+            "[H]": {
+                "name": "h",
+                "email": "",
+                "password": "h"
+            }
+        },
+        "turn": 1,
+        "eventNumber": 3,
+        "repeat": false,
+        "next": {
+            "[A]": "setup-round.php",
+            "[B]": "setup-round.php",
+            "[E]": "setup-round.php",
+            "[F]": "setup-round.php",
+            "[G]": "setup-round.php",
+            "[H]": "wait.php"
+        },
+        "faction": "[B]",
+        "event": "Bene Gesserit made their prediction.",
+        "playerOrder": [
+            "[F]",
+            "[A]",
+            "[B]",
+            "[E]",
+            "[H]",
+            "[G]"
+        ],
+        "playerDots": [
+            "[F]",
+            "[A]",
+            "[B]",
+            "[E]",
+            "[H]",
+            "[G]"
+        ],
+        "storm": {
+            "location": 0,
+            "move": 0
+        }
+    },
+    "tokens": {
+        "[OFF]": {
+            "[A]": [
+                10,
+                0
+            ],
+            "[B]": [
+                19,
+                0
+            ],
+            "[E]": [
+                15,
+                5
+            ],
+            "[F]": [
+                17,
+                3
+            ],
+            "[G]": [
+                15,
+                0
+            ],
+            "[H]": [
+                10,
+                0
+            ]
+        },
+        "[ARR]": {
+            "[A]": [
+                10,
+                0
+            ]
+        },
+        "[PS]": {
+            "[B]": [
+                1,
+                0
+            ]
+        },
+        "[TS]": {
+            "[G]": [
+                5,
+                0
+            ]
+        },
+        "[CAR]": {
+            "[H]": [
+                10,
+                0
+            ]
+        },
+        "[BANK]": {
+            "[SPICE]": [
+                9000,
+                0
+            ]
+        }
+    },
+    "treacheryDeck": {
+        "deck": [],
+        "discard": []
+    },
+    "traitorDeck": {
+        "deck": [
+            "[H#4]",
+            "[F#2]",
+            "[E#4]",
+            "[F#5]",
+            "[G#1]",
+            "[H#2]"
+        ],
+        "discard": [],
+        "[A]": [
+            "[B#5]",
+            "[H#1]",
+            "[H#5]",
+            "[B#3]"
+        ],
+        "[B]": [
+            "[B#2]",
+            "[E#5]",
+            "[F#3]",
+            "[A#3]"
+        ],
+        "[E]": [
+            "[F#4]",
+            "[A#1]",
+            "[B#1]",
+            "[A#5]"
+        ],
+        "[F]": [
+            "[F#1]",
+            "[A#4]",
+            "[A#2]",
+            "[E#2]"
+        ],
+        "[G]": [
+            "[H#3]",
+            "[G#5]",
+            "[G#4]",
+            "[G#2]"
+        ],
+        "[H]": [
+            "[G#3]",
+            "[E#3]",
+            "[E#1]",
+            "[B#4]"
+        ]
+    },
+    "spiceDeck": {
+        "deck-1": [
+            "[BL-2]",
+            "[OG-2]",
+            "[CS-1]",
+            "[HB-2]",
+            "[WORM-3]",
+            "[WPN-1]",
+            "[TME-3]",
+            "[TGF]",
+            "[RC]",
+            "[WORM-6]"
+        ],
+        "deck-2": [
+            "[FP]",
+            "[HRF-2]",
+            "[SM-2]",
+            "[WORM-5]",
+            "[RO-2]",
+            "[WORM-1]",
+            "[WORM-2]",
+            "[HE-1]",
+            "[CN-3]",
+            "[SR]",
+            "[WORM-4]"
+        ],
+        "discard-1": [],
+        "discard-2": []
+    },
+    "[A]": {
+        "treachery": [],
+        "spice": 10
+    },
+    "[B]": {
+        "treachery": [],
+        "spice": 5,
+        "prediction": {
+            "winningFaction": "[A]",
+            "winningTurn": 1
+        },
+        "notes": [
+            "Atreides predicted to win on turn 1."
+        ]
+    },
+    "[E]": {
+        "treachery": [],
+        "spice": 10
+    },
+    "[F]": {
+        "treachery": [],
+        "spice": 3
+    },
+    "[G]": {
+        "treachery": [],
+        "spice": 5
+    },
+    "[H]": {
+        "treachery": [],
+        "spice": 10,
+        "traitors": [
+            "[G#3]",
+            "[E#3]",
+            "[E#1]",
+            "[B#4]"
+        ]
+    },
+    "treachery": {
+        "deck": [
+            "[POIS_W-4]",
+            "[POIS_W-1]",
+            "[POIS_D-2]",
+            "[HAJR-1]",
+            "[WEATHER-1]",
+            "[TRUTH-1]",
+            "[TRUTH-2]",
+            "[ATOMICS-1]",
+            "[HERO-2]",
+            "[LASEGUN-1]",
+            "[PROJ_D-3]",
+            "[POIS_D-1]",
+            "[KARAMA-2]",
+            "[POIS_W-2]",
+            "[WORTHLESS-1]",
+            "[PROJ_D-4]",
+            "[PROJ_D-2]",
+            "[KARAMA-1]",
+            "[WORTHLESS-2]",
+            "[HERO-1]",
+            "[WORTHLESS-4]",
+            "[PROJ_W-2]",
+            "[PROJ_W-3]",
+            "[GHOLA-1]",
+            "[POIS_W-3]",
+            "[POIS_D-3]",
+            "[WORTHLESS-5]",
+            "[WORTHLESS-3]",
+            "[PROJ_W-1]",
+            "[POIS_D-4]",
+            "[HERO-3]",
+            "[PROJ_D-1]",
+            "[PROJ_W-4]"
+        ]
+    },
+    "storm": {
+        "location": 0,
+        "move": 7
+    },
+    "setupRound": {
+        "next": {
+            "[A]": "chooseTraitors",
+            "[E]": "chooseTraitors",
+            "[F]": "chooseTraitors",
+            "[G]": "chooseTraitors",
+            "[H]": "wait",
+            "[B]": "chooseTraitors"
+        }
+    }
+}
