@@ -1,1 +1,7 @@
-Options -Indexes
+# Block access to any hidden files.
+<FilesMatch "^\.">
+        Require all denied
+</FilesMatch>
+
+# Disable directory browsing
+Options All -Indexes
