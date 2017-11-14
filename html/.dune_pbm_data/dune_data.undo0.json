@@ -47,20 +47,20 @@
         "faction": "[B]",
         "event": "Bene Gesserit places starting token",
         "playerOrder": [
+            "[G]",
             "[B]",
             "[F]",
+            "[E]",
             "[A]",
-            "[H]",
-            "[G]",
-            "[E]"
+            "[H]"
         ],
         "playerDots": [
+            "[G]",
             "[B]",
             "[F]",
+            "[E]",
             "[A]",
-            "[H]",
-            "[G]",
-            "[E]"
+            "[H]"
         ],
         "storm": {
             "location": 0,
@@ -124,7 +124,13 @@
         },
         "[ST]": {
             "[F]": [
-                10,
+                5,
+                0
+            ]
+        },
+        "[FWS-2]": {
+            "[F]": [
+                5,
                 0
             ]
         }
@@ -135,29 +141,29 @@
     },
     "spiceDeck": {
         "deck-1": [
-            "[HB-2]",
-            "[WORM-6]",
             "[CS-1]",
-            "[HE-1]",
             "[WPN-1]",
-            "[WORM-1]",
+            "[HE-1]",
+            "[SM-2]",
+            "[RO-2]",
             "[OG-2]",
-            "[FP]",
-            "[RC]",
-            "[TME-3]"
+            "[WORM-2]",
+            "[BL-2]",
+            "[HB-2]",
+            "[TGF]"
         ],
         "deck-2": [
-            "[HRF-2]",
-            "[SM-2]",
-            "[BL-2]",
-            "[RO-2]",
-            "[WORM-4]",
-            "[TGF]",
-            "[CN-3]",
-            "[WORM-2]",
+            "[TME-3]",
             "[SR]",
             "[WORM-5]",
-            "[WORM-3]"
+            "[HRF-2]",
+            "[FP]",
+            "[WORM-6]",
+            "[CN-3]",
+            "[RC]",
+            "[WORM-3]",
+            "[WORM-4]",
+            "[WORM-1]"
         ],
         "discard-1": [],
         "discard-2": []
@@ -166,10 +172,10 @@
         "treachery": [],
         "spice": 10,
         "traitors": [
-            "[F#2]"
+            "[G#1]"
         ],
         "notes": [
-            "Initial traitors: Chani (6), Alia (5), Master Bewt (3), Feyd-Rautha (6)"
+            "Initial traitors: Staban Tuek (5), Duncan Idaho (2), Bashar (2), Count Hasimir Fenring (6)"
         ]
     },
     "[B]": {
@@ -181,95 +187,95 @@
         },
         "notes": [
             "Atreides predicted to win on turn 1.",
-            "Initial traitors: Lady Jessica (5), Burseg (3), Count Hasimir Fenring (6), Esmar Tuek (3)"
+            "Initial traitors: Burseg (3), Princess Irulan (5), Piter DeVries (3), Captain Aramsham (5)"
         ],
         "traitors": [
-            "[A#1]"
+            "[E#3]"
         ]
     },
     "[E]": {
         "treachery": [],
         "spice": 10,
         "traitors": [
-            "[E#4]"
+            "[G#4]"
         ],
         "notes": [
-            "Initial traitors: Caid (3), Captain Iakin Nefud (2), Umman Kudu (1), Lady Margot Fenring (5)"
+            "Initial traitors: Soo Soo Sook (2), Master Bewt (3), Caid (3), Stilgar (7)"
         ]
     },
     "[F]": {
         "treachery": [],
         "spice": 3,
         "traitors": [
-            "[B#3]"
+            "[G#2]"
         ],
         "notes": [
-            "Initial traitors: Princess Irulan (5), Dr. Wellington Yueh (1), Soo Soo Sook (2), Stilgar (7)"
+            "Initial traitors: Esmar Tuek (3), Thufir Hawat (5), Jamis (2), Alia (5)"
         ]
     },
     "[G]": {
         "treachery": [],
         "spice": 5,
         "traitors": [
-            "[B#4]"
+            "[H#1]"
         ],
         "notes": [
-            "Initial traitors: Rev. Mother Ramallo (5), Duncan Idaho (2), Guild Representative (1), Bashar (2)"
+            "Initial traitors: Feyd-Rautha (6), Otheym (5), Chani (6), Lady Jessica (5)"
         ]
     },
     "[H]": {
         "treachery": [],
         "spice": 10,
         "traitors": [
-            "[E#2]",
-            "[A#3]",
-            "[G#1]",
-            "[F#3]"
+            "[H#2]",
+            "[B#4]",
+            "[B#2]",
+            "[A#5]"
         ],
         "notes": [
-            "Initial traitors: Captain Aramsham (5), Gurney Halleck (4), Staban Tuek (5), Otheym (5)"
+            "Initial traitors: Beast Rabban (4), Rev. Mother Ramallo (5), Lady Margot Fenring (5), Dr. Wellington Yueh (1)"
         ]
     },
     "treachery": {
         "deck": [
-            "[PROJ_W-3]",
-            "[HERO-1]",
-            "[HERO-3]",
-            "[HAJR-1]",
-            "[POIS_W-3]",
-            "[WORTHLESS-1]",
-            "[POIS_W-4]",
-            "[ATOMICS-1]",
-            "[POIS_W-1]",
-            "[WORTHLESS-2]",
-            "[PROJ_W-2]",
-            "[KARAMA-1]",
-            "[PROJ_D-3]",
-            "[TRUTH-2]",
-            "[PROJ_W-4]",
-            "[WORTHLESS-3]",
-            "[POIS_D-3]",
             "[PROJ_D-1]",
-            "[PROJ_D-2]",
-            "[TRUTH-1]",
-            "[WORTHLESS-5]",
-            "[WEATHER-1]",
-            "[PROJ_D-4]",
-            "[KARAMA-2]",
-            "[PROJ_W-1]",
-            "[WORTHLESS-4]",
-            "[POIS_D-1]",
-            "[POIS_D-4]",
-            "[POIS_D-2]",
             "[POIS_W-2]",
-            "[LASEGUN-1]",
+            "[POIS_D-3]",
+            "[KARAMA-1]",
+            "[PROJ_W-2]",
             "[GHOLA-1]",
-            "[HERO-2]"
+            "[KARAMA-2]",
+            "[HERO-3]",
+            "[PROJ_W-3]",
+            "[POIS_D-4]",
+            "[TRUTH-2]",
+            "[PROJ_D-3]",
+            "[POIS_D-1]",
+            "[WORTHLESS-2]",
+            "[HAJR-1]",
+            "[PROJ_D-2]",
+            "[WORTHLESS-3]",
+            "[POIS_D-2]",
+            "[WORTHLESS-5]",
+            "[WORTHLESS-4]",
+            "[PROJ_W-4]",
+            "[PROJ_D-4]",
+            "[WORTHLESS-1]",
+            "[PROJ_W-1]",
+            "[ATOMICS-1]",
+            "[LASEGUN-1]",
+            "[HERO-1]",
+            "[POIS_W-1]",
+            "[WEATHER-1]",
+            "[TRUTH-1]",
+            "[POIS_W-3]",
+            "[HERO-2]",
+            "[POIS_W-4]"
         ]
     },
     "storm": {
         "location": 0,
-        "move": 13
+        "move": 10
     },
     "setupRound": {
         "next": {

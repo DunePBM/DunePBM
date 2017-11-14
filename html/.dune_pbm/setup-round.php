@@ -82,6 +82,7 @@ if (empty($_POST)) {
         if ($_SESSION['faction'] == '[F]') {
             echo 
             '<h3>Fremen:</h3>
+            <p>Place your 10 starting tokens.</p>
             <form action="#" method="post">
                 Place <input id="st" name="st" type="number" min=0 max=10 value="0"/> /
                 <input id="stStar" name="stStar" type="number" min=0 max=3 value="0"/> 
@@ -254,7 +255,7 @@ function actionSetupTokens() {
         $game['meta']['next']['[F]'] = 'wait.php';
         $game['setupRound']['next']['[B]'] = 'setupTokens';
         $game['meta']['next']['[B]'] = 'setup-round.php';
-        dune_writeData('Fremen places starting tokens');
+        dune_writeData('Fremen places 10 starting tokens');
         return;
     }
     if ($_SESSION['faction'] == '[B]') {
@@ -268,7 +269,7 @@ function actionSetupTokens() {
 }
 
 function actionSetupTreachery() {
-    global $data, $info;
+    global $game, $info;
     dune_readData();
     foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
         dune_dealTreachery($faction);

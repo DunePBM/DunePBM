@@ -30,7 +30,7 @@ function refreshPage() {
 }
 
 function dune_setupGame() {
-    global $gameDir, $data, $game, $info, $duneForum, $duneMail;
+    global $gameDir, $game, $info, $duneForum, $duneMail;
 	$game = json_decode(file_get_contents($gameDir.'dune_data_start.json'), true);
     $duneForum = json_decode(file_get_contents($gameDir.'dune_forum_start.json'), true);
     $duneMail = json_decode(file_get_contents($gameDir.'dune_mail_start.json'), true);

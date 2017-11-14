@@ -3,9 +3,9 @@
 // Called from setup-tokens.php
 // uses $_SESSION['override']
 
-global $data, $info, $gamePath;
+global $data, $info, $gameDir;
 dune_readData();
 
 
-echo file_get_contents($gamePath.'DunePBM_Board.svg');
+echo file_get_contents($gameDir.'DunePBM_Board.svg');
 ?>
