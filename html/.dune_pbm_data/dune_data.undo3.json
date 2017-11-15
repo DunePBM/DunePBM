@@ -34,33 +34,33 @@
             }
         },
         "turn": 1,
-        "eventNumber": 7,
+        "eventNumber": 20,
         "repeat": false,
         "next": {
             "[A]": "wait.php",
             "[B]": "wait.php",
-            "[E]": "wait.php",
-            "[F]": "setup-round.php",
+            "[E]": "storm-round.php",
+            "[F]": "storm-round.php",
             "[G]": "wait.php",
-            "[H]": "wait.php"
+            "[H]": "storm-round.php"
         },
         "faction": "[G]",
-        "event": "Guild chose their traitor.",
+        "event": "Done with storm-round.",
         "playerOrder": [
-            "[G]",
-            "[B]",
             "[F]",
+            "[G]",
+            "[H]",
+            "[B]",
             "[E]",
-            "[A]",
-            "[H]"
+            "[A]"
         ],
         "playerDots": [
-            "[G]",
-            "[B]",
             "[F]",
+            "[G]",
+            "[H]",
+            "[B]",
             "[E]",
-            "[A]",
-            "[H]"
+            "[A]"
         ],
         "storm": {
             "location": 0,
@@ -82,7 +82,7 @@
                 5
             ],
             "[F]": [
-                17,
+                7,
                 3
             ],
             "[G]": [
@@ -98,9 +98,7 @@
             "[A]": [
                 10,
                 0
-            ]
-        },
-        "[PS]": {
+            ],
             "[B]": [
                 1,
                 0
@@ -123,186 +121,162 @@
                 9000,
                 0
             ]
+        },
+        "[ST]": {
+            "[F]": [
+                10,
+                0
+            ]
         }
     },
     "treacheryDeck": {
         "deck": [],
         "discard": []
     },
-    "traitorDeck": {
-        "deck": [
-            "[B#5]",
-            "[A#3]",
-            "[H#5]",
-            "[G#5]",
-            "[F#4]",
-            "[H#4]"
-        ],
-        "discard": [],
-        "[A]": [
-            "[G#1]",
-            "[A#4]",
-            "[E#5]",
-            "[E#1]"
-        ],
-        "[B]": [
-            "[E#3]",
-            "[B#3]",
-            "[H#3]",
-            "[E#2]"
-        ],
-        "[E]": [
-            "[G#4]",
-            "[G#3]",
-            "[E#4]",
-            "[F#1]"
-        ],
-        "[F]": [
-            "[G#2]",
-            "[A#2]",
-            "[F#5]",
-            "[B#1]"
-        ],
-        "[G]": [
-            "[H#1]",
-            "[F#3]",
-            "[F#2]",
-            "[A#1]"
-        ],
-        "[H]": [
-            "[H#2]",
-            "[B#4]",
-            "[B#2]",
-            "[A#5]"
-        ]
-    },
     "spiceDeck": {
         "deck-1": [
-            "[CS-1]",
-            "[WPN-1]",
+            "[SR]",
             "[HE-1]",
-            "[SM-2]",
-            "[RO-2]",
-            "[OG-2]",
-            "[WORM-2]",
-            "[BL-2]",
+            "[RC]",
+            "[WORM-1]",
+            "[TGF]",
+            "[CN-3]",
             "[HB-2]",
-            "[TGF]"
+            "[WORM-2]",
+            "[BL-2]"
         ],
         "deck-2": [
-            "[TME-3]",
-            "[SR]",
-            "[WORM-5]",
+            "[SM-2]",
             "[HRF-2]",
-            "[FP]",
-            "[WORM-6]",
-            "[CN-3]",
-            "[RC]",
+            "[RO-2]",
+            "[WORM-5]",
+            "[OG-2]",
+            "[TME-3]",
+            "[WPN-1]",
             "[WORM-3]",
             "[WORM-4]",
-            "[WORM-1]"
+            "[WORM-6]"
         ],
-        "discard-1": [],
-        "discard-2": []
+        "discard-1": [
+            "[CS-1]"
+        ],
+        "discard-2": [
+            "[FP]"
+        ]
     },
     "[A]": {
-        "treachery": [],
+        "treachery": [
+            "[POIS_W-2]"
+        ],
         "spice": 10,
         "traitors": [
-            "[G#1]"
+            "[H#1]"
+        ],
+        "notes": [
+            "Initial traitors: Duncan Idaho (2), Soo Soo Sook (2), Feyd-Rautha (6), Jamis (2)"
         ]
     },
     "[B]": {
-        "treachery": [],
+        "treachery": [
+            "[PROJ_D-2]"
+        ],
         "spice": 5,
         "prediction": {
-            "winningFaction": "[A]",
-            "winningTurn": 1
+            "winningFaction": "[F]",
+            "winningTurn": 4
         },
         "notes": [
-            "Atreides predicted to win on turn 1."
+            "Fremen predicted to win on turn 4.",
+            "Initial traitors: Gurney Halleck (4), Lady Jessica (5), Stilgar (7), Rev. Mother Ramallo (5)"
         ],
         "traitors": [
-            "[E#3]"
+            "[F#1]"
         ]
     },
     "[E]": {
-        "treachery": [],
+        "treachery": [
+            "[KARAMA-1]"
+        ],
         "spice": 10,
         "traitors": [
-            "[G#4]"
+            "[H#2]"
+        ],
+        "notes": [
+            "Initial traitors: Beast Rabban (4), Piter DeVries (3), Captain Iakin Nefud (2), Chani (6)"
         ]
     },
     "[F]": {
-        "treachery": [],
-        "spice": 3
+        "treachery": [
+            "[POIS_D-4]"
+        ],
+        "spice": 3,
+        "traitors": [
+            "[E#1]"
+        ],
+        "notes": [
+            "Initial traitors: Burseg (3), Otheym (5), Count Hasimir Fenring (6), Thufir Hawat (5)"
+        ]
     },
     "[G]": {
-        "treachery": [],
+        "treachery": [
+            "[POIS_D-3]"
+        ],
         "spice": 5,
         "traitors": [
-            "[H#1]"
+            "[E#2]"
+        ],
+        "notes": [
+            "Initial traitors: Captain Aramsham (5), Princess Irulan (5), Dr. Wellington Yueh (1), Bashar (2)"
         ]
     },
     "[H]": {
-        "treachery": [],
+        "treachery": [
+            "[LASEGUN-1]",
+            "[WORTHLESS-3]"
+        ],
         "spice": 10,
         "traitors": [
-            "[H#2]",
-            "[B#4]",
+            "[G#5]",
             "[B#2]",
-            "[A#5]"
+            "[G#2]",
+            "[B#1]"
+        ],
+        "notes": [
+            "Initial traitors: Guild Representative (1), Lady Margot Fenring (5), Esmar Tuek (3), Alia (5)"
         ]
     },
     "treachery": {
         "deck": [
-            "[PROJ_D-1]",
-            "[POIS_W-2]",
-            "[POIS_D-3]",
-            "[KARAMA-1]",
-            "[PROJ_W-2]",
-            "[GHOLA-1]",
-            "[KARAMA-2]",
-            "[HERO-3]",
-            "[PROJ_W-3]",
-            "[POIS_D-4]",
-            "[TRUTH-2]",
-            "[PROJ_D-3]",
-            "[POIS_D-1]",
-            "[WORTHLESS-2]",
-            "[HAJR-1]",
-            "[PROJ_D-2]",
-            "[WORTHLESS-3]",
-            "[POIS_D-2]",
-            "[WORTHLESS-5]",
-            "[WORTHLESS-4]",
-            "[PROJ_W-4]",
-            "[PROJ_D-4]",
-            "[WORTHLESS-1]",
-            "[PROJ_W-1]",
-            "[ATOMICS-1]",
-            "[LASEGUN-1]",
-            "[HERO-1]",
-            "[POIS_W-1]",
-            "[WEATHER-1]",
-            "[TRUTH-1]",
             "[POIS_W-3]",
+            "[WORTHLESS-1]",
+            "[WORTHLESS-2]",
+            "[HERO-3]",
+            "[POIS_W-1]",
             "[HERO-2]",
-            "[POIS_W-4]"
+            "[PROJ_W-4]",
+            "[WORTHLESS-4]",
+            "[PROJ_D-1]",
+            "[KARAMA-2]",
+            "[POIS_D-1]",
+            "[ATOMICS-1]",
+            "[WEATHER-1]",
+            "[PROJ_D-4]",
+            "[GHOLA-1]",
+            "[HERO-1]",
+            "[POIS_W-4]",
+            "[PROJ_W-1]",
+            "[POIS_D-2]",
+            "[TRUTH-2]",
+            "[PROJ_W-2]",
+            "[HAJR-1]",
+            "[WORTHLESS-5]",
+            "[TRUTH-1]",
+            "[PROJ_D-3]",
+            "[PROJ_W-3]"
         ]
     },
     "storm": {
-        "location": 0,
-        "move": 10
-    },
-    "setupRound": {
-        "next": {
-            "[A]": "wait",
-            "[E]": "wait",
-            "[F]": "chooseTraitors",
-            "[G]": "wait",
-            "[H]": "wait",
-            "[B]": "wait"
-        }
+        "location": 17,
+        "move": 17
     }
 }

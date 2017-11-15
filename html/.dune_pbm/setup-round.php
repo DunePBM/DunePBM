@@ -158,7 +158,6 @@ if ((!empty($_POST)) && (isset($game['setupRound']))) {
             actionSetupTokens();
         }
     }
-    
     refreshPage();
 }
 
@@ -263,7 +262,10 @@ function actionSetupTokens() {
         dune_gmMoveTokens('[B]', 1, 0, '[PS]', $_POST['token_loc']);
         $game['meta']['next']['[B]'] = 'wait.php';
         dune_writeData('Bene Gesserit places starting token');
+        
+        //### Thee are the last actions of the round ###
         actionSetupTreachery();
+        actionSetupStorm();
         return;
     }
 }
@@ -275,13 +277,22 @@ function actionSetupTreachery() {
         dune_dealTreachery($faction);
     }
     dune_dealTreachery('[H]');
-
     dune_postForum('Treachery cards delt.', true);
+    dune_writeData('Treachery cards delt.', true);
+    return;
+}
+
+function actionSetupStorm() {
+	// Last function to be run.
+    global $game, $info;
+    dune_readData();
+    $game['storm']['location'] = $game['storm']['move'];
     foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
         $game['meta']['next'][$faction] = 'spice-round.php';
     }
     unset($GLOBALS['game']['setupRound']);
-    dune_writeData('Treachery cards delt. Spice Round begins.', true);
+    dune_postForum('The storm is in sector '.$game['storm']['location'], true);
+    dune_writeData('Storm is placed. Spice Round begins.', true);
     return;
 }
 ?>

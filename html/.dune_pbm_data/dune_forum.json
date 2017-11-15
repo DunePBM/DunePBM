@@ -6,7 +6,22 @@
     },
     {
         "faction": "[DUNE]",
-        "time": "10: 1510635633",
+        "time": "10: 1510725234",
         "message": "Treachery cards delt."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "11: 1510725234",
+        "message": "The storm is in sector 17"
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "16: 1510725234",
+        "message": "Spice Blooms on Cielago South (12) and Funeral Plain (6) "
+    },
+    {
+        "faction": "[B]",
+        "time": "17: 1510725283",
+        "message": "What's up."
     }
 ]

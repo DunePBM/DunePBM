@@ -27,8 +27,8 @@ long you set the $gameDir /var/www/html/index.php to the location of
 
 But now I have been running on a free web host with php support, but worse
 file permissions access. So now I keep everything in the html folder, 
-hiding .dune_pbm and .dune_pbm_data. Then using .htaccess to keep the 
-folders secret.
+hiding .dune_pbm and .dune_pbm_data. Then using .htaccess to block access
+to the game folder.
 
 The files in the dune_pbm_data and the files within need to be writable 
 by the www-data group.

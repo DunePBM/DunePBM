@@ -30,7 +30,16 @@ if (empty($_POST)){
 	if ($game['spiceRound']['nexus'] == false) {
     }
     echo 
-	'<h2>Spice Round</h2>';
+	'<h2>Spice Round</h2>
+	<p></p>The storm is in sector '.$game['storm']['location'].'</p>
+	<p>Spice Blooms on '.
+	$info['spiceDeck'][$game['spiceRound']['spice-1']['location']]['name'].
+    ' ('
+    .$info['spiceDeck'][$game['spiceRound']['spice-1']['location']]['spice'].
+    ') and '
+    .$info['spiceDeck'][$game['spiceRound']['spice-2']['location']]['name']
+    .' ('
+    .$info['spiceDeck'][$game['spiceRound']['spice-2']['location']]['spice'].') ';
     
     echo
     '<br><form action="" method="post">
@@ -42,19 +51,20 @@ if (empty($_POST)){
     //##############################################################
     if ($game['spiceRound']['nexus'] == true) {
         echo 
-	'<h2>Nexus</h2>';
+		'<h2>Nexus</h2>';
 
-    echo
-    'A nexus has occoured. Form alliences.
-    The nexus will not end until everyone selects DONE.<br><br>
-    There were sandworms in: <br>';
-    foreach ($game['nexus']['sandworms'] as $x) {
-        print $info['spiceDeck'][$x]['name'].'<br>';
-    }
-    echo
-    '<br><form action="" method="post">
-    <button name="nexus_action" value="done">Done with Nexus</button>
-    </form>';
+		echo
+		'A nexus has occoured. Form alliences.
+		The nexus will not end until everyone selects DONE.<br><br>
+		There were sandworms in: <br>';
+		foreach ($game['nexus']['sandworms'] as $x) {
+			print $info['spiceDeck'][$x]['name'].'<br>';
+		}
+		echo
+		'<br><form action="" method="post">
+		<button name="nexus_action" value="done">Done with Nexus</button>
+		</form>';
+	}
 }
 
 //######################################################################

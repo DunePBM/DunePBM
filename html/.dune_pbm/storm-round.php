@@ -22,11 +22,17 @@ if (empty($_POST)){
     //##############################################################
 	echo 
 	'<h2>Storm Round</h2>
-    <p>The storm is in Sector '.$game['storm']['location'].'.</p>
-    <p>The storm will move '.$game['storm']['move'].' sectors.</p><br>';
+    <p>The storm is in Sector '.$game['storm']['location'].'.</p>';
  
+    if ($game['meta']['turn'] == 1) {
+		foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+            $game['meta']['next'][$faction] = 'wait.php';
+        }
+    }
+    
     if ($game['meta']['turn'] >= 2) {
         echo
+        '<p>The storm will move '.$game['storm']['move'].' sectors.</p>';
         'You may play Weather Control or Faimly Atomics.';
     }
     
@@ -49,9 +55,7 @@ if (isset($_POST['stormAction'])) {
     //##############################################################
     //## Checks for End of Round ###################################
     //##############################################################
-    if (dune_checkRoundEnd('stormRound', 'bidding-round.php')) {
-        dune_writeData('Storm round has ended.', true);
-    }
+    dune_checkRoundEnd('stormRound', 'bidding-round.php', 'Storm round has ended.');
     refreshPage();
 }
 
