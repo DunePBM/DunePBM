@@ -34,21 +34,21 @@
             }
         },
         "turn": 1,
-        "eventNumber": 4,
+        "eventNumber": 3,
         "timestamps": {
-            "dataCurrent": 1511060644,
-            "dataUndo": 1511058114
+            "dataCurrent": 1511062485,
+            "dataUndo": 1511058110
         },
         "next": {
-            "[A]": "setup-round.php",
+            "[A]": "wait.php",
             "[B]": "setup-round.php",
-            "[E]": "setup-round.php",
-            "[F]": "setup-round.php",
-            "[G]": "setup-round.php",
+            "[E]": "wait.php",
+            "[F]": "wait.php",
+            "[G]": "wait.php",
             "[H]": "wait.php"
         },
         "faction": "[B]",
-        "event": "Game Move Undone: Bene Gesserit made their prediction.",
+        "event": "Game Move Undone: Start setup.",
         "playerOrder": [
             "[H]",
             "[F]",
@@ -214,14 +214,7 @@
     },
     "[B]": {
         "treachery": [],
-        "spice": 5,
-        "prediction": {
-            "winningFaction": "[A]",
-            "winningTurn": 1
-        },
-        "notes": [
-            "Atreides predicted to win on turn 1."
-        ]
+        "spice": 5
     },
     "[E]": {
         "treachery": [],
@@ -288,12 +281,12 @@
     },
     "setupRound": {
         "next": {
-            "[A]": "chooseTraitors",
-            "[E]": "chooseTraitors",
-            "[F]": "chooseTraitors",
-            "[G]": "chooseTraitors",
+            "[A]": "wait",
+            "[E]": "wait",
+            "[F]": "wait",
+            "[G]": "wait",
             "[H]": "wait",
-            "[B]": "chooseTraitors"
+            "[B]": "makePrediction"
         }
     }
 }

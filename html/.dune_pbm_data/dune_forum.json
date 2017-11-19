@@ -23,5 +23,20 @@
         "faction": "[DUNE]",
         "time": "4: 1511060644",
         "message": "Game Move Undone: Bene Gesserit chose their traitor."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "4: 1511060715",
+        "message": "Bene Gesserit chose their traitor."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "5: 1511062375",
+        "message": "Game Move Undone: Bene Gesserit chose their traitor."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "5: 1511062485",
+        "message": "Game Move Undone: Game Move Undone: Game Move Undone: Bene Gesserit made their prediction."
     }
 ]
