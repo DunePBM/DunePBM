@@ -26,7 +26,8 @@ if (empty($_POST)){
  
     if ($game['meta']['turn'] == 1) {
 		foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-            $game['meta']['next'][$faction] = 'wait.php';
+            $game['meta']['next'][$faction] = 'bidding-round.php';
+            dune_writeData('Done with storm-round.');
         }
     }
     

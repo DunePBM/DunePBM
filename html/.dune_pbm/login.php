@@ -2,7 +2,7 @@
 //Login Script
 //To be called by index.php.
 
-global $game, $info;
+global $game, $info, $duneForum;
 
 //######################################################################
 //###### Forms #########################################################
@@ -19,6 +19,16 @@ if (empty($_POST)) {
 		Password: <input id="password" name="password" type="text"/> <br>
 		<input type="submit" value="Submit">
 	</form>';
+	
+	//## Print Forum ###############################################
+	echo
+	'<h2>Forum: </h2>';
+	for ($i = max(count($duneForum)-10, 0); $i < count($duneForum); $i++) {
+        print '<p>'.$duneForum[$i]['faction'].'<br>';
+        print $duneForum[$i]['message'].'<br>';
+        print $duneForum[$i]['time'].'<br>';
+        print '<br></p>';
+    }
 }
 
 //######################################################################

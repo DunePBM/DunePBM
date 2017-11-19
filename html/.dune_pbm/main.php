@@ -34,6 +34,9 @@ function dune_setupGame() {
 	$game = json_decode(file_get_contents($gameDir.'dune_data_start.json'), true);
     $duneForum = json_decode(file_get_contents($gameDir.'dune_forum_start.json'), true);
     $duneMail = json_decode(file_get_contents($gameDir.'dune_mail_start.json'), true);
+    dune_writeForum();
+    dune_writeMail();
+
     // Shuffle Player Dots
     shuffle($game['meta']['playerDots']);
     $game['meta']['playerOrder'] = $game['meta']['playerDots'];
@@ -66,6 +69,9 @@ function dune_setupGame() {
     shuffle($traitorDeck);
     $game['traitorDeck']['deck'] = $traitorDeck;
     foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+        while ($game['traitorDeck']['deck'][0][1] == $faction[1]) {
+			$game['traitorDeck']['deck'] = array_cycle($game['traitorDeck']['deck']);
+		}
         for ($i = 0; $i <4; $i++) {
             array_unshift($game['traitorDeck'][$faction], array_shift($game['traitorDeck']['deck']));
         }
@@ -79,47 +85,59 @@ function dune_setupGame() {
     dune_writeMail();
 }
 
-function dune_readData($fm = true) {
+function dune_readData($fm = true, $fileTimestamp = '') {
 	global $gameDir, $dataDir, $game, $duneForum, $duneMail;
 	$file = $dataDir.'dune_data'; // eclude the extension.
-	$game = json_decode(file_get_contents($file.'.json'), true);
+	if ($fileTimestamp != '') {
+		$file .= '.'.$fileTimestamp;
+	}
+	$gameTemp = json_decode(file_get_contents($file.'.json'), true);
     if ($fm) {
         dune_readForum();
         dune_readMail();
     }
-    if (!isset($game)) {print 'ERROR REDING FILE';}
+    if (isset($gameTemp)) {
+		$game = $gameTemp;
+	} else {
+		print '<script>alert(\'ERROR REDING FILE\');</script>';
+	} 
 }
 
-function dune_readForum() {
+function dune_readForum($fileTimestamp = '') {
 	global $gameDir, $dataDir, $game, $duneForum, $duneMail;
 	$file = $dataDir.'dune_forum'; // eclude the extension.
+    if ($fileTimestamp != '') {
+		$file .= '.'.$fileTimestamp;
+	}
     $duneForum = json_decode(file_get_contents($file.'.json'), true);
-    if (!isset($game)) {print 'ERROR REDING FILE';}
+    if (!isset($duneForum)) {
+		print '<script>alert(\'ERROR REDING FORUM\');</script>';
+	}
 }
 
-function dune_readMail() {
+function dune_readMail($fileTimestamp = '') {
 	global $gameDir, $dataDir, $game, $duneForum, $duneMail;
     $file = $dataDir.'dune_mail'; // eclude the extension.
+    if ($fileTimestamp != '') {
+		$file .= '.'.$fileTimestamp;
+	}
     $duneMail = json_decode(file_get_contents($file.'.json'), true);
-    if (!isset($game)) {print 'ERROR REDING FILE';}
+    if (!isset($duneMail)) {
+		print '<script>alert(\'ERROR REDING MAIL\');</script>';
+	}
 }
 
-function dune_writeData($event='', $gm=false, $postToForum=true) {
+function dune_writeData($event='', $gm=false) {
 	global $gameDir, $dataDir, $game, $duneForum, $duneMail;
-    $maxUndo = 10;
 	$file = $dataDir.'dune_data'; // eclude the extension.
+	
 	if (isset($game)) {
-        // Setup undo move.
-        for ($i = ($maxUndo - 1); $i >= 0; $i -= 1) {
-            $undoGame = json_decode(file_get_contents
-                            ($file.'.undo'.$i.'.json'), true);
-            file_put_contents($file.'.undo'.($i + 1).'.json', 
-                            json_encode($undoGame, JSON_PRETTY_PRINT));
-        }
-        $undoGame = json_decode(file_get_contents
-                            ($file.'.json'), true);
-        file_put_contents($file.'.undo0.json', 
-                            json_encode($undoGame, JSON_PRETTY_PRINT));
+		// Timestamps
+		$newTimestamp = time();
+		$oldTimestamp = $game['meta']['timestamps']['dataCurrent'];
+		$game['meta']['timestamps']['dataCurrent'] = $newTimestamp;
+		$game['meta']['timestamps']['dataUndo'] = $oldTimestamp;
+		
         // Write new move.
         $game['meta']['eventNumber'] += 1;
         if ($event != '') {
@@ -129,12 +147,11 @@ function dune_writeData($event='', $gm=false, $postToForum=true) {
         if ($gm) {
             $game['meta']['faction'] = '[DUNE]';
         }
-        if ($postToForum) {
-            dune_writeForum($game['meta']['faction'].' Event: '.$game['meta']['event']);
-        }
         file_put_contents($file.'.json', json_encode($game, JSON_PRETTY_PRINT));
 		file_put_contents($file.'.'.time().'.json', json_encode($game, JSON_PRETTY_PRINT));
-	} else {print 'ERROR WRITING FILE';}
+	} else {
+		print '<script>alert(\'ERROR WRITING FILE\');</script>';
+	}
 }
 
 function dune_writeForum() {
@@ -188,24 +205,20 @@ function dune_postMail($message, $toFaction, $gm=false) {
     dune_writeMail();
 }
 
-function dune_undoMove() { //////////////fix this
+function dune_undoMove() {
 	global $gameDir, $dataDir, $game;
     $file = $dataDir.'dune_data'; // eclude the extension.
-    $maxUndo = 10;
-    //if ($game['meta']['faction'] == $_SESSION['faction']) {
-    if (true) {
-        $undoGame = json_decode(file_get_contents
-                                ($file.'.undo0.json'), true);
-        
-        file_put_contents($file.'.json', 
-                                json_encode($undoGame, JSON_PRETTY_PRINT));
-        for ($i = 0; $i < $maxUndo; $i += 1) {
-                $undoGame = json_decode(file_get_contents
-                                ($file.'.undo'.($i +1).'.json'), true);
-                file_put_contents($file.'.undo'.$i.'.json', 
-                                json_encode($undoGame, JSON_PRETTY_PRINT));
-        }
+    dune_readData();
+    gameAlert($game['meta']['faction']);
+    if ($game['meta']['faction'] == $_SESSION['faction']) {
+		dune_postForum('Game Move Undone: '.$game['meta']['event'], true);
+		dune_readData(true, $game['meta']['timestamps']['dataUndo']);
+		$game['meta']['timestamps']['dataCurrent'] = $game['meta']['timestamps']['dataUndo'];
+		dune_writeData('Game Move Undone: '.$game['meta']['event']);
     }
+    else {
+		print '<script>alert("Move can not be undone.");</script>';
+	}
     dune_readData();
 }
 
@@ -475,6 +488,10 @@ function dune_getWaiting() {
             print $info['factions'][$x]['name'].'<br>';
         }
     }
+}
+
+function gameAlert($m) {
+	print '<script>alert(\''.$m.'\');</script>';
 }
 
 function array_cycle($x) {

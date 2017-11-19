@@ -190,6 +190,7 @@ function actionMakePrediction() {
     $game['setupRound']['next']['[H]'] = 'wait';
     $game['meta']['next']['[H]'] = 'wait.php';
     dune_writeData('Bene Gesserit made their prediction.');
+    dune_postForum('Bene Gesserit made their prediction.', true);
     return;
 }
 
@@ -224,7 +225,9 @@ function actionChooseTraitors() {
         unset($game['traitorDeck']);
     }
     $message = $info['factions'][$_SESSION['faction']]['name'].' chose their traitor.';
-    dune_writeData($message); 
+    dune_postForum($message, true);
+    dune_writeData($message);
+    
     return;
 }
 

@@ -39,7 +39,5 @@ if (isset($_POST['stormAction'])) {
     dune_checkRoundEnd('biddingRound', 'movement-round.php',
                                         'Bidding round has ended.');
     refreshPage();
-    }        
-    }        
 }
 ?>

@@ -2,48 +2,51 @@
     "meta": {
         "game": "PHP Test Game",
         "players" : {
-			"[A]": {
-				"name": "a",
-				"email": "",
-				"password": "a"
+            "[A]": {
+                "name": "a",
+                "email": "",
+                "password": "a"
             },
-			"[B]": {
-				"name": "b",
-				"email": "",
-				"password": "b"
+            "[B]": {
+                "name": "b",
+                "email": "",
+                "password": "b"
             },
-			"[E]": {
-				"name": "e",
-				"email": "",
-				"password": "e"
-			},
-			"[F]": {
-				"name": "f",
-				"email": "",
-				"password": "f"
-			},
-			"[G]": {
-				"name": "g",
-				"email": "",
-				"password": "g"
-			},
-			"[H]": {
-				"name": "h",
-				"email": "",
-				"password": "h"
-			}
+            "[E]": {
+                "name": "e",
+                "email": "",
+                "password": "e"
+            },
+            "[F]": {
+                "name": "f",
+                "email": "",
+                "password": "f"
+            },
+            "[G]": {
+                "name": "g",
+                "email": "",
+                "password": "g"
+            },
+            "[H]": {
+                "name": "h",
+                "email": "",
+                "password": "h"
+            }
         },
         "turn": 1,
         "eventNumber": 0,
-        "repeat": false,
+        "timestamps": {
+            "dataCurrent": 0,
+            "dataUndo": 0
+        },
         "next": {
-			"[A]": "wait.php",
-			"[B]": "setup-round.php",
-			"[E]": "wait.php",
-			"[F]": "wait.php",
-			"[G]": "wait.php",
-			"[H]": "wait.php"
-		},
+            "[A]": "wait.php",
+            "[B]": "setup-round.php",
+            "[E]": "wait.php",
+            "[F]": "wait.php",
+            "[G]": "wait.php",
+            "[H]": "wait.php"
+        },
         "faction": "",
         "event": "",
         "playerOrder": ["[A]", "[B]", "[E]", "[F]", "[G]", "[H]"],
@@ -74,7 +77,7 @@
         "[CAR]": {
             "[H]": [10,0]
         },
-	"[BANK]": {
+    "[BANK]": {
             "[SPICE]": [9000,0]
         }
     },

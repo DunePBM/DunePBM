@@ -102,6 +102,8 @@ function actionSpiceBlow() {
         $game['spiceRound']['spice-'.$i]['location'] = dune_checkSpice($i, true);
         $game['spiceRound']['spice-'.$i]['spice'] 
                     = $info['spiceDeck'][dune_checkSpice($i, true)]['spice'];
+        dune_gmMoveTokens('[SPICE]', $game['spiceRound']['spice-'.$i]['spice'],0,
+					'[BANK]', $game['spiceRound']['spice-'.$i]['location']);
         dune_writeData('Spice Card #'.$i, true);
     }
     if (isset($game['nexus'])) {

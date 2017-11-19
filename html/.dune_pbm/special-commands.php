@@ -62,13 +62,13 @@ if (empty($_POST)){
         echo dune_getTerritory('to location location: ', 'tokenEndLoc', true, true);
         echo '</p></form>';
         
-    // Add/Remove Spice
+    //## Add/Remove Spice  ##########################################
     echo
     '<form action="#" method="post">
     <h3>Place/Remvoe Spice</h3>
     <p>Place 
-        <input id="place_spice_number" name="place_spice_number" type="number" min=-100 max=100 value="0"/>';
-        echo dune_getTerritory('spice on location: ', 'token_loc', true);
+        <input id="placeSpiceNumber" name="placeSpiceNumber" type="number" min=-100 max=100 value="0"/>';
+        echo dune_getTerritory('spice on location: ', 'tokenLoc', true);
         echo '</p></form>';            
 }
 
@@ -88,12 +88,14 @@ if (!empty($_POST)){
         echo actionFunction_discardCard();
         refreshPage();
     }
-    if (isset($_POST['place_spice_number'])) {
+    if (isset($_POST['placeSpiceNumber'])) {
         echo actionFunction_placeSpice();
         refreshPage();
     }
-    if (isset($_POST['special_action'])) {
+    if (isset($_POST['specialAction'])) {
+		gameAlert('hit a');
         if ($_POST['specialAction'] == 'undoMove'){
+			gameAlert('HIT');
             dune_undoMove();
             refreshPage();
         }
@@ -138,8 +140,8 @@ function actionFunction_moveTokens() {
 function actionFunction_placeSpice() {
     global $game, $info;
     dune_readData();
-    dune_gmMoveTokens('[SPICE]', $_POST['place_spice_number'], 
-            0, '[BANK]', $_POST['token_loc']);
+    dune_gmMoveTokens('[SPICE]', $_POST['placeSpiceNumber'], 
+            0, '[BANK]', $_POST['tokenLoc']);
     $game['meta']['event'] = 'Special Command: Place/remove spice';
     $game['meta']['faction'] = $_SESSION['faction'];
     dune_writeData();
