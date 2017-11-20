@@ -93,10 +93,8 @@ if (!empty($_POST)){
         refreshPage();
     }
     if (isset($_POST['specialAction'])) {
-		gameAlert('hit a');
         if ($_POST['specialAction'] == 'undoMove'){
-			gameAlert('HIT');
-            dune_undoMove();
+            dune_undoMove(true);
             refreshPage();
         }
     }

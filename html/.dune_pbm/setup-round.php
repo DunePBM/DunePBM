@@ -258,6 +258,7 @@ function actionSetupTokens() {
         $game['setupRound']['next']['[B]'] = 'setupTokens';
         $game['meta']['next']['[B]'] = 'setup-round.php';
         dune_writeData('Fremen places 10 starting tokens');
+        dune_postForum('Fremen place starting tokiens.', true);
         return;
     }
     if ($_SESSION['faction'] == '[B]') {
@@ -265,6 +266,7 @@ function actionSetupTokens() {
         dune_gmMoveTokens('[B]', 1, 0, '[PS]', $_POST['token_loc']);
         $game['meta']['next']['[B]'] = 'wait.php';
         dune_writeData('Bene Gesserit places starting token');
+        dune_postForum('Bene Gesserit places starting tokien.', true);
         
         //### Thee are the last actions of the round ###
         actionSetupTreachery();

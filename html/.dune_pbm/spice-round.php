@@ -4,25 +4,27 @@
 // storm-round.php --> spice-round.php --> bidding-round.php
 
 //######################################################################
+//## First Run #########################################################
+//######################################################################
+if (!isset($game['spiceRound'])) {
+	$game['spiceRound'] = array();
+	$game['spiceRound']['nexus'] = false;
+	$game['spiceRound']['nexusDone'] = array();
+	foreach (array('[A]','[E]','[F]','[G]','[H]') as $x) {
+		$game['spiceRound']['roundDone'][$x] = false;
+		$game['spiceRound']['nexusDone'][$x] = false;
+	}
+	actionSpiceBlow();
+	dune_writeData('Setup Spice Round.', true);
+	refreshPage();
+}
+
+//######################################################################
 //###### Forms #########################################################
 //######################################################################
 
 if (empty($_POST)){
     global $game, $info;
-    
-    //##############################################################
-    //## First Run #################################################
-    //##############################################################
-    if (!isset($game['spiceRound'])) {
-        $game['spiceRound'] = array();
-        $game['spiceRound']['nexus'] = false;
-        $game['spiceRound']['nexusDone'] = array();
-        foreach (array('[A]','[E]','[F]','[G]','[H]') as $x) {
-            $game['spiceRound']['roundDone'][$x] = false;
-            $game['spiceRound']['nexusDone'][$x] = false;
-        }
-        actionSpiceBlow();
-    }
     
     //##############################################################
     //## Every Run -- Spice Round ##################################

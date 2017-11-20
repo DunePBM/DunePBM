@@ -14,7 +14,20 @@ $debug = false;
 $gmCommands = true;
 $info = json_decode(file_get_contents($gameDir.'dune_info.json'), true);
 
-
+//######################################################################
+//###### Checks for an empty game. #####################################
+//######################################################################
+global $game, $gameDir;
+foreach (array('dune_data', 'dune_forum', 'dune_mail') as $fileName) {
+	if (!file_exists($dataDir.$fileName.'.json')) {
+		$temp = json_decode(file_get_contents($gameDir.$fileName.'_start.json'), true);
+		file_put_contents($dataDir.$fileName.'.json', json_encode($temp, JSON_PRETTY_PRINT));
+		if ($fileName == 'dune_data') {
+			dune_setupGame();
+		}
+	}
+}
+    
 //######################################################################
 //###### Functions #####################################################
 //######################################################################
@@ -143,7 +156,11 @@ function dune_writeData($event='', $gm=false) {
         if ($event != '') {
             $game['meta']['event'] = $event;
         }
-        $game['meta']['faction'] = $_SESSION['faction'];
+        if (isset($_SESSION['faction'])) {
+			$game['meta']['faction'] = $_SESSION['faction'];
+		} else {
+			$game['meta']['faction'] = '[DUNE]';
+		}
         if ($gm) {
             $game['meta']['faction'] = '[DUNE]';
         }
@@ -158,14 +175,14 @@ function dune_writeForum() {
 	global $gameDir, $dataDir, $game, $duneForum, $duneMail;
     $file = $dataDir.'dune_forum'; // eclude the extension.
     file_put_contents($file.'.json', json_encode($duneForum, JSON_PRETTY_PRINT));
-    file_put_contents($file.'.'.time().'.json', json_encode($game, JSON_PRETTY_PRINT));
+    file_put_contents($file.'.'.time().'.json', json_encode($duneForum, JSON_PRETTY_PRINT));
 }
 
 function dune_writeMail() {
 	global $gameDir, $dataDir, $game, $duneForum, $duneMail;
     $file = $dataDir.'dune_mail'; // eclude the extension.
     file_put_contents($file.'.json', json_encode($duneMail, JSON_PRETTY_PRINT));
-    file_put_contents($file.'.'.time().'.json', json_encode($game, JSON_PRETTY_PRINT));
+    file_put_contents($file.'.'.time().'.json', json_encode($duneMail, JSON_PRETTY_PRINT));
 }
 
 function dune_postForum($message, $gm = false) {
@@ -205,12 +222,11 @@ function dune_postMail($message, $toFaction, $gm=false) {
     dune_writeMail();
 }
 
-function dune_undoMove() {
+function dune_undoMove($forceUndo = false) {
 	global $gameDir, $dataDir, $game;
     $file = $dataDir.'dune_data'; // eclude the extension.
     dune_readData();
-    gameAlert($game['meta']['faction']);
-    if ($game['meta']['faction'] == $_SESSION['faction']) {
+    if (($game['meta']['faction'] == $_SESSION['faction']) || $forceUndo) {
 		dune_postForum('Game Move Undone: '.$game['meta']['event'], true);
 		dune_readData(true, $game['meta']['timestamps']['dataUndo']);
 		$game['meta']['timestamps']['dataCurrent'] = $game['meta']['timestamps']['dataUndo'];
@@ -307,21 +323,30 @@ function dune_checkSpice($i, $idName=false) {
     return $info['spiceDeck'][$game['spiceDeck']['deck-'.$i][0]]['name'];
 }
 
-function dune_checkRoundEnd($oldMarker, $newRound, $message) {
+function dune_checkRoundEnd($oldMarker, $newPhp, $message, $subLocation = false) {
     global $gameDir, $game;
     $roundOver = true;
     dune_readData();
-    foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-        if ($game['meta']['next'][$faction] != 'wait.php') {
-            $roundOver = false;
+    if ($subLocation) {
+		foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+			if ($game[$oldMarker]['next'][$faction] != 'wait.php') {
+				$roundOver = false;
+			}
+        }
+    } else {
+		foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+			if ($game['meta']['next'][$faction] != 'wait.php') {
+				$roundOver = false;
+			}
         }
     }
     if ($roundOver == true) {
-        unset($game[$oldRound]);
+        unset($game[$oldMarker]);
         foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-            $game['meta']['next'][$faction] = $newRound;
+            $game['meta']['next'][$faction] = $newPhp;
         }
         dune_writeData($message, true);
+        dune_postForum($message, true);
     }
     return;
 }   
@@ -494,11 +519,13 @@ function gameAlert($m) {
 	print '<script>alert(\''.$m.'\');</script>';
 }
 
-function array_cycle($x) {
+function array_cycle($x, $forward = true) {
     if (!empty($x)) {
-        $temp = $x[0];
-        array_shift($x);
-        array_push($x, $temp);
+        if ($forward) {
+            array_push($x, array_shift($x));
+        } else {
+            array_unshift($x, array_pop($x));
+        }
     }
     return $x;
 }
