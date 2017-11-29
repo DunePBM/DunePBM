@@ -1,0 +1,67 @@
+[
+    {
+        "faction": "[DUNE]",
+        "message": "Welcome to DunePBM",
+        "time": ""
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "3: 1511916563",
+        "message": "Bene Gesserit made their prediction."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "3: 1511916567",
+        "message": "Bene Gesserit chose their traitor."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "4: 1511916873",
+        "message": "Atreides chose their traitor."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "5: 1511917660",
+        "message": "Guild chose their traitor."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "6: 1511918800",
+        "message": "Emperor chose their traitor."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "7: 1511918809",
+        "message": "Fremen chose their traitor."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "9: 1511918812",
+        "message": "Fremen place starting tokiens."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "10: 1511918831",
+        "message": "Bene Gesserit places starting tokien."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "10: 1511918831",
+        "message": "Treachery cards delt."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "11: 1511918831",
+        "message": "The storm is in sector 1"
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "17: 1511918831",
+        "message": "Spice Blooms on Habbanya Erg (8) and Wind Pass North (6) "
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "26: 1511918835",
+        "message": "All cards have been auctioned."
+    }
+]

@@ -1,0 +1,68 @@
+{
+    "[A]": {
+        "inbox": [
+            {
+                "toFaction": "[A]",
+                "fromFaction": "[DUNE]",
+                "message": "Welcome to DunePBM",
+                "time": ""
+            }
+        ],
+        "sent": []
+    },
+    "[B]": {
+        "inbox": [
+            {
+                "toFaction": "[B]",
+                "fromFaction": "[DUNE]",
+                "message": "Welcome to DunePBM",
+                "time": ""
+            }
+        ],
+        "sent": []
+    },
+    "[E]": {
+        "inbox": [
+            {
+                "toFaction": "[E]",
+                "fromFaction": "[DUNE]",
+                "message": "Welcome to DunePBM",
+                "time": ""
+            }
+        ],
+        "sent": []
+    },
+    "[F]": {
+        "inbox": [
+            {
+                "toFaction": "[F]",
+                "fromFaction": "[DUNE]",
+                "message": "Welcome to DunePBM",
+                "time": ""
+            }
+        ],
+        "sent": []
+    },
+    "[G]": {
+        "inbox": [
+            {
+                "toFaction": "[G]",
+                "fromFaction": "[DUNE]",
+                "message": "Welcome to DunePBM",
+                "time": ""
+            }
+        ],
+        "sent": []
+    },
+    "[H]": {
+        "inbox": [
+            {
+                "toFaction": "[H]",
+                "fromFaction": "[DUNE]",
+                "message": "Welcome to DunePBM",
+                "time": ""
+            }
+        ],
+        "sent": []
+    }
+}

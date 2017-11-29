@@ -3,8 +3,6 @@
 // Called from index.php
 // storm-round.php --> bidding-round.php --> movement-round.php
 
-/// GETTING STUCK IN A LOOP SOMEWHERE AT THE END
-
 //######################################################################
 //## First Run #########################################################
 //######################################################################
@@ -14,13 +12,19 @@ if (!isset($game['biddingRound'])) {
     $game['biddingRound']['biddingOrder'] = array_cycle($game['meta']['playerOrder'], false);
     // above: Because biddingAction_setupBidding() cycles the order,
     // so we uncycle it once.
-    biddingAction_setupBidding();
     $game['biddingRound']['numberOfCards'] = 0;
-    foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-		if ($game['biddingRound']['next'][$faction] == 'bidding-round.php') {
+    $game['biddingRound']['currentCard'] = 1;
+    $game['biddingRound']['totalCards'] = 0;
+	foreach (array('[A]', '[B]', '[E]', '[F]', '[G]') as $faction) {
+		if (count($game[$faction]['treachery']) < 4) {
 			$game['biddingRound']['numberOfCards'] += 1;
 		}
 	}
+	if (count($game['[H]']['treachery']) >= 8) {
+		$game['biddingRound']['numberOfCards'] += 1;
+	}
+	$game['biddingRound']['totalCards'] = $game['biddingRound']['numberOfCards'];
+	biddingAction_setupBidding(false);
 	dune_writeData('Setup Bidding Round', true);
 	refreshPage();
 }
@@ -28,11 +32,14 @@ if (!isset($game['biddingRound'])) {
 //######################################################################
 //###### Forms #########################################################
 //######################################################################
-if (empty($_POST)){
+if (empty($_POST)) {
     global $game, $info;
 
 	if ($game['biddingRound']['numberOfCards'] > 0) {
 		echo '<h2>Bidding Round</h2>';
+		
+		echo '<h3>Card '.$game['biddingRound']['currentCard'].' of '
+		.$game['biddingRound']['totalCards'].'</h3>';
 		
 		// Shows card to Atredies.
 		if ($_SESSION['faction'] == '[A]') {
@@ -53,9 +60,30 @@ if (empty($_POST)){
 		
 		// Get bids or pass
 		echo
+		'<h3>Make your bid:</h3>';
+		
+		$tempArray = array_diff(
+						array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]'), 
+						$_SESSION['faction']);
+		foreach ($tempArray as $faction) {
+			echo
+            '<p>Bid vs '.$faction.':</p>';
+            echo
+            '<form action="#" method="post">
+                Increase bid by <input id="howMuchVs'.$faction.'" 
+                name="howMuchVs'.$faction.'" type="number" min=0 max=100 value="1"/> <br>
+                Bid up to <input id="howHighVs'.$faction.'" 
+                name="howHighVs'.$faction.'" type="number" min=0 max=100 value="0"/> <br>
+            </form>';
+        }
+        
+        echo
+        '<input type="submit" value="Submit">';
+		
+		echo
 		'<form action="#" method="post">
 		<p>Bid 
-			<input id="bid" name="bid" type="number" min='.
+			<input id="manualBid" name="manualBid" type="number" min='.
 				($game['biddingRound']['highBid']+1).
 				'max=100 value="'.($game['biddingRound']['highBid']+1).'"/>
 				<input type="submit" value="Submit">
@@ -71,6 +99,10 @@ if (empty($_POST)){
 		<button name="closeBidding" value="closeBidding">Close Bidding</button>
 		</form>';
 	}
+	
+	if ($game['biddingRound']['numberOfCards'] <= 0) {
+	
+	}
 }
 
 //######################################################################
@@ -79,21 +111,20 @@ if (empty($_POST)){
 if (!empty($_POST)) {
 	global $game, $info;
 	
+
+	
 	if (isset($_POST['bid'])) {
 		dune_readData();
-		if ($_POST['bid'] > $game['biddingRound']['highBid']) {
-			if ($game[$_SESSION['faction']]['spice'] >= $_POST['bid']) {
-				//### Gives old bid back. ###
-				$game[$game['biddingRound']['highBidder']]['spice'] +=
-								$game['biddingRound']['highBid'];
-				//### Collects new bid. ###
-				$game[$_SESSION['faction']]['spice'] -= $_POST['bid'];								
-				$game['biddingRound']['highBid'] = $_POST['bid'];
-				$game['biddingRound']['highBidder'] = $_SESSION['faction'];
-			}
+
+		dune_writeData('Player submits bidding order.');
+	}
+
+	
+	if (isset($_POST['manualBid'])) {
+		dune_readData();
+		if (biddingAction_manualBid($_SESSION['faction'], $_POST['manualBid'])) {
+			dune_writeData('Player bids.');
 		}
-		$game['biddingRound']['next'][$_SESSION['faction']] = 'bidding-round.php';
-		dune_writeData('Player bids.');
 	}
 
 	if (isset($_POST['passBidding'])) {
@@ -117,6 +148,49 @@ if (!empty($_POST)) {
 //######################################################################
 //###### Actions #######################################################
 //######################################################################
+function biddingAction_manualBid($faction, $amount) {
+	global $game, $info;
+	if ($amount > $game['biddingRound']['highBid']) {
+		if ($game[$faction]['spice'] >= $amount) {
+			//### Gives old bid back. ###
+			$game[$game['biddingRound']['highBidder']]['spice'] +=
+							$game['biddingRound']['highBid'];
+			//### Collects new bid. ###
+			$game[$faction]['spice'] -= $amount;								
+			$game['biddingRound']['highBid'] = $amount;
+			$game['biddingRound']['highBidder'] = $faction;
+			$game['biddingRound']['next'][$faction] = 'bidding-round.php';
+		}
+	}
+}
+
+function biddingAction_autoBid() {
+	global $game, $info;
+	dune_readData();
+	while (true) {
+		$startFaction = $game['biddingRound']['highBidder'];
+		$startBid = $game['biddingRound']['highBid'];
+		$vsFaction = $game['biddingRound']['highBidder'];
+		$vsBid = $game['biddingRound']['highBid'];
+		foreach ($game['biddingRound']['biddingOrder'] as $faction) {
+			$vsFaction = $game['biddingRound']['highBidder'];
+			$vsBid = $game['biddingRound']['highBid'];
+			if ($game['biddingRound']['howHighToBid']
+									[$faction][$vsFaction] > $vsBid) {
+				$newBid = $vsBid  + $game['biddingRound']['howMuchToBid']
+													[$faction][$vsFaction];
+				biddingAction_manualBid($faction, $newBid);
+			}
+		}
+		if ($startFaction == $vsFaction) {
+			if ($startBid == $vsBid) {
+				return;
+			}
+		}
+	}
+	dune_writeData("Bidding.");
+}
+
 function biddingAction_giveCard() {
 	global $game, $info;
 	dune_readData();
@@ -145,20 +219,25 @@ function biddingAction_giveCard() {
 	dune_postForum($message. true);
 }
 
-function biddingAction_setupBidding() {
+function biddingAction_setupBidding($loadData = true) {
 	// Sets starting values.
 	global $game, $info;
-	dune_readData();
+	if ($loadData) {
+		dune_readData();
+	}
 	$game['biddingRound']['highBid'] = 0;
     $game['biddingRound']['highBidder'] = '';
     $game['biddingRound']['ableToBid'] = array();
     $game['biddingRound']['howMuchToBid'] = array();
+    $game['biddingRound']['howHighToBid'] = array();
     foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
 		$game['biddingRound']['next'][$faction] = 'bidding-round.php';
 		$game['biddingRound']['ableToBid'][$faction] = true;
 		$game['biddingRound']['howMuchToBid'][$faction] = array();
+		$game['biddingRound']['autoBidSet'][$faction] = false;
 		foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction2) {
 			$game['biddingRound']['howMuchToBid'][$faction][$faction2] = 0;
+			$game['biddingRound']['howHighToBid'][$faction][$faction2] = 0;
 		}
 	}
 	$game['biddingRound']['biddingOrder'] 
@@ -208,9 +287,8 @@ function biddingAction_checkEnd() {
 			$game['biddingRound']['next'][$faction] = 'wait.php';
 		}
 	}
-	dune_checkRoundEnd('biddingRound', 'movement-round.php',
-                                        'Bidding round has ended.', true);
+	//dune_checkRoundEnd('biddingRound', 'movement-round.php',
+    //                                    'Bidding round has ended.', true);
 	refreshPage();
-	
 }
 ?>

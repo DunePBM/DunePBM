@@ -152,6 +152,9 @@ if ((isset($game['spiceRound'])) && (!isset($game['nexus']))) {
     $temp .= $info['spiceDeck'][$game['spiceRound']['spice-2']['location']]['name'];
     $temp .= ' ('.$info['spiceDeck'][$game['spiceRound']['spice-2']['location']]['spice'].') ';
     dune_postForum($temp, true);
+    foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+		$game[$faction]['alert'][] = $temp;
+	}
     unset($game['spiceRound']);
     foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
                 $game['meta']['next'][$faction] = 'storm-round.php';

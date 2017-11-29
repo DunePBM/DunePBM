@@ -13,6 +13,14 @@ if (!isset($game['stormRound'])) {
     refreshPage();
 }
 
+if ($game['meta']['turn'] == 1) {
+	foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+        $game['meta']['next'][$faction] = 'bidding-round.php';
+        $game['faction']['alert'][] = 'The storm is in Sector '.$game['storm']['location'].'.';
+    }
+    dune_writeData('Done with storm-round.');
+    refreshPage();
+}        
 
 //######################################################################
 //###### Forms #########################################################
@@ -28,10 +36,7 @@ if (empty($_POST)){
 	'<h2>Storm Round</h2>
     <p>The storm is in Sector '.$game['storm']['location'].'.</p>';
  
-    if ($game['meta']['turn'] == 1) {
-		foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-            $game['meta']['next'][$faction] = 'bidding-round.php';
-            dune_writeData('Done with storm-round.');
+
         }
     }
     

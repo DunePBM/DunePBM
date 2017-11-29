@@ -27,6 +27,14 @@ Pages:  <select name="header_action">
     '</select> 
     <input type="submit" value="Go">
     </form><hr>';
+	
+	if (isset($game[$_SESSION['faction']]['alert'])) {
+		foreach ($game[$_SESSION['faction']]['alert'] as $alert) {
+			gameAlert($alert);
+		}
+		unset($game[$_SESSION['faction']]['alert']);
+	}
+
 
 //######################################################################
 //###### Post ##########################################################
