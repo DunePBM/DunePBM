@@ -34,41 +34,56 @@
             }
         },
         "turn": 1,
-        "eventNumber": 27,
+        "eventNumber": 26,
         "timestamps": {
-            "dataCurrent": 1511918835,
-            "dataUndo": 1511918835
+            "dataCurrent": 1512338682,
+            "dataUndo": 1512338682
         },
+        "round": "spice-round.php",
         "next": {
-            "[A]": "bidding-round.php",
-            "[B]": "bidding-round.php",
-            "[E]": "bidding-round.php",
-            "[F]": "bidding-round.php",
-            "[G]": "bidding-round.php",
-            "[H]": "bidding-round.php"
+            "[A]": "nexus.php",
+            "[B]": "nexus.php",
+            "[E]": "nexus.php",
+            "[F]": "nexus.php",
+            "[G]": "nexus.php",
+            "[H]": "nexus.php"
         },
         "faction": "[DUNE]",
-        "event": "Setup Bidding Round",
+        "event": "Setup Spice Round.",
         "playerOrder": [
+            "[H]",
             "[B]",
             "[E]",
-            "[A]",
             "[G]",
-            "[F]",
-            "[H]"
+            "[A]",
+            "[F]"
         ],
         "playerDots": [
+            "[H]",
             "[B]",
             "[E]",
-            "[A]",
             "[G]",
-            "[F]",
-            "[H]"
+            "[A]",
+            "[F]"
         ],
         "storm": {
             "location": 0,
             "move": 0
-        }
+        },
+        "[B]": "spice-round.php",
+        "[A]": "spice-round.php",
+        "wait": {
+            "[A]": false,
+            "[B]": false,
+            "[E]": false,
+            "[F]": false,
+            "[G]": false,
+            "[H]": false
+        },
+        "[E]": "spice-round.php",
+        "[F]": "spice-round.php",
+        "[G]": "spice-round.php",
+        "[H]": "spice-round.php"
     },
     "tokens": {
         "[OFF]": {
@@ -101,15 +116,15 @@
             "[A]": [
                 10,
                 0
+            ],
+            "[B]": [
+                2,
+                0
             ]
         },
         "[TS]": {
             "[G]": [
                 5,
-                0
-            ],
-            "[B]": [
-                1,
                 0
             ]
         },
@@ -121,13 +136,19 @@
         },
         "[BANK]": {
             "[SPICE]": [
-                8986,
+                8970,
                 0
             ]
         },
         "[FWW-3]": {
             "[F]": [
                 10,
+                0
+            ]
+        },
+        "[PS]": {
+            "[B]": [
+                -1,
                 0
             ]
         },
@@ -142,6 +163,18 @@
                 6,
                 0
             ]
+        },
+        "[SM-2]": {
+            "[SPICE]": [
+                10,
+                0
+            ]
+        },
+        "[OG-2]": {
+            "[SPICE]": [
+                6,
+                0
+            ]
         }
     },
     "treacheryDeck": {
@@ -150,29 +183,29 @@
     },
     "spiceDeck": {
         "deck-1": [
-            "[HRF-2]",
-            "[SR]",
-            "[WORM-2]",
+            "[SM-2]",
+            "[WORM-5]",
+            "[TME-3]",
             "[RC]",
             "[WORM-3]",
-            "[WORM-5]",
             "[HB-2]",
-            "[WORM-1]",
-            "[RO-2]"
+            "[CS-1]",
+            "[BL-2]"
         ],
         "deck-2": [
-            "[FP]",
             "[OG-2]",
             "[TGF]",
-            "[WORM-4]",
+            "[HRF-2]",
+            "[RO-2]",
+            "[SR]",
+            "[FP]",
             "[CN-3]",
-            "[CS-1]",
-            "[SM-2]",
-            "[TME-3]",
-            "[BL-2]",
-            "[WORM-6]"
+            "[WORM-2]",
+            "[WORM-6]",
+            "[WORM-4]"
         ],
         "discard-1": [
+            "[WORM-1]",
             "[HE-1]"
         ],
         "discard-2": [
@@ -181,22 +214,23 @@
     },
     "[A]": {
         "treachery": [
-            "[LASEGUN-1]"
+            "[KARAMA-1]"
         ],
         "spice": 10,
         "traitors": [
-            "[E#2]"
+            "[B#3]"
         ],
         "notes": [
-            "Initial traitors: Staban Tuek (5), Jamis (2), Duncan Idaho (2), Captain Aramsham (5)"
+            "Initial traitors: Wanna Marcus (5), Master Bewt (3), Princess Irulan (5), Bashar (2)"
         ],
         "alert": [
+            "The storm is in sector 2.",
             "Spice Blooms on Habbanya Erg (8) and Wind Pass North (6) "
         ]
     },
     "[B]": {
         "treachery": [
-            "[POIS_W-3]"
+            "[PROJ_W-2]"
         ],
         "spice": 5,
         "prediction": {
@@ -205,248 +239,142 @@
         },
         "notes": [
             "Harkonnen predicted to win on turn 2.",
-            "Initial traitors: Otheym (5), Piter DeVries (3), Feyd-Rautha (6), Umman Kudu (1)"
+            "Initial traitors: Guild Representative (1), Lady Jessica (5), Captain Aramsham (5), Shadout Mapes (3)"
         ],
         "traitors": [
-            "[F#3]"
+            "[E#2]"
         ]
     },
     "[E]": {
         "treachery": [
-            "[POIS_D-1]"
+            "[KARAMA-2]"
         ],
         "spice": 10,
         "traitors": [
-            "[A#2]"
+            "[H#1]"
         ],
         "notes": [
-            "Initial traitors: Gurney Halleck (4), Beast Rabban (4), Esmar Tuek (3), Thufir Hawat (5)"
+            "Initial traitors: Alia (5), Caid (3), Dr. Wellington Yueh (1), Feyd-Rautha (6)"
         ],
         "alert": [
+            "The storm is in sector 2.",
             "Spice Blooms on Habbanya Erg (8) and Wind Pass North (6) "
         ]
     },
     "[F]": {
         "treachery": [
-            "[POIS_D-2]"
+            "[GHOLA-1]"
         ],
         "spice": 3,
         "traitors": [
-            "[A#1]"
+            "[A#3]"
         ],
         "notes": [
-            "Initial traitors: Shadout Mapes (3), Guild Representative (1), Lady Margot Fenring (5), Lady Jessica (5)"
+            "Initial traitors: Gurney Halleck (4), Staban Tuek (5), Otheym (5), Rev. Mother Ramallo (5)"
         ],
         "alert": [
+            "The storm is in sector 2.",
             "Spice Blooms on Habbanya Erg (8) and Wind Pass North (6) "
         ]
     },
     "[G]": {
         "treachery": [
-            "[TRUTH-2]"
+            "[PROJ_D-1]"
         ],
         "spice": 5,
         "traitors": [
             "[E#1]"
         ],
         "notes": [
-            "Initial traitors: Alia (5), Count Hasimir Fenring (6), Soo Soo Sook (2), Burseg (3)"
+            "Initial traitors: Duncan Idaho (2), Count Hasimir Fenring (6), Lady Margot Fenring (5), Chani (6)"
         ],
         "alert": [
+            "The storm is in sector 2.",
             "Spice Blooms on Habbanya Erg (8) and Wind Pass North (6) "
         ]
     },
     "[H]": {
         "treachery": [
-            "[KARAMA-1]",
-            "[WORTHLESS-1]"
+            "[PROJ_D-4]",
+            "[PROJ_W-1]"
         ],
         "spice": 10,
         "traitors": [
-            "[A#5]",
-            "[B#3]",
-            "[F#1]",
-            "[B#5]"
+            "[H#5]",
+            "[H#2]",
+            "[H#3]",
+            "[A#2]"
         ],
         "notes": [
-            "Initial traitors: Dr. Wellington Yueh (1), Princess Irulan (5), Stilgar (7), Wanna Marcus (5)"
+            "Initial traitors: Umman Kudu (1), Beast Rabban (4), Piter DeVries (3), Thufir Hawat (5)"
         ],
         "alert": [
+            "The storm is in sector 2.",
             "Spice Blooms on Habbanya Erg (8) and Wind Pass North (6) "
         ]
     },
     "treachery": {
         "deck": [
-            "[WORTHLESS-2]",
-            "[PROJ_W-2]",
-            "[POIS_W-4]",
-            "[WORTHLESS-3]",
-            "[PROJ_D-1]",
-            "[POIS_W-1]",
+            "[WORTHLESS-4]",
+            "[LASEGUN-1]",
+            "[WORTHLESS-1]",
+            "[POIS_W-2]",
+            "[POIS_W-3]",
+            "[HERO-2]",
             "[PROJ_W-4]",
-            "[PROJ_D-4]",
-            "[WORTHLESS-5]",
-            "[PROJ_W-1]",
-            "[TRUTH-1]",
-            "[HAJR-1]",
+            "[WEATHER-1]",
+            "[PROJ_D-3]",
+            "[PROJ_D-2]",
             "[PROJ_W-3]",
             "[POIS_D-3]",
-            "[PROJ_D-2]",
-            "[WEATHER-1]",
-            "[ATOMICS-1]",
-            "[HERO-1]",
+            "[POIS_D-2]",
+            "[POIS_W-4]",
+            "[WORTHLESS-3]",
+            "[HAJR-1]",
+            "[POIS_W-1]",
             "[HERO-3]",
-            "[PROJ_D-3]",
-            "[KARAMA-2]",
             "[POIS_D-4]",
-            "[WORTHLESS-4]",
-            "[POIS_W-2]",
-            "[HERO-2]",
-            "[GHOLA-1]"
+            "[TRUTH-2]",
+            "[POIS_D-1]",
+            "[TRUTH-1]",
+            "[WORTHLESS-5]",
+            "[WORTHLESS-2]",
+            "[HERO-1]",
+            "[ATOMICS-1]"
         ]
     },
     "storm": {
-        "location": 1,
-        "move": 1
+        "location": 2,
+        "move": 2
     },
-    "stormRound": [],
-    "biddingRound": {
-        "biddingOrder": [
-            "[B]",
-            "[E]",
-            "[A]",
-            "[G]",
-            "[F]",
-            "[H]"
-        ],
-        "numberOfCards": 0,
-        "currentCard": 1,
-        "totalCards": 0,
-        "highBid": 0,
-        "highBidder": "",
-        "ableToBid": {
-            "[A]": true,
-            "[B]": true,
-            "[E]": true,
-            "[F]": true,
-            "[G]": true,
-            "[H]": true
-        },
-        "howMuchToBid": {
-            "[A]": {
-                "[A]": 0,
-                "[B]": 0,
-                "[E]": 0,
-                "[F]": 0,
-                "[G]": 0,
-                "[H]": 0
-            },
-            "[B]": {
-                "[A]": 0,
-                "[B]": 0,
-                "[E]": 0,
-                "[F]": 0,
-                "[G]": 0,
-                "[H]": 0
-            },
-            "[E]": {
-                "[A]": 0,
-                "[B]": 0,
-                "[E]": 0,
-                "[F]": 0,
-                "[G]": 0,
-                "[H]": 0
-            },
-            "[F]": {
-                "[A]": 0,
-                "[B]": 0,
-                "[E]": 0,
-                "[F]": 0,
-                "[G]": 0,
-                "[H]": 0
-            },
-            "[G]": {
-                "[A]": 0,
-                "[B]": 0,
-                "[E]": 0,
-                "[F]": 0,
-                "[G]": 0,
-                "[H]": 0
-            },
-            "[H]": {
-                "[A]": 0,
-                "[B]": 0,
-                "[E]": 0,
-                "[F]": 0,
-                "[G]": 0,
-                "[H]": 0
-            }
-        },
-        "howHighToBid": {
-            "[A]": {
-                "[A]": 0,
-                "[B]": 0,
-                "[E]": 0,
-                "[F]": 0,
-                "[G]": 0,
-                "[H]": 0
-            },
-            "[B]": {
-                "[A]": 0,
-                "[B]": 0,
-                "[E]": 0,
-                "[F]": 0,
-                "[G]": 0,
-                "[H]": 0
-            },
-            "[E]": {
-                "[A]": 0,
-                "[B]": 0,
-                "[E]": 0,
-                "[F]": 0,
-                "[G]": 0,
-                "[H]": 0
-            },
-            "[F]": {
-                "[A]": 0,
-                "[B]": 0,
-                "[E]": 0,
-                "[F]": 0,
-                "[G]": 0,
-                "[H]": 0
-            },
-            "[G]": {
-                "[A]": 0,
-                "[B]": 0,
-                "[E]": 0,
-                "[F]": 0,
-                "[G]": 0,
-                "[H]": 0
-            },
-            "[H]": {
-                "[A]": 0,
-                "[B]": 0,
-                "[E]": 0,
-                "[F]": 0,
-                "[G]": 0,
-                "[H]": 0
-            }
-        },
-        "next": {
-            "[A]": "wait.php",
-            "[B]": "wait.php",
-            "[E]": "wait.php",
-            "[F]": "wait.php",
-            "[G]": "wait.php",
-            "[H]": "wait.php"
-        },
-        "autoBidSet": {
+    "spiceRound": {
+        "nexus": false,
+        "nexusDone": {
             "[A]": false,
-            "[B]": false,
             "[E]": false,
             "[F]": false,
             "[G]": false,
             "[H]": false
+        },
+        "roundDone": {
+            "[A]": false,
+            "[E]": false,
+            "[F]": false,
+            "[G]": false,
+            "[H]": false
+        },
+        "spice-1": {
+            "location": "[SM-2]",
+            "spice": 10
+        },
+        "spice-2": {
+            "location": "[OG-2]",
+            "spice": 6
         }
+    },
+    "nexus": {
+        "sandworms": [
+            "[HE-1]"
+        ]
     }
 }

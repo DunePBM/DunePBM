@@ -3,30 +3,63 @@
 // Called by index.php.
 // setup-round.php --> storm-round.php
 
+global $game, $info;
+
+//######################################################################
+//## First Run #########################################################
+//######################################################################
+if (!isset($game['round'])) {
+    $game['meta']['round'] = 'setup-round.php';
+    $game['round'] = array();
+    foreach (array('[A]', '[B]', '[E]','[F]','[G]','[H]') as $faction) {
+        $game['meta']['next'][$faction] = 'chooseTraitors';
+        
+        $game['round']['choseTraitors'][$faction] = false;
+    }
+    $game['round']['choseTraitors']['[H]'] = true;
+    $game['meta']['next']['[H]'] = 'wait';
+    $game['meta']['next']['[B]'] = 'makePrediction';
+    dune_writeData('Start setup.', true, false);
+}
+
+//######################################################################
+//## Every Round #######################################################
+//######################################################################
+if (isset($game['round'])) {
+    //##############################################################
+    //## Checks for end of round. ##################################
+    //##############################################################
+    $isGameDone = true;
+    foreach (array('[A]', '[B]', '[E]','[F]','[G]','[H]') as $faction) {
+        if ($game['meta']['next'][$faction] != 'wait') {
+            $isGameDone = false;
+        }
+    }
+    if ($isGameDone) {
+        setupAction_setupTreachery();
+        setupAction_setupStorm();
+        dune_readData();
+        $game['meta']['round'] = 'spice-round.php';
+        foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+            $game['meta'][$faction] = 'spice-round.php';
+            $game['meta']['wait'][$faction] = false;
+        }
+        unset($GLOBALS['game']['round']);
+        dune_writeData('Setup is over. The storm is placed. The Spice Round begins.', true);
+        refreshPage();
+    }
+}
+     
 //######################################################################
 //###### Forms #########################################################
 //######################################################################
 if (empty($_POST)) {
     global $game, $info;
-    
-    //##############################################################
-    //## First Run #################################################
-    //##############################################################
-    if (!isset($game['setupRound'])) {
-        $game['setupRound'] = array();
-        foreach (array('[A]','[E]','[F]','[G]','[H]') as $x) {
-            $game['setupRound']['next'][$x] = 'wait';
-            $game['meta']['next'][$x] = 'wait.php';
-        }
-        $game['setupRound']['next']['[B]'] = 'makePrediction';
-        $game['meta']['next']['[B]'] = 'setup-round.php';
-        dune_writeData('Start setup.', true, false);
-    }
 
     //##############################################################
     //## Make Prediction ###########################################
     //##############################################################
-    if ($game['setupRound']['next'][$_SESSION['faction']] == 'makePrediction') {
+    if ($game['meta']['next'][$_SESSION['faction']] == 'makePrediction') {
         if ($_SESSION['faction'] == '[B]') {
             echo 
             '<h3>Bene Gesserit:</h3>
@@ -47,12 +80,12 @@ if (empty($_POST)) {
     //##############################################################
     //## Choose Traitors ###########################################
     //##############################################################
-    if ($game['setupRound']['next'][$_SESSION['faction']] == 'chooseTraitors') {
-		echo 
-		'<h3>'.$info['factions'][$_SESSION['faction']]['name'].':</h3>
+    if ($game['meta']['next'][$_SESSION['faction']] == 'chooseTraitors') {
+        echo 
+        '<h3>'.$info['factions'][$_SESSION['faction']]['name'].':</h3>
         
-		<form action="#" method="post">
-			Choose your traitor: 
+        <form action="#" method="post">
+            Choose your traitor: 
             <select name="traitor">
             <option value="0">'.
             $info['leaders'][$game['traitorDeck'][$_SESSION['faction']][0]]['name'].
@@ -71,14 +104,14 @@ if (empty($_POST)) {
             ' '.$info['leaders'][$game['traitorDeck'][$_SESSION['faction']][3]]['faction'].
             '</option>
             </select>
-			<input type="submit" value="Submit">
-		</form>';
+            <input type="submit" value="Submit">
+        </form>';
     }
     
     //##############################################################
     //## Setup Tokens ##############################################
     //##############################################################
-    if ($game['setupRound']['next'][$_SESSION['faction']] == 'setupTokens') {
+    if ($game['meta']['next'][$_SESSION['faction']] == 'setupTokens') {
         if ($_SESSION['faction'] == '[F]') {
             echo 
             '<h3>Fremen:</h3>
@@ -116,7 +149,7 @@ if (empty($_POST)) {
     //##############################################################
     //## Wait ######################################################
     //##############################################################
-    if ($game['setupRound']['next'][$_SESSION['faction']] == 'wait') {
+    if ($game['meta']['next'][$_SESSION['faction']] == 'wait') {
         dune_getWaiting();
     }
 }
@@ -124,38 +157,38 @@ if (empty($_POST)) {
 //######################################################################
 //###### Forms #########################################################
 //######################################################################
-if ((!empty($_POST)) && (isset($game['setupRound']))) {
+if ((!empty($_POST)) && (isset($game['round']))) {
     global $game, $info;
     
     //##############################################################
     //## Make Prediction ###########################################
     //##############################################################
-    if ($game['setupRound']['next'][$_SESSION['faction']] == 'makePrediction') {
+    if ($game['meta']['next'][$_SESSION['faction']] == 'makePrediction') {
         if (isset($_POST['winningFaction']) && 
                     isset($_POST['winningTurn']) &&
                     $_SESSION['faction'] == '[B]') {
-            actionMakePrediction();
+            setupAction_MakePrediction();
         }
     }
     
     //##############################################################
     //## Choose Traitors ###########################################
     //##############################################################
-    if ($game['setupRound']['next'][$_SESSION['faction']] == 'chooseTraitors') {
+    if ($game['meta']['next'][$_SESSION['faction']] == 'chooseTraitors') {
         if (isset($_POST['traitor'])) {
-            actionChooseTraitors();
+            setupAction_chooseTraitors();
         }
     }
     
     //##############################################################
     //## Setup Tokens ##############################################
     //##############################################################
-    if ($game['setupRound']['next'][$_SESSION['faction']] == 'setupTokens') {
+    if ($game['meta']['next'][$_SESSION['faction']] == 'setupTokens') {
         if (isset($_POST['st']) && ($_SESSION['faction'] == '[F]')) {
-            actionSetupTokens();
+            setupAction_setupTokens();
         }
         if (isset($_POST['token_loc']) && ($_SESSION['faction'] == '[B]')) {
-            actionSetupTokens();
+            setupAction_setupTokens();
         }
     }
     refreshPage();
@@ -165,7 +198,7 @@ if ((!empty($_POST)) && (isset($game['setupRound']))) {
 //###### Actions #######################################################
 //######################################################################
 
-function actionMakePrediction() {
+function setupAction_makePrediction() {
     global $game, $info;
     dune_readData();
     // Checks input.
@@ -181,20 +214,13 @@ function actionMakePrediction() {
     $game['[B]']['prediction']['winningTurn'] = (int) $_POST['winningTurn'];        
     $game['[B]']['notes'] =[$info['factions'][$_POST['winningFaction']]['name'].
                 ' predicted to win on turn '.$_POST['winningTurn'].'.'];
-    foreach (array('[A]', '[B]', '[E]', '[F]', '[G]') as $faction) {
-        for ($i = 0; $i <4; $i++) {
-            $game['setupRound']['next'][$faction] = 'chooseTraitors';
-            $game['meta']['next'][$faction] = 'setup-round.php';
-        }
-    }
-    $game['setupRound']['next']['[H]'] = 'wait';
-    $game['meta']['next']['[H]'] = 'wait.php';
+    $game['meta']['next']['[B]'] = 'chooseTraitors';
     dune_writeData('Bene Gesserit made their prediction.');
     dune_postForum('Bene Gesserit made their prediction.', true);
     return;
 }
 
-function actionChooseTraitors() {
+function setupAction_chooseTraitors() {
     global $game, $info;
     dune_readData();
     // Checks input.
@@ -202,17 +228,16 @@ function actionChooseTraitors() {
     // Carry Out Action.
     $game[$_SESSION['faction']]['traitors'] 
             = array($game['traitorDeck'][$_SESSION['faction']][(int)$_POST['traitor']]);
-    $game['setupRound']['next'][$_SESSION['faction']] = 'wait';
-    $game['meta']['next'][$_SESSION['faction']] = 'wait.php';
+    $game['round']['choseTraitors'][$_SESSION['faction']] = true;
+    $game['meta']['next'][$_SESSION['faction']] = 'wait';
     $isDone = true;
     foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-        if ($game['setupRound']['next'][$faction] != 'wait') {
+        if ($game['round']['choseTraitors'][$faction] == false) {
             $isDone = false;
         }
     }
     if ($isDone) {
-        $game['setupRound']['next']['[F]'] = 'setupTokens';
-        $game['meta']['next']['[F]'] = 'setup-round.php';
+        $game['meta']['next']['[F]'] = 'setupTokens';
         foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
             $temp = 'Initial traitors: ';
             foreach ($game['traitorDeck'][$faction] as $x) {
@@ -221,17 +246,15 @@ function actionChooseTraitors() {
             $temp = substr($temp, 0, -2);
             $game[$faction]['notes'][] = $temp;
         }
-        
         unset($game['traitorDeck']);
     }
     $message = $info['factions'][$_SESSION['faction']]['name'].' chose their traitor.';
-    dune_postForum($message, true);
     dune_writeData($message);
-    
+    dune_postForum($message, true);
     return;
 }
 
-function actionSetupTokens() {
+function setupAction_setupTokens() {
     global $game, $info;
     if ($_SESSION['faction'] == '[F]') {
         // Checks input.
@@ -253,10 +276,8 @@ function actionSetupTokens() {
         dune_gmMoveTokens('[F]', $_POST['st'], $_POST['stStar'], '[OFF]', '[ST]');
         dune_gmMoveTokens('[F]', $_POST['fww'], $_POST['fwwStar'], '[OFF]', $_POST['fwwSector']);
         dune_gmMoveTokens('[F]', $_POST['fws'], $_POST['fwsStar'], '[OFF]', $_POST['fwsSector']);
-        $game['setupRound']['next']['[F]'] = 'wait';
-        $game['meta']['next']['[F]'] = 'wait.php';
-        $game['setupRound']['next']['[B]'] = 'setupTokens';
-        $game['meta']['next']['[B]'] = 'setup-round.php';
+        $game['meta']['next']['[F]'] = 'wait';
+        $game['meta']['next']['[B]'] = 'setupTokens';
         dune_writeData('Fremen places 10 starting tokens');
         dune_postForum('Fremen place starting tokiens.', true);
         return;
@@ -264,40 +285,35 @@ function actionSetupTokens() {
     if ($_SESSION['faction'] == '[B]') {
         dune_readData();
         dune_gmMoveTokens('[B]', 1, 0, '[PS]', $_POST['token_loc']);
-        $game['meta']['next']['[B]'] = 'wait.php';
+        $game['meta']['next']['[B]'] = 'wait';
         dune_writeData('Bene Gesserit places starting token');
         dune_postForum('Bene Gesserit places starting tokien.', true);
-        
-        //### Thee are the last actions of the round ###
-        actionSetupTreachery();
-        actionSetupStorm();
         return;
     }
 }
 
-function actionSetupTreachery() {
+function setupAction_setupTreachery() {
     global $game, $info;
     dune_readData();
     foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
         dune_dealTreachery($faction);
     }
     dune_dealTreachery('[H]');
-    dune_postForum('Treachery cards delt.', true);
     dune_writeData('Treachery cards delt.', true);
+    dune_postForum('Treachery cards delt.', true);
     return;
 }
 
-function actionSetupStorm() {
-	// Last function to be run.
+function setupAction_setupStorm() {
     global $game, $info;
     dune_readData();
     $game['storm']['location'] = $game['storm']['move'];
     foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
         $game['meta']['next'][$faction] = 'spice-round.php';
+        $game[$faction]['alert'][] = 'The storm is in sector '.$game['storm']['location'].'.';
     }
-    unset($GLOBALS['game']['setupRound']);
+    dune_writeData('Storm is placed.', true);
     dune_postForum('The storm is in sector '.$game['storm']['location'], true);
-    dune_writeData('Storm is placed. Spice Round begins.', true);
     return;
 }
 ?>

@@ -36,7 +36,11 @@ if (isset($_SESSION['override']) && isset($_SESSION['faction'])) {
 if (!isset($_SESSION['override']) && isset($_SESSION['faction'])) {
     dune_readData();
     include $gameDir.'header.php';
-    include $gameDir.$game['meta']['next'][$_SESSION['faction']];
+    if ($game['meta']['next'] != 'wait') {
+		include $gameDir.$game['meta']['round'];
+	} else {
+		include $gameDir.'wait.php';
+	}
 }
 ?>
 

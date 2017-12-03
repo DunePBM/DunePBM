@@ -39,13 +39,14 @@
             "dataCurrent": 0,
             "dataUndo": 0
         },
+        "round": "setup-round.php",
         "next": {
-            "[A]": "wait.php",
-            "[B]": "setup-round.php",
-            "[E]": "wait.php",
-            "[F]": "wait.php",
-            "[G]": "wait.php",
-            "[H]": "wait.php"
+            "[A]": "chooseTraitors",
+            "[B]": "makePrediction",
+            "[E]": "chooseTraitors",
+            "[F]": "chooseTraitors",
+            "[G]": "chooseTraitors",
+            "[H]": "wait"
         },
         "faction": "",
         "event": "",

@@ -29,10 +29,12 @@ Pages:  <select name="header_action">
     </form><hr>';
 	
 	if (isset($game[$_SESSION['faction']]['alert'])) {
+		dune_readData();
 		foreach ($game[$_SESSION['faction']]['alert'] as $alert) {
 			gameAlert($alert);
 		}
 		unset($game[$_SESSION['faction']]['alert']);
+		dune_writeData('Alerts displayed.');
 	}
 
 

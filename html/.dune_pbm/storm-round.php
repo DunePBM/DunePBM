@@ -23,6 +23,34 @@ if ($game['meta']['turn'] == 1) {
 }        
 
 //######################################################################
+//## Every Round #######################################################
+//######################################################################
+if (isset($game['stormRound'])) {
+    
+    //##############################################################
+    //## Checks for end of round. ##################################
+    //##############################################################
+    $isGameDone = true;
+    foreach (array('[A]', '[B]', '[E]','[F]','[G]','[H]') as $faction) {
+        if ($game['stormRound']['next'][$faction] != 'wait') {
+            $isGameDune = false;
+        }
+    }
+    if ($isGameDone) {
+        setupAction_setupTreachery();
+        setupAction_setupStorm();
+        dune_readData();
+        foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+            $game['meta']['next'][$faction] = 'spice-round.php';
+        }
+        unset($GLOBALS['game']['setupRound']);
+        dune_writeData('Setup is over. The storm is placed. The Spice Round begins.', true);
+        refreshPage();
+    }
+}
+
+
+//######################################################################
 //###### Forms #########################################################
 //######################################################################
 if (empty($_POST)){
@@ -35,10 +63,6 @@ if (empty($_POST)){
 	echo 
 	'<h2>Storm Round</h2>
     <p>The storm is in Sector '.$game['storm']['location'].'.</p>';
- 
-
-        }
-    }
     
     if ($game['meta']['turn'] >= 2) {
         echo

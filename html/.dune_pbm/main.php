@@ -10,7 +10,7 @@
 $dataDir = '.dune_pbm_data/';
 $duneForum = array();
 $duneMail = array();
-$debug = false;
+$debug = true;
 $gmCommands = true;
 $info = json_decode(file_get_contents($gameDir.'dune_info.json'), true);
 
@@ -329,7 +329,7 @@ function dune_checkRoundEnd($oldMarker, $newPhp, $message, $subLocation = false)
     dune_readData();
     if ($subLocation) {
 		foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-			if ($game[$oldMarker]['next'][$faction] != 'wait.php') {
+			if ($game[$oldMarker]['next'][$faction] != 'wait') {
 				$roundOver = false;
 			}
         }
@@ -509,7 +509,7 @@ function dune_getWaiting() {
     global $gameDir, $game, $info;
     print '<p><b><u>We are waiting for: </u></b><br>';
     foreach (array_keys($game['meta']['next']) as $x) {
-        if ($game['meta']['next'][$x] != 'wait.php') {
+        if ($game['meta']['next'][$x] != 'wait') {
             print $info['factions'][$x]['name'].'<br>';
         }
     }
