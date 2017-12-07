@@ -84,7 +84,7 @@ if (!empty($_POST)){
         echo actionFunction_showCard();
         refreshPage();
     }
-    if (isset($_POST['dicardTreachery'])) {
+    if (isset($_POST['discardTreachery'])) {
         echo actionFunction_discardCard();
         refreshPage();
     }
@@ -109,18 +109,18 @@ function actionFunction_showCard() {
     dune_readData();
     $message = $info['factions'][$_SESSION['faction']]['name'].' shows a ';
     $message .= $info['treachery'][$_POST['showTreachery']]['name'].' card.';
-    dune_postForum($message, true);
     dune_writeData('Show card: '.$info['treachery'][$_POST['showTreachery']]['name'].'.');
+    dune_postForum($message, true);
     return;
 }
 
 function actionFunction_discardCard() {
     global $game, $info;
     dune_readData();
-    dune_discardTreachery($_SESSION['faction'], $_POST['dicardTreachery']);
-    dune_writeData('Discard card: '.$info['treachery'][$_POST['dicardTreachery']]['name'].'.');
+    dune_discardTreachery($_SESSION['faction'], $_POST['discardTreachery']);
+    dune_writeData('Discard card: '.$info['treachery'][$_POST['discardTreachery']]['name'].'.');
     $message = $info['factions'][$_SESSION['faction']]['name'].' discards a ';
-    $message .= $info['treachery'][$_POST['dicardTreachery']]['name'].' card.';
+    $message .= $info['treachery'][$_POST['discardTreachery']]['name'].' card.';
     dune_postForum($message, true);
     return;
 }

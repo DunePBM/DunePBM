@@ -34,10 +34,10 @@
             }
         },
         "turn": 1,
-        "eventNumber": 17,
+        "eventNumber": 24,
         "timestamps": {
-            "dataCurrent": 1512623669,
-            "dataUndo": 1512623669
+            "dataCurrent": 1512624255,
+            "dataUndo": 1512624196
         },
         "round": "spice-round.php",
         "delay": {
@@ -52,8 +52,8 @@
             "[G]": "wait",
             "[H]": "wait"
         },
-        "faction": "[DUNE]",
-        "event": "Setup Spice Round.",
+        "faction": "[B]",
+        "event": "Discard card: Projectile Weapon: Stunner.",
         "playerOrder": [
             "[B]",
             "[A]",
@@ -122,7 +122,7 @@
                 0
             ],
             "[B]": [
-                1,
+                6,
                 0
             ]
         },
@@ -135,6 +135,10 @@
         "[CAR]": {
             "[H]": [
                 10,
+                0
+            ],
+            "[B]": [
+                -5,
                 0
             ]
         },
@@ -153,7 +157,9 @@
     },
     "treacheryDeck": {
         "deck": [],
-        "discard": []
+        "discard": [
+            "[PROJ_W-3]"
+        ]
     },
     "spiceDeck": {
         "deck-1": [
@@ -200,9 +206,7 @@
         ]
     },
     "[B]": {
-        "treachery": [
-            "[PROJ_W-3]"
-        ],
+        "treachery": [],
         "spice": 5,
         "prediction": {
             "winningFaction": "[F]",

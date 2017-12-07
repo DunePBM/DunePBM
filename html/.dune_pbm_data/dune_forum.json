@@ -53,5 +53,35 @@
         "faction": "[DUNE]",
         "time": "12: 1512623669",
         "message": "The storm is in sector 4"
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "17: 1512623890",
+        "message": "Bene Gesserit shows a Projectile Weapon: Stunner card."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "20: 1512624184",
+        "message": "Bene Gesserit discards a  card."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "21: 1512624185",
+        "message": "Bene Gesserit discards a  card."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "22: 1512624186",
+        "message": "Bene Gesserit discards a  card."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "23: 1512624196",
+        "message": "Bene Gesserit discards a  card."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "24: 1512624255",
+        "message": "Bene Gesserit discards a  card."
     }
 ]

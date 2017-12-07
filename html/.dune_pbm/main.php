@@ -10,7 +10,7 @@
 $dataDir = '.dune_pbm_data/';
 $duneForum = array();
 $duneMail = array();
-$debug = false;
+$debug = true;
 $gmCommands = true;
 $info = json_decode(file_get_contents($gameDir.'dune_info.json'), true);
 
