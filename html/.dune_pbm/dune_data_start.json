@@ -40,6 +40,10 @@
             "dataUndo": 0
         },
         "round": "setup-round.php",
+        "delay": {
+            "stormRound": false,
+            "spiceRound": false
+	},
         "next": {
             "[A]": "chooseTraitors",
             "[B]": "makePrediction",

@@ -6,67 +6,52 @@
     },
     {
         "faction": "[DUNE]",
-        "time": "3: 1512338439",
+        "time": "3: 1512623557",
         "message": "Atreides chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "4: 1512338469",
+        "time": "4: 1512623587",
         "message": "Bene Gesserit made their prediction."
     },
     {
         "faction": "[DUNE]",
-        "time": "5: 1512338476",
+        "time": "5: 1512623590",
         "message": "Bene Gesserit chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "6: 1512338499",
-        "message": "Emperor chose their traitor."
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "7: 1512338534",
+        "time": "6: 1512623603",
         "message": "Guild chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "8: 1512338554",
+        "time": "7: 1512623613",
+        "message": "Emperor chose their traitor."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "8: 1512623630",
         "message": "Fremen chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "9: 1512338568",
+        "time": "9: 1512623660",
         "message": "Fremen place starting tokiens."
     },
     {
         "faction": "[DUNE]",
-        "time": "10: 1512338608",
+        "time": "10: 1512623669",
         "message": "Bene Gesserit places starting tokien."
     },
     {
         "faction": "[DUNE]",
-        "time": "11: 1512338658",
-        "message": "Bene Gesserit places starting tokien."
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "12: 1512338660",
+        "time": "11: 1512623669",
         "message": "Treachery cards delt."
     },
     {
         "faction": "[DUNE]",
-        "time": "13: 1512338660",
-        "message": "The storm is in sector 2"
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "20: 1512338661",
-        "message": "Spice Blooms on Habbanya Erg (8) and Wind Pass North (6) "
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "25: 1512338682",
-        "message": "A nexus has occoured. There were sandworms in: Habbanya Erg"
+        "time": "12: 1512623669",
+        "message": "The storm is in sector 4"
     }
 ]

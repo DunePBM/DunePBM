@@ -6,18 +6,41 @@
 //######################################################################
 //## First Run #########################################################
 //######################################################################
-if (!isset($game['spiceRound'])) {
-	$game['spiceRound'] = array();
-	$game['spiceRound']['nexus'] = false;
-	$game['spiceRound']['nexusDone'] = array();
-	foreach (array('[A]','[E]','[F]','[G]','[H]') as $x) {
-		$game['spiceRound']['roundDone'][$x] = false;
-		$game['spiceRound']['nexusDone'][$x] = false;
+if (!isset($game['round'])) {
+	$game['round'] = array();
+	$game['round']['sandworms'] = array();
+	foreach (array('[A]','[E]','[F]','[G]','[H]') as $faction) {
+		$game['meta']['next'][$faction] = 'wait';
 	}
-	actionSpiceBlow();
-	dune_writeData('Setup Spice Round.', true);
-	refreshPage();
+	spiceAction_spiceBlow();
+	// End the turn if a nexus didn't occour.
+	if ($game['meta']['next'][0] == 'wait') {
+		spiceAction_endRound();
+	} else {
+		dune_writeData('Setup Spice Round.', true);
+		refreshPage();
+	}
 }
+
+//######################################################################
+//## Every Round #######################################################
+//######################################################################
+
+if (isset($game['round'])) {
+    //##############################################################
+    //## Checks for end of round. ##################################
+    //##############################################################
+    $isGameDone = true;
+    foreach (array('[A]', '[B]', '[E]','[F]','[G]','[H]') as $faction) {
+        if ($game['meta']['next'][$faction] != 'wait') {
+            $isGameDone = false;
+        }
+    }
+    if ($isGameDone) {
+        spiceAction_endRound();
+    }
+}
+
 
 //######################################################################
 //###### Forms #########################################################
@@ -83,30 +106,28 @@ if (!empty($_POST)){
 //###### Actions #######################################################
 //######################################################################
 
-function actionSpiceBlow() {
+function spiceAction_spiceBlow() {
     global $game, $info;
     
     // Double spice blow.
     for ($i = 1; $i <= 2; $i += 1) {
         while ($info['spiceDeck'][dune_checkSpice($i, true)]['type'] == 'worm') {
             $underCard = $game['spiceDeck']['discard-'.$i][0];
-            if (!isset($game['nexus'])) {
-                $game['nexus'] = array();
-                $game['nexus']['sandworms'] = array();
-            }
-            array_push($game['nexus']['sandworms'], $underCard);
+            array_push($game['round']['sandworms'], $underCard);
             foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-                $game['meta']['next'][$faction] = 'nexus.php';
+                $game['meta']['next'][$faction] = 'nexus';
             }
             dune_dealSpice($i);
         }
         // Deals spice.
-        $game['spiceRound']['spice-'.$i]['location'] = dune_checkSpice($i, true);
-        $game['spiceRound']['spice-'.$i]['spice'] 
+        $game['round']['spice-'.$i]['location'] = dune_checkSpice($i, true);
+        $game['round']['spice-'.$i]['spice'] 
                     = $info['spiceDeck'][dune_checkSpice($i, true)]['spice'];
         dune_gmMoveTokens('[SPICE]', $game['spiceRound']['spice-'.$i]['spice'],0,
 					'[BANK]', $game['spiceRound']['spice-'.$i]['location']);
         dune_writeData('Spice Card #'.$i, true);
+    
+    
     }
     if (isset($game['nexus'])) {
         $temp = 'A nexus has occoured. There were sandworms in: ';
@@ -160,5 +181,14 @@ if ((isset($game['spiceRound'])) && (!isset($game['nexus']))) {
                 $game['meta']['next'][$faction] = 'storm-round.php';
     }
     dune_writeData();
+}
+
+function spiceAction_endRound() {
+	global $game, $info;
+	dune_readData();
+	$game['meta']['round'] = 'spice-round.php';
+    unset($GLOBALS['game']['round']);
+    dune_writeData('Storm Round ends. The Spice Round begins.', true);
+    refreshPage();
 }
 ?>

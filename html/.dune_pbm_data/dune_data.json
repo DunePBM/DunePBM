@@ -34,43 +34,46 @@
             }
         },
         "turn": 1,
-        "eventNumber": 26,
+        "eventNumber": 17,
         "timestamps": {
-            "dataCurrent": 1512338682,
-            "dataUndo": 1512338682
+            "dataCurrent": 1512623669,
+            "dataUndo": 1512623669
         },
         "round": "spice-round.php",
+        "delay": {
+            "stormRound": false,
+            "spiceRound": false
+        },
         "next": {
-            "[A]": "nexus.php",
-            "[B]": "nexus.php",
-            "[E]": "nexus.php",
-            "[F]": "nexus.php",
-            "[G]": "nexus.php",
-            "[H]": "nexus.php"
+            "[A]": "wait",
+            "[B]": "spice-round.php",
+            "[E]": "wait",
+            "[F]": "wait",
+            "[G]": "wait",
+            "[H]": "wait"
         },
         "faction": "[DUNE]",
         "event": "Setup Spice Round.",
         "playerOrder": [
-            "[H]",
             "[B]",
-            "[E]",
-            "[G]",
             "[A]",
-            "[F]"
+            "[F]",
+            "[E]",
+            "[H]",
+            "[G]"
         ],
         "playerDots": [
-            "[H]",
             "[B]",
-            "[E]",
-            "[G]",
             "[A]",
-            "[F]"
+            "[F]",
+            "[E]",
+            "[H]",
+            "[G]"
         ],
         "storm": {
             "location": 0,
             "move": 0
         },
-        "[B]": "spice-round.php",
         "[A]": "spice-round.php",
         "wait": {
             "[A]": false,
@@ -80,6 +83,7 @@
             "[G]": false,
             "[H]": false
         },
+        "[B]": "spice-round.php",
         "[E]": "spice-round.php",
         "[F]": "spice-round.php",
         "[G]": "spice-round.php",
@@ -118,7 +122,7 @@
                 0
             ],
             "[B]": [
-                2,
+                1,
                 0
             ]
         },
@@ -136,43 +140,13 @@
         },
         "[BANK]": {
             "[SPICE]": [
-                8970,
+                9000,
                 0
             ]
         },
-        "[FWW-3]": {
+        "[FWS-2]": {
             "[F]": [
                 10,
-                0
-            ]
-        },
-        "[PS]": {
-            "[B]": [
-                -1,
-                0
-            ]
-        },
-        "[HE-1]": {
-            "[SPICE]": [
-                8,
-                0
-            ]
-        },
-        "[WPN-1]": {
-            "[SPICE]": [
-                6,
-                0
-            ]
-        },
-        "[SM-2]": {
-            "[SPICE]": [
-                10,
-                0
-            ]
-        },
-        "[OG-2]": {
-            "[SPICE]": [
-                6,
                 0
             ]
         }
@@ -183,198 +157,172 @@
     },
     "spiceDeck": {
         "deck-1": [
+            "[WPN-1]",
             "[SM-2]",
-            "[WORM-5]",
+            "[SR]",
+            "[HRF-2]",
             "[TME-3]",
-            "[RC]",
-            "[WORM-3]",
-            "[HB-2]",
-            "[CS-1]",
-            "[BL-2]"
+            "[WORM-2]",
+            "[CN-3]",
+            "[OG-2]",
+            "[RO-2]",
+            "[CS-1]"
         ],
         "deck-2": [
-            "[OG-2]",
-            "[TGF]",
-            "[HRF-2]",
-            "[RO-2]",
-            "[SR]",
-            "[FP]",
-            "[CN-3]",
-            "[WORM-2]",
+            "[RC]",
+            "[WORM-5]",
             "[WORM-6]",
-            "[WORM-4]"
-        ],
-        "discard-1": [
+            "[BL-2]",
+            "[WORM-3]",
             "[WORM-1]",
-            "[HE-1]"
+            "[WORM-4]",
+            "[TGF]",
+            "[HE-1]",
+            "[HB-2]",
+            "[FP]"
         ],
-        "discard-2": [
-            "[WPN-1]"
-        ]
+        "discard-1": [],
+        "discard-2": []
     },
     "[A]": {
         "treachery": [
-            "[KARAMA-1]"
+            "[POIS_D-3]"
         ],
         "spice": 10,
         "traitors": [
-            "[B#3]"
+            "[F#1]"
         ],
         "notes": [
-            "Initial traitors: Wanna Marcus (5), Master Bewt (3), Princess Irulan (5), Bashar (2)"
+            "Initial traitors: Dr. Wellington Yueh (1), Stilgar (7), Thufir Hawat (5), Princess Irulan (5)"
         ],
         "alert": [
-            "The storm is in sector 2.",
-            "Spice Blooms on Habbanya Erg (8) and Wind Pass North (6) "
+            "The storm is in sector 4."
         ]
     },
     "[B]": {
         "treachery": [
-            "[PROJ_W-2]"
+            "[PROJ_W-3]"
         ],
         "spice": 5,
         "prediction": {
-            "winningFaction": "[H]",
+            "winningFaction": "[F]",
             "winningTurn": 2
         },
         "notes": [
-            "Harkonnen predicted to win on turn 2.",
-            "Initial traitors: Guild Representative (1), Lady Jessica (5), Captain Aramsham (5), Shadout Mapes (3)"
+            "Fremen predicted to win on turn 2.",
+            "Initial traitors: Feyd-Rautha (6), Captain Iakin Nefud (2), Burseg (3), Lady Jessica (5)"
         ],
         "traitors": [
-            "[E#2]"
+            "[H#1]"
         ]
     },
     "[E]": {
         "treachery": [
-            "[KARAMA-2]"
+            "[PROJ_D-1]"
         ],
         "spice": 10,
         "traitors": [
-            "[H#1]"
+            "[B#2]"
         ],
         "notes": [
-            "Initial traitors: Alia (5), Caid (3), Dr. Wellington Yueh (1), Feyd-Rautha (6)"
+            "Initial traitors: Shadout Mapes (3), Lady Margot Fenring (5), Soo Soo Sook (2), Alia (5)"
         ],
         "alert": [
-            "The storm is in sector 2.",
-            "Spice Blooms on Habbanya Erg (8) and Wind Pass North (6) "
+            "The storm is in sector 4."
         ]
     },
     "[F]": {
         "treachery": [
-            "[GHOLA-1]"
+            "[WORTHLESS-3]"
         ],
         "spice": 3,
-        "traitors": [
-            "[A#3]"
-        ],
-        "notes": [
-            "Initial traitors: Gurney Halleck (4), Staban Tuek (5), Otheym (5), Rev. Mother Ramallo (5)"
-        ],
-        "alert": [
-            "The storm is in sector 2.",
-            "Spice Blooms on Habbanya Erg (8) and Wind Pass North (6) "
-        ]
-    },
-    "[G]": {
-        "treachery": [
-            "[PROJ_D-1]"
-        ],
-        "spice": 5,
         "traitors": [
             "[E#1]"
         ],
         "notes": [
-            "Initial traitors: Duncan Idaho (2), Count Hasimir Fenring (6), Lady Margot Fenring (5), Chani (6)"
+            "Initial traitors: Bashar (2), Captain Aramsham (5), Count Hasimir Fenring (6), Duncan Idaho (2)"
         ],
         "alert": [
-            "The storm is in sector 2.",
-            "Spice Blooms on Habbanya Erg (8) and Wind Pass North (6) "
+            "The storm is in sector 4."
+        ]
+    },
+    "[G]": {
+        "treachery": [
+            "[PROJ_D-2]"
+        ],
+        "spice": 5,
+        "traitors": [
+            "[F#2]"
+        ],
+        "notes": [
+            "Initial traitors: Guild Representative (1), Beast Rabban (4), Otheym (5), Chani (6)"
+        ],
+        "alert": [
+            "The storm is in sector 4."
         ]
     },
     "[H]": {
         "treachery": [
-            "[PROJ_D-4]",
-            "[PROJ_W-1]"
+            "[TRUTH-2]",
+            "[HAJR-1]"
         ],
         "spice": 10,
         "traitors": [
-            "[H#5]",
-            "[H#2]",
             "[H#3]",
-            "[A#2]"
+            "[G#1]",
+            "[B#4]",
+            "[E#4]"
         ],
         "notes": [
-            "Initial traitors: Umman Kudu (1), Beast Rabban (4), Piter DeVries (3), Thufir Hawat (5)"
+            "Initial traitors: Piter DeVries (3), Staban Tuek (5), Rev. Mother Ramallo (5), Caid (3)"
         ],
         "alert": [
-            "The storm is in sector 2.",
-            "Spice Blooms on Habbanya Erg (8) and Wind Pass North (6) "
+            "The storm is in sector 4."
         ]
     },
     "treachery": {
         "deck": [
-            "[WORTHLESS-4]",
-            "[LASEGUN-1]",
-            "[WORTHLESS-1]",
-            "[POIS_W-2]",
-            "[POIS_W-3]",
-            "[HERO-2]",
-            "[PROJ_W-4]",
-            "[WEATHER-1]",
-            "[PROJ_D-3]",
-            "[PROJ_D-2]",
-            "[PROJ_W-3]",
-            "[POIS_D-3]",
-            "[POIS_D-2]",
+            "[PROJ_D-4]",
+            "[WORTHLESS-2]",
             "[POIS_W-4]",
-            "[WORTHLESS-3]",
-            "[HAJR-1]",
+            "[WORTHLESS-5]",
+            "[PROJ_W-1]",
+            "[PROJ_W-4]",
+            "[KARAMA-1]",
+            "[WEATHER-1]",
+            "[WORTHLESS-1]",
+            "[KARAMA-2]",
+            "[POIS_D-4]",
+            "[POIS_W-3]",
+            "[TRUTH-1]",
+            "[HERO-1]",
+            "[POIS_W-2]",
+            "[POIS_D-1]",
+            "[GHOLA-1]",
+            "[POIS_D-2]",
+            "[ATOMICS-1]",
+            "[LASEGUN-1]",
+            "[WORTHLESS-4]",
+            "[HERO-2]",
             "[POIS_W-1]",
             "[HERO-3]",
-            "[POIS_D-4]",
-            "[TRUTH-2]",
-            "[POIS_D-1]",
-            "[TRUTH-1]",
-            "[WORTHLESS-5]",
-            "[WORTHLESS-2]",
-            "[HERO-1]",
-            "[ATOMICS-1]"
+            "[PROJ_D-3]",
+            "[PROJ_W-2]"
         ]
     },
     "storm": {
-        "location": 2,
-        "move": 2
+        "location": 4,
+        "move": 4
     },
-    "spiceRound": {
-        "nexus": false,
-        "nexusDone": {
-            "[A]": false,
-            "[E]": false,
-            "[F]": false,
-            "[G]": false,
-            "[H]": false
-        },
-        "roundDone": {
-            "[A]": false,
-            "[E]": false,
-            "[F]": false,
-            "[G]": false,
-            "[H]": false
-        },
+    "round": {
+        "sandworms": [],
         "spice-1": {
-            "location": "[SM-2]",
-            "spice": 10
+            "location": "[WPN-1]",
+            "spice": 6
         },
         "spice-2": {
-            "location": "[OG-2]",
-            "spice": 6
+            "location": "[RC]",
+            "spice": 8
         }
-    },
-    "nexus": {
-        "sandworms": [
-            "[HE-1]"
-        ]
     }
 }
