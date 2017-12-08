@@ -61,6 +61,7 @@
             "move": 0
         }
     },
+    "revealedMessages" : [],
     "tokens": {
         "[OFF]": {
             "[A]": [10,0],
