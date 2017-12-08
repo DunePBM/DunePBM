@@ -19,11 +19,12 @@ if (!isset($game['round'])) {
 //######################################################################
 //## Every Round #######################################################
 //######################################################################
-if (isset($game['stormRound'])) {
+if (isset($game['round'])) {
+    
     //##############################################################
     //## Run if there is no delay. #################################
     //##############################################################
-	if (!$game['meta']['delay']['stormRound']) {
+	if ($game['meta']['delay']['stormRound'] == false) {
 		foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
 			$game['faction']['alert'][] = 'The storm is in Sector '.$game['storm']['location'].'.';
 		}	
@@ -74,14 +75,10 @@ if (empty($_POST)){
 if (isset($_POST['stormAction'])) {
     if ($_POST['stormAction'] == 'done') {
         dune_readData();
-        $game['meta']['next'][$_SESSION['faction']] = 'wait.php';
-        dune_writeData('Done with storm-round.');
+        $game['meta']['next'][$_SESSION['faction']] = 'wait';
+        dune_writeData($_SESSION['faction'].' is done with storm-round.');
     }
-        
-    //##############################################################
-    //## Checks for End of Round ###################################
-    //##############################################################
-    dune_checkRoundEnd('stormRound', 'bidding-round.php', 'Storm round has ended.');
+    
     refreshPage();
 }
 

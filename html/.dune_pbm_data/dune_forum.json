@@ -6,82 +6,52 @@
     },
     {
         "faction": "[DUNE]",
-        "time": "3: 1512623557",
-        "message": "Atreides chose their traitor."
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "4: 1512623587",
+        "time": "3: 1512706397",
         "message": "Bene Gesserit made their prediction."
     },
     {
         "faction": "[DUNE]",
-        "time": "5: 1512623590",
+        "time": "4: 1512706402",
         "message": "Bene Gesserit chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "6: 1512623603",
-        "message": "Guild chose their traitor."
+        "time": "5: 1512709184",
+        "message": "Atreides chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "7: 1512623613",
+        "time": "6: 1512709192",
         "message": "Emperor chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "8: 1512623630",
+        "time": "7: 1512709198",
+        "message": "Guild chose their traitor."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "8: 1512709207",
         "message": "Fremen chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "9: 1512623660",
+        "time": "9: 1512709213",
         "message": "Fremen place starting tokiens."
     },
     {
         "faction": "[DUNE]",
-        "time": "10: 1512623669",
+        "time": "10: 1512709220",
         "message": "Bene Gesserit places starting tokien."
     },
     {
         "faction": "[DUNE]",
-        "time": "11: 1512623669",
+        "time": "11: 1512709220",
         "message": "Treachery cards delt."
     },
     {
         "faction": "[DUNE]",
-        "time": "12: 1512623669",
-        "message": "The storm is in sector 4"
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "17: 1512623890",
-        "message": "Bene Gesserit shows a Projectile Weapon: Stunner card."
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "20: 1512624184",
-        "message": "Bene Gesserit discards a  card."
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "21: 1512624185",
-        "message": "Bene Gesserit discards a  card."
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "22: 1512624186",
-        "message": "Bene Gesserit discards a  card."
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "23: 1512624196",
-        "message": "Bene Gesserit discards a  card."
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "24: 1512624255",
-        "message": "Bene Gesserit discards a  card."
+        "time": "12: 1512709220",
+        "message": "The storm is in sector 5"
     }
 ]

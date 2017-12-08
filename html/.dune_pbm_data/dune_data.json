@@ -34,10 +34,10 @@
             }
         },
         "turn": 1,
-        "eventNumber": 24,
+        "eventNumber": 16,
         "timestamps": {
-            "dataCurrent": 1512624255,
-            "dataUndo": 1512624196
+            "dataCurrent": 1512709627,
+            "dataUndo": 1512709627
         },
         "round": "spice-round.php",
         "delay": {
@@ -45,30 +45,30 @@
             "spiceRound": false
         },
         "next": {
-            "[A]": "wait",
+            "[A]": "spice-round.php",
             "[B]": "spice-round.php",
-            "[E]": "wait",
-            "[F]": "wait",
-            "[G]": "wait",
-            "[H]": "wait"
+            "[E]": "spice-round.php",
+            "[F]": "spice-round.php",
+            "[G]": "spice-round.php",
+            "[H]": "spice-round.php"
         },
-        "faction": "[B]",
-        "event": "Discard card: Projectile Weapon: Stunner.",
+        "faction": "[DUNE]",
+        "event": "Setup Spice Round.",
         "playerOrder": [
-            "[B]",
-            "[A]",
-            "[F]",
-            "[E]",
             "[H]",
-            "[G]"
+            "[B]",
+            "[G]",
+            "[E]",
+            "[A]",
+            "[F]"
         ],
         "playerDots": [
-            "[B]",
-            "[A]",
-            "[F]",
-            "[E]",
             "[H]",
-            "[G]"
+            "[B]",
+            "[G]",
+            "[E]",
+            "[A]",
+            "[F]"
         ],
         "storm": {
             "location": 0,
@@ -122,7 +122,7 @@
                 0
             ],
             "[B]": [
-                6,
+                1,
                 0
             ]
         },
@@ -135,10 +135,6 @@
         "[CAR]": {
             "[H]": [
                 10,
-                0
-            ],
-            "[B]": [
-                -5,
                 0
             ]
         },
@@ -157,56 +153,77 @@
     },
     "treacheryDeck": {
         "deck": [],
-        "discard": [
-            "[PROJ_W-3]"
-        ]
+        "discard": []
     },
     "spiceDeck": {
         "deck-1": [
+            "[HB-2]",
             "[WPN-1]",
-            "[SM-2]",
-            "[SR]",
-            "[HRF-2]",
-            "[TME-3]",
             "[WORM-2]",
-            "[CN-3]",
+            "[TGF]",
+            "[BL-2]",
+            "[TME-3]",
+            "[SR]",
+            "[WORM-4]",
             "[OG-2]",
-            "[RO-2]",
-            "[CS-1]"
+            "[FP]",
+            "[BL-2]",
+            "[WORM-2]",
+            "[WORM-5]",
+            "[SM-2]",
+            "[OG-2]",
+            "[RC]",
+            "[WORM-3]",
+            "[WORM-4]",
+            "[FP]",
+            "[SR]",
+            "[RO-2]"
         ],
         "deck-2": [
+            "[CS-1]",
+            "[WORM-3]",
+            "[HRF-2]",
+            "[RO-2]",
+            "[CN-3]",
             "[RC]",
+            "[HE-1]",
+            "[WORM-1]",
+            "[SM-2]",
             "[WORM-5]",
             "[WORM-6]",
-            "[BL-2]",
-            "[WORM-3]",
-            "[WORM-1]",
-            "[WORM-4]",
             "[TGF]",
-            "[HE-1]",
+            "[CN-3]",
             "[HB-2]",
-            "[FP]"
+            "[WORM-1]",
+            "[WORM-6]",
+            "[HE-1]",
+            "[HRF-2]",
+            "[CS-1]",
+            "[WPN-1]",
+            "[TME-3]"
         ],
         "discard-1": [],
         "discard-2": []
     },
     "[A]": {
         "treachery": [
-            "[POIS_D-3]"
+            "[PROJ_D-4]"
         ],
         "spice": 10,
         "traitors": [
-            "[F#1]"
+            "[B#2]"
         ],
         "notes": [
-            "Initial traitors: Dr. Wellington Yueh (1), Stilgar (7), Thufir Hawat (5), Princess Irulan (5)"
+            "Initial traitors: Alia (5), Thufir Hawat (5), Umman Kudu (1), Lady Margot Fenring (5)"
         ],
         "alert": [
-            "The storm is in sector 4."
+            "The storm is in sector 5."
         ]
     },
     "[B]": {
-        "treachery": [],
+        "treachery": [
+            "[GHOLA-1]"
+        ],
         "spice": 5,
         "prediction": {
             "winningFaction": "[F]",
@@ -214,119 +231,118 @@
         },
         "notes": [
             "Fremen predicted to win on turn 2.",
-            "Initial traitors: Feyd-Rautha (6), Captain Iakin Nefud (2), Burseg (3), Lady Jessica (5)"
+            "Initial traitors: Duncan Idaho (2), Gurney Halleck (4), Beast Rabban (4), Bashar (2)"
         ],
         "traitors": [
-            "[H#1]"
+            "[A#3]"
         ]
     },
     "[E]": {
         "treachery": [
-            "[PROJ_D-1]"
+            "[WORTHLESS-2]"
         ],
         "spice": 10,
         "traitors": [
-            "[B#2]"
+            "[H#1]"
         ],
         "notes": [
-            "Initial traitors: Shadout Mapes (3), Lady Margot Fenring (5), Soo Soo Sook (2), Alia (5)"
+            "Initial traitors: Caid (3), Feyd-Rautha (6), Esmar Tuek (3), Captain Iakin Nefud (2)"
         ],
         "alert": [
-            "The storm is in sector 4."
+            "The storm is in sector 5."
         ]
     },
     "[F]": {
         "treachery": [
-            "[WORTHLESS-3]"
+            "[POIS_D-4]"
         ],
         "spice": 3,
         "traitors": [
-            "[E#1]"
+            "[E#2]"
         ],
         "notes": [
-            "Initial traitors: Bashar (2), Captain Aramsham (5), Count Hasimir Fenring (6), Duncan Idaho (2)"
+            "Initial traitors: Guild Representative (1), Chani (6), Rev. Mother Ramallo (5), Captain Aramsham (5)"
         ],
         "alert": [
-            "The storm is in sector 4."
+            "The storm is in sector 5."
         ]
     },
     "[G]": {
         "treachery": [
-            "[PROJ_D-2]"
+            "[WORTHLESS-1]"
         ],
         "spice": 5,
         "traitors": [
-            "[F#2]"
+            "[B#5]"
         ],
         "notes": [
-            "Initial traitors: Guild Representative (1), Beast Rabban (4), Otheym (5), Chani (6)"
+            "Initial traitors: Jamis (2), Otheym (5), Soo Soo Sook (2), Wanna Marcus (5)"
         ],
         "alert": [
-            "The storm is in sector 4."
+            "The storm is in sector 5."
         ]
     },
     "[H]": {
         "treachery": [
-            "[TRUTH-2]",
-            "[HAJR-1]"
+            "[POIS_D-1]",
+            "[POIS_W-4]"
         ],
         "spice": 10,
         "traitors": [
-            "[H#3]",
-            "[G#1]",
-            "[B#4]",
-            "[E#4]"
+            "[A#1]",
+            "[E#3]",
+            "[E#1]",
+            "[F#4]"
         ],
         "notes": [
-            "Initial traitors: Piter DeVries (3), Staban Tuek (5), Rev. Mother Ramallo (5), Caid (3)"
+            "Initial traitors: Lady Jessica (5), Burseg (3), Count Hasimir Fenring (6), Shadout Mapes (3)"
         ],
         "alert": [
-            "The storm is in sector 4."
+            "The storm is in sector 5."
         ]
     },
     "treachery": {
         "deck": [
-            "[PROJ_D-4]",
-            "[WORTHLESS-2]",
-            "[POIS_W-4]",
-            "[WORTHLESS-5]",
             "[PROJ_W-1]",
-            "[PROJ_W-4]",
-            "[KARAMA-1]",
-            "[WEATHER-1]",
-            "[WORTHLESS-1]",
-            "[KARAMA-2]",
-            "[POIS_D-4]",
-            "[POIS_W-3]",
-            "[TRUTH-1]",
             "[HERO-1]",
-            "[POIS_W-2]",
-            "[POIS_D-1]",
-            "[GHOLA-1]",
-            "[POIS_D-2]",
-            "[ATOMICS-1]",
+            "[POIS_W-3]",
+            "[PROJ_W-3]",
+            "[KARAMA-1]",
+            "[PROJ_D-1]",
             "[LASEGUN-1]",
-            "[WORTHLESS-4]",
+            "[ATOMICS-1]",
+            "[WORTHLESS-3]",
+            "[POIS_D-2]",
+            "[HAJR-1]",
+            "[TRUTH-1]",
             "[HERO-2]",
-            "[POIS_W-1]",
-            "[HERO-3]",
+            "[WORTHLESS-4]",
+            "[KARAMA-2]",
+            "[POIS_D-3]",
             "[PROJ_D-3]",
+            "[TRUTH-2]",
+            "[WEATHER-1]",
+            "[PROJ_D-2]",
+            "[HERO-3]",
+            "[PROJ_W-4]",
+            "[POIS_W-2]",
+            "[POIS_W-1]",
+            "[WORTHLESS-5]",
             "[PROJ_W-2]"
         ]
     },
     "storm": {
-        "location": 4,
-        "move": 4
+        "location": 5,
+        "move": 5
     },
     "round": {
-        "sandworms": [],
         "spice-1": {
-            "location": "[WPN-1]",
+            "location": null,
             "spice": 6
         },
         "spice-2": {
-            "location": "[RC]",
-            "spice": 8
+            "location": null,
+            "spice": 12
         }
     }
 }

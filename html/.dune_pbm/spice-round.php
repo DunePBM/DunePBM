@@ -9,10 +9,18 @@
 if (!isset($game['round'])) {
 	$game['round'] = array();
 	$game['round']['sandworms'] = array();
+	$game['round']['freeSandworms'] = 0;
+	$game['round']['spice-1'] = array();
+	$game['round']['spice-2'] = array();
+	$game['round']['spice-1']['spice'] = 0;
+	$game['round']['spice-2']['spice'] = 0;
+	$game['round']['spice-1']['location'] = '';
+	$game['round']['spice-2']['location'] = '';
 	foreach (array('[A]','[E]','[F]','[G]','[H]') as $faction) {
 		$game['meta']['next'][$faction] = 'wait';
 	}
 	spiceAction_spiceBlow();
+	
 	// End the turn if a nexus didn't occour.
 	if ($game['meta']['next'][0] == 'wait') {
 		spiceAction_endRound();
@@ -50,58 +58,36 @@ if (empty($_POST)){
     global $game, $info;
     
     //##############################################################
-    //## Every Run -- Spice Round ##################################
+    //## This only gets run if there is a Nexus ####################
     //##############################################################
-	if ($game['spiceRound']['nexus'] == false) {
-    }
     echo 
 	'<h2>Spice Round</h2>
 	<p></p>The storm is in sector '.$game['storm']['location'].'</p>
-	<p>Spice Blooms on '.
-	$info['spiceDeck'][$game['spiceRound']['spice-1']['location']]['name'].
-    ' ('
-    .$info['spiceDeck'][$game['spiceRound']['spice-1']['location']]['spice'].
-    ') and '
-    .$info['spiceDeck'][$game['spiceRound']['spice-2']['location']]['name']
-    .' ('
-    .$info['spiceDeck'][$game['spiceRound']['spice-2']['location']]['spice'].') ';
+	<p>A Nexus has occoured. Form alliances.</p>
+	<p>The nexus will not end until everyone selects DONE.</p>
+    There were sandworms in: <br>';
+	
+	foreach ($game['round']['sandworms'] as $x) {
+		print $info['spiceDeck'][$x]['name'].'<br>';
+	}
     
     echo
     '<br><form action="" method="post">
-    <button name="storm_action" value="done">Done with Storm</button>
+    <button name="spiceAction" value="done">Done with Nexus</button>
     </form>';
-    
-    //##############################################################
-    //## Every Run -- Nexus ########################################
-    //##############################################################
-    if ($game['spiceRound']['nexus'] == true) {
-        echo 
-		'<h2>Nexus</h2>';
-
-		echo
-		'A nexus has occoured. Form alliences.
-		The nexus will not end until everyone selects DONE.<br><br>
-		There were sandworms in: <br>';
-		foreach ($game['nexus']['sandworms'] as $x) {
-			print $info['spiceDeck'][$x]['name'].'<br>';
-		}
-		echo
-		'<br><form action="" method="post">
-		<button name="nexus_action" value="done">Done with Nexus</button>
-		</form>';
-	}
 }
 
 //######################################################################
 //###### Post ##########################################################
 //######################################################################
-if (!empty($_POST)){
-    if (isset($_POST['post'])) {
-        dune_postForum($_POST['post']);
-        refreshPage();
+if (isset($_POST['spiceAction'])) {
+    if ($_POST['spiceAction'] == 'done') {
+        dune_readData();
+        $game['meta']['next'][$_SESSION['faction']] = 'wait';
+        dune_writeData($_SESSION['faction'].' is done with the Nexus.');
     }
+    refreshPage();
 }
-
 //######################################################################
 //###### Actions #######################################################
 //######################################################################
@@ -109,8 +95,30 @@ if (!empty($_POST)){
 function spiceAction_spiceBlow() {
     global $game, $info;
     
+    dune_readData();
     // Double spice blow.
     for ($i = 1; $i <= 2; $i += 1) {
+		$cardTemp = $game['spiceDeck']['deck-'.$i][0];
+		if ($info['spiceDeck'][$cardTemp]['type'] == 'worm') {
+	        foreach (array('[A]','[E]','[F]','[G]','[H]') as $faction) {
+		        $game['meta']['next'][$faction] = 'nexus';
+		    }
+		    $game['round']['sandworms'][] = $game['spiceDeck']['discard-'.$i];
+		    dune_dealSpice($i);
+		    while ($info['spiceDeck'][$game['spiceDeck']['deck-'.$i][0]]['type'] == 'worm') {
+				$game['round']['freeSandworms'] += 1;
+				dune_dealSpice($i);	
+			}
+		}
+		$game['round']['spice-'.$i]['location'] 
+					= $info['spiceDeck'][$game['spiceDeck']['deck-'.$i][0]]['location'];
+		$game['round']['spice-'.$i]['spice'] 
+					= $info['spiceDeck'][$game['spiceDeck']['deck-'.$i][0]]['spice'];
+	}
+	dune_writeData('Spice blow.', true);
+}	
+	
+/*			$game['round'][
         while ($info['spiceDeck'][dune_checkSpice($i, true)]['type'] == 'worm') {
             $underCard = $game['spiceDeck']['discard-'.$i][0];
             array_push($game['round']['sandworms'], $underCard);
@@ -165,7 +173,7 @@ if ((isset($game['spiceRound'])) && (!isset($game['nexus']))) {
                             != $game['storm']['location'] {
         dune_gmMoveTokens('[SPICE]', (int)$game['spiceRound']['spice-2']['spice'], 
                         0, '[BANK]', $game['spiceRound']['spice-2']['location']);
-    }*/
+    }
     
     $temp = 'Spice Blooms on ';
     $temp .= $info['spiceDeck'][$game['spiceRound']['spice-1']['location']]['name'];
@@ -181,14 +189,25 @@ if ((isset($game['spiceRound'])) && (!isset($game['nexus']))) {
                 $game['meta']['next'][$faction] = 'storm-round.php';
     }
     dune_writeData();
-}
+} */
 
 function spiceAction_endRound() {
 	global $game, $info;
 	dune_readData();
-	$game['meta']['round'] = 'spice-round.php';
+	
+	//## Place Spice ##############################################
+	for ($i = 1; $i <= 2; $i += 1) {
+		dune_gmMoveTokens('[SPICE]', $game['round']['spice-'.$i]['spice'],0,
+					'[BANK]', $game['round']['spice-'.$i]['location']);
+	}
+	$message = 'Spice blooms in '.$game['round']['spice-1']['location'];
+	$message += ' and '.$game['round']['spice-2']['location'];
+	foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+		$game['faction']['alert'][] = $message;
+	}	
+	$game['meta']['round'] = 'bidding-round.php';
     unset($GLOBALS['game']['round']);
-    dune_writeData('Storm Round ends. The Spice Round begins.', true);
+    dune_writeData('Spice Round ends. The Bidding Round begins.', true);
     refreshPage();
 }
 ?>

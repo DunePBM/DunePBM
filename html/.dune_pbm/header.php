@@ -62,11 +62,9 @@ if (isset($_POST['header_action'])) {
         refreshPage();
     }
     if ($_POST['header_action'] == 'status') {
-        dune_printStatus($_SESSION['faction']);
-        print '<br><hr>';
-        if ($game['meta']['next'][$_SESSION['faction']] != 'wait.php') {
-            dune_getWaiting();
-        }
+        global $game;
+        $_SESSION['override'] = 'status.php';
+        refreshPage();
     }
     if ($_POST['header_action'] == 'gm-commands') {
         global $game;
