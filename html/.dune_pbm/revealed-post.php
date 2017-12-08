@@ -9,24 +9,34 @@ global $game, $info;
 //###### Every Time ####################################################
 //######################################################################
 
+//## Checks to see if posts are finished. ########################
+//## Post to forum if they are. ##################################
 foreach ($game['revealedPost'] as $message) {
-        if (array_key_exists($SESSION['faction'], $message) {
-            echo
-            '<form action="" method="post">
-            Post revealed message betweeen '.array_keys($message).':<br>
-            <input type="textarea" name="completeRevealedMessage">
-            <input type="submit" value="Submit">
-            </form> ';
+    if (!in_array('', $message)) {
+        $text = 'Revealed Post:<br>';
+        foreach (array_keys($message) as $x) {
+            $text .= 'From: '.$x.': ';
+            $text .= $message[$x].'<br>';
         }
+        unset($message);
+        dune_writeData('Revealed Forum Post:'.$text, true);
+        dune_postFoum($text);
     }
+}
+
 //######################################################################
 //###### Forms #########################################################
 //######################################################################
 
 if (empty($_POST)){
-    global $game, $info, $duneMail, $duneForum;
+    global $game, $info;
+    
     foreach ($game['revealedMessages'] as $message) {
         if (array_key_exists($SESSION['faction'], $message) {
+            echo
+            'Revealed message between '.array_keys($message).':<br>
+            Message: '.$message[$SESSION['faction']].'<br><br>';
+            
             echo
             '<form action="" method="post">
             Post revealed message betweeen '.array_keys($message).':<br>
@@ -76,8 +86,9 @@ print '<br><hr>';
 if ($game['meta']['next'][$_SESSION['faction']] != 'wait') {
     dune_getWaiting();
 }
+            
 //######################################################################
 //###### Actions #######################################################
 //######################################################################
-        
+
 ?>
