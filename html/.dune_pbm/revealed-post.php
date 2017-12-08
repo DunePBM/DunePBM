@@ -20,7 +20,7 @@ foreach ($game['revealedPost'] as $message) {
         }
         unset($message);
         dune_writeData('Revealed Forum Post:'.$text, true);
-        dune_postFoum($text);
+        dune_postFoum($text, true);
     }
 }
 
@@ -31,16 +31,17 @@ foreach ($game['revealedPost'] as $message) {
 if (empty($_POST)){
     global $game, $info;
     
-    foreach ($game['revealedMessages'] as $message) {
+    for ($i = 0; $i <= size_of($game['revealedMessages']); $i++) {
+        $message = $game['revealedMessages'][$i];
         if (array_key_exists($SESSION['faction'], $message) {
             echo
-            'Revealed message between '.array_keys($message).':<br>
-            Message: '.$message[$SESSION['faction']].'<br><br>';
+            'Message to be revealed between '.array_keys($message).':<br>
+            Current message: '.$message[$SESSION['faction']].'<br><br>';
             
             echo
             '<form action="" method="post">
             Post revealed message betweeen '.array_keys($message).':<br>
-            <input type="textarea" name="completeRevealedMessage">
+            <input type="textarea" name="replyRevealedPost-'.$i.'">
             <input type="submit" value="Submit">
             </form> ';
         }
@@ -50,7 +51,7 @@ if (empty($_POST)){
     The text of this message will not be revealed until all parties have
     submitted a message.<br>
     <form action="" method="post">
-    To: <select name="toFaction">
+    With: <select name="withFaction">
         <option value="[A]">Atreides</option>
         <option value="[B]">Bene Gesserit</option>
         <option value="[E]">Emperor</option>
@@ -60,7 +61,7 @@ if (empty($_POST)){
         </select><br>
     <br>
     Post:<br>
-    <input type="textarea" name="sendRevealedMessage">
+    <input type="textarea" name="sendRevealedPost">
     <input type="submit" value="Submit">
     </form> ';
 }
@@ -69,26 +70,25 @@ if (empty($_POST)){
 //###### Post ##########################################################
 //######################################################################
 if (!empty($_POST)){
-    if (isset($_POST['completeRevealedMessage'])) {
-        
-        refreshPage();
+    global $game, $info;
+    for ($i = 0; $i <= size_of($game['revealedPost']); $i++) {
+        if (isset($_POST['completeRevealedMessage-'.$i])) {
+            $game['revealedPost'][$i][$_SESSION['faction']] 
+                        = $_POST['replyRevealedMessage-'.$i];
+            dune_writeData("Revealed Post replied.");
+            refreshPage();
+        }
     }
     
-    
-    if (isset($_POST['sendRevealedMessage'])) {
-        
+    if (isset($_POST['sendRevealedPost'])) {
+        $game['revealedPost'][] = array($_SESSION['faction'] => $_POST['sendRevealedPost'], 
+                                        $_POST['withFaction'] => '');
+        dune_writeData("Revealed Post sent.");
         refreshPage();
     }
-}
-
-dune_printStatus($_SESSION['faction']);
-print '<br><hr>';
-if ($game['meta']['next'][$_SESSION['faction']] != 'wait') {
-    dune_getWaiting();
 }
             
 //######################################################################
 //###### Actions #######################################################
 //######################################################################
-
 ?>
