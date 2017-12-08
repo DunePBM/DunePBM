@@ -13,7 +13,8 @@ echo
 Pages:  <select name="header_action">
     <option value="home">Player Action</option>			
     <option value="forum">Forum</option>			
-    <option value="mail">Mail</option>			
+    <option value="mail">Mail</option>
+    <option value="revealedPost">Revealed Post</option>
     <option value="status">Get Status</option>			
     <option value="board">Display Board</option>			
     <option value="special-commands">Special Commands</option>    
@@ -54,6 +55,11 @@ if (isset($_POST['header_action'])) {
     if ($_POST['header_action'] == 'mail') {
         global $game;
         $_SESSION['override'] = 'mail.php';
+        refreshPage();
+    }
+    if ($_POST['header_action'] == 'revealedPost') {
+        global $game;
+        $_SESSION['override'] = 'revealed-post.php';
         refreshPage();
     }
     if ($_POST['header_action'] == 'board') {
