@@ -37,7 +37,7 @@ if (isset($game['round'])) {
     }
     if ($isGameDone) {
         setupAction_setupTreachery();
-        setupAction_setupStorm();
+        //setupAction_setupStorm();
         dune_readData();
         $game['meta']['round'] = 'spice-round.php';
         foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
@@ -304,7 +304,7 @@ function setupAction_setupTreachery() {
     return;
 }
 
-function setupAction_setupStorm() {
+/*function setupAction_setupStorm() {
     global $game, $info;
     dune_readData();
     $game['storm']['location'] = $game['storm']['move'];
@@ -315,5 +315,5 @@ function setupAction_setupStorm() {
     dune_writeData('Storm is placed.', true);
     dune_postForum('The storm is in sector '.$game['storm']['location'], true);
     return;
-}
+}*/
 ?>

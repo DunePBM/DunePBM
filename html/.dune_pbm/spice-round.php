@@ -16,17 +16,16 @@ if (!isset($game['round'])) {
 	$game['round']['spice-2']['spice'] = 0;
 	$game['round']['spice-1']['location'] = '';
 	$game['round']['spice-2']['location'] = '';
+	$game['round']['nexus'] = false;
 	foreach (array('[A]','[E]','[F]','[G]','[H]') as $faction) {
 		$game['meta']['next'][$faction] = 'wait';
 	}
 	spiceAction_spiceBlow();
+	dune_writeData('Setup Spice Round', true);
 	
 	// End the turn if a nexus didn't occour.
-	if ($game['meta']['next'][0] == 'wait') {
+	if ($game['round']['nexus'] == false) {
 		spiceAction_endRound();
-	} else {
-		dune_writeData('Setup Spice Round.', true);
-		refreshPage();
 	}
 }
 
@@ -95,11 +94,11 @@ if (isset($_POST['spiceAction'])) {
 function spiceAction_spiceBlow() {
     global $game, $info;
     
-    dune_readData();
     // Double spice blow.
     for ($i = 1; $i <= 2; $i += 1) {
 		$cardTemp = $game['spiceDeck']['deck-'.$i][0];
 		if ($info['spiceDeck'][$cardTemp]['type'] == 'worm') {
+			$game['round']['nexus'] = true;
 	        foreach (array('[A]','[E]','[F]','[G]','[H]') as $faction) {
 		        $game['meta']['next'][$faction] = 'nexus';
 		    }
@@ -111,11 +110,10 @@ function spiceAction_spiceBlow() {
 			}
 		}
 		$game['round']['spice-'.$i]['location'] 
-					= $info['spiceDeck'][$game['spiceDeck']['deck-'.$i][0]]['location'];
+					= $game['spiceDeck']['deck-'.$i][0];
 		$game['round']['spice-'.$i]['spice'] 
 					= $info['spiceDeck'][$game['spiceDeck']['deck-'.$i][0]]['spice'];
 	}
-	dune_writeData('Spice blow.', true);
 }	
 	
 /*			$game['round'][
