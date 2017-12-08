@@ -1,14 +1,31 @@
 <?php 
-// Revealed Messages
+// Revealed Forum Posts
 // Called from index.php
 // uses $_SESSION['override']
 
+global $game, $info;
+
+//######################################################################
+//###### Every Time ####################################################
+//######################################################################
+
+foreach ($game['revealedPost'] as $message) {
+        if (array_key_exists($SESSION['faction'], $message) {
+            echo
+            '<form action="" method="post">
+            Post revealed message betweeen '.array_keys($message).':<br>
+            <input type="textarea" name="completeRevealedMessage">
+            <input type="submit" value="Submit">
+            </form> ';
+        }
+    }
 //######################################################################
 //###### Forms #########################################################
 //######################################################################
 
 if (empty($_POST)){
-    foreach ($game['revealedMessage'] as $message) {
+    global $game, $info, $duneMail, $duneForum;
+    foreach ($game['revealedMessages'] as $message) {
         if (array_key_exists($SESSION['faction'], $message) {
             echo
             '<form action="" method="post">
@@ -43,13 +60,13 @@ if (empty($_POST)){
 //######################################################################
 if (!empty($_POST)){
     if (isset($_POST['completeRevealedMessage'])) {
-        dune_postForum($_POST['post']);
+        
         refreshPage();
     }
     
     
     if (isset($_POST['sendRevealedMessage'])) {
-        dune_postForum($_POST['post']);
+        
         refreshPage();
     }
 }
