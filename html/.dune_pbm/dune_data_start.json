@@ -55,13 +55,21 @@
         "faction": "",
         "event": "",
         "playerOrder": ["[A]", "[B]", "[E]", "[F]", "[G]", "[H]"],
-        "playerDots": ["[A]", "[B]", "[E]", "[F]", "[G]", "[H]"],
-        "storm": {
-            "location": 0,
-            "move": 0
+        "playerDots": {
+            "[A]": 2, 
+            "[B]": 5, 
+            "[E]": 8, 
+            "[F]": 11, 
+            "[G]": 14, 
+            "[H]": 17
         }
     },
+    "storm": {
+        "location": 0,
+        "move": 0
+    },
     "revealedPost" : [],
+    "history": [],
     "tokens": {
         "[OFF]": {
             "[A]": [10,0],

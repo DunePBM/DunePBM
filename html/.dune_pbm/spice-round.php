@@ -39,7 +39,7 @@ if (isset($game['round'])) {
     //##############################################################
     $isGameDone = true;
     foreach (array('[A]', '[B]', '[E]','[F]','[G]','[H]') as $faction) {
-        if ($game['meta']['next'][$faction] != 'wait') {
+        if ($game['meta']['next'][$faction] == 'nexus') {
             $isGameDone = false;
         }
     }
@@ -115,79 +115,6 @@ function spiceAction_spiceBlow() {
 					= $info['spiceDeck'][$game['spiceDeck']['deck-'.$i][0]]['spice'];
 	}
 }	
-	
-/*			$game['round'][
-        while ($info['spiceDeck'][dune_checkSpice($i, true)]['type'] == 'worm') {
-            $underCard = $game['spiceDeck']['discard-'.$i][0];
-            array_push($game['round']['sandworms'], $underCard);
-            foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-                $game['meta']['next'][$faction] = 'nexus';
-            }
-            dune_dealSpice($i);
-        }
-        // Deals spice.
-        $game['round']['spice-'.$i]['location'] = dune_checkSpice($i, true);
-        $game['round']['spice-'.$i]['spice'] 
-                    = $info['spiceDeck'][dune_checkSpice($i, true)]['spice'];
-        dune_gmMoveTokens('[SPICE]', $game['spiceRound']['spice-'.$i]['spice'],0,
-					'[BANK]', $game['spiceRound']['spice-'.$i]['location']);
-        dune_writeData('Spice Card #'.$i, true);
-    
-    
-    }
-    if (isset($game['nexus'])) {
-        $temp = 'A nexus has occoured. There were sandworms in: ';
-        foreach ($game['nexus']['sandworms'] as $x) {
-            $temp .= $info['spiceDeck'][$x]['name'];
-            $temp .= ', ';
-        }
-        $temp = substr($temp, 0, -2);
-        dune_postForum($temp, true);
-    }
-}
-
-// If a nexus is occouring.
-if (isset($game['nexus'])) {
-    if ($game['meta']['next'][$_SESSION['faction']] == 'spice-round.php') {
-        dune_getWaiting();
-    }
-    else {
-        refreshPage();
-    }
-}
-
-// If a nexus does not occour or is finished.
-if ((isset($game['spiceRound'])) && (!isset($game['nexus']))) {
-    dune_dealSpice(1);
-    dune_dealSpice(2);
-
-    /* Fix that spice should not be delt on the storm
-        if ($info['spiceDeck'][$game['spiceRound']['spice-1']['location']]['sector'] 
-                            != $game['storm']['location'] {
-        dune_gmMoveTokens('[SPICE]', (int)$game['spiceRound']['spice-1']['spice'], 
-                        0, '[BANK]', $game['spiceRound']['spice-1']['location']);
-    }
-    if ($info['spiceDeck'][$game['spiceRound']['spice-2']['location']]['sector'] 
-                            != $game['storm']['location'] {
-        dune_gmMoveTokens('[SPICE]', (int)$game['spiceRound']['spice-2']['spice'], 
-                        0, '[BANK]', $game['spiceRound']['spice-2']['location']);
-    }
-    
-    $temp = 'Spice Blooms on ';
-    $temp .= $info['spiceDeck'][$game['spiceRound']['spice-1']['location']]['name'];
-    $temp .= ' ('.$info['spiceDeck'][$game['spiceRound']['spice-1']['location']]['spice'].') and ';
-    $temp .= $info['spiceDeck'][$game['spiceRound']['spice-2']['location']]['name'];
-    $temp .= ' ('.$info['spiceDeck'][$game['spiceRound']['spice-2']['location']]['spice'].') ';
-    dune_postForum($temp, true);
-    foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-		$game[$faction]['alert'][] = $temp;
-	}
-    unset($game['spiceRound']);
-    foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-                $game['meta']['next'][$faction] = 'storm-round.php';
-    }
-    dune_writeData();
-} */
 
 function spiceAction_endRound() {
 	global $game, $info;
@@ -199,9 +126,9 @@ function spiceAction_endRound() {
 					'[BANK]', $game['round']['spice-'.$i]['location']);
 	}
 	$message = 'Spice blooms in '.$game['round']['spice-1']['location'];
-	$message += ' and '.$game['round']['spice-2']['location'];
+	$message .= ' and '.$game['round']['spice-2']['location'];
 	foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-		$game['faction']['alert'][] = $message;
+		$game[$faction]['alert'][] = $message;
 	}	
 	$game['meta']['round'] = 'bidding-round.php';
     unset($GLOBALS['game']['round']);

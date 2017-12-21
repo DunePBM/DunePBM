@@ -6,82 +6,52 @@
     },
     {
         "faction": "[DUNE]",
-        "time": "3: 1512714208",
+        "time": "3: 1513470102",
         "message": "Atreides chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "4: 1512714212",
+        "time": "4: 1513808774",
         "message": "Bene Gesserit made their prediction."
     },
     {
         "faction": "[DUNE]",
-        "time": "5: 1512714213",
+        "time": "5: 1513808776",
         "message": "Bene Gesserit chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "6: 1512714220",
+        "time": "6: 1513808782",
         "message": "Emperor chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "7: 1512714225",
+        "time": "7: 1513808790",
         "message": "Guild chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "8: 1512714230",
+        "time": "8: 1513808798",
         "message": "Fremen chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "9: 1512714233",
+        "time": "9: 1513808801",
         "message": "Fremen place starting tokiens."
     },
     {
         "faction": "[DUNE]",
-        "time": "10: 1512714241",
+        "time": "10: 1513808807",
         "message": "Bene Gesserit places starting tokien."
     },
     {
         "faction": "[DUNE]",
-        "time": "11: 1512714241",
+        "time": "11: 1513808807",
         "message": "Treachery cards delt."
     },
     {
         "faction": "[DUNE]",
-        "time": "12: 1512714241",
-        "message": "The storm is in sector 14"
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "15: 1512714368",
-        "message": "Game Move Undone: Setup Spice Round"
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "16: 1512714375",
-        "message": "Game Move Undone: Game Move Undone: Setup Spice Round"
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "16: 1512714376",
-        "message": "Game Move Undone: Game Move Undone: Setup Spice Round"
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "16: 1512714376",
-        "message": "Game Move Undone: Game Move Undone: Setup Spice Round"
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "16: 1512714377",
-        "message": "Game Move Undone: Game Move Undone: Setup Spice Round"
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "16: 1512714378",
-        "message": "Game Move Undone: Game Move Undone: Setup Spice Round"
+        "time": "29: 1513831928",
+        "message": "Game Move Undone: [F] is done with alerts."
     }
 ]

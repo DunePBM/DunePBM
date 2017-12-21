@@ -19,12 +19,23 @@ if ($game['meta']['next'][$_SESSION['faction']] != 'wait') {
 function dune_printStatus($faction) {
     global $gameDir, $game, $info;
     print '<h3>Game Status:</h3>';
+
+    // Long Player Order 
+    //print '<p><b><u>Player Order</u>:</b><br>';
+    //$textTemp = '';
+    //foreach ($game['meta']['playerOrder'] as $faction) {
+    //    $textTemp .= ' '.$info['factions'][$faction]['name'].
+    //    ' (Dot '.$game['meta']['playerDots'][$faction].')<br>';
+    //}
+    //print $textTemp.'</p>';
+
     // Player Order
-    print '<b><u>Player Order</u>:</b>';
-    foreach ($game['meta']['playerOrder'] as $x) {
-        print ' '.$x.', ';
+    print '<p><b><u>Player Order</u>:</b> ';
+    $textTemp = '';
+    foreach ($game['meta']['playerOrder'] as $faction) {
+        $textTemp .= $faction.', ';
     }
-    print '<br><br>';
+    print substr($textTemp, 0, -2).'</p>';
     // The Storm
     print '<b><u>Storm</u>:</b> ';
     if ($game['storm']['location'] == 0) {
@@ -64,6 +75,9 @@ function dune_printStatus($faction) {
         print '<br style="line-height: 6px"/>';
     }
     print '<br>';
+    // Leaders
+    
+    
     // Traitors
     print '<b><u>Traitors </b>(Hidden)<b></u>:</b><br>';
     if (empty($game[$faction]['traitors'])) {

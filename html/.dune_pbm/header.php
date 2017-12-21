@@ -29,13 +29,8 @@ Pages:  <select name="header_action">
     <input type="submit" value="Go">
     </form><hr>';
 	
-	if (isset($game[$_SESSION['faction']]['alert'])) {
-		dune_readData();
-		foreach ($game[$_SESSION['faction']]['alert'] as $alert) {
-			gameAlert($alert);
-		}
-		unset($game[$_SESSION['faction']]['alert']);
-		dune_writeData('Alerts displayed.');
+	if (!isset($_SESSION['override']) && (!empty($game[$_SESSION['faction']]['alert']))) {
+		$_SESSION['override'] = 'alert.php';
 	}
 
 

@@ -37,15 +37,14 @@ if (isset($game['round'])) {
     }
     if ($isGameDone) {
         setupAction_setupTreachery();
-        //setupAction_setupStorm();
         dune_readData();
-        $game['meta']['round'] = 'spice-round.php';
+        $game['meta']['round'] = 'storm-round.php';
         foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-            $game['meta'][$faction] = 'spice-round.php';
-            $game['meta']['wait'][$faction] = false;
+            $game['meta']['next'][$faction] = 'stormRound';
         }
         unset($GLOBALS['game']['round']);
-        dune_writeData('Setup is over. The storm is placed. The Spice Round begins.', true);
+        dune_writeData('Setup Round is over. The Storm Round begins.', true);
+        dune_writeForum('Setup Round is over. The Storm Round begins.', true);
         refreshPage();
     }
 }
@@ -83,6 +82,14 @@ if (empty($_POST)) {
     if ($game['meta']['next'][$_SESSION['faction']] == 'chooseTraitors') {
         echo 
         '<h3>'.$info['factions'][$_SESSION['faction']]['name'].':</h3>
+        
+        <p>Your traitors are:<br>';
+        for ($i = 0; $i < 4; $i++) {
+			echo 
+			$info['leaders'][$game['traitorDeck'][$_SESSION['faction']][$i]]['name'].
+            ' '.$info['leaders'][$game['traitorDeck'][$_SESSION['faction']][$i]]['faction'].'<br>';
+		}
+        echo '</p>
         
         <form action="#" method="post">
             Choose your traitor: 
@@ -303,17 +310,4 @@ function setupAction_setupTreachery() {
     dune_postForum('Treachery cards delt.', true);
     return;
 }
-
-/*function setupAction_setupStorm() {
-    global $game, $info;
-    dune_readData();
-    $game['storm']['location'] = $game['storm']['move'];
-    foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-        $game['meta']['next'][$faction] = 'spice-round.php';
-        $game[$faction]['alert'][] = 'The storm is in sector '.$game['storm']['location'].'.';
-    }
-    dune_writeData('Storm is placed.', true);
-    dune_postForum('The storm is in sector '.$game['storm']['location'], true);
-    return;
-}*/
 ?>

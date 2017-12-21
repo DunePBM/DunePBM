@@ -3,11 +3,16 @@
 // Called from index.php
 // setup-round.php --> storm-round.php --> spice-round.php
 // colleciton-round.php --> storm-round.php --> spice-round.php
-    
+
+global $game, $info;
+
 //######################################################################
 //#### First Run #######################################################
 //######################################################################
 if (!isset($game['round'])) {
+	if ($game['meta']['turn'] == 1) {
+		$game['storm']['location'] = $game['storm']['move'];
+	}
     $game['round'] = array();
     foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
 		$game['meta']['next'][$faction] = 'stormRound';
@@ -26,8 +31,9 @@ if (isset($game['round'])) {
     //##############################################################
 	if ($game['meta']['delay']['stormRound'] == false) {
 		foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-			$game['faction']['alert'][] = 'The storm is in Sector '.$game['storm']['location'].'.';
-		}	
+			$game[$faction]['alert'][] = 'The storm is in Sector '.$game['storm']['location'].'.';
+		}
+		dune_writeData('Saved storm alerts.', true);
 		stormAction_endRound();
 	}
 	
@@ -85,12 +91,40 @@ if (isset($_POST['stormAction'])) {
 //######################################################################
 //###### Actions #######################################################
 //######################################################################
+function stormAction_moveStorm() {
+    global $game, $info;
+    while ($game['meta']['storm']['move'] > 0) {
+        $game['meta']['storm']['move'] -= 1;
+        $game['meta']['storm']['location'] += 1;
+        if ($game['meta']['storm']['location'] == 19) {
+            $game['meta']['storm']['location'] = 1;
+        }
+        if (($game['storm']['loation'] -2) % 3 == 0) {
+            $game['meta']['playerOrder'] = array_cycle($game['meta']['playerOrder']);
+        }
+        foreach (array_keys($game['tokens']) as $y) {
+            if ($info['territory'][$y]['sector'] == $game['storm']['location']) {
+                foreach ($game['tokens'][$y] as $z) {
+                    dune_gmMoveTokens($z, 
+                                $game['tokens'][$y][$z][0],  
+                                $game['tokens'][$y][$z][1],
+                                $y, '[TANKS]');
+                }
+            }
+        }
+    }
+}
+
+
 function stormAction_endRound() {
 	global $game, $info;
 	dune_readData();
+	stormAction_moveStorm();
 	$game['meta']['round'] = 'spice-round.php';
     unset($GLOBALS['game']['round']);
-    dune_writeData('Storm Round ends. The Spice Round begins.', true);
+    $message = 'The storm is in sector '.$game['storm']['location'].
+					' The Storm Round ends. The Spice Round begins.';
+    dune_writeData($message, true);
     refreshPage();
 }
 ?>

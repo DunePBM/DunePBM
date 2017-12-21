@@ -134,7 +134,7 @@
         "[SM-3]": {"name": "South Mesa (6)", "sector": 6},
         "[SM-4]": {"name": "South Mesa (7)", "sector": 7},
         "[SR]": {"name": "Shaya Ridge", "sector": 9},
-        "[ST]": {"name": "Seitch Tabr", "sectors": 14, "type": "stronghold"},
+        "[ST]": {"name": "Seitch Tabr", "sector": 14, "type": "stronghold"},
         "[SW-1]": {"name": "Shield Wall (8)", "sector": 8},
         "[SW-2]": {"name": "Shield Wall (9)", "sector": 9},
         "[TGERF]": {"name": "The Greater Flat", "sector": 16},

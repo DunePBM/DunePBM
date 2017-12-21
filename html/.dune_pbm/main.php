@@ -51,8 +51,13 @@ function dune_setupGame() {
     dune_writeMail();
 
     // Shuffle Player Dots
-    shuffle($game['meta']['playerDots']);
-    $game['meta']['playerOrder'] = $game['meta']['playerDots'];
+    shuffle($game['meta']['playerOrder']);
+    $game['meta']['playerDots'][$game['meta']['playerOrder'][0]] = 2;
+    $game['meta']['playerDots'][$game['meta']['playerOrder'][1]] = 5;
+    $game['meta']['playerDots'][$game['meta']['playerOrder'][2]] = 8;
+    $game['meta']['playerDots'][$game['meta']['playerOrder'][3]] = 11;
+    $game['meta']['playerDots'][$game['meta']['playerOrder'][4]] = 14;
+    $game['meta']['playerDots'][$game['meta']['playerOrder'][5]] = 17;
     // Treachery Card Setup
     $treacheryDeck = array_keys($info['treachery']);
     shuffle($treacheryDeck);
@@ -149,6 +154,7 @@ function dune_writeData($event='', $gm=false) {
 		$oldTimestamp = $game['meta']['timestamps']['dataCurrent'];
 		$game['meta']['timestamps']['dataCurrent'] = $newTimestamp;
 		$game['meta']['timestamps']['dataUndo'] = $oldTimestamp;
+		$game['history'][] = $newTimestamp.': '.$event;
 		
         // Write new move.
         $game['meta']['eventNumber'] += 1;
@@ -415,27 +421,4 @@ function array_cycle($x, $forward = true) {
     return $x;
 }
 
-function dune_moveStorm() {
-    global $gameDir, $game, $info;
-    while ($game['meta']['storm']['move'] > 0) {
-        $game['meta']['storm']['move'] -= 1;
-        $game['meta']['storm']['location'] += 1;
-        if ($game['meta']['storm']['location'] == 19) {
-            $game['meta']['storm']['location'] = 1;
-        }
-        if (($game['storm']['loation'] -2) % 3 == 0) {
-            $game['meta']['playerOrder'] = array_cycle($game['meta']['playerOrder']);
-        }
-        foreach (array_keys($game['tokens']) as $y) {
-            if ($info['territory'][$y]['sector'] == $game['storm']['location']) {
-                foreach ($game['tokens'][$y] as $z) {
-                    dune_gmMoveTokens($z, 
-                                $game['tokens'][$y][$z][0],  
-                                $game['tokens'][$y][$z][1],
-                                $y, '[TANKS]');
-                }
-            }
-        }
-    }
-}
 ?>
