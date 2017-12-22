@@ -20,20 +20,11 @@ function dune_printStatus($faction) {
     global $gameDir, $game, $info;
     print '<h3>Game Status:</h3>';
 
-    // Long Player Order 
-    //print '<p><b><u>Player Order</u>:</b><br>';
-    //$textTemp = '';
-    //foreach ($game['meta']['playerOrder'] as $faction) {
-    //    $textTemp .= ' '.$info['factions'][$faction]['name'].
-    //    ' (Dot '.$game['meta']['playerDots'][$faction].')<br>';
-    //}
-    //print $textTemp.'</p>';
-
     // Player Order
     print '<p><b><u>Player Order</u>:</b> ';
     $textTemp = '';
-    foreach ($game['meta']['playerOrder'] as $faction) {
-        $textTemp .= $faction.', ';
+    foreach ($game['meta']['playerOrder'] as $i) {
+        $textTemp .= $i.', ';
     }
     print substr($textTemp, 0, -2).'</p>';
     // The Storm
@@ -82,21 +73,22 @@ function dune_printStatus($faction) {
     print '<b><u>Traitors </b>(Hidden)<b></u>:</b><br>';
     if (empty($game[$faction]['traitors'])) {
         print 'None<br>';
-    }
-    else {
-        foreach ($game[$faction]['traitors'] as $y) {
-            print $info['leaders'][$y]['name'].'<br>';
+    } else {
+        foreach ($game[$faction]['traitors'] as $i) {
+            print $info['leaders'][$i]['name'].'<br>';
         }
     }
     print '<br>';
     // Treachery
     print '<b><u>Treachery </b>(Hidden)<b></u>:</b><br>';
+    
+    
+    //foreach ($game[$_SESSION['faction']]['treachery'] as $i) {
     if (empty($game[$faction]['treachery'])) {
         print 'None<br>';
-    }
-    else {
-        foreach ($game[$faction]['treachery'] as $y) {
-            print $info['treachery'][$y]['name'].'<br>';
+    } else {
+        foreach ($game[$faction]['treachery'] as $i) {
+            print $info['treachery'][$i]['name'].'<br>';
         }
     }
     print '<br>';

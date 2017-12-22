@@ -16,7 +16,7 @@ if (!isset($game['round'])) {
     $game['round']['numberOfCards'] = 0;
     $game['round']['currentCard'] = 1;
     
-    biddingAction_setupBidding();
+    biddingAction_setupBidding(true);
 	dune_writeData('Setup Bidding Round', true);
 	refreshPage();
 }
@@ -40,10 +40,12 @@ if ($stillBidding == 1) {
 //## Checks for end of round. ##########################################
 if ($stillBidding == 0) {
 	biddingAction_endRound('Everyone has passed. ');
-	
+	refreshPage();
 }
+
 if ($game['round']['currentCard'] > $game['round']['numberOfCards']) {
 	biddingAction_endRound('All cards have been bid. ');
+	refreshPage();
 }
 
 //######################################################################
@@ -52,11 +54,10 @@ if ($game['round']['currentCard'] > $game['round']['numberOfCards']) {
 if (empty($_POST)) {
     global $game, $info;
 
-	if ($game['round']['numberOfCards'] > 0) {
-		echo '<h2>Bidding Round</h2>';
+	echo '<h2>Bidding Round</h2>';
 		
-		echo '<h3>Card '.$game['round']['currentCard'].' of '
-		.$game['round']['totalCards'].'</h3>';
+	echo '<h3>Card '.$game['round']['currentCard'].' of '
+		.$game['round']['numberOfCards'].'</h3>';
 		
 		// Shows card to Atredies.
 		if ($_SESSION['faction'] == '[A]') {
@@ -68,9 +69,13 @@ if (empty($_POST)) {
 			' by '.$game['round']['highBidder'].'.</p>';
 		
 		// Get bids or pass
-		if ($game['meta']['next'][$_SESSION['faction']] == 'bidding') {
+		if ($game['meta']['next'][$_SESSION['faction']] != 'done') {
 			echo '
-			<h3>Make your bid:</h3>
+			<h3>Make your bid:</h3>';
+			if ($game['meta']['next'][$_SESSION['faction']] == 'pass') {
+				print '<p>You are currently passing.</p>';
+			}
+			echo '
 			<form action="#" method="post">
 			<p>Bid 
 				<input id="basicBid" name="basicBid" type="number" min='.
@@ -88,7 +93,6 @@ if (empty($_POST)) {
 		'<form action="" method="post">
 		<button name="closeBidding" value="closeBidding">Close Bidding</button>
 		</form>';
-	}
 }
 
 //######################################################################
@@ -103,7 +107,7 @@ if (!empty($_POST)) {
 
 	if (isset($_POST['passBidding'])) {
 		dune_readData();
-		$game['round']['next'][$_SESSION['faction']] = 'pass';
+		$game['meta']['next'][$_SESSION['faction']] = 'pass';
 		dune_writeData('Player passes.');
 	}	
 
@@ -129,7 +133,7 @@ function biddingAction_basicBid($faction, $amount) {
 			$game[$faction]['spice'] -= $amount;								
 			$game['round']['highBid'] = $amount;
 			$game['round']['highBidder'] = $faction;
-			$game['round']['next'][$faction] = 'bidding-round.php';
+			$game['meta']['next'][$faction] = 'bidding';
 			$message = $info['factions'][$faction]['name'].' bids '.$amount;
 			$game['round']['history'][] = $message;
 			dune_writeData($message);
@@ -141,6 +145,10 @@ function biddingAction_giveCard() {
 	global $game, $info;
 	dune_readData();
 	$winner = $game['round']['highBidder'];
+	if ($winner == '') {
+		gameAlert('There is no winner.');
+		return 1;
+	}
 	dune_dealTreachery($winner);
 	if ($winner == '[H]') {
 		dune_dealTreachery($winner);
@@ -158,7 +166,7 @@ function biddingAction_giveCard() {
 	dune_postForum($message. true);
 }
 
-function biddingAction_setupBidding() {
+function biddingAction_setupBidding($firstRun = false) {
 	global $game, $info;
 	
 	$game['round']['highBid'] = 0;
@@ -166,14 +174,18 @@ function biddingAction_setupBidding() {
 	
 	foreach (array('[A]', '[B]', '[E]', '[F]', '[G]') as $faction) {
 		if (count($game[$faction]['treachery']) < 4) {
-			$game['round']['numberOfCards'] += 1;
+			if ($firstRun) {
+				$game['round']['numberOfCards'] += 1;
+			}
 			$game['meta']['next'][$faction] = 'bidding';
 		} else {
 			$game['meta']['next'][$faction] = 'full';
 		}
 	}
 	if (count($game['[H]']['treachery']) < 8) {
-		$game['round']['numberOfCards'] += 1;
+		if ($firstRun) {
+			$game['round']['numberOfCards'] += 1;
+		}
 		$game['meta']['next']['[H]'] = 'bidding';
 	} else {
 		$game['meta']['next'][$faction] = 'full';

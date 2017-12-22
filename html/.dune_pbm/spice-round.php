@@ -3,6 +3,10 @@
 // Called by index.php.
 // storm-round.php --> spice-round.php --> bidding-round.php
 
+
+// THE SPICE CARDS ARE NOT GETTING PUT IN THE DISCARD PILE.
+
+
 //######################################################################
 //## First Run #########################################################
 //######################################################################
