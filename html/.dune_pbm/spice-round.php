@@ -126,11 +126,19 @@ function spiceAction_endRound() {
 	
 	//## Place Spice ##############################################
 	for ($i = 1; $i <= 2; $i += 1) {
-		dune_gmMoveTokens('[SPICE]', $game['round']['spice-'.$i]['spice'],0,
-					'[BANK]', $game['round']['spice-'.$i]['location']);
+		if ($info['territory']
+				 [$game['round']['spice-'.$i]['location']]
+				 ['sector']
+				 != $game['storm']['location']) {
+			dune_gmMoveTokens('[SPICE]', $game['round']['spice-'.$i]['spice'],0,
+						'[BANK]', $game['round']['spice-'.$i]['location']);
+		}
+		dune_dealSpice($i);
 	}
-	$message = 'Spice blooms in '.$game['round']['spice-1']['location'];
-	$message .= ' and '.$game['round']['spice-2']['location'];
+	$message = 'Spice blooms in '.
+				$info['territory'][$game['round']['spice-1']['location']]['name'];
+	$message .= ' and '.
+				$info['territory'][$game['round']['spice-2']['location']]['name'].'.';
 	foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
 		$game[$faction]['alert'][] = $message;
 	}	

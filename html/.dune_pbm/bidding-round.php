@@ -57,42 +57,60 @@ if (empty($_POST)) {
 	echo '<h2>Bidding Round</h2>';
 		
 	echo '<h3>Card '.$game['round']['currentCard'].' of '
-		.$game['round']['numberOfCards'].'</h3>';
-		
-		// Shows card to Atredies.
-		if ($_SESSION['faction'] == '[A]') {
-			echo '<p>Card up for bid: '.$game['treachery']['deck'][0].'.';
+	.$game['round']['numberOfCards'].'</h3>';
+	
+	// Shows card to Atredies.
+	if ($_SESSION['faction'] == '[A]') {
+		echo '<p>Card up for bid: '.
+		$info['treachery'][$game['treachery']['deck'][0]]['name'].'.';
+	}
+	
+	// Show history.
+	echo '
+	<p>';
+	foreach ($game['round']['history'] as $i) {
+		echo $i.'<br>';
+	}
+	echo '</p>';
+	
+	// Show current bid.
+	if ($game['round']['highBidder'] == '') {
+		echo '
+		<p>No bid has been placed.</p>';
+	} else {
+		echo '
+		<p>Current high bid: '.$game['round']['highBid'].
+		' by '.$info['factions'][$game['round']['highBidder']]['name'].'.</p>';
+	}
+	
+	// Get bids or pass
+	if ($game['meta']['next'][$_SESSION['faction']] != 'done') {
+		echo '
+		<h3>Make your bid:</h3>';
+		if ($game['meta']['next'][$_SESSION['faction']] == 'pass') {
+			print '<p>You are currently passing.</p>';
 		}
-		
-		// Show current bid.
-		echo '<p>Current high bid: '.$game['round']['highBid'].
-			' by '.$game['round']['highBidder'].'.</p>';
-		
-		// Get bids or pass
-		if ($game['meta']['next'][$_SESSION['faction']] != 'done') {
-			echo '
-			<h3>Make your bid:</h3>';
-			if ($game['meta']['next'][$_SESSION['faction']] == 'pass') {
-				print '<p>You are currently passing.</p>';
-			}
-			echo '
-			<form action="#" method="post">
-			<p>Bid 
-				<input id="basicBid" name="basicBid" type="number" min='.
-					($game['round']['highBid']+1).
-					'max=100 value="'.($game['round']['highBid']+1).'"/>
-					<input type="submit" value="Submit">
-			</p></form>';
-		}
+		echo '
+		<form action="#" method="post">
+		<p>Bid 
+			<input id="basicBid" name="basicBid" type="number" min='.
+				($game['round']['highBid']+1).
+				'max=100 value="'.($game['round']['highBid']+1).'"/>
+				<input type="submit" value="Submit">
+		</p></form>';
+	}
+	echo
+	'<form action="" method="post">
+	<button name="passBidding" value="passBidding">Pass on Bidding</button>
+	</form>';
+	
+	if ($gmCommands) {
 		echo
-		'<form action="" method="post">
-		<button name="passBidding" value="passBidding">Pass on Bidding</button>
-		</form>';
-		
-		echo
-		'<form action="" method="post">
+		'<h4>Gm Command:</h4>
+		<form action="" method="post">
 		<button name="closeBidding" value="closeBidding">Close Bidding</button>
 		</form>';
+	}
 }
 
 //######################################################################

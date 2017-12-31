@@ -93,11 +93,11 @@ if (isset($_POST['stormAction'])) {
 //######################################################################
 function stormAction_moveStorm() {
     global $game, $info;
-    while ($game['meta']['storm']['move'] > 0) {
-        $game['meta']['storm']['move'] -= 1;
-        $game['meta']['storm']['location'] += 1;
-        if ($game['meta']['storm']['location'] == 19) {
-            $game['meta']['storm']['location'] = 1;
+    /*while ($game['storm']['move'] > 0) {
+        $game['storm']['move'] -= 1;
+        $game['storm']['location'] += 1;
+        if ($game['storm']['location'] == 19) {
+            $game['storm']['location'] = 1;
         }
         if (($game['storm']['loation'] -2) % 3 == 0) {
             $game['meta']['playerOrder'] = array_cycle($game['meta']['playerOrder']);
@@ -112,7 +112,7 @@ function stormAction_moveStorm() {
                 }
             }
         }
-    }
+    }*/
 }
 
 

@@ -6,127 +6,62 @@
     },
     {
         "faction": "[DUNE]",
-        "time": "3: 1513896886",
+        "time": "3: 1514745423",
         "message": "Atreides chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "4: 1513896896",
-        "message": "Bene Gesserit made their prediction."
+        "time": "3: 1514745615",
+        "message": "Game Move Undone: Atreides chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "5: 1513896902",
-        "message": "Bene Gesserit chose their traitor."
+        "time": "3: 1514745617",
+        "message": "Game Move Undone: Game Move Undone: Start setup."
     },
     {
         "faction": "[DUNE]",
-        "time": "6: 1513917872",
+        "time": "4: 1514746532",
+        "message": "Atreides chose their traitor."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "5: 1514746540",
         "message": "Guild chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "7: 1513917884",
+        "time": "6: 1514746751",
         "message": "Emperor chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "8: 1513917900",
+        "time": "7: 1514746757",
+        "message": "Bene Gesserit made their prediction."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "8: 1514746759",
+        "message": "Bene Gesserit chose their traitor."
+    },
+    {
+        "faction": "[DUNE]",
+        "time": "9: 1514746774",
         "message": "Fremen chose their traitor."
     },
     {
         "faction": "[DUNE]",
-        "time": "9: 1513917904",
+        "time": "10: 1514746779",
         "message": "Fremen place starting tokiens."
     },
     {
         "faction": "[DUNE]",
-        "time": "10: 1513917911",
+        "time": "11: 1514746789",
         "message": "Bene Gesserit places starting tokien."
     },
     {
         "faction": "[DUNE]",
-        "time": "11: 1513917911",
+        "time": "12: 1514746790",
         "message": "Treachery cards delt."
-    },
-    {
-        "faction": "[A]",
-        "time": "27: 1513918768",
-        "message": "Atreides winns the card.1"
-    },
-    {
-        "faction": "[A]",
-        "time": "28: 1513918772",
-        "message": " winns the card.1"
-    },
-    {
-        "faction": "[A]",
-        "time": "29: 1513918873",
-        "message": " winns the card.1"
-    },
-    {
-        "faction": "[A]",
-        "time": "31: 1513919002",
-        "message": "Atreides winns the card.1"
-    },
-    {
-        "faction": "[B]",
-        "time": "34: 1513919498",
-        "message": "Bene Gesserit winns the card.1"
-    },
-    {
-        "faction": "[B]",
-        "time": "36: 1513919723",
-        "message": "Bene Gesserit winns the card.1"
-    },
-    {
-        "faction": "[B]",
-        "time": "38: 1513919725",
-        "message": "Bene Gesserit winns the card.1"
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "39: 1513920161",
-        "message": "Bene Gesserit discards a Projectile Weapon: Slip-Tip card."
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "40: 1513920162",
-        "message": "Bene Gesserit discards a Poison Defense: Snooper card."
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "41: 1513920163",
-        "message": "Bene Gesserit discards a Poison Weapon: Chaumas card."
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "42: 1513920163",
-        "message": "Bene Gesserit discards a Worthless Card: Jubba Cloak card."
-    },
-    {
-        "faction": "[H]",
-        "time": "45: 1513920453",
-        "message": "Harkonnen winns the card.1"
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "46: 1513921174",
-        "message": "Atreides shows a Weather Control card."
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "47: 1513921177",
-        "message": "Atreides discards a Weather Control card."
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "48: 1513921178",
-        "message": "Atreides discards a Poison Weapon: Gom Jabbar card."
-    },
-    {
-        "faction": "[DUNE]",
-        "time": "49: 1513921178",
-        "message": "Atreides discards a Projectile Weapon: Maula Pistol card."
     }
 ]

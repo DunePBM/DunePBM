@@ -171,6 +171,7 @@ function dune_writeData($event='', $gm=false) {
         }
         file_put_contents($file.'.json', json_encode($game, JSON_PRETTY_PRINT));
 		file_put_contents($file.'.'.time().'.json', json_encode($game, JSON_PRETTY_PRINT));
+		sleep(1);
 	} else {
 		print '<script>alert(\'ERROR WRITING FILE\');</script>';
 	}
@@ -374,20 +375,26 @@ function dune_discardTreachery($faction, $cardName) {
 
 
 function dune_getTerritory($title, $varName, $close, $all=false) {
-    global $gameDir, $info;
+    global $gameDir, $game, $info;
 	echo
 	'<form action="#" method="post"> 
     '.$title.'<select name="'.$varName.'">';
+    $territoryArray = array();
     if ($all) {
-        foreach (array_keys($info['territory']) as $a) {
-            echo '<option value="'.$a.'">'.$info['territory'][$a]['name'].'</option>';
-        }
-    }
+		$territoryArray = array_keys($info['territory']);
+	}
     if (!$all) {
-        foreach (array_diff(array_keys($info['territory']), array('[OFF]', '[TANKS]', '[BANK]')) as $a) {
-            echo '<option value="'.$a.'">'.$info['territory'][$a]['name'].'</option>';
-        }
+        $territoryArray = array_diff(array_keys($info['territory']), array('[OFF]', '[TANKS]', '[BANK]'));
     }
+    foreach ($territoryArray as $a) {
+		echo '<option value="'.$a.'">'
+		.explode(' (', $info['territory'][$a]['name'])[0];
+		if (isset($info['territory'][$a]['sector'])) {
+			echo ' (Sector '.$info['territory'][$a]['sector'].')';
+		}
+		echo '</option>';
+	}
+
     echo '</select>';    
 	if ($close) {
         echo

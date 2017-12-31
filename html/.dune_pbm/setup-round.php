@@ -231,8 +231,14 @@ function setupAction_chooseTraitors() {
     global $game, $info;
     dune_readData();
     // Checks input.
-    
-    // Carry Out Action.
+    if ($info['leaders']
+			 [$game['traitorDeck'][$_SESSION['faction']][(int)$_POST['traitor']]]
+			 ['faction']
+			 == $_SESSION['faction']) {
+		return 1;
+	}
+
+    // Carry Out Action.    
     $game[$_SESSION['faction']]['traitors'] 
             = array($game['traitorDeck'][$_SESSION['faction']][(int)$_POST['traitor']]);
     $game['round']['choseTraitors'][$_SESSION['faction']] = true;

@@ -34,6 +34,7 @@
             }
         },
         "turn": 1,
+        "gmFaction": "[A]",
         "eventNumber": 0,
         "timestamps": {
             "dataCurrent": 0,

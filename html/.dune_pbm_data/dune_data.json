@@ -34,10 +34,11 @@
             }
         },
         "turn": 1,
-        "eventNumber": 58,
+        "gmFaction": "[A]",
+        "eventNumber": 27,
         "timestamps": {
-            "dataCurrent": 1513921512,
-            "dataUndo": 1513921497
+            "dataCurrent": 1514747930,
+            "dataUndo": 1514747919
         },
         "round": "bidding-round.php",
         "delay": {
@@ -46,95 +47,64 @@
         },
         "next": {
             "[A]": "pass",
-            "[B]": "pass",
+            "[B]": "bidding",
             "[E]": "bidding",
             "[F]": "bidding",
             "[G]": "bidding",
             "[H]": "bidding"
         },
-        "faction": "[B]",
+        "faction": "[A]",
         "event": "Player passes.",
         "playerOrder": [
             "[A]",
-            "[G]",
-            "[B]",
-            "[E]",
+            "[F]",
             "[H]",
-            "[F]"
+            "[G]",
+            "[E]",
+            "[B]"
         ],
         "playerDots": {
             "[A]": 2,
-            "[B]": 8,
-            "[E]": 11,
-            "[F]": 17,
-            "[G]": 5,
-            "[H]": 14
+            "[B]": 17,
+            "[E]": 14,
+            "[F]": 5,
+            "[G]": 11,
+            "[H]": 8
         }
     },
     "storm": {
-        "location": 1,
-        "move": 1
+        "location": 10,
+        "move": 0
     },
     "revealedPost": [],
     "history": [
-        "1513896650: ",
-        "1513896877: Start setup.",
-        "1513896886: Atreides chose their traitor.",
-        "1513896896: Bene Gesserit made their prediction.",
-        "1513896902: Bene Gesserit chose their traitor.",
-        "1513917872: Guild chose their traitor.",
-        "1513917884: Emperor chose their traitor.",
-        "1513917900: Fremen chose their traitor.",
-        "1513917904: Fremen places 10 starting tokens",
-        "1513917911: Bene Gesserit places starting token",
-        "1513917911: Treachery cards delt.",
-        "1513917911: Setup Round is over. The Storm Round begins.",
-        "1513917911: Set up Storm Round",
-        "1513917911: Saved storm alerts.",
-        "1513917911: The storm is in sector 1 The Storm Round ends. The Spice Round begins.",
-        "1513917911: Setup Spice Round",
-        "1513917911: Spice Round ends. The Bidding Round begins.",
-        "1513917916: [B] is done with alerts.",
-        "1513917916: Setup Bidding Round",
-        "1513918611: Bene Gesserit bids 1",
-        "1513918622: [A] is done with alerts.",
-        "1513918629: Atreides bids 2",
-        "1513918632: Atreides bids 3",
-        "1513918633: Atreides bids 4",
-        "1513918636: Player passes.",
-        "1513918640: Player passes.",
-        "1513918768: Atreides winns the card.",
-        "1513918772:  winns the card.",
-        "1513918873:  winns the card.",
-        "1513918912: Atreides bids 1",
-        "1513919002: Atreides winns the card.",
-        "1513919028: Atreides bids 1",
-        "1513919494: Bene Gesserit bids 2",
-        "1513919498: Bene Gesserit winns the card.",
-        "1513919721: Bene Gesserit bids 1",
-        "1513919723: Bene Gesserit winns the card.",
-        "1513919724: Bene Gesserit bids 1",
-        "1513919725: Bene Gesserit winns the card.",
-        "1513920161: Discard card: Projectile Weapon: Slip-Tip.",
-        "1513920162: Discard card: Poison Defense: Snooper.",
-        "1513920163: Discard card: Poison Weapon: Chaumas.",
-        "1513920163: Discard card: Worthless Card: Jubba Cloak.",
-        "1513920448: [H] is done with alerts.",
-        "1513920450: Harkonnen bids 1",
-        "1513920453: Harkonnen winns the card.",
-        "1513921174: Show card: Weather Control.",
-        "1513921177: Discard card: Weather Control.",
-        "1513921178: Discard card: Poison Weapon: Gom Jabbar.",
-        "1513921178: Discard card: Projectile Weapon: Maula Pistol.",
-        "1513921338: Atreides bids 1",
-        "1513921342: Player passes.",
-        "1513921349: Player passes.",
-        "1513921349: Player passes.",
-        "1513921400: Player passes.",
-        "1513921401: Player passes.",
-        "1513921494: Atreides bids 2",
-        "1513921497: Player passes.",
-        "1513921512: Player passes."
+        "1514745407: ",
+        "1514745617: Game Move Undone: ",
+        "1514745620: Start setup.",
+        "1514746531: Atreides chose their traitor.",
+        "1514746539: Guild chose their traitor.",
+        "1514746750: Emperor chose their traitor.",
+        "1514746756: Bene Gesserit made their prediction.",
+        "1514746758: Bene Gesserit chose their traitor.",
+        "1514746773: Fremen chose their traitor.",
+        "1514746778: Fremen places 10 starting tokens",
+        "1514746788: Bene Gesserit places starting token",
+        "1514746789: Treachery cards delt.",
+        "1514746790: Setup Round is over. The Storm Round begins.",
+        "1514746791: Set up Storm Round",
+        "1514746792: Saved storm alerts.",
+        "1514746793: The storm is in sector 10 The Storm Round ends. The Spice Round begins.",
+        "1514746794: Setup Spice Round",
+        "1514746795: ",
+        "1514746796: ",
+        "1514746797: Spice Round ends. The Bidding Round begins.",
+        "1514747000: [B] is done with alerts.",
+        "1514747001: Setup Bidding Round",
+        "1514747563: Bene Gesserit bids 1",
+        "1514747666: Bene Gesserit bids 2",
+        "1514747880: [A] is done with alerts.",
+        "1514747919: Atreides bids 3",
+        "1514747930: Player passes."
     ],
     "tokens": {
         "[OFF]": {
@@ -187,7 +157,7 @@
         },
         "[BANK]": {
             "[SPICE]": [
-                8980,
+                8984,
                 0
             ]
         },
@@ -197,222 +167,216 @@
                 0
             ]
         },
-        "[CS-1]": {
+        "[RO-2]": {
             "[SPICE]": [
-                12,
+                6,
                 0
             ]
         },
-        "[TME-3]": {
+        "[HRF-2]": {
             "[SPICE]": [
-                8,
+                10,
                 0
             ]
         }
     },
     "treacheryDeck": {
         "deck": [],
-        "discard": [
-            "[PROJ_W-4]",
-            "[POIS_W-4]",
-            "[WEATHER-1]",
-            "[WORTHLESS-4]",
-            "[POIS_W-1]",
-            "[POIS_D-2]",
-            "[PROJ_W-2]"
-        ]
+        "discard": []
     },
     "spiceDeck": {
         "deck-1": [
-            "[CS-1]",
-            "[SM-2]",
-            "[WORM-5]",
-            "[WORM-6]",
-            "[HB-2]",
-            "[HRF-2]",
+            "[HE-1]",
+            "[WORM-4]",
+            "[WORM-3]",
+            "[SR]",
             "[RC]",
-            "[HE-1]",
-            "[WORM-3]",
+            "[WORM-5]",
+            "[OG-2]",
+            "[WPN-1]",
             "[FP]",
-            "[HE-1]",
             "[WPN-1]",
-            "[SM-2]",
-            "[WORM-3]",
-            "[OG-2]",
-            "[WORM-4]",
-            "[CS-1]",
-            "[RO-2]",
-            "[SR]",
-            "[HB-2]",
-            "[TME-3]"
-        ],
-        "deck-2": [
-            "[TME-3]",
+            "[FP]",
             "[TGF]",
-            "[RO-2]",
-            "[WPN-1]",
-            "[CN-3]",
-            "[SR]",
-            "[BL-2]",
-            "[WORM-4]",
-            "[OG-2]",
+            "[HRF-2]",
             "[WORM-1]",
             "[WORM-2]",
-            "[HRF-2]",
-            "[FP]",
-            "[BL-2]",
+            "[CS-1]",
+            "[SR]",
+            "[SM-2]",
+            "[HB-2]",
+            "[BL-2]"
+        ],
+        "deck-2": [
             "[TGF]",
             "[WORM-2]",
-            "[WORM-5]",
-            "[CN-3]",
-            "[RC]",
+            "[SM-2]",
+            "[TME-3]",
+            "[BL-2]",
             "[WORM-6]",
-            "[WORM-1]"
+            "[CN-3]",
+            "[HB-2]",
+            "[CS-1]",
+            "[WORM-1]",
+            "[RO-2]",
+            "[WORM-4]",
+            "[WORM-5]",
+            "[RC]",
+            "[CN-3]",
+            "[WORM-6]",
+            "[TME-3]",
+            "[HE-1]",
+            "[WORM-3]",
+            "[OG-2]"
         ],
-        "discard-1": [],
-        "discard-2": []
+        "discard-1": [
+            "[RO-2]"
+        ],
+        "discard-2": [
+            "[HRF-2]"
+        ]
     },
     "[A]": {
-        "treachery": [],
-        "spice": 3,
+        "treachery": [
+            "[POIS_D-1]"
+        ],
+        "spice": 7,
         "traitors": [
-            "[F#2]"
+            "[G#2]"
         ],
         "notes": [
-            "Initial traitors: Umman Kudu (1), Chani (6), Alia (5), Caid (3)"
+            "Initial traitors: Duncan Idaho (2), Esmar Tuek (3), Piter DeVries (3), Feyd-Rautha (6)"
         ],
         "alert": []
     },
     "[B]": {
-        "treachery": [],
-        "spice": 1,
+        "treachery": [
+            "[POIS_W-2]"
+        ],
+        "spice": 5,
         "prediction": {
-            "winningFaction": "[E]",
-            "winningTurn": 2
+            "winningFaction": "[A]",
+            "winningTurn": 1
         },
         "notes": [
-            "Emperor predicted to win on turn 2.",
-            "Initial traitors: Jamis (2), Piter DeVries (3), Guild Representative (1), Esmar Tuek (3)"
+            "Atreides predicted to win on turn 1.",
+            "Initial traitors: Master Bewt (3), Princess Irulan (5), Guild Representative (1), Otheym (5)"
         ],
         "traitors": [
-            "[G#2]"
+            "[G#3]"
         ],
         "alert": []
     },
     "[E]": {
         "treachery": [
-            "[PROJ_D-4]"
+            "[POIS_W-1]"
         ],
-        "spice": 20,
+        "spice": 10,
         "traitors": [
-            "[A#1]"
+            "[A#5]"
         ],
         "notes": [
-            "Initial traitors: Lady Jessica (5), Feyd-Rautha (6), Soo Soo Sook (2), Rev. Mother Ramallo (5)"
+            "Initial traitors: Dr. Wellington Yueh (1), Lady Jessica (5), Beast Rabban (4), Chani (6)"
         ],
         "alert": [
-            "The storm is in Sector 1.",
-            "Spice blooms in [CS-1] and [TME-3]"
+            "The storm is in Sector 5.",
+            "Spice blooms in [RO-2] and [HRF-2]"
         ]
     },
     "[F]": {
         "treachery": [
-            "[PROJ_D-1]"
+            "[LASEGUN-1]"
         ],
         "spice": 3,
         "traitors": [
-            "[F#3]"
+            "[A#3]"
         ],
         "notes": [
-            "Initial traitors: Otheym (5), Gurney Halleck (4), Thufir Hawat (5), Dr. Wellington Yueh (1)"
+            "Initial traitors: Stilgar (7), Wanna Marcus (5), Gurney Halleck (4), Alia (5)"
         ],
         "alert": [
-            "The storm is in Sector 1.",
-            "Spice blooms in [CS-1] and [TME-3]"
+            "The storm is in Sector 5.",
+            "Spice blooms in [RO-2] and [HRF-2]"
         ]
     },
     "[G]": {
         "treachery": [
-            "[LASEGUN-1]"
+            "[GHOLA-1]"
         ],
         "spice": 5,
         "traitors": [
-            "[B#5]"
+            "[E#2]"
         ],
         "notes": [
-            "Initial traitors: Shadout Mapes (3), Princess Irulan (5), Wanna Marcus (5), Duncan Idaho (2)"
+            "Initial traitors: Captain Aramsham (5), Bashar (2), Soo Soo Sook (2), Umman Kudu (1)"
         ],
         "alert": [
-            "The storm is in Sector 1.",
-            "Spice blooms in [CS-1] and [TME-3]"
+            "The storm is in Sector 5.",
+            "Spice blooms in [RO-2] and [HRF-2]"
         ]
     },
     "[H]": {
         "treachery": [
-            "[KARAMA-2]",
-            "[PROJ_W-3]",
-            "[HERO-3]",
-            "[POIS_W-2]"
+            "[PROJ_D-1]",
+            "[POIS_D-3]"
         ],
-        "spice": 9,
+        "spice": 10,
         "traitors": [
-            "[H#2]",
             "[E#1]",
-            "[B#2]",
-            "[F#1]"
+            "[B#4]",
+            "[H#4]",
+            "[A#2]"
         ],
         "notes": [
-            "Initial traitors: Beast Rabban (4), Count Hasimir Fenring (6), Lady Margot Fenring (5), Stilgar (7)"
+            "Initial traitors: Count Hasimir Fenring (6), Rev. Mother Ramallo (5), Captain Iakin Nefud (2), Thufir Hawat (5)"
         ],
-        "alert": []
+        "alert": [
+            "The storm is in Sector 5.",
+            "Spice blooms in [RO-2] and [HRF-2]"
+        ]
     },
     "treachery": {
         "deck": [
-            "[HAJR-1]",
-            "[POIS_D-1]",
-            "[PROJ_W-1]",
-            "[PROJ_D-3]",
-            "[POIS_W-3]",
-            "[POIS_D-3]",
-            "[WORTHLESS-2]",
-            "[TRUTH-2]",
-            "[GHOLA-1]",
-            "[KARAMA-1]",
-            "[HERO-2]",
+            "[POIS_D-2]",
+            "[WORTHLESS-1]",
             "[ATOMICS-1]",
-            "[WORTHLESS-5]",
-            "[TRUTH-1]",
+            "[PROJ_D-4]",
+            "[TRUTH-2]",
+            "[KARAMA-1]",
+            "[HAJR-1]",
+            "[PROJ_D-2]",
+            "[WORTHLESS-4]",
+            "[PROJ_W-1]",
+            "[KARAMA-2]",
+            "[PROJ_W-4]",
             "[WORTHLESS-3]",
+            "[TRUTH-1]",
+            "[PROJ_W-2]",
+            "[HERO-1]",
+            "[POIS_W-4]",
+            "[WORTHLESS-5]",
+            "[POIS_W-3]",
+            "[PROJ_W-3]",
             "[POIS_D-4]",
-            "[HERO-1]"
+            "[PROJ_D-3]",
+            "[WEATHER-1]",
+            "[HERO-3]",
+            "[HERO-2]",
+            "[WORTHLESS-2]"
         ]
     },
     "round": {
         "history": [
             "Bene Gesserit bids 1",
-            "Atreides bids 2",
-            "Atreides bids 3",
-            "Atreides bids 4",
-            "Atreides bids 1",
-            "Atreides bids 1",
             "Bene Gesserit bids 2",
-            "Bene Gesserit bids 1",
-            "Bene Gesserit bids 1",
-            "Harkonnen bids 1",
-            "Atreides bids 1",
-            "Atreides bids 2"
+            "Atreides bids 3"
         ],
-        "numberOfCards": 18,
-        "currentCard": 9,
-        "highBid": "2",
-        "highBidder": "[A]",
-        "next": {
-            "[B]": "bidding-round.php",
-            "[A]": "bidding-round.php"
-        }
+        "numberOfCards": 6,
+        "currentCard": 1,
+        "highBid": "3",
+        "highBidder": "[A]"
     },
     "": {
-        "spice": 0,
-        "treachery": null
+        "spice": 0
     }
 }

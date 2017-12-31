@@ -4,36 +4,43 @@
 // bidding-round.php --> movement-round.php --> combat-round.php
 
 //######################################################################
+//## First Run #########################################################
+//######################################################################
+if (!isset($game['round'])) {
+    $game['round'] = array();
+        
+    foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $i) {
+		$game['meta']['next'][$i] = 'notDone';
+	}
+	$game['meta']['next'][$game['meta']['playerOrder'][0]] = 'placeOrders';
+	$game['meta']['next']['[G]'] = 'placeOrders';
+	}
+	dune_writeData('Setup Movement Round', true);
+	refreshPage();
+}
+
+//######################################################################
+//###### Every Run #####################################################
+//######################################################################
+
+
+//######################################################################
 //###### Forms #########################################################
 //######################################################################
 if (empty($_POST)){
     global $game, $info;
-    
-    //##############################################################
-    //## First Run #################################################
-    //##############################################################
-    if (!isset($game['movementRound'])) {
-        $game['movementRound'] = array();
-    }
-    
-    //##############################################################
-    //## Every Run #################################################
-    //##############################################################
+
 	echo 
 	'<h2>Movement Round</h2>';
-    
-    if ($_SESSION['faction'] == '[G]') {
-        echo
-        'Guild sets delays.';
         
-    if ($game['movementRound']['next'] == $_SESSION['faction']) {
+    if ($game['meta']['next'][$_SESSION['faction']] == 'placeOrders') {
         //Revival
         echo
         '<form action="#" method="post">
         <h3>Revival</h3>
         <p>Move 
-        <input id="move_token_number" name="revival_token_number" type="number" min=-100 max=100 value="0"/> /
-        <input id="move_number_star"  name="revival_number_star" type="number" min=-100 max=100 value="0"/> * tokens
+        <input id="revivalTokenNumber" name="revivalTokenNumber" type="number" min=0 max=100 value="0"/> /
+        <input id="revaivalNumber_star"  name="revival_number_star" type="number" min=-100 max=100 value="0"/> * tokens
         </p></form>';
     
         //Shipping
