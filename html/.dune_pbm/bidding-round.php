@@ -152,9 +152,10 @@ function biddingAction_basicBid($faction, $amount) {
 			$game['round']['highBid'] = $amount;
 			$game['round']['highBidder'] = $faction;
 			$game['meta']['next'][$faction] = 'bidding';
-			$message = $info['factions'][$faction]['name'].' bids '.$amount;
+			$message = $info['factions'][$faction]['name'].' bids '.$amount.'.';
 			$game['round']['history'][] = $message;
 			dune_writeData($message);
+			dune_postForum($message);
 		}
 	}
 }
@@ -176,12 +177,11 @@ function biddingAction_giveCard() {
 	}
 	$game['round']['currentCard'] += 1;
 	
-	$message = $info['factions'][$winner]['name'].' winns the card.';
+	$message = $info['factions'][$winner]['name'].' wins the card.';
 	
 	biddingAction_setupBidding();
-	
 	dune_writeData($message, true);
-	dune_postForum($message. true);
+	dune_postForum($message, true);
 }
 
 function biddingAction_setupBidding($firstRun = false) {
@@ -189,6 +189,7 @@ function biddingAction_setupBidding($firstRun = false) {
 	
 	$game['round']['highBid'] = 0;
 	$game['round']['highBidder'] = '';
+	$game['round']['history'] = array();
 	
 	foreach (array('[A]', '[B]', '[E]', '[F]', '[G]') as $faction) {
 		if (count($game[$faction]['treachery']) < 4) {

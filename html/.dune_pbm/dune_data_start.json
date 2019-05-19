@@ -5,32 +5,32 @@
             "[A]": {
                 "name": "a",
                 "email": "",
-                "password": "a"
+                "password": ""
             },
             "[B]": {
                 "name": "b",
                 "email": "",
-                "password": "b"
+                "password": ""
             },
             "[E]": {
                 "name": "e",
                 "email": "",
-                "password": "e"
+                "password": ""
             },
             "[F]": {
                 "name": "f",
                 "email": "",
-                "password": "f"
+                "password": ""
             },
             "[G]": {
                 "name": "g",
                 "email": "",
-                "password": "g"
+                "password": ""
             },
             "[H]": {
                 "name": "h",
                 "email": "",
-                "password": "h"
+                "password": ""
             }
         },
         "turn": 1,

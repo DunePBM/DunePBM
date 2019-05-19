@@ -19,7 +19,7 @@ if (!isset($game['round'])) {
     $game['round']['choseTraitors']['[H]'] = true;
     $game['meta']['next']['[H]'] = 'wait';
     $game['meta']['next']['[B]'] = 'makePrediction';
-    dune_writeData('Start setup.', true, false);
+    dune_writeData('Getting player information . . .');
 }
 
 //######################################################################
@@ -43,8 +43,7 @@ if (isset($game['round'])) {
             $game['meta']['next'][$faction] = 'stormRound';
         }
         unset($GLOBALS['game']['round']);
-        dune_writeData('Setup Round is over. The Storm Round begins.', true);
-        dune_writeForum('Setup Round is over. The Storm Round begins.', true);
+        dune_writeData('Setup Round is over. The Storm Round begins.');
         refreshPage();
     }
 }
@@ -223,7 +222,6 @@ function setupAction_makePrediction() {
                 ' predicted to win on turn '.$_POST['winningTurn'].'.'];
     $game['meta']['next']['[B]'] = 'chooseTraitors';
     dune_writeData('Bene Gesserit made their prediction.');
-    dune_postForum('Bene Gesserit made their prediction.', true);
     return;
 }
 
@@ -263,7 +261,6 @@ function setupAction_chooseTraitors() {
     }
     $message = $info['factions'][$_SESSION['faction']]['name'].' chose their traitor.';
     dune_writeData($message);
-    dune_postForum($message, true);
     return;
 }
 
@@ -291,8 +288,7 @@ function setupAction_setupTokens() {
         dune_gmMoveTokens('[F]', $_POST['fws'], $_POST['fwsStar'], '[OFF]', $_POST['fwsSector']);
         $game['meta']['next']['[F]'] = 'wait';
         $game['meta']['next']['[B]'] = 'setupTokens';
-        dune_writeData('Fremen places 10 starting tokens');
-        dune_postForum('Fremen place starting tokiens.', true);
+        dune_writeData('Fremen place starting tokens');
         return;
     }
     if ($_SESSION['faction'] == '[B]') {
@@ -300,7 +296,6 @@ function setupAction_setupTokens() {
         dune_gmMoveTokens('[B]', 1, 0, '[PS]', $_POST['token_loc']);
         $game['meta']['next']['[B]'] = 'wait';
         dune_writeData('Bene Gesserit places starting token');
-        dune_postForum('Bene Gesserit places starting tokien.', true);
         return;
     }
 }
@@ -312,8 +307,7 @@ function setupAction_setupTreachery() {
         dune_dealTreachery($faction);
     }
     dune_dealTreachery('[H]');
-    dune_writeData('Treachery cards delt.', true);
-    dune_postForum('Treachery cards delt.', true);
+    dune_writeData('Treachery cards delt.');
     return;
 }
 ?>

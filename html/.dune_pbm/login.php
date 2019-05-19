@@ -14,9 +14,9 @@ if (empty($_POST)) {
     <p>This game is currently in debugging mode.</p>
 
     <p>To log in use the first letter of the faction you wish to
-    play as for the name and password.</p>
+    play as for the name and leave the password blank.</p>
     <p>So, for example, to log in for Atredies, 
-    you would log in with . . .<br><br>name: a<br>password: a<br></p>
+    you would log in with . . .<br><br>name: a<br>password: <br></p>
 
 	<form action=\'#\' method="post">
 		Name: <input id="name" name="name" type="text" autofocus/> <br>

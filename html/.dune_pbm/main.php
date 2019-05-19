@@ -2,11 +2,9 @@
 // DunePBM main.php
 // Called by index.php.
 
-
 //######################################################################
 //###### Globals #######################################################
 //######################################################################
-
 $dataDir = '.dune_pbm_data/';
 $duneForum = array();
 $duneMail = array();
@@ -19,19 +17,18 @@ $info = json_decode(file_get_contents($gameDir.'dune_info.json'), true);
 //######################################################################
 global $game, $gameDir;
 foreach (array('dune_data', 'dune_forum', 'dune_mail') as $fileName) {
-	if (!file_exists($dataDir.$fileName.'.json')) {
-		$temp = json_decode(file_get_contents($gameDir.$fileName.'_start.json'), true);
-		file_put_contents($dataDir.$fileName.'.json', json_encode($temp, JSON_PRETTY_PRINT));
-		if ($fileName == 'dune_data') {
-			dune_setupGame();
-		}
+    if (!file_exists($dataDir.$fileName.'.json')) {
+        $temp = json_decode(file_get_contents($gameDir.$fileName.'_start.json'), true);
+	file_put_contents($dataDir.$fileName.'.json', json_encode($temp, JSON_PRETTY_PRINT));
+	if ($fileName == 'dune_data') {
+	    dune_setupGame();
 	}
+    }
 }
     
 //######################################################################
 //###### Functions #####################################################
 //######################################################################
-
 function refreshPage() {
     global $gameDir, $debug;
     if (!$debug) {
@@ -41,15 +38,14 @@ function refreshPage() {
         //echo "<script type='text/javascript'>document.location.href='{$URL}';</script>";
     }
 }
-
 function dune_setupGame() {
     global $gameDir, $game, $info, $duneForum, $duneMail;
-	$game = json_decode(file_get_contents($gameDir.'dune_data_start.json'), true);
+    $game = json_decode(file_get_contents($gameDir.'dune_data_start.json'), true);
     $duneForum = json_decode(file_get_contents($gameDir.'dune_forum_start.json'), true);
     $duneMail = json_decode(file_get_contents($gameDir.'dune_mail_start.json'), true);
     dune_writeForum();
     dune_writeMail();
-
+    
     // Shuffle Player Dots
     shuffle($game['meta']['playerOrder']);
     $game['meta']['playerDots'][$game['meta']['playerOrder'][0]] = 2;
@@ -58,10 +54,12 @@ function dune_setupGame() {
     $game['meta']['playerDots'][$game['meta']['playerOrder'][3]] = 11;
     $game['meta']['playerDots'][$game['meta']['playerOrder'][4]] = 14;
     $game['meta']['playerDots'][$game['meta']['playerOrder'][5]] = 17;
+    
     // Treachery Card Setup
     $treacheryDeck = array_keys($info['treachery']);
     shuffle($treacheryDeck);
     $game['treachery']['deck'] = $treacheryDeck;
+    
     // Spice Card Setup
     $game['spiceDeck']['deck-1'] = array();
     $game['spiceDeck']['deck-2'] = array();
@@ -81,19 +79,21 @@ function dune_setupGame() {
     $spiceDeckTemp2 = array_merge($spiceDeckTemp2, array_slice($spiceDeckTemp, 11));
     $game['spiceDeck']['deck-1'] = $spiceDeckTemp1;
     $game['spiceDeck']['deck-2'] = $spiceDeckTemp2;
+    
     // Traitor Setup
     $traitorDeck = array_keys($info['leaders']);
     shuffle($traitorDeck);
     $game['traitorDeck']['deck'] = $traitorDeck;
     foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
         while ($game['traitorDeck']['deck'][0][1] == $faction[1]) {
-			$game['traitorDeck']['deck'] = array_cycle($game['traitorDeck']['deck']);
-		}
+                        $game['traitorDeck']['deck'] = array_cycle($game['traitorDeck']['deck']);
+                }
         for ($i = 0; $i <4; $i++) {
             array_unshift($game['traitorDeck'][$faction], array_shift($game['traitorDeck']['deck']));
         }
     }
     $game['[H]']['traitors'] = $game['traitorDeck']['[H]'];
+    
     // Setup Storm
     $game['storm']['location'] = 0;
     $game['storm']['move'] = mt_rand(1, 18);
@@ -101,97 +101,100 @@ function dune_setupGame() {
     dune_writeForum();
     dune_writeMail();
 }
-
 function dune_readData($fm = true, $fileTimestamp = '') {
-	global $gameDir, $dataDir, $game, $duneForum, $duneMail;
-	$file = $dataDir.'dune_data'; // eclude the extension.
-	if ($fileTimestamp != '') {
-		$file .= '.'.$fileTimestamp;
-	}
-	$gameTemp = json_decode(file_get_contents($file.'.json'), true);
+    global $gameDir, $dataDir, $game, $duneForum, $duneMail;
+    $file = $dataDir.'dune_data'; // eclude the extension.
+    if ($fileTimestamp != '') {
+	$file .= '.'.$fileTimestamp;
+    }
+    $gameTemp = json_decode(file_get_contents($file.'.json'), true);
     if ($fm) {
         dune_readForum();
         dune_readMail();
     }
     if (isset($gameTemp)) {
-		$game = $gameTemp;
-	} else {
-		print '<script>alert(\'ERROR REDING FILE\');</script>';
-	} 
+	$game = $gameTemp;
+    } else {
+	print '<script>alert(\'ERROR REDING FILE\');</script>';
+    } 
 }
 
 function dune_readForum($fileTimestamp = '') {
-	global $gameDir, $dataDir, $game, $duneForum, $duneMail;
-	$file = $dataDir.'dune_forum'; // eclude the extension.
+    global $gameDir, $dataDir, $game, $duneForum, $duneMail;
+    $file = $dataDir.'dune_forum'; // exclude the extension.
     if ($fileTimestamp != '') {
-		$file .= '.'.$fileTimestamp;
-	}
+	$file .= '.'.$fileTimestamp;
+    }
     $duneForum = json_decode(file_get_contents($file.'.json'), true);
     if (!isset($duneForum)) {
-		print '<script>alert(\'ERROR REDING FORUM\');</script>';
-	}
+	print '<script>alert(\'ERROR REDING FORUM\');</script>';
+    }
 }
 
 function dune_readMail($fileTimestamp = '') {
-	global $gameDir, $dataDir, $game, $duneForum, $duneMail;
+    global $gameDir, $dataDir, $game, $duneForum, $duneMail;
     $file = $dataDir.'dune_mail'; // eclude the extension.
     if ($fileTimestamp != '') {
-		$file .= '.'.$fileTimestamp;
-	}
+	$file .= '.'.$fileTimestamp;
+    }
     $duneMail = json_decode(file_get_contents($file.'.json'), true);
     if (!isset($duneMail)) {
-		print '<script>alert(\'ERROR REDING MAIL\');</script>';
-	}
+	print '<script>alert(\'ERROR REDING MAIL\');</script>';
+    }
 }
 
-function dune_writeData($event='', $gm=false) {
-	global $gameDir, $dataDir, $game, $duneForum, $duneMail;
-	$file = $dataDir.'dune_data'; // eclude the extension.
+function dune_writeData($event='', $gm=true, $postToForum=true) {
+    global $gameDir, $dataDir, $game, $duneForum, $duneMail;
+    $file = $dataDir.'dune_data'; // eclude the extension.
+        
+    if (isset($game)) {
+	// Timestamps
+	$newTimestamp = date("m-d-Y(H.i.s)");
 	
-	if (isset($game)) {
-		// Timestamps
-		$newTimestamp = time();
-		$oldTimestamp = $game['meta']['timestamps']['dataCurrent'];
-		$game['meta']['timestamps']['dataCurrent'] = $newTimestamp;
-		$game['meta']['timestamps']['dataUndo'] = $oldTimestamp;
-		$game['history'][] = $newTimestamp.': '.$event;
-		
-        // Write new move.
-        $game['meta']['eventNumber'] += 1;
-        if ($event != '') {
-            $game['meta']['event'] = $event;
-        }
-        if (isset($_SESSION['faction'])) {
-			$game['meta']['faction'] = $_SESSION['faction'];
-		} else {
-			$game['meta']['faction'] = '[DUNE]';
-		}
+	$oldTimestamp = $game['meta']['timestamps']['dataCurrent'];
+	$game['meta']['timestamps']['dataCurrent'] = $newTimestamp;
+	$game['meta']['timestamps']['dataUndo'] = $oldTimestamp;
+	$game['history'][] = $newTimestamp.': '.$event;
+                
+	// Write new move.
+	$game['meta']['eventNumber'] += 1;
+	if ($event != '') {
+	    $game['meta']['event'] = $event;
+	} 
+	if (isset($_SESSION['faction'])) {
+	$game['meta']['faction'] = $_SESSION['faction'];
+	} else {
+	    $game['meta']['faction'] = '[DUNE]';
+	}
         if ($gm) {
             $game['meta']['faction'] = '[DUNE]';
         }
         file_put_contents($file.'.json', json_encode($game, JSON_PRETTY_PRINT));
-		file_put_contents($file.'.'.time().'.json', json_encode($game, JSON_PRETTY_PRINT));
-		sleep(1);
-	} else {
-		print '<script>alert(\'ERROR WRITING FILE\');</script>';
+	file_put_contents($file.'.'.$newTimestamp.'.json', json_encode($game, JSON_PRETTY_PRINT));
+	if ($postToForum) {
+	    dune_postForum($event, $gm, $newTimestamp);
 	}
+	sleep(1);
+    } else {
+	print '<script>alert(\'ERROR WRITING FILE\');</script>';
+    }
 }
 
 function dune_writeForum() {
-	global $gameDir, $dataDir, $game, $duneForum, $duneMail;
-    $file = $dataDir.'dune_forum'; // eclude the extension.
+    global $gameDir, $dataDir, $game, $duneForum, $duneMail;
+    $file = $dataDir.'dune_forum'; // exclude the extension.
     file_put_contents($file.'.json', json_encode($duneForum, JSON_PRETTY_PRINT));
     file_put_contents($file.'.'.time().'.json', json_encode($duneForum, JSON_PRETTY_PRINT));
 }
 
 function dune_writeMail() {
-	global $gameDir, $dataDir, $game, $duneForum, $duneMail;
-    $file = $dataDir.'dune_mail'; // eclude the extension.
+    global $gameDir, $dataDir, $game, $duneForum, $duneMail;
+    $file = $dataDir.'dune_mail'; // exclude the extension.
     file_put_contents($file.'.json', json_encode($duneMail, JSON_PRETTY_PRINT));
     file_put_contents($file.'.'.time().'.json', json_encode($duneMail, JSON_PRETTY_PRINT));
 }
 
-function dune_postForum($message, $gm = false) {
+function dune_postForum($message, $gm = false, $timeStamp = '') {
     global $gameDir, $game, $info, $duneForum, $duneMail;
     if (isset($_SESSION['faction'])) {
         dune_readForum();
@@ -200,13 +203,16 @@ function dune_postForum($message, $gm = false) {
         if ($gm) {
             $dunePost['faction'] = '[DUNE]';
         }
-        $dunePost['time'] = (string) $game['meta']['eventNumber'].': '.(string) time();
+	if ($timeStamp == '') {
+	    $dunePost['time'] = (string) $game['meta']['eventNumber'].': '.(string) date("d-m-Y-H-i-s");
+	} else {
+	    $dunePost['time'] = (string) $game['meta']['eventNumber'].': '.$timeStamp;
+	}
         $dunePost['message'] = $message;
         array_push($duneForum, $dunePost);
     }
     dune_writeForum();
 }
-
 function dune_postMail($message, $toFaction, $gm=false) {
     global $gameDir, $game, $info, $duneForum, $duneMail;
     if (isset($_SESSION['faction'])) {
@@ -227,25 +233,24 @@ function dune_postMail($message, $toFaction, $gm=false) {
     }
     dune_writeMail();
 }
-
 function dune_undoMove($forceUndo = false) {
-	global $gameDir, $dataDir, $game;
+    global $gameDir, $dataDir, $game;
     $file = $dataDir.'dune_data'; // eclude the extension.
     dune_readData();
     if (($game['meta']['faction'] == $_SESSION['faction']) || $forceUndo) {
-		dune_postForum('Game Move Undone: '.$game['meta']['event'], true);
-		dune_readData(true, $game['meta']['timestamps']['dataUndo']);
-		$game['meta']['timestamps']['dataCurrent'] = $game['meta']['timestamps']['dataUndo'];
-		dune_writeData('Game Move Undone: '.$game['meta']['event']);
+	dune_postForum('Game Move Undone: '.$game['meta']['event'], true);
+	dune_readData(true, $game['meta']['timestamps']['dataUndo']);
+	$game['meta']['timestamps']['dataCurrent'] = $game['meta']['timestamps']['dataUndo'];
+	dune_writeData('Game Move Undone: '.$game['meta']['event']);
     }
     else {
-		print '<script>alert("Move can not be undone.");</script>';
-	}
+	print '<script>alert("Move can not be undone.");</script>';
+    }
     dune_readData();
 }
 
 function dune_gmMoveTokens($faction, $tokens, $starTokens, $fromLoc, $toLoc, $coexisting=false) {
-	global $gameDir, $game;
+    global $gameDir, $game;
     if (($tokens != 0) || ($starTokens != 0)) {
         if (!isset($game['tokens'][$fromLoc][$faction])) {
             $game['tokens'][$fromLoc][$faction] = [0,0];
@@ -257,7 +262,7 @@ function dune_gmMoveTokens($faction, $tokens, $starTokens, $fromLoc, $toLoc, $co
         $game['tokens'][$toLoc][$faction][0] += $tokens;
         $game['tokens'][$toLoc][$faction][1] += $starTokens;
     }
-	if ($game['tokens'][$fromLoc][$faction] == [0,0]) {
+    if ($game['tokens'][$fromLoc][$faction] == [0,0]) {
         unset($game['tokens'][$fromLoc][$faction]);
     }
     if (isset($game['tokens'][$fromLoc]['[B]'][0]) &&
@@ -286,7 +291,7 @@ function dune_dealTreachery($toFaction) {
         dune_shuffleTreachery();
     }
     array_unshift($game[$toFaction]['treachery'], 
-                            array_shift($game['treachery']['deck']));
+    array_shift($game['treachery']['deck']));
 }
 
 function shuffleSpice() {
@@ -310,7 +315,7 @@ function dune_dealSpice($i) {
         dune_shuffleSpice();
     }
     array_unshift($game['spiceDeck']['discard-'.$i], 
-                    array_shift($game['spiceDeck']['deck-'.$i]));
+    array_shift($game['spiceDeck']['deck-'.$i]));
     dune_writeData();
 }
 
@@ -334,16 +339,16 @@ function dune_checkRoundEnd($oldMarker, $newPhp, $message, $subLocation = false)
     $roundOver = true;
     dune_readData();
     if ($subLocation) {
-		foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-			if ($game[$oldMarker]['next'][$faction] != 'wait') {
-				$roundOver = false;
-			}
+	foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+	    if ($game[$oldMarker]['next'][$faction] != 'wait') {
+		$roundOver = false;
+	    }
         }
     } else {
-		foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-			if ($game['meta']['next'][$faction] != 'wait.php') {
-				$roundOver = false;
-			}
+	foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
+	    if ($game['meta']['next'][$faction] != 'wait.php') {
+		$roundOver = false;
+	    }
         }
     }
     if ($roundOver == true) {
@@ -373,30 +378,28 @@ function dune_discardTreachery($faction, $cardName) {
     }
 }
 
-
 function dune_getTerritory($title, $varName, $close, $all=false) {
     global $gameDir, $game, $info;
-	echo
-	'<form action="#" method="post"> 
+        echo
+        '<form action="#" method="post"> 
     '.$title.'<select name="'.$varName.'">';
     $territoryArray = array();
     if ($all) {
-		$territoryArray = array_keys($info['territory']);
-	}
+                $territoryArray = array_keys($info['territory']);
+        }
     if (!$all) {
         $territoryArray = array_diff(array_keys($info['territory']), array('[OFF]', '[TANKS]', '[BANK]'));
     }
     foreach ($territoryArray as $a) {
-		echo '<option value="'.$a.'">'
-		.explode(' (', $info['territory'][$a]['name'])[0];
-		if (isset($info['territory'][$a]['sector'])) {
-			echo ' (Sector '.$info['territory'][$a]['sector'].')';
-		}
-		echo '</option>';
+	echo '<option value="'.$a.'">'
+	.explode(' (', $info['territory'][$a]['name'])[0];
+	if (isset($info['territory'][$a]['sector'])) {
+	    echo ' (Sector '.$info['territory'][$a]['sector'].')';
 	}
-
+	echo '</option>';
+    }
     echo '</select>';    
-	if ($close) {
+    if ($close) {
         echo
         '<input type="submit" value="Submit">
         </form>';
@@ -414,7 +417,7 @@ function dune_getWaiting() {
 }
 
 function gameAlert($m) {
-	print '<script>alert(\''.$m.'\');</script>';
+        print '<script>alert(\''.$m.'\');</script>';
 }
 
 function array_cycle($x, $forward = true) {
@@ -427,5 +430,4 @@ function array_cycle($x, $forward = true) {
     }
     return $x;
 }
-
 ?>

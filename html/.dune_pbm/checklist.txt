@@ -1,0 +1,33 @@
+DunePBM Outline
+===============
+
+Gameplay Modes
+--------------
+
+* Basic + Optional
+* Advanced
+* WBC
+* Death and Taxes
+
+Game Setup
+
+Game Rounds
+-----------
+
+1. Storm Round
+2. Spice Round
+3. Nexus Round
+4. Bidding Round
+5. Movement Round
+6. Battle Round
+7. Collection Round
+
+Game Features
+-------------
+
+Status Report
+GM/Debugging Commands
+Mail
+Revealed Messages
+
+

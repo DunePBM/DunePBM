@@ -1,0 +1,1497 @@
+Dune Complete -- Text
+=====================
+
+This is a Dune components list, AH game rules, Player Shield text, Player's Aid text, WBG Dune 2018 Rules and Clarifications, and a Rogue style Dune map, all rendered lovingly in ASCII text / Markdown. It's an old school kind of file, but Dune is an old school kind of game.
+
+
+Treachery Deck
+--------------
+
+* Chaumas (Poison Weapon)
+* Chaumurky (Poison Weapon)
+* Ellaca Drug (Poison Weapon)
+* Gom Jabbar (Poison Weapon)
+* Snooper #1 (Poison Defense)
+* Snooper #2 (Poison Defense)
+* Snooper #3 (Poison Defense)
+* Snooper #4 (Poison Defense)
+* Crysknife (Projectile Weapon)
+* Slip-Tip (Projectile Weapon)
+* Stunner (Projectile Weapon)
+* Maula Pistol (Projectile Weapon)
+* Shield #1 (Projectile Defense)
+* Shield #2 (Projectile Defense)
+* Shield #3 (Projectile Defense)
+* Shield #4 (Projectile Defense)
+* Cheap Hero #1
+* Cheap Hero #2
+* Cheap Heroine
+* Lasgun
+* Hajr
+* Ghola
+* Weather Control
+* Family Atomics
+* Truthtrance #1
+* Truthtrance #2
+* Karama #1
+* Karama #2
+* Trip to Gamont (Worthless)
+* La La La (Worthless)
+* Kulon (Worthless)
+* Jubba Cloak (Worthless)
+* Baliset (Worthless)
+
+
+Spice Deck
+----------
+
+* Shai-Hulud #1
+* Shai-Hulud #2
+* Shai-Hulud #3
+* Shai-Hulud #4
+* Shai-Hulud #5
+* Shai-Hulud #6
+* Broken Land (8)
+* Cielago North (8)
+* Cielago South (12)
+* Funeral Plain (6)
+* Habbanya Erg (8)
+* Habbanya Ridge Flat (10)
+* Hagga Basin (6)
+* Old Gap (6)
+* Red Chasm (8)
+* Rock Outcroppings (6)
+* Sihaya Ridge (6)
+* South Mesa (10)
+* The Great Flat (10)
+* The Minor Erg (8)
+* Wind Pass North (6)
+
+
+Leaders
+-------
+
+* Lady Jessica (5) Atreides
+* Thufir Hawat (5) Atreides
+* Gurney Halleck (4) Atreides
+* Duncan Idaho (2) Atreides
+* Dr. Wellington Yueh (1) Atreides
+* Alia (5) Bene Gesserit
+* Lady Margot Fenring (5) Bene Gesserit
+* Princess Irulan (5) Bene Gesserit
+* Rev. Mother Ramallo (5) Bene Gesserit
+* Wanna Marcus (5) Bene Gesserit
+* Count Hasimir Fenring (6) Emperor
+* Captain Aramsham (5) Emperor
+* Burseg (3) Emperor
+* Caid (3) Emperor
+* Bashar (2) Emperor
+* Stilgar (7) Fremen
+* Chani (6) Fremen
+* Otheym (5) Fremen
+* Shadout Mapes (3) Fremen
+* Jamis (2) Fremen
+* Staban Tuek (5) Guild
+* Esmar Tuek (3) Guild
+* Master Bewt (3) Guild
+* Soo Soo Sook (2) Guild
+* Guild Representative (1) Guild
+* Feyd-Rautha (6) Harkonnen
+* Beast Rabban (4) Harkonnen
+* Piter DeVries (3) Harkonnen
+* Captain Iakin Nefud (2) Harkonnen
+* Umman Kudu (1) Harkonnen
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+#################################################################################
+# AH DUNE RULES #################################################################
+#################################################################################
+
+INSTRUCTIONS FOR PLAY OF DUNE
+
+A Game for 2 to 6 players. Average playing time 1 to 3 hours -- for ages 12 and up.
+
+
+I. INTRODUCTION
+---------------
+
+Frank Herbert’s classic science fiction novel Dune will live for generations as a masterpiece of creative imagination. In this game you can bring to life the forbidding alien planet and the swirling intrigues of all the book’s major characters.
+
+Dune - the very name conjures up desolation. Desert sandscapes cover most of the planet surface, broken only by giant rock ridges. Giant worms a quarter mile long live beneath the sand and attack any who linger on it. Human life exists in a few scattered places where precious water is available, but even those settlements are buffeted by terrifying coriolis storms.
+
+Yet the planet is crucial to the destiny of a galactic empire. Because only on Dune can spice be harvested. Spice is the key to interstellar travel. Only by ingesting the addictive drug can the Guild Steersman continue to experience visions of the future, enabling them to plot a safe path through hyperspace. Spice is also a geriatric medicine which prolongs life. Only by assuring a stable supply of it throughout the galaxy can any Emperor avoid civil revolt. With spice, in short, one can buy whatever he wants.
+
+Powerful forces struggle for control of Dune. Imperial troops, aristocratic families, Guildsmen, a secret sisterhood, and the nomadic native Fremen all vie for power on the planet. 
+
+All are subject to the rigid economics of their joint merchant combine, CHOAM; resources are expensive, shipping is costly, excellence has a price. And that price must be paid in the universal currency, the measure of all value: spice. 
+
+All need spice. Some will harvest it directly when it blows in an isolated area of sand, risking the onslaught of worm and storm alike. But others will take it violently in battle, or quietly in taxes and fees.
+
+Those controlling large settlements will have access to ornithopters and cover great distances quickly. Other will have to pick their way slowly across sand and rock.
+
+But all anxiously await the decision-making nexus signaled by the sudden appearance of the great sand worm “Shai-Hulud”. 
+
+Massive battles will occur, but often be decided by a single brilliant leader or an act of low treachery. But death on Dune need never be tragic. The dead are routinely rendered up for their body’s water -- so that life on the arid planet may continue. And even one surviving cell of an individual may be cultured by the Tleilaxu technicians until the original person is regrown.
+
+You will be one of these characters:
+
+The youthful Paul Atreides (Muad’dib) -- rightful heir to the planet, gifted with valiant lieutenants and a strange partial awareness of the future, but beset by more powerful and treacherous opponents.
+
+The decadent Baron Vladimir Harkonnen -- master of treachery and cruel deeds. 
+
+His majesty the Padishah Emperor Shaddam IV -- keen and efficient, yet easily lulled into complacency by his own trappings of power.
+
+Guild Steersman Edric (in league with smuggler bands) -- monopolist of transport, yet addicted to ever increasing spice flows.
+
+Fremen ecologist Liet-Kynes -- commanding fierce hordes of natives, adept at life and travel on the planet, and dedicated to preventing any outside control while bringing about Dune’s own natural regeneration.
+
+Gaius Helen Mohiam, Reverend Mother of the Bene Gesserit sisterhood -- ancient and inscrutable, carefully trained in psychological control and a genius at achieving her ends through the efforts of others.
+
+In the DUNE game you can explore many of the possible interactions which might have taken place among these fascinating characters with their own drives, needs, and special advantages.
+
+DUNE has been divided into a Basic and Advanced Game. Learn and play the Basic Game several times before venturing into the Advanced Game.
+
+
+II. EQUIPMENT
+-------------
+
+A. Game Board:
+
+1. Printed on the board is a map of the planet Dune. The map contains four types of territories:
+a. Sand--yellow, orange or brown; 
+b. Rock--grey;
+c. Stronghold--red;
+d. Polar Sink--blue.
+
+2. The map is also divided by longitude lines into 18 sectors which extend from the edge of the Polar Sink to the horizon.
+
+3. Six player dots surround the map.
+
+4. Places have been provided for the spice and treachery decks.
+
+B. Six Character Sets:
+
+1. Each set is composed of three types of components:
+a. A playing shield bearing the likeness of the character and its advantages;
+b. 5 large discs - each showing a leader and his fighting strength;
+c. 20 small tokens (the starred tokens have no significance in the Basic Game).
+
+2. All components of each player set have the same color for identification. 
+
+C. Two Battle Wheels: (must be assembled and joined with the center pin included in game).
+
+D. Two Decks of Cards:
+
+1. Spice Deck containing 21 cards
+
+2. Treachery Deck containing 33 cards
+
+E. Spice Tokens (in denominations of 1, 2 and 4 and printed on both sides)
+
+F. A Storm Marker
+
+G. Six Storm Movement Markers (numbered 1 through 6)
+
+H. Player Aid Pad
+
+I. Instruction Manual
+
+
+BASIC GAME
+==========
+
+III. SET-UP FOR PLAY
+--------------------
+
+A. The board is set out on a flat surface
+
+B. All spice tokens are located in a convenient place hereafter known as the spice bank .
+
+C. The spice and treachery decks are shuffled and placed face down in the appropriate location on the game board. Played cards will be piled face up next to the decks and discards reshuffled to restock the treachery deck as necessary.
+
+D. Each player gets one Player Aid Sheet.
+
+E. Each player selects one character set. If players cannot agree on the selections, each player chooses a character randomly. He reads the shield’s instructions and sets up his character as follows. (Note: A character has special powers that may contradict the rules. Its particular powers always have precedence over the rules.)
+
+1. He places his shield (folded as shown on back of the box) at the closest player dot to his seat at the table.
+
+2. All leader discs are placed face down in the center of the board and thoroughly mixed. Each player then draws four discs at random from the pile and secretly selects one of the opponents’ leaders (if he drew one) to be in his pay as a traitor. The traitor’s name is then circled on his Player Aid Sheet. All leaders are returned to the pile which is then re-mixed. The leader discs are then turned face up and recovered by each player.
+
+3. Spice tokens equal to the amount indicated on each shield are removed from the spice bank and placed behind each shield.
+
+4. Each player’s tokens are placed on the board as indicated by his shield. All tokens in reserve are placed behind the shield.
+
+5. One card from the treachery deck is dealt to each player.
+
+
+IV. OBJECT OF PLAY
+------------------
+
+Each character has a set of unique economic, military, strategic, or treacherous advantages. The object of the game is to use these advantages to gain control of Dune. The winner is the first player to occupy at least three strongholds (red territories with at least one of his tokens at the end of any turn in the game. In a two player game, the number of strongholds needed to win is increased to four.
+
+
+V. SEQUENCE OF PLAY
+-------------------
+
+DUNE is played in turns to a maximum limit of 15 turns. Each turn is composed of six specific rounds that must be completed in the exact sequence presented below.
+
+A. Storm Round -- The storm marker is moved around the map.
+
+B. Spice Blow -- The top card of the spice deck is turned over and spice tokens are placed in the territory indicated.
+
+C. Bidding Round -- Players bid spice to acquire treachery cards.
+
+D. Revival and Movement Round -- First, players reclaim tokens from the ‘Bene Tleilaxu Tanks'. Then each player, in turn, lands and moves his tokens on the map.
+
+E. Battle Round -- Players resolve battles in every territory which is occupied by two or more characters' tokens.
+
+F. Collection Round -- Tokens in territories which contain spice may collect the spice.
+
+
+VI. STORM
+---------
+
+A. In the first storm round only, the storm marker is placed at a random location along the map edge using the following procedure. The player whose player dots are nearest on either side of the storm ‘at start' sector will independently dial a number from ‘zero' to ‘twenty' on the wheels. The two numbers are simultaneously revealed, totaled and the storm marker moved from the ‘at start' sector counterclockwise that number of sectors around the map.
+
+B. In all subsequent storm rounds, the two players who last used the wheels will independently dial a number from ‘1' to ‘3', simultaneously reveal the numbers, add them and advance the storm marker from its current position counterclockwise that number of sectors around the map.
+
+C. Any tokens in a sector of sand territory (except the Imperial Basin ) over which the storm passes or stops are sent to the ‘Tleilaxu Tanks' . Any spice in a sector over which a storm passes or stops is removed to the spice bank.
+
+
+VII. SPICE BLOW
+---------------
+
+A. The top card of the spice deck is turned over.
+
+1. If it is a territory card, the amount of spice indicated on the card is placed from the spice bank onto the territory in the sector containing the asterisk. If the asterisk sector is currently in storm, no spice is placed that turn.
+
+2. If it is a worm card , all spice and tokens in the territory last turned up in the spice deck are removed to the spice bank and tanks , respectively, AND another card is turned over, and so on, until a territory card appears and spice is placed.
+
+B. If a worm card appears, a nexus occurs immediately during which alliances can be formed and broken. (See XII. Alliances).
+
+C. If a worm card is drawn, any additional worm cards drawn that round are ignored.
+
+D. During the first turn's spice blow only, all worm cards turned over are reshuffled back into the spice deck.
+
+
+VIII. BIDDING ROUND
+-------------------
+
+A. One of the players deals from the treachery deck a number of card equal to the number of players who can bid for treachery cards this round. A player cannot bid for treachery cards if he already holds 4 treachery cards .
+
+B. The dealt cards are placed face down in a row along one board edge. The first card in the row is now auctioned for spice. 
+
+1. The player whose player dot the storm next approaches begins the bid for the first card.
+
+2. The first player may bid one or more spice or pass. Bidding then proceeds to the player to his immediate right who may raise the bid or pass and so on around the table until a top bid is made and all other players pass. The top-bidding player then pays the number of spice he bid into to the spice bank and takes the card.
+
+C. No player may bid more spice than he has.
+
+D. In subsequent bidding that round, the first player who can bid to the right of the player who opened the bid for the previous card begins the bidding for the next card. In this way every player gets a chance to open the bidding for a treachery card.
+
+E. Bidding for treachery cards continues until all cards available for bid have been auctioned off or a card is not bid on by anyone. If a card is passed by everyone, all remaining cards are returned to the top of the treachery deck and the bidding round is over.
+
+F. The number (not the type) of treachery cards each player holds must always be open to everyone during the bidding round. Nobody is allowed to hide the number of cards that he holds.
+
+G. A player can never have more than four cards in his hand at any one time. If he has a full hand, he must pass on all cards up for bid.
+
+H. Each player must bid within five seconds of the previous player or he is assumed to have passed.
+
+I. CHOAM Charity: At the start of the bidding round, any player who has no spice may collect two spice from the spice bank by calling out "CHOAM Charity".
+
+J. A description of each Treachery Card is given in the Player Aid Pad.
+
+
+IX. MOVEMENT
+------------
+
+A. The player whose player dot the storm next approaches is termed the ‘first player' . He always opens the bidding for the first treachery card and makes the first move in a turn. If a storm is on the player dot, it is considered to have passed that player.
+
+B. Token Revival: Before any movement is made, all players may revive up to three tokens from the ‘Tleilaxu Tanks' .
+
+1. A certain number of tokens are revived for free as stated on the shield Any additional tokens that may be revived must be done at a cost of two spice per token. All spice expended for token revival is placed in the spice bank .
+
+2. A player can never revive more than three tokens per turn except by treachery card. 
+
+3. Revived tokens must be placed in the player's reserve.
+
+C. The ‘first player' takes his move first. Play then proceeds to the right until all players have taken their moves. Each player's moved is composed of two segments.
+
+1. Shipment:
+
+    1. (a.) A player may make one shipment of any number of tokens from his reserves to any one territory on the map. 
+
+    2. (b.) A player must pay spice to the spice bank for his shipment. The cost of shipping off-planet reserves is one spice per token shipped into any stronghold and two spice per token shipped into any other territory. The Fremen player does not have to pay as his reserves are on the far side of Dune.
+
+    3. (c.) No player may ship into a sector in storm or into a stronghold already occupied by two other players. Otherwise, shipments may be placed in any territory.
+
+    4. (d.) No player may ship tokens from the board back to his reserves.
+
+2. Token Movement:
+
+    1. (a.) Each player may move, as a group, any number of his tokens from one territory into one other territory. 
+
+        1. A player who starts his move with one or more tokens in either Arrakeen, Carthag or both has access to ornithopters and may move his token group through up to three adjacent territories. The token group does not have to be in Arrakeen or Carthag to make the three territory move. Thus, for example, a player with one or more tokens in Arrakeen would be able to move tokens starting in Tuek's Sietch through Pasty Mesa and Shield Wall to the Imperial Basin where they must stop.
+
+        2. A player without a token in either Arrakeen or Carthag at the start of his move does not have access to ornithopters and can only move his token group by foot to one adjacent territory.
+
+    2. (b.) Each player may make only one move per turn.
+
+    3. (c.) Sectors have no effect on movement, i.e., tokens can move into or through a territory ignoring all sectors. As sector's only function is to regulate the movement and coverage of the storm and spice collection. No token may move into, out of, or through a sector in storm. Many territories occupy several sectors, so that a player may move into and out of a territory which is partly in the storm so long as the group does not pass through the part covered by the storm.
+
+    4. (d.) When ending a move in a territory lying in several sectors, a player must make clear in which sector of the territory he chooses to leave his tokens.
+
+    5. (e.) The Polar Sink is never in storm.
+
+    6. (f.) Tokens do not block movement with one exception. Like shipment, tokens cannot be moved into or through a stronghold if tokens of two other players are already there. Otherwise, tokens are free to move into, out of, or through any territory occupied by any number of tokens.
+
+D. Leader Revival:
+
+1. If all 5 of a player's leaders are in the ‘tanks' , a player may revive one leader per turn until all of his leaders have been revived.
+
+2. To revive a leader, a player must pay that leader's fighting value in spice to the spice bank.
+
+3. A revived leader can be played normally and is still subject to being a traitor.
+
+4. A player may revive a leader only at the end of his move.
+
+5. If a revived leader is again killed and sent to the ‘tanks' , it cannot be revived again until all of the player's other revivable leaders have been revived, killed and sent to the ‘tanks' again.
+
+
+X. BATTLES
+----------
+
+A. Battle Determination
+
+1. Battles must occur between players whose tokens occupy the same territory.
+
+2. Battles continue until just one player's tokens or no tokens remain in all territories on the map with two exceptions:
+
+    1. (a.) Players cannot battle one another in a territory if their tokens are separated by a sector in storm. Their tokens can remain the same territory at the end of the round.
+
+    2. (b.) Players cannot battle in the Polar Sink . It is a free haven for everyone.
+
+3. When resolving battles, the ‘first player' is named the aggressor until all of his battles, if any, have been fought. The aggressor chooses the order in which he wishes to fight his battles. Then the player to his immediate right becomes the aggressor and so on, until all battles are resolved.
+
+4. If three or more players are in the same territory, the aggressor picks who he will battle first, second, etc., for as long as he survives.
+
+B. Battle Plan:
+
+1. To resolve a battle, each player must secretly formulate a battle plan. Each combatant picks up a ‘battle wheel' and secretly dials a number from zero to the number of tokens he has in the disputed territory. 
+
+2. One leader disc is selected and placed face up in the slot on the wheel.
+
+3. He may play either a weapon or defense treachery card or both by holding them against the wheel as shown. 
+
+4. When both players are ready, the battle plans are revealed simultaneously.
+
+C. Battle Resolution:
+
+1. The winner is the player with the higher total of number dialed plus leader's fighting strength.
+
+2. In the case of a tie, the aggressor has won.
+
+3. If the opponent played a weapon treachery card and the player did not play the proper defense treachery card, the player's leader is killed and cannot count toward his total. Both leaders can be killed and neither count in the battle.
+
+4. Any leaders killed are immediately placed in the ‘tanks'. The winner immediately receives their value (including his own leader, if killed) in spice from the spice bank. Surviving leaders are retained by their owners. 
+
+5. The losing player loses all the tokens he had in the territory to the ‘tanks' and must discard every treachery card he used in his battle plan.
+
+6. The winning player loses only the number of tokens he dialed from the territory to the tanks. He may keep or discard any of the cards he played.
+
+7. Note that the loser does not lose his leader as a result of battle. Leaders are killed only by weapon treachery cards.
+
+8. No player may use a surviving leader in battle in another territory during the same round. The leader may be played in another battle in the same territory, however.
+
+9. If a player has at least one leader or ‘cheap hero(ine)' treachery card available, he must use one in the battle plan. A player cannot choose not to play a leader.
+
+10. If a player cannot play a leader in battle, i.e., they are all in the ‘tanks' or have fought in another territory that round, he must still battle but he must declare that he is without a leader and he cannot play any treachery cards as part of his battle plan. His total is simply the number of tokens he dials.
+
+D. Traitors:
+
+1. If during a battle, the player's opponent displays a leader as part of his battle plan which the player selected as a traitor in his pay at the start of play, he immediately calls out, ‘treachery' and reveals the circled name on his Player Aid Pad.
+
+2. The player immediately wins the battle and the opponent must lose all of his tokens in the territory and the traitorous leader to the ‘tanks' and discards all cards he played.
+
+3. The player loses nothing, regardless of what was played in the battle plans. He also receives the traitorous leader's fighting strength in spice.
+
+4. If both leaders are traitors, each in the pay of his opponent, both players' tokens in the territory, their cards played and their leaders are lost. Neither player gets any spice.
+
+
+XI. SPICE COLLECTION
+--------------------
+
+A. Any player with tokens in a sector of a territory in which there is spice may now collect that spice. The collection rate is three spice per token if the player occupies Carthag or Arrakeen. It is two spice per token if the player does not occupy Carthag or Arrakeen.
+
+B. Uncollected spice remains where it is for future turns.
+
+
+XII. ALLIANCES
+--------------
+
+A. Once a worm (Shai-Hulud) spice card is turned over on the second or subsequent turns, a nexus occurs and play stops immediately.
+
+B. All players have a chance to make, join or break alliances. Once players have had a chance to do so, play continues with the worm devouring spice and tokens and/or giving a free move to the Fremen.
+
+C. Forming an Alliance:
+
+1. Players may discuss among themselves the advantages and disadvantages of allying, and with whom.
+
+2. An alliance may contain any number of players.
+
+3. The members of an alliance must be revealed to all. Alliances cannot be secret.
+
+4. Several alliance can be formed during a nexus but no player ban be a member of more than one.
+
+5. Once all players have had a chance to ally, no further alliances can be made until the next nexus.
+
+D. Breaking An Alliance:
+
+1. Any player may break an alliance during a nexus. He just announces that he is breaking from the alliance.
+
+2. Players who break from an alliance have an opportunity to immediately join or form a new alliance.
+
+E. How an Alliance Functions:
+
+1. Allied players' tokens are considered the same for purposes of victory. If, together, they hold three strongholds at the end of the turn, they have jointly won the game.
+
+2. Allies may discuss strategy secretly at any time.
+
+3. During the bidding round, allies may help each other by paying some or all of the cost of each other's treachery cards so that one can bid more spice than he actually has.
+
+4. During the movement round, allies may pay for each other's shipments.
+
+5. Allies may not enter any territory (except the Polar Sink) in which one of their allies already has a token(s) and, thus, may never battle one another.
+
+6. Allies may assist one another as specified on their shields.
+
+
+XIII. BRIBERY
+-------------
+
+A. Players are never required to keep secret the strength of their reserves, cards, or spice held, or traitors selected although they are never obligated to reveal this information.
+
+B. All reserves and spice should be kept in the pocket of the shield. The number of treachery cards held must be kept open during the bidding round but can be kept secret at all other times.
+
+C. Players can make any kind of verbal deals or bribes between one another. Once made, these deals and bribes must be stated aloud and must be honored. A player cannot renege on a deal or bribe. Spice can be part of the bribe or deal.
+
+D. A deal or bribe cannot involve the transfer or gift of treachery cards, leaders, tokens or character powers. A player cannot make a deal or bribe that would contravene the rules or his character's powers. These are the only limitations.
+
+
+OPTIONAL RULES
+==============
+
+XIV. INTRODUCTION
+-----------------
+
+After becoming totally familiar with the Basic Game, players may wish to add any or all of the following rules to the game.
+
+
+XV. ADDITIONAL CHARACTER ADVANTAGES
+-----------------------------------
+
+A. Players may include the additional character advantages listed on the back of the Player Aid Sheet with their regular character powers.
+
+B. Because a description of the Bene Gesserit ability to coexist is somewhat detailed, it is presented here rather than in the Player Aid Pad.
+
+1. You start one token in any territory of your choice (instead of just the Polar Sink ). This is done after the Fremen placement.
+
+2. Beginning with the second turn, you automatically receive CHOAM charity each bidding round whether you have spice or not.
+
+3. Whenever any other player ships tokens to Dune from off-planet, you may ship, free, one token from your reserves (spiritual advisors) into the same territory (instead of the Polar Sink).
+
+4. Your tokens may coexist peacefully with all other players' tokens in the same territory. While coexisting, your tokens have no effect on the play of the other players whatsoever. They are treated as if they are not even on the board, i.e. they cannot collect spice, cannot be involved in combat, cannot prevent another player's control of a stronghold, cannot receive three territory movement bonus. They are still susceptible to storms, worms and lasegun/shield explosions.
+
+5. You must announce at the beginning of the movement round, before any movement is started, all territories in which you no longer wish to remain in coexistence. Anytime you end your move in an occupied territory in which you previously have no tokens or another player moves his tokens into a territory only you occupy, you must announce immediately whether or not you will coexist there. You cannot ship with another player (as spiritual advisors) into a territory in which you have stated (or intend to state when you land) that you are not in coexistence that turn. Those territories in which you choose to be (or remain) in coexistence must stay in coexistence for the rest of the turn. Your tokens in territories not in coexistence are treated as normal tokens. It is assumed you are in coexistence unless you state otherwise.
+
+
+XVI. WEATHER
+------------
+
+A. After the first turn's placement of the storm marker by the battle wheel, all subsequent weather movement is determined randomly. 
+
+B. In the first turn during the storm round, the Fremen player randomly selects one weather movement marker from the six placed in a coffee cup. He looks at it and places it face down on the margin of the game board. 
+
+C. In the next storm round the number is revealed; the storm is moved counterclockwise that number of sectors; and the number marker is returned to the cup. The Fremen player then selects a number marker for the next turn's storm movement. This is repeated each turn. After the first turn the battle wheels are no longer used to move the storm.
+
+D. If the Fremen player is not in the game, it is suggested that this rule not be used.
+
+
+XVII. SPECIAL KARAMA POWERS
+---------------------------
+
+A. In addition to the regular Karama powers listed in the Player Aid Pad , each character has a unique power that can be used when a player plays a Karama card .
+
+B. When playing a Karama card , a player may now use it to prevent one opponent from using one of his character's advantages or he may use it to implement his character's special Karama power once.
+
+
+XVIII. LONGER GAME
+------------------
+
+A. If players wish to play a longer game, they may use one or both of the following modifications. 
+
+1. Eliminate alliances.
+
+2. Increase the number of strongholds needed for victory by one from three to four or (for two players) from four to five.
+
+B. If players find it too difficult to win by occupying four or five strongholds, they may add the Shield Wall as an additional territory for victory. Now players need occupy four of six territories for victory. The Shield Wall is not treated as a stronghold. It retains its identity as a rock territory.
+
+
+XIX. INCREASED SPICE FLOW
+-------------------------
+
+During every collection round, each occupant of Carthag and Arrakeen collects 2 spice and the occupant of Tuek's Sietch collects one spice. To qualify for collection, a player needs to occupy the stronghold only at the time of collection. If a player occupies two or all three of these strongholds, he collects spice for each that he occupies.
+
+
+ADVANCED GAME
+=============
+
+XX. INTRODUCTION
+----------------
+
+The Basic Game is changed by increasing the number of spice blows and altering the combat system somewhat. 
+
+
+XXI. SPICE BLOW
+---------------
+
+A. Instead of revealing one territory card each spice blow, two territory cards are now turned over.
+
+1. Two distinct piles must be maintained by the spice deck. They must be labeled '1' and '2'.
+
+2. During each spice blow, cards are turned over until a territory card appears and spice is placed. All turnovers are placed on discard pile 1. The same procedure is now repeated for discard pile 2.
+
+3. For the first round only, all worm cards turned over are shuffled back into the spice deck.
+
+4. Worm cards for one discard pile have absolutely no effect on the other discard pile.
+
+B. On turn 8, only one territory card will remain in the Spice Deck. This will be placed on discard pile 1 and the spice placed at that location on the map.
+
+1. Any cards remaining in the spice deck are worm cards which must be turned over and will affect discard pile 2. Once the deck has been completely used up, all spice cards, including the territory card last turned up, are reshuffled to restock the spice deck.
+
+2. Cards are turned over from the spice deck until a territory card appears for discard pile 2. It can even be the same card that was last turned over for discard pile 1. In this case, the territory gets a second spice blow. Any worm cards turned over are not reshuffled back into the deck and do affect the last territory turned over in the previous turn.
+
+
+XXII. ADVANCED COMBAT
+---------------------
+
+A. Spice now plays an important role in the combat procedure.
+
+1. Each token used in a battle is valued at its full strength if one spice is expended to support it. A token used in a battle which is not supported by one spice is valued at half strength.
+
+2. When formulating a battle plan, a player must put aside (preferably in his hand) the amount of spice he intends to expend in the battle. If a traitor comes up, the winner does not have to expend any spice. Otherwise, spice used in the battle plan must go to the spice bank , win or lose.
+
+B. When dialing a battle plan, one-half increments can be indicated by lining up the line between the numbers with the line under the window of the battle wheel. 
+
+C. When the winner takes his losses he may do so in any manner as long as it agrees with the strength dialed and the spice expended. For example, the Fremen player has one Fedaykin (worth two tokens) and five ordinary tokens in a territory in battle. He dials a strength of "3" and expends one spice. He wins the battle. He may lose one Fedaykin token at full strength (2) and two ordinary tokens at half strength (1⁄2 + 1⁄2) or he may lose one ordinary token at full strength and four tokens at half strength (1⁄2 + 1⁄2 + 1⁄2 + 1⁄2 ). In once case, he loses a Fedaykin and two ordinary tokens and in the other case he loses five ordinary tokens. Either choice fulfills his spice/strength requirement.
+
+
+XXIII. COLLECTION ROUND
+-----------------------
+
+Optional Rule IXI. Increased Spice Flow, must be used in the Advanced Game.
+
+
+XXVII. DUNE STRATEGY TIPS
+-------------------------
+
+Each player in DUNE must amass spice, convert it to effective weaponry, defenses, and other strategic aids, and then position himself with enough troops to be able to suddenly move into key strongholds and defend them. The game will be won by daring, strategy, mobility, and treachery.
+
+The storm is important because it determines who is first player. Being first player is an advantage in battles (ties go to the first player) but being last is an advantage in movement (surprise takeovers by the last player cannot be countered that turn).
+
+The spice blow is important because its location will help determine who gets new spice that turn. Worms are vital because only when they appear can the forces on the planet ally during the diplomatic nexus.
+
+The bidding determines who will gain fighting strength (or the threat of it) that turn. It is wise to have several cards at all times to keep your opponents guessing, but it is also wise if you have off-planet reserves to retain enough spice to ship more troops onto the board.
+
+The movement round determines battles, spice collection, and often the win. Players should always stay within striking distance of several strongholds, and may want to keep some forces mobile (the Polar Sink is ideal for this as it connects to most territories by short routes and is not affected by worm or storm). Sometimes a player who moves last may go for the win if earlier players have left strongholds unprotected. But generally it is not wise to move for the win unless you can defend your forces against all players within range.
+
+Battles are they key test of strength. With good weapons and defenses, and a good memory for what other players have, a player can swiftly reverse the balance of strength in the game. Strategic players will carefully watch what weapons and defenses have been played and discarded or retained, and by whom. He will also remember what leaders he can trust, and pit himself when he can against a player who has one leader who will betray him.
+
+Since the loser must discard his cards and the winner may keep his as well as render up any killed leader for his value in spice, battles are the turning point of the game. However, since worthless cards can only be discarded by playing them in battle, often a player with several will send one token against a large force, sacrificing a leader to rid himself of the cards. In such a case the opponent may not be sure what is going on and may spend several of his tokens in an unnecessary defense. Generally, any player with an advantage, whether it be cards, leaders, tokens, or strategic advantages, is well advised to press forward and force battles.
+
+Collection of spice is of course advantageous, especially to those who need it, but also to those who want to keep others from having it to then use for cards or shipping. But collection carries with it the risks of destruction by storm or worm.
+
+Alliances will usually force an end to the game within a few turns. In larger games it is difficult to win alone, and alliances will be necessary. It is generally wise to ally with someone who can compliment your advantages. If you are strong on strategic ability but short on resources, seek an alliance with someone who has access to spice. If you are rich, look for strategy or treachery in your partner.
+
+
+XXV. QUESTIONS AND ANSWERS 
+--------------------------
+
+A. TREACHERY CARDS
+
+1. Does the ‘Family Atomics’ have an immediate effect if blown when the storm marker is over Arrakeen, Imperial Basin or Carthag? 
+Answer -- When the ‘Family Atomics’ is blown, the sector which the storm currently occupies is never affected. All appropriate sectors into which it moves will be affected.
+
+2. Can the “Family Atomics” be exploded if the Shield Wall or if the adjacent territory from which the explosion is being initiated is in storm? 
+Answer -- Yes, in both cases.
+
+3. Does the lasgun/shield explosion destroy the spice in the territory as well as the tokens? 
+Answer -- Yes. Please note also that all tokens in the territory are lost, including those of players who were not involved in the battle.
+
+4. If a Karama card is played to prevent the Atreides player from looking at treachery cards, does it affect just one card or all cards up for bid? 
+Answer -- All cards up for bid.
+
+5. Can a ‘Bene Ghola’ card allow a leader to fight in the same round in which he was killed? 
+Answer -- No, a leader revived during a battle round cannot be used until the next battle round at the earliest.
+
+6. Is the Ghola 5 token revival free? 
+Answer -- Yes.
+
+7. (Optional) If the Bene Gesserit is stopped from playing a worthless card as a Karama card by another player’s Karama card, can she retrieve her card? 
+Answer -- No. Both cards played must be discarded.
+
+8. (Optional) Does the Karama worm called by the Fremen signal a Nexus? 
+Answer -- No. A Nexus is signalled only by a Shai-Hulud worm card.
+
+B. BATTLE
+
+1. Can a player’s tokens which have moved into different sectors of the same territory at different times battle as a group? Can they move or ship as a single group? 
+Answer -- They must move and ship independently of one another. They must fight as a single group (if storm permits).
+
+2. Can a player substitute a cheap hero(ine) for a weapon or defense card in order to get rid of it or must he only play it in the place of a leader? 
+Answer -- No, he cannot substitute a cheap hero(ine) for a weapon or defense card. It may only be played as a substitute for a leader.
+
+3. May the same weapon or defense card be played in more than one battle, if victorious? More than one battle in the same round, if victorious?
+Answer-- Yes to both questions.
+
+4. (Advanced Game) Must the Fremen or Emperor pay 2 spice to use a Fedaykin or Sardaukar token at full stregnth in battle? 
+Answer -- No, just one spice per token.
+
+5. (Advanced Game) Can you give some examples of determining strength in an advanced battle? 
+Answer -- OK. For example, a player who has 10 tokens in a battle territory and he wants to use 9 tokens ensuring that one will remain if he wins. If he has one spice to expend in the battle, he dials 5 on his battle wheel, one token at full strength and eight at half strength. If he has three spice to expend in battle, he dials ‘6’ on his battle wheel, three tokens at full strength and six tokens at half strength. If he has six spice to expend in battle, he dials ‘7 1⁄2’ on his battle wheel, six tokens at full strength and three tokens at half strength. If he expends nine spice, he dials ‘9’ on his battle wheel.
+
+6. What happens if truthtrance, Bene Gesserit ‘voice’ and Atreides ‘prescience’ or some combination thereof, are being used in the same battle? 
+Answer -- The Bene Gesserit ‘voice’ must always be used before the Atreides ‘prescience’. Truthtrance can be played at any time in this interaction. Please note that a player has the ability to alter his battle plan after ‘voiced’, ‘prescienced’(sic) or ‘truthtranced’.
+
+7. Can a player voluntarily refuse to reveal a traitor if played against him in battle? 
+Answer -- Yes. If your traitor appears in battle against you, you need not reveal him as your traitor. Also, by common consent, players may choose not to play a leader even if available. If done, it must be announced before the battle plans are completed, and only the token strength can be used in the battle plans as explained in X.C.10 . 
+
+C. MOVEMENT
+
+1. Does a worm move count as the one group move allowed to the Fremen each turn? 
+Answer -- No. In fact, the worm move is made in the spice blow and not in the movement round.
+
+2. Do sectors affect movement? 
+Answer -- Only in the case explained in battle question one . Sectors function to regulate the movement and effect of storms and the placement and collection of spice. They do not affect movement.
+
+3. If a storm is over Arrakeen or Carthag does it affect the three territory (ornithopter) move? 
+Answer -- No, except of course, into, out of, or through the storm.
+
+D. REVIVAL
+
+1. Are revived leaders still subject to turning traitor? 
+Answer -- Yes. Once a leader is in a player’s pay, he (she) is in his pay for the entire game even if revived.
+
+2. (Advanced Game) Can players revive leaders if others have been captured by Harkonnen? 
+Answer -- Yes. A player can begin to revive his leaders if he doesn’t have any of his own leaders available to play in battle (this includes Harkonnen, too).
+
+E. MISCELLANEOUS
+
+1. Do allies pay the Guild for all of their shipments? 
+Answer -- Yes.
+
+2. What is the exact rate for the Guild shipment back to his reserves -- 1 spice per two tokens, or half of that? 
+Answer -- One spice per two tokens.
+
+3. What happens if at the end of the play, no one has won and the Guild are not in play?
+Answer -- The Fremen wins. If he is not in play, the player occupying the most strongholds. If several qualify, all who qualify to win.
+
+4. (Advanced Game) When reshuffling the Spice Dec, must you reshuffle the entire deck?
+Answer -- Yes.
+
+5. (Advanced Game) Does the Fremen get the worm bonus if a second worm appears in a spice round but at the second discard pile?
+Answer -- No, each discard pile is treated seperately and the worm card played on one has no effect on the other.
+
+6. How does the Guild pay for an odd token shipment?
+Answer -- All fractional costs are rounded up. So a five token shipment costs the Guild three spice; a one token shipment costs him one spice; etc.
+
+7. When the Fremen brings reinforcements, must he include the Great Flat when counting the two territory range from the Great Flat? 
+Answer -- No. Never include the Great Flat when counting the two territory range.
+
+
+CREDITS
+-------
+
+Design: Future Pastimes
+
+Development: Mark Uhl and Richard Hamblen.
+
+Playtest: Don Greenwood, Bruce Milligan, George Uhl, Robert Uhl, Seth Carus, Paul O’Neil, Jim Skinner, Future Pastimes and the people at Johns Hopkins U., Carmen, Brandy and Doug.
+
+Artwork: Linda Bound, Richard Joachim, Joe Pearson, Mark Anthony, Chris White and Monarch Services.
+
+Graphics and Layout: Mick Uhl and Jean Baer.
+
+Typesetting: Colonial Composition.
+
+Printing: Monarch Services
+
+Copyright 1979, The Avalon Hill Game Company, Baltimore, MD.
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#######################################################################
+# PLAYER SHIELDS ######################################################
+#######################################################################
+
+
+The shields include the optional rules.
+
+
+ATREIDES
+--------
+
+At Start: 10 Tokens in Arrakeen and 10 in reserve (off-planet). 
+
+Start with 10 spice.
+
+Free Revival: 2 tokens.
+
+Advantages: You have limited prescience.
+
+1. During the bidding round, you may look at each treachery card as it comes up for purchase before any player bids on it.
+
+2. At the start of the movement round, you may look at the top card of the spice deck.
+
+3. During the battle round, you may force your opponent to show you your choice of one of the four elements he will use in his battle plan with you; the leader, the weapon, the defense, of the number dialed. If your opponent show you that he is not playing a weapon or defense, you may not ask to see another element of the plan.
+
+4. (optional) Any turn after losing a total of at least 7 tokens in battle(s), you may use the Kwisatz Haderach counter. It cannot be used alone in battle but may add its +2 strength to any one leader or cheap hero(ine) per turn. If the leader or cheap hero(ine) is killed, the Kwisatz Haderach has no effect in the battle. Kwisatz Haderach can only be killed if blown up by a laser gun-shield explosion. A leader accompanied by Kwisatz Haderach cannot turn traitor. If killed Kwisatz Haderach must be revived like any other leader. If not killed, it has no effect on Atreides leader revival.
+
+Karama Card: May use to secretly look at the entire Battle Plan of any Faction. This commits the Battle Plan. The Atreides may modify their Battle Plan before committing.
+
+Alliance: You may assist your allies by forcing their opponents to show them one element of their battle plan.
+
+
+BENE GESSERIT
+-------------
+
+At Start: 1 token in the Polar Sink and 19 tokens in reserve (off-planet). 
+
+Start with 5 spice.
+
+Free Revival: 1 token.
+
+Advantages: You are adept in the ways of mind control.
+
+1. At the start of the game (before traitors are picked) you write down the name of one other player and the turn in which you think hewill win (you can’t predict the automatic Guild or Fremen victory at the end of play). If that player wins (alone or as an ally, even your own) when you have predicted, you reveal the prediction and you alone have won. You can win normally of course.
+
+2. Whenever any other player ships tokens onto Dune from off-planet, you may ship free 1 token from your reserves (spiritual advisors) into the Polar Sink. You may also ship normally of course.
+
+3. You may ‘voice’ you opponent to do as you wish with respect to one of the cards he plays in his battle plan, i.e., to play or not to play a projectile, shield, poison, snooper, lasegun, or worthless card. You cannot voice a cheap hero(ine) card. If he cannot comply with your command, he may do as he wishes.
+
+4. (optional) You have the power to coexist. (See rule book)
+
+Karama Card: May use any worthless card as a Karama Card.
+
+Alliance: In an alliance you may ‘voice’ an ally’s opponent.
+
+
+EMPEROR
+-------
+
+At Start: 20 tokens in reserve (off-planet). 
+
+Start with 10 spice.
+
+Free Revival: 1 token.
+
+Advantages: You have access to great wealth.
+
+1. Whenever any other player pays for spice for a treachery card, he pays it to you instead of the spice bank.
+
+2. (optional) Your five starred tokens (elite Sadaurkar) have a special fighting capability. They are worth two normal tokens in battle and in taking losses against all opponents except Fremen. Your starred tokens are worth just one token against Fremen. They are treated as one token in revival. Only one starred token can be revived per turn.
+
+Karama Card: May use at any time to revive up to three of their Tokens or one Leader at no cost.
+
+Alliance: You may give spice to your allies to purchase treachery cards, to revive tokens, and to make shipments. Their payment for any treachery card, even with your own spice, comes right back to you.
+
+
+FREMEN
+------
+
+At Start: 10 tokens distributed as you like on Sietch Tabr, False Wall South, and False Wall West; and 10 tokens in reserve (on the far side of Dune). 
+
+Start with 3 spice.
+
+Free Revival: 3 tokens.
+
+Advantages: You are native to Dune and know its ways.
+
+1. You may move you token group two territories instead of one.
+
+2. You may bring any or all of your reserves onto any territory within two territories of an including the Great Flat (subject to storm and occupancy rules). You may not move onto Dune in any other way than this.
+
+3. If a worm appears in a territory where you have tokens, they are not devoured but, immediately upon conclusion of the nexus, may move  to any one territory on the board (subject to storm and occupancy rules).
+
+4. If no player has won by the end of the last turn and if you (or no one) occupies Sietch Tabr and Habbanya Ridge Sietch and neither Harkonnen, Atreides, nor Emperor occupies Tuek’s Sietch, you have prevented interference with your plans to alter Dune and win. 
+
+5. (optional) You select and may look at next turn’s storm movement marker (used only with optional rule XIV).
+
+6. (optional) During spice blow, all additional worms which appear after the first worm can be placed by you in any territory you wish. They cannot devour tokens if not in a desert territory.
+
+7. (optional) If caught in a storm, only half of your tokens are killed (rounded up). You may bring your reserves into a storm at half loss.
+
+Karama Card: Use at any time to call worm to any territory. All tokens & spice in sand territories are consumed. Does not initiate Nexus.
+
+Alliance: Your allies are not devoured by worms. They win with you if you win at the end of the last turn.
+
+
+GUILD
+-----
+
+At Start: 5 tokens in Tuek’s Sietch and 15 tokens in reserve (off-planet). 
+
+Start with 5 spice.
+
+Free Revival: 1 token.
+
+Advantages: You control all shipments on and off Dune.
+
+1. You are capable of making one of three possible types of shipments each turn. You may ship normally from off-planet reserves to Dune; or you may ship any number of tokens from one territory to any other territory on the board; or you may ship any number of tokens from any one territory back to your reserves.
+
+2. You need pay only half the fee when shipping your tokens. The cost for shipping your reserves in one spice for every two tokens shipped or fraction thereof.
+
+3. When any other player ships tokens onto Dune from their reserves, he pays the spice to you instead of to the spice bank.
+
+4. If no player has been able to win by the end of the play, you have prevented control of Dune and automatically win the game.
+
+5. (optional) You are not required to take your move when it occurs in the turn sequence during the movement round but may take it at any turn in the sequence you wish. The rest of the players must take their turns in the proper sequence. You do not have to reveal when you intend to take your turn until the moment you wish to take it. 
+
+Karama Card: May use to stop an off-planet shipment (thus not Fremen) at any time before movement is declared.
+
+Alliance: Allies may use the same types of shipments and at the same cost as you. They may win with you if no one else wins.
+
+
+HARKONNEN
+---------
+
+At Start: 10 tokens in Carthag and 10 tokens in reserve (off-planet). 
+
+Start with 10 spice.
+
+Free Revival: 2 tokens.
+
+Advantages: You excel in treachery.
+
+1. At the start of the game you write down the name of all leaders belonging to other players which you draw.
+
+2. You may hold up to 8 treachery cards. At first you are dealt 2 cards instead of 1, and every time you buy a card you get an extra free from the deck.
+
+3. (optional) Every time you win a battle you can select randomly one leader from the loser (including the leader used in the battle, if not killed, but excluding all leaders already used elsewhere that turn). You can immediately turn the leader into the thanks for 2 spice, or use the leader once in a battle after which you must return him to the original owner. If you all your own leaders have been killed, you must return all captured leaders immediately to their original owners. Killed captured leaders are put in the tanks from which the original owners can revive them (subject to revival rules). A captured leader is automatically in the pay of the original owner.
+
+Karama Card: May use at any time to declare and steal any number of Treachery cards randomly from the hand of another Faction (not from a Battle Plan). After looking at the stolen cards they are placed to one side and the Harkonnen Factions gives an identical number of cards back to the target Faction from their hand.
+
+Alliance: Leaders in your pay may  also betray your allies opponents.
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+########################################################################
+# Player Aid Pad #######################################################
+########################################################################
+
+
+SEQUENCE OF PLAY
+----------------
+
+1. Storm Round
+
+2. Spice Blow
+
+3. Bidding Round
+
+4. Revival and Movement Round
+
+5. Battle Round
+
+6. Collection Round
+
+
+DUNE PLAYER AID PAD (front)
+---------------------------
+
+A. These 25 cards can be played only in battle.
+
+1. 4 Projectiles -- used as a weapon during battle.
+
+2. 4 Shields -- defends your leader against any projectile used by your opponent in battle.
+
+3. 4 Poisons -- used as a weapon during battle.
+
+4. 4 Snoopers -- defends your leader against any poison used by your opponent in battle.
+
+5. 1 Lasegun -- a special weapon. There is no defense against a lasegun, i.e., it automatically kills an opponent's leader. But, should you or your opponent play a shield in the same battle, a nuclear explosion occurs and all tokens and spice (even those not involved in the battle) in the territory are lost to the 'tanks' as well as all leaders played (no spice is paid for them). All treachery cards played in the battle must be discarded.
+
+6. 3 Cheap Hero(ines) -- played in place of a leader in battle(this is the only time a player may play 3 cards in a battle:cheap hero, weapon, and defense). The cheap hero has no value to add to your total. Must .be discarded when played.
+
+7. 5 Worthless Cards -- Kulon, Trip to Gamont, La La La,Baliset and Jubba Cloak. They have no value in play. Played in place of a weapon, defense or both. This is only way theymay be discarded from hand. (Optional Rule) Bene Gesserit may use a worthless card as a Karama Card.
+
+B. These 8 cards may be played at certain times during the game and then must be discarded.
+
+1. 2 Truth Trances -- played at any time against any player.Forces that player to answer truthfully any one "yes" or "no"question concerning the game that you ask him.
+
+2. 1 Weather Control -- played at the start of a storm round, it enables the player to control the storm that round and move it from 0 to 10 sectors in a counterclockwise direction.
+
+3. 1 Hajr Card -- played during a player's movement round enables that player to make an extra on-planet group move,subject to the normal movement rules.
+
+4. 1 Ghoia Card -- played at any time. It allows the player either to immediately recover one leader from the 'tanks' without payment, or to revive up to 5 tokens from the 'tanks' to his reserves.
+
+5. 1 Family Atomics -- played just after the storm has been dialed but before it has been moved (optional rule-played just after storm movement marker is revealed), by a player who has one or more tokens on the Shield Wall or in a territory adjacent to it. It destroys the shield wall (and all tokens there)so that the Imperial Basin, Arrakeen and Carthag are no longer protected from the storm. Once played, the card is placed off the board by the Shield Wall to indicate that it has been destroyed.
+
+6. 2 Karama Cards -- When played can do any one of the following:
+
+  A. Prevent other players from using some of their advantages once as explained below.
+
+    1. prevents the Atreides from seeing the future, once; or(optional rule) prevents the Atreides from using Kwisatz Haderach once.
+
+    2. prevents the Harkonnen from taking a second free treachery card, once; or (optional rule) prevents Harkonnen from capturing a leader once.
+
+    3. prevents the Bene Gesserit from accompanying one shipment; using the 'voice' once; or (optional rule) using worthless card as a Karama card once.
+
+    4. prevents the Fremen from controlling a worm once (their tokens in the territory are destroyed and taken to the tanks); or(optional rule) from counting Fedaykin bonus in one battle.
+
+    5. enables a player to bid for and buy one treachery card without paying for it; or (optional rule) prevents the Emperor from counting Sardaukar bonus in one battle.
+
+    6. enables a player to land tokens from off-planet reserves at the Guild cost (half rate). The payment goes to the spice bank and not to the Guild. This takes the place of that player's normal shipment for that round. Or (optional rule) prevents the Guild from taking his move when he wants. He must make his move in his proper turn in the movement sequence.
+
+  B. (Optional Rule) Allows players to use a special power suited to their character once.
+
+    1. Harkonnen -- You may use a Karama card to take without looking any number of cards, up to the entire hand of any one player of your choice. For each card you take you must give him one of your cards in return.
+
+    2. Atreides -- You may use a Karama card to look at any one player's entire battle plan.
+
+    3. Guild -- You may use a Karama card to stop one off-planet shipment of any one player.
+
+    4. Bene Gesserit -- You may use any 'worthless' card as a Karama card.
+
+    5. Fremen -- You may use Karama card to cause a worm to appear in any territory that you wish. The worm is not drawn from the spice deck. A worm cannot devour tokens if not in a desert territory.
+
+    6. Emperor -- You may use a Karama card to revive up to three tokens or one leader for free.
+
+
+ADDITIONAL CHARACTER ADVANTAGES (OPTIONAL RULE)
+-----------------------------------------------
+
+### Emperor ###
+
+1. Your five starred tokens (elite Sardaukar) have a special fighting capability. They are worth two normal tokens in battle and in taking losses against all opponents except Fremen. Your starred tokens are worth just one token against Fremen. They are treated as one token in revival. Only one starred token can be revived per turn.
+
+### Guild ###
+
+1. You are not required to take your move when it occurs in the turn sequence during the movement round but may take it at any turn in the sequence that you wish. The rest of the players must take their turns in the proper sequence. You do not have to reveal when you intend to take your turn until the moment you wish to take it.
+
+### Bene Gesserit ###
+
+1. You have the power to coexist. (See Optional Rules in instruction folder for further description).
+
+### Fremen ###
+
+1. You select and may look at next turn's storm movement marker (used only with optional rule XVI).
+
+2. During a spice blow, all additional worms which appear after the first worm can be placed by you in any territory you wish.They cannot devour tokens if not in a desert territory. 
+
+3. If caught in a storm, only half of your tokens are killed (any fractions are rounded up). You may bring your reserves into a storm at half loss.
+
+4. Your three starred tokens (Fedaykin) have a special fighting capability. They are worth two normal tokens in battle and in taking losses. They are treated as one token in revival. Only one Fedaykin token can be revived per turn.
+
+### Harkonnen ###
+
+1. Every time you win a battle you can select randomly one leader from the loser (including the leader used in the battle,if not killed, but excluding all leaders already used elsewhere that turn). You can immediately turn the leader into the tanks for 2 spice; or use the leader once in a battle after which you must return him (her) to the original owner. If all of your own leaders have been killed, you must return all captured leaders immediately to their original owners. Killed captured leaders are put in the 'tanks' from which the original owners can revive them (subject to the revival rules). A captured leader is automatically in the pay of the original owner.
+
+### Atreides ###
+
+1. Any turn after losing a total of at least 7 tokens in battle(s),you may use the Kwisatz Haderach counter. It cannot be used alone in battle but may add its +2 strength to any one leader or cheap hero(ine) per turn. If the leader (or cheap heroine) is killed, the Kwisatz Haderach has no effect in the battle. Kwisatz Haderach can only be killed if blown up by lasegun-shield explosion. A leader accompanied by Kwisatz Haderach cannot turn traitor. If killed, Kwisatz Haderach must be revived like any other leader. If not killed,it has no effect on Atreides leader revival.
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+#################################################################
+# WBC DUNE RULES 2018 ###########################################
+#################################################################
+
+
+We are playing all of the Basic, Optional, and Advanced rules as published in the Avalon Hill 1979 edition of the game with one exception: Rule XVIII.A (Longer Game) will be ignored. Rule XXI (Double Spice Blow) and a variation of Rule XVIII.B (see below) will be used.
+
+We are not using any of the additions introduced in any official or unofficial expansions (The Duel, Spice Harvest, articles from The General, or anything else). The Eurogames/Descartes edition of the game includes some of these elements as standard play, so make sure you understand which parts will not be used:
+
+- No 10-point leaders
+
+- No kanly or duels
+
+- No spice harvest rounds or variable setup
+
+- No non-standard factions -- The factions used are limited to Atreides, Bene Gesserit, Emperor, Fremen, Guild, and Harkonnen.
+
+- No non-standard treachery cards -- The standard card set is limited to 4 x Projectile Weapons, 4 x Poison Weapons, 4 x Shields, 4 x Snoopers, 1 x Lasegun, 3 x Cheap Hero(ine)s, 5 x Worthless Cards, 1 x Hajr, 1 x Tleilaxu Ghola, 1 x Weather Control, 1 x Family Atomics, 2 x Truthtrances, and 2 x Karamas.
+
+
+HOUSE RULES
+-----------
+
+We are using the following house rules:
+
+1. Factions and table seating order are drawn randomly. Players may trade factions with each other by mutual consent before play begins. In a game with fewer than 6 players, a player made trade for an undrawn faction if all players consent.
+
+2. Alliances may consist of up to 2 factions (for all games with at least 4 players). Alliances may be extended to 3 factions ONLY in 6-player games IF all players at the table consent at the start of the game. (In all cases, no faction may belong to more than one alliance at a time.)
+
+3. An unallied faction must control 3 strongholds to win. Two-faction alliances must control 4 strongholds to win. Three-faction alliances must control 5 strongholds to win. Solo victories while allied are not possible.
+
+4. The Shield Wall is considered to be a stronghold for the purposes of victory ONLY, immediately after the 6th worm appears (counting all worms, even Karama worms summoned by the Fremen). Victory conditions are unchanged after the Shield Wall becomes a stronghold, meaning it should become a bit easier to win after that point.
+
+- Shipment to the Shield Wall still costs 2 spice/token (1 spice/token for Guild shipment), as usual for rock spaces.
+
+- Occupation of the Shield Wall is not restricted to only 2 factions, as usual for rock spaces.
+
+- The Shield Wall is not affected by storm or worm, as usual for both strongholds and rock spaces.
+
+- Family Atomics may be used as written. When Family Atomics is played, all tokens on the Shield Wall are destroyed (regardless of storm location), but the Shield Wall continues to be treated as a stronghold and continues to be unaffected by storm or worm.
+
+- In the unlikely event that two separate factions occupy the Shield Wall at the end of a turn (due to location of the storm preventing battle between them), neither faction is considered to control that stronghold for the purposes of victory determination.
+
+5. Spice may only be transferred from one player to another during the Collection Round of each turn. Deals involving the transfer of spice may be made at any time, but the transfer may only be performed during a future Collection Round, even between allies. The Emperor's special alliance ability becomes "You may transfer spice to (NOT from) your allies at any time."
+
+6. The Fremen may count their tokens at full strength for no cost in ALL battles. Additionally, the Fremen may permit their ally to do the same in their own battles. This ability may be canceled for any one battle (for either the Fremen or their ally) by a Karama card played by any player.
+
+7. A deck of traitor cards, provided by the GM if necessary, must be used for drawing traitors.
+
+
+WBC Dune Rules Clarifications
+=============================
+
+World Boardgaming Championships 2009
+
+It is well known that Dune, while a fantastic game, has one of the most frequently disputed sets of written rules. I have found that almost no two groups of players can completely agree upon exactly how Dune is played. While not all of the questions raised here are necessarily impossible to adjudicate with the rules as written, all have come up as points of contention during play-by-email Dune games and tournaments in which I have taken part. I know that every group has its own preferred interpretations for many of these rules, but I have found this set of rulings to be the most self-consistent and justifiable.
+
+These clarifications will be enforced as official extensions/clarifications of the published rules throughout the tournament, so make sure you are familiar with them.
+
+III. Set-up For Play
+--------------------
+
+If fewer than 6 players are playing, only the leaders of the factions actually involved in the game are eligible to be drawn as traitors.
+
+The Bene Gesserit's prediction must be made immediately after factions are assigned.
+
+Fremen tokens placed at the start of the game may include Fedaykin (starred) tokens if desired.
+
+Fremen tokens placements are chosen before the Bene Gesserit token placement is chosen.
+
+The Bene Gesserit token placed at the start of the game is not required to coexist in the first game turn.
+
+
+IV. Object of Play
+------------------
+
+Bene Gesserit tokens in a space that was declared to be coexisting during the turn do not count as occupying a stronghold for the purposes of determining victory, even if they are the sole occupants after battle is resolved.
+
+You may not claim a solo victory for controlling 3 strongholds by yourself if you are currently part of an alliance.
+
+
+VI. Storm
+---------
+
+The precise order of activities during the Storm Round is:
+
+1. Reveal storm marker,
+
+2. Play Weather Control,
+
+3. Play Family Atomics,
+
+4. Move storm.
+
+(This takes some liberty with the wording for Weather Control on the Player Aid Pad, with the intention of avoiding potential timing conflicts.)
+
+Weather Control and Family Atomics may not be played during the first game turn.
+
+Weather Control movement is instead of the normal storm movement, not in addition to it.
+
+No tokens are destroyed by the storm during the first game turn. The storm is considered to begin over the randomly-determined sector; it is not considered to have moved in the first game turn.
+
+After Family Atomics is played, the Shield Wall, Arrakeen, and Carthag all still retain their normal status as non-desert spaces, even though the latter two become susceptible to storm effects. Occupancy rules in those spaces remain unchanged as well.
+
+Two groups of tokens (same faction or not) in different sectors of the same region are considered to be “separated by storm” for the purposes of movement and battle if the storm is between them or covering one of them. 
+
+
+VII. Spice Blow
+---------------
+
+A Nexus is caused for every worm that is revealed (excluding worms raised by the Fremen’s play of a Karama card), regardless of which spice blow it appears at or how many worms have appeared that turn.
+
+When more than one worm is drawn for a given spice blow, the Fremen may send the additional worms to any territory on the board.
+
+If the Fremen directs a second or additional worm to appear in a space occupied by their tokens, those tokens may ride the worm normally.
+
+When the Fremen rides a worm, tokens and/or spice in the destination space are not eaten.
+
+Fremen worm riders may not leave or enter a space under the storm.
+
+Fremen worm riders may enter a stronghold already occupied by two other factions, if and only if one of them are Bene Gesserit tokens which ended the previous turn coexisting. This will force those Bene Gesserit to remain coexisting when they declare their status in the upcoming Movement Round.
+
+Tokens owned by an ally of the Fremen are safe from being eaten by worms (and this ability may not be withdrawn by the Fremen), but they may not ride worms as the Fremen do.
+
+Worms eat tokens only after the Nexus is resolved.
+
+
+VIII. Bidding Round
+-------------------
+
+When a treachery card is required to be drawn and the treachery deck is empty, the discard pile should immediately be reshuffled to form a new deck. The only card that is ever removed from the game after one play is Family Atomics.
+
+After a player passes during the bid for a treachery card, that player may choose to later enter bidding for the same card again on his normal bidding turn if the card has not already been sold at that time.
+
+The Atreides is not permitted to see any free cards drawn by the Harkonnen.
+
+The Harkonnen is considered to have a single 8-card hand, not two separate 4-card hands. The Harkonnen is not required to separate his free cards from his purchased cards for any purpose.
+
+The Emperor receives payments for treachery cards immediately upon the purchase of each card.
+
+Spice paid by the Emperor's allies for card purchases is paid to the Emperor. Only the Emperor's own card purchases are paid to the bank.
+
+If the Emperor gives spice to another player to purchase a treachery card, the spice is still paid to the Emperor (not the bank). If another player gives spice to the Emperor to purchase a treachery card, the spice is paid to the bank.
+
+The Emperor may not choose to offer discounted card purchases to any player, but he may give spice to any player at any time (before or after the purchase) to defray card purchase costs. (That is, the full cost of the bid must be able to be paid somehow.)
+
+A player may bid higher than the amount of spice he currently holds if he intends to play a Karama to avoid paying for the card. In the event that more than one player intends to play a Karama to buy a card, the first one to bid “infinity” in his proper turn to bid wins the card (and obviously must use the Karama ability to avoid paying).
+
+A player may never bid if his hand is currently full, even if he intends to play a Karama to avoid paying for the card.
+
+The contents of the treachery card discard pile is open to inspection by any player at any time.
+
+
+IX. Movement
+------------
+
+The precise order of activities during the Movement Round is:
+
+1. All players take revival (in player dot order if it matters),
+
+2. The Bene Gesserit declares coexistence status where necessary,
+
+3. Players ship and move in player dot order.
+
+4. The Guild receives payments for shipment immediately when the shipment is made.
+
+Spice paid by the Guild's allies for shipping is paid to the Guild. Only the Guild's own shipping is paid to the bank.
+
+If the Guild gives spice to another player to pay for shipment, the spice is still paid to the Guild (not the bank). If another player gives spice to the Guild to pay for shipment, the spice is paid to the bank.
+
+The Guild may not choose to offer discounted shipping to any player (except allies, as written), but he may give spice to any player at any time (before or after the shipment) to defray shipping costs. (That is, the full cost of the shipment must be able to be paid somehow.)
+
+Tokens may be moved on-planet in the same turn that they are shipped to the planet.
+
+A player is considered to have access to ornithopters during his turn if and only if he controlled Carthag and/or Arrakeen at the end of the Storm Round. That is, you generally get ornithopters in the turn after you take control of Carthag or Arrakeen, but not if you are subsequently wiped out by the storm. You do not get ornithopters the same turn you ship, ride a worm, or come out of coexistence in one of the cities. (This clarification is a conscious re-write of the existing ornithopter access rule in order to simplify as many conflicts in interpretation as possible.)
+
+Fremen shipments may be to any space within a movement of 2 from The Great Flat, regardless of the location of the storm. Only shipments ending in a space under the storm take half losses, rounded up (as written).
+
+If the Fremen are allied with the Guild, the Fremen is entitled to use Guild alliance movement options, regardless of the restriction on the Fremen player shield.
+
+Fremen shipment range is not changed if the Fremen have ornithopters – the range always remains 2 spaces from The Great Flat.
+
+Fremen shipment or movement may not end off the board. (Barring special Guild ally shipments, Fremen shipment is one-way to the surface of the planet, just like other factions.)
+
+Fremen movement may not leave or enter a space under the storm.
+
+If the Fremen are allied with the Guild, the Fremen may choose to either use normal Fremen shipment for no cost, or any form of Guild shipment for Guild cost.
+
+The Guild (and its allies) may not ship tokens that begin in a space under the storm.
+
+Guild cross-planet shipment is considered to be a shipment, not an on-planet move.
+
+
+X. Battles
+----------
+
+All battles, including the Guild's, are resolved in player dot order as written (regardless of when the Guild actually chose to take his movement turn).
+
+All battle ties, including the Guild's, are resolved in player dot order as written (regardless of when the Guild actually chose to take his movement turn).
+
+The precise sequence of activities in a battle is:
+
+1. Issue the Voice command,
+
+2. Play Karama to cancel the Voice.
+
+3. Issue the Prescience question,
+
+4. Play Karama to cancel the Prescience.
+
+5. Answer the Prescience question (if not canceled).
+
+6. Play Karama to view entire battle plan.
+
+7. Play Karama to cancel Kwisatz Haderach.
+
+8. Play Karama to cancel Sardaukar or Fedaykin bonus.
+
+9. Commit battle plans.
+
+10. Reveal battle plans.
+
+11. Resolve the battle.
+
+Karama actions mentioned above may occur at any point after the applicable step but before the Commit Battle Plans step.
+
+Truthtrances and Karama actions other than those specifically mentioned above may be played between any two of the above steps.
+
+Battle plans may be changed at any time during the above sequence before the Commit Battle Plans step as long as no un-cancelled Voice, Prescience, or Truthtrance effects are violated.
+
+Tokens under the storm may only battle with tokens in the same space and sector. 
+
+The Bene Gesserit may not specify weapon or defense when Voicing an opponent to play or not play a Worthless Card. (That is, the Voice may only be "play a Worthless Card" or "do not play a Worthless Card".)
+
+The statement on the Bene Gesserit’s player shield “You may not Voice a Cheap Hero(ine)” means that the BG may not use Voice to say “play a Cheap Hero(ine)” nor “do not play a Cheap Hero(ine)”. It does not mean that a player is immune to the Voice if s/he plays a Cheap Hero.
+
+If a player is unable to comply with the Voice, s/he is not required to announce that fact until battle plans are revealed.
+
+If, when battle plans are revealed, a player has failed to include a leader in his battle plan when he was required to do so, his lowest-value available leader disk must be played.
+
+If, when battle plans are revealed, a player has dialed a number higher than his tokens and/or spice paid would allow, the number must be reduced to the highest supportable number given the number of tokens in the battle and the spice paid.
+
+If, when battle plans are revealed, a player has included two battle cards of the same type (either two weapons or two defenses), one will be chosen randomly to be included in the battle plan and the other one will be returned to the player’s hand.
+
+If any other invalid element is included in a battle plan, it must be removed from the plan when revealed.
+
+The Harkonnen's capture of an opponent's leader when he wins a battle is optional.
+
+The identity of leaders captured by the Harkonnen is not required to be public knowledge.
+
+If the Harkonnen chooses to immediately kill a captured leader, the Harkonnen receives 2 spice (as opposed to paying 2 spice).
+
+A captured leader played by the Harkonnen against the original owner in battle may always be called as a traitor (regardless of whether or not the captured leader was also a traitor to the Harkonnen or any other player).
+
+A captured leader played by the Harkonnen in battle against a player who chose that leader as his traitor may still be called as a traitor, as normal.
+
+There is no winner of a battle in which a lasegun-shield explosion occurs.
+
+If a traitor is called in a battle with a potential lasegun-shield explosion, the explosion does not occur. (That is, traitor calls take precedence over lasegun-shield explosions.)
+
+
+XI. Spice Collection
+--------------------
+
+Bene Gesserit tokens in a space that was declared to be coexisting during the turn can not collect spice.
+
+
+XIII. Bribery
+-------------
+
+Players may only exchange spice with each other during the Collection Round, even if allied. The fact that spice is changing hands should be announced publicly, but the amount of spice involved may be kept private.
+
+Deals involving the exchange of spice (i.e. “bribery”) may be made at any time, but the spice may only actually change hands during a future Collection Round.
+
+The Emperor’s special alliance ability is interpreted as “You may transfer spice to or from your ally at any time.”
+
+Private negotiations away from the table are permitted. Any deals discussed during this time cannot be considered formal and enforceable unless they are made public at the table.
+
+Only those aspects of a deal that are announced publicly are required to be enforced. Assumptions, inferences, and unspoken implications cannot be enforced.
+
+
+XV. Additional Character Advantages
+-----------------------------------
+
+The Atreides gains permanent access to the Kwisatz Haderach immediately after losing a cumulative total of 7 or more tokens in battles over the course of the game. That is, the Atreides may use the Kwisatz Haderach in a later battle in the same game turn that it is gained, and he may thereafter use the Kwisatz Haderach once per turn every turn for the rest of the game (unless it is in the tanks).
+
+The Kwisatz Haderach may only be played on an Atreides leader played in battle by the Atreides player. (That is, it may not be played on an ally’s leader nor a captured Atreides leader played by the Harkonnen.)
+
+Bene Gesserit coexistence status is attached to the territory (as opposed to the group of tokens occupying that territory).
+
+The Bene Gesserit must declare coexistence status only in territories where Bene Gesserit tokens and opposing tokens are/become co-located. Territories in which coexistence has not yet been declared this turn are implicitly not coexisting.
+
+Coexistence status is only declared at the start of the Movement Round (after revival is taken) and during the Movement Round at the instant when Bene Gesserit tokens and opposing tokens become co-located.
+
+A space that has been explicitly announced to be non-coexisting may change to coexisting in the same turn only when the space has been vacated by all non-Bene Gesserit tokens and then is later entered by a different faction.
+
+A space that has been explicitly announced to be coexisting may never change to non-coexisting in the same turn.
+
+The Bene Gesserit must always declare territories that contain tokens owned by both him and his ally to be in coexistence.
+
+An ally of the Bene Gesserit may move tokens into a space containing only the Bene Gesserit, but the Bene Gesserit must immediately declare coexistence for that territory. An ally of the Bene Gesserit may not move tokens into a space containing a third faction with Bene Gessert tokens that are not coexisting. (In that case, the stronghold is blocked.)
+
+The Bene Gesserit's sending of spiritual advisors is optional.
+
+Bene Gesserit spiritual advisors may be placed in the Polar Sink instead of the territory into which the other player shipped if that territory is not coexisting or if the Bene Gesserit so chooses.
+
+The Bene Gesserit may send spiritual advisors with his ally’s shipments if desired.
+
+The Bene Gesserit can not send a free spiritual advisor with the Fremen's shipment.
+
+The Bene Gesserit can not send a free spiritual advisor with his own shipments.
+
+The Bene Gesserit can not send a free spiritual advisor with a Guild shipment that originates on the planet.
+
+Coexisting Bene Gesserit tokens are allowed to use ornithopter movement (but do not count for the purpose of determining access to ornithopters).
+
+
+XVII. Special Karama Powers
+---------------------------
+
+The Harkonnen can play a Karama to steal treachery cards from another player at any time not forbidden by another ruling.
+
+The precise sequence of activities when the Harkonnen plays a Karama card to steal treachery cards from another player is:
+
+Declare how many cards are being taken,
+
+Randomly select the declared number of cards from the target,
+
+Look at the cards that were taken,
+
+Return the declared number of cards to the other player.
+
+Returned cards must come from the Harkonnen's original hand (but may be of the same type as the cards that were stolen, if desired).
+
+The Harkonnen is permitted to invalidate a Voice command by using a Karama to give away treachery cards after receiving the Voice command. However, Prescience answers that have not been canceled may not be invalidated in this way. (Note that the Harkonnen may simply play the Karama to exchange cards before answering the Prescience question.)
+
+The Atreides can play a Karama to force any opponent to immediately commit and reveal his entire battle plan any time before battle plans are committed (i.e. after Voice and Prescience are resolved, if desired). The Atreides commits and reveals his own battle plan after seeing the opponent's plan.
+
+The Atreides can play a Karama to force any player to reveal his entire battle plan. The Atreides is not required to be a part of the battle involved, but the battle plan is only revealed to the Atreides (who may sell/give the information as he sees fit).
+
+The Guild can play a Karama to cancel another player's shipment any time after the shipment is declared, but before the player's movement is declared.
+
+The Guild can not play a Karama to cancel the Fremen's shipment.
+
+The Fremen may play a Karama to cause a worm to appear only during the Spice Round or during his own Movement phase.
+
+The Emperor may play a Karama to revive 3 tokens or a leader at any time not forbidden by another ruling.
+
+
+XIX. Increased Spice Flow
+-------------------------
+
+Bene Gesserit tokens in a space that was declared to be coexisting during the turn may not collect increased spice flow.
+
+
+Player Aid Sheet (Treachery Card Descriptions)
+----------------------------------------------
+
+The Hajr card effect may only be used to move tokens owned by the player who played the card.
+
+The Tleilaxu Ghola card effect may only be used to revive tokens (or a leader) owned by the player who played the card.
+
+Truthtrance questions and answers must be announced publicly.
+
+Truthtrance questions must be answered immediately after the question is given. No other card plays or other game actions (except player discussion) may occur until the question is answered.
+
+Truthtrance questions are permitted to require the target to answer questions about future actions or conditions. However, no player is required to act to make the conditions of the question true.  When/if the explicit conditions specified by the question are met, the target must abide by the answer given to the question to the best of his ability. If the target is logically impossible to abide by the answer given to the question, then the Truthtrance is negated and the target must publicly state that the answer previously given is invalid.
+
+For example, I ask "Will you play a projectile weapon in battle against me in Carthag this turn?" and you answer "Yes". You are bound to play a projectile weapon if we have a battle in Carthag this turn and if you hold a projectile weapon at the time that battle plans are committed. If we do battle in Carthag, but you have no projectile weapon in your hand when it comes time to commit our battle plans, then you must announce that you are physically unable to abide by the answer you have given, the Truthtrance is negated and we ignore the answer to the question – you may play any weapon or no weapon at all. If you had answered "No", then you may not play a projectile weapon in any battle against me in Carthag this turn, no matter what else happens.
+
+In practice, highly speculative questions have rarely been found to be valuable uses of Truthtrances anyway. Players are encouraged to confine Truthtrance usage to the least speculative questions possible. Player are required to avoid frivolous or purposely paradoxical use.
+
+Karama powers that specify "once" in the description refer to "once per Karama card play" (as opposed to "once per game" or “once per player”).
+
+Any player may play a Karama to "prevent Atreides from seeing the future once", selecting one of the following effects: cancel Prescience in one battle, prevent looking at the next spice blow card this turn, prevent looking at the rest of the treachery cards up for bid this turn. The Atreides use of a Karama to see an entire battle plan can not be canceled.
+
+Any player may play a Karama to cancel the Atreides' Prescience in any battle any time after the Prescience question is asked but before battle plans are committed. If the Prescience is canceled after the answer was given, the answer may be ignored.
+
+Any player may play a Karama to cancel the Atreides' use of Kwisatz Haderach any time before battle plans are committed. (This does not prevent the Atreides from using the Kwisatz Haderach in a different battle later in the same turn.)
+
+Any player may play a Karama to cancel the Bene Gesserit's Voice in any battle any time after the Voice is given but before battle plans are committed.
+
+Any player may play a Karama to cancel any single BG spiritual advisor immediately after the advisor is announced.
+
+Any player may play a Karama to cancel the Bene Gesserit's use of a Worthless Card as a Karama immediately after the Karama effect is announced. (The Worthless Card is still discarded.)
+
+A Karama card may only be used to cancel a treachery card payment owed by the player who played the card. The Karama must be played immediately when the purchase is made.
+
+Any player may play a Karama to cancel the Emperor's or Fremen's starred token advantage in any battle any time before battle plans are committed.
+
+Any player may play a Karama to prevent the Fremen (or an ally of the Fremen) from controlling a worm once (thus sending their tokens to the tank instead) any time after the worm is revealed but before worm-riding is resolved. If this was an "additional" worm that was placed in a location by the Fremen, it instead appears at the first spice blow in the stack beneath it, as usual. You can not cancel the Fremen's control of a worm that he called with a Karama card of his own.
+
+A Karama card may only be used to reduce the cost of a shipment made by the player who played the card. The Karama must be played any time after the shipment is declared, but before the player's movement is declared.
+
+Any player may play a Karama to force the Guild to move in proper player dot order any time before the player who would move after the Guild has begun his turn.
+
+Any player may play a Karama to prevent the Harkonnen from drawing a free card any time before the identity of the free card is seen.
+
+Any player may play a Karama to cancel the Harkonnen's capture of a leader any time after determining which leader has been captured but before the Harkonnen decides whether to keep it or kill it.
+
+
+Miscellaneous
+-------------
+
+Only the Atreides player may keep written notes of treachery card ownership during the game.
+
+No computer assistance is permitted during the game.
+
+Any player may reveal any personal information, including their treachery cards, to any other player at any time if desired.
+
+All spice transactions require agreement from both players involved. (That is, no player may give spice to another player unless that player consents to receive it.)
+
+In any timing dispute not ruled on elsewhere in these clarifications, (for example, if players attempt to play Truthtrances and/or Karamas simultaneously) resolve the tie in player dot order.
+
+It should go without saying that intentionally attempting to circumvent game rules/clarifications or exploit unclosed “loopholes” in said rules will be considered poor sportsmanship and will warrant immediate disqualification from the tournament. We all know there are many ways to cheat in this game, perhaps more than most, so please take extra care to keep all your play “above board”.
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Dune ASCII Map
+==============
+
+
+
+           (14)                 .    13     .    12     .   (11)    .                10
+                #################################################################              
+                #     !    RO   .           #    !  BL  .       #   .    !   OG #
+                #############################################################   #####
+                #   #       #   .     PB    .   #       .   #       .       #       #   
+                # B #   ST  #   #################       #########   .   #########   #
+                # O #       #   #   #       . TSI       #       #   .   #       #   #
+                # T #########   #   #####################  CAR  #   .   #  ARR  #   #
+                # C     #       #           .           #       #   .   #       #   #
+                #   #####   #####  !   HB   #########################   #####   #   #   
+                #   #       #   #           #    ARS   .            #       #   #   #   
+          - ##### . ######### . \###################################/ . . . ##### . ##### -
+            #       #   #   #   # 14  13    .    12    .      11 10 #       # R #       #         
+            #########   #   #   #                                   #   IB  # W #########   
+    15      #  FP  !    #   #   # 15                              9 #       # W #  BAS  #      9
+        #################   #   #                                   #####   #################
+        #      TGF   !      #   #                                   #   #   #   HR  # SR  ! #  
+      - ##################### . #.                                 .# . ######################### -
+        #      THERF        #   #                                   #   #    SW         #   GK  #    
+        #####################   #                                   #   #########################  
+    16  #       #####   #       # 16                              8 #   #   #                   #(8)
+        # HE !  #####   #  WP   #                                   #   # ! #                   # 
+        #       #####   #       #                                   #   #   #                   #
+      - # . . . ##### . # . #####.              PS                 .# . # . # . . . . . . . . . # -
+        #           #   #   #   #                                   #   #   #                   #  
+        ############# F #   #   #                                   # F # T #       #############
+    (17)#########   # W #   # ! # 17                              7 # W # M #       #           #  7
+        #########   # W #   #   #                                   # E # E #  PM   #  RC !  ####
+        #  HRS  #   #   #   #   #                                   #   #   #       #        #  
+      - ######### . # . ##### . #.                                 .# . # . # . . . ########## -
+            #       #   #   #   #                                   #   #   #       #   #  
+            #  HRF  #####   # W #                                   #   #   #       #   #  
+        18  #       #       # P # 18                              6 #   #   #       #   #  6
+            #   !   #       # N #                                   #   #   #       #   # 
+            #       #       #   # 1   2     .     3     .     4   5 #   #   #       #   #  
+          - ######### . . . ####/###################################\ . # . ##### . #   # -
+                #   #       #   .           .       #   .           #   #       #   #   #    
+                #   #       #   .  CN       .   !   #####     HP    #############   #   #
+                #   #   CW  #   .           .       #   #           .       #   #   #   #
+                #   #       #########################   #####################   #####   #
+                #   #       #   .   CD      .   #   #   .           .           #   #   #
+                #   #############################   #########  FWS  .       #####   #   #
+                #               .   #       .   #       .   #       .       #   TS  #   #
+                #####  Mer      .   # !  CS .   #   CE  .   #########################   #
+                    #           .   #       .   #       .   #       .            SM  !  #
+                    #####################################################################
+             1                  .    (2)    .     3     .     4     .                   (5)
+    
+    Key: 
+    ! = spice dot  . = sector boarders  # = territory boarders  n = sector number  (n) = player dot
+    ARR: Arrakeen (Stronghold), ARS: Arsunt, BAS: Basin, BL: Broken Land, BOTC: Blight of the Cliff,
+    CAR: Carthag (Stronghold), CD: Cielago Depression, CE: Cielago East, CN: Cielago North, 
+    CS: Cielago South, FP: Funeral Plain, FWE: False Wall East (Rock), FWS: False Wall South (Rock),
+    FWW: False Wall West (Rock), GK: Gara Kulon, HB: Hagga Basin, HE: Habbanya Erg, 
+    HITR: Hole in the Rock, HRF: Habbanya Ridge Flat, HRS: Habbanya Ridge Sietch (Stronghold),
+    IB: Imperial Basin (Rock), MER: Meridian, OG: Old Gap, PB: Plastic Basin, PM: Pasty Mesa,
+    PS: Polar Sink", RC: Red Chasm, RO: Rock Outcroppings, RWW: Rim Wall West (Rock), 
+    SM: South Mesa, SR: Shaya Ridge, ST: Seitch Tabr (Stronghold), SW: Shield Wall (Rock), 
+    TGERF: The Greater Flat, TGF: The Great Flat, TME: The Minor Erg, TSI: Tsimpo, 
+    TS: Tuek's Sietch (Stronghold), WP: Wind Pass, WPN: Wind Pass North, OFF: Offworld, TANKS: Tanks

@@ -17,7 +17,7 @@ if (!isset($game['round'])) {
     foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
 		$game['meta']['next'][$faction] = 'stormRound';
 	}
-    dune_writeData('Set up Storm Round', true);
+    dune_writeData('The storm is in Sector '.$game['storm']['location'].'.', true);
     refreshPage();
 }
 
@@ -30,10 +30,6 @@ if (isset($game['round'])) {
     //## Run if there is no delay. #################################
     //##############################################################
 	if ($game['meta']['delay']['stormRound'] == false) {
-		foreach (array('[A]', '[B]', '[E]', '[F]', '[G]', '[H]') as $faction) {
-			$game[$faction]['alert'][] = 'The storm is in Sector '.$game['storm']['location'].'.';
-		}
-		dune_writeData('Saved storm alerts.', true);
 		stormAction_endRound();
 	}
 	
@@ -125,6 +121,7 @@ function stormAction_endRound() {
     $message = 'The storm is in sector '.$game['storm']['location'].
 					' The Storm Round ends. The Spice Round begins.';
     dune_writeData($message, true);
+    dune_writeForum($message, true);
     refreshPage();
 }
 ?>
